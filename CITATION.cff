@@ -5,7 +5,7 @@ message: >-
   documentation or website, or both.
 title: Research Mission Control
 type: software
-version: 0.9.0rc1
+version: 0.9.0rc2
 authors:
   - given-names: Christopher
     family-names: Pollin
@@ -20,6 +20,6 @@ keywords:
   - research orchestration
   - research software
 abstract: >-
-  Research Mission Control is a portable operating architecture for
-  accountable agentic research. Code and the installable skill are licensed
-  under MIT; documentation and the website are licensed under CC BY 4.0.
+  Research Mission Control is a portable operating architecture for agentic
+  research orchestration. Code and the installable skill are licensed under
+  MIT; documentation and the website are licensed under CC BY 4.0.

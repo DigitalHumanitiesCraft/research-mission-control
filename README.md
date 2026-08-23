@@ -1,88 +1,95 @@
 # Research Mission Control
 
-**Version 0.9.0, release candidate.** The public repository is [`DigitalHumanitiesCraft/research-mission-control`](https://github.com/DigitalHumanitiesCraft/research-mission-control).
+**Version 0.9.0 RC2.** This is a release candidate for model-level acceptance testing. The public repository is [`DigitalHumanitiesCraft/research-mission-control`](https://github.com/DigitalHumanitiesCraft/research-mission-control).
 
-Research Mission Control is an executable method for agentic research. One accountable operator works directly with a Research Orchestrator. An Operational Orchestrator changes project artifacts and coordinates bounded specialist assignments. A separate Verification Context assesses results against explicit criteria and reports complete findings to the operator.
-
-The operator retains research objectives, consequential scholarly positions, rights, publication, external effects, and difficult-to-reverse changes. Orchestrators resolve complex questions inside their assigned responsibility. Specialists decide reversible details inside bounded assignments.
+Research Mission Control is a reusable method for agentic research orchestration. It organizes a human user, LLM-based AI agents, project knowledge, implementation, and independent verification around one shared project repository. This repository provides the method as one complete system prompt, an installable skill, generated role contracts, a file-based communication protocol, and tests.
 
 ## Start
 
-Choose one initializer.
+Open the [technical interface](https://dhcraft.org/research-mission-control/) to read and copy the complete system prompt or download the installable skill. The canonical Markdown source is [`SYSTEM-PROMPT.md`](SYSTEM-PROMPT.md).
 
-- Open the complete [`research-mission-control` skill source](skills/research-mission-control/). A built publication bundle also provides the deterministic installable package at `downloads/research-mission-control.skill`.
-- Copy the complete [`system prompt`](orchestrators/bootstrap.md) when the harness cannot install skills.
-- Open [`index.html`](index.html) for the technical reading and copy interface. Its package download becomes active in the built publication bundle.
+Paste the complete system prompt into a new Codex task, Claude Code conversation, or comparable AI harness. The agent identifies Research Mission Control and asks at most three unanswered questions:
 
-The initializer begins by identifying Research Mission Control and its [public repository](https://github.com/DigitalHumanitiesCraft/research-mission-control). It asks up to three unanswered questions in the operator's language. These establish the role of the currently open Codex task or Claude Code conversation, the intended result and acceptance criteria, and the shared project workspace with its existing data, documents, materials, code, repositories, or authorized knowledge sources. Material already present in the workspace is inspected and inventoried rather than requested item by item.
+1. Which Research Mission Control role should this working context assume?
+2. What project result should be produced, and how will the human user assess it?
+3. Which shared project workspace and existing inputs belong to the project?
 
-The copy and download controls in `index.html` require the repository to be served over HTTP because common browsers block JavaScript from reading the adjacent Markdown file in a direct `file://` view. In a direct file view, use the **Open the complete prompt file** link and copy the Markdown manually. To enable the controls locally, run the following command from the repository root and open the displayed local address.
+A **working context** is one separately open task or conversation with its own context window and one assigned role. The **project workspace** is the shared local folder and Git worktree. Existing data, documents, materials, code, repositories, and configured knowledge sources are inspected before further input is requested.
 
-```powershell
-python -m http.server
-```
+After the human user authorizes local initialization, the system prompt uses the packaged skill or its scaffolder to create a new local Git repository. It creates no remote, publication, commit, or destructive overwrite unless the human user explicitly requests that action.
 
-A working context is one separately open Codex task, Claude Code conversation, or equivalent harness context with its own context window and one assigned role. The project workspace is the shared local folder and Git worktree used by the selected working contexts.
+The standard persistent setup uses three working contexts over the same repository:
 
-After authorization, the initializer creates a new local Git repository with maintained project knowledge, a Context Stream, role start contracts, and an LF line-ending contract for cross-harness work. It creates no commit, remote, or public resource. Rights, publication, remote creation, grounding, and verification variants are raised later only when a concrete action requires an Operator decision.
+| Context | Role | Function |
+| --- | --- | --- |
+| 1 | **Research Orchestrator** | LLM-based AI agent in an AI harness; works directly with the human user on objectives, concepts, evidence, criteria, and executable briefs |
+| 2 | **Operational Orchestrator** | LLM-based AI agent in an AI harness; changes authorized project artifacts and coordinates bounded specialist agents |
+| 3 | **Independent Verification Agent** | LLM-based AI agent in a separate, read-only working context; evaluates results against explicit criteria and reports its complete finding to the human user |
 
-After initialization, open the generated repository in three persistent contexts.
-
-1. Keep the first context as the operator-facing Research Orchestrator.
-2. Paste `mission-control/start-operations.md` into the Operations context.
-3. Paste `mission-control/start-verification.md` into the independent Verification context.
+The human user directs the work and defines how decisions and authority are delegated. The role contracts keep the resulting boundaries explicit. A contained project may perform the same functions sequentially in one context when separate contexts would add no useful specialization, execution capacity, or independent assessment.
 
 ## Operating model
 
 ```text
-Operator as Research Director <-> Research Orchestrator
-        ^                              |
-        |                              | Implementation Brief
-        |                              v
-        |                    Operational Orchestrator --> specialists
-        |                              |
-        |                              | Result with Evidence
-        |                              v
-        +-- Verification Finding -- Verification Context
+Human user / Research Director
+        ↕ objectives, assessment, decisions
+Research Orchestrator
+        ↓ Implementation Brief
+Operational Orchestrator ── bounded assignments ──→ Specialist Agents
+        ↓ Result with Evidence
+Independent Verification Agent
+        ↓ Verification Finding
+Human user ── optional routing ──→ Research or Operations
 ```
 
-The standard persistent route is `Research -> Operations -> Verification -> Operator`. The minimum exchange is `Implementation Brief -> Result with Evidence -> Verification Finding`. These labels identify information functions. A contained project can perform them sequentially in one context. Separate contexts add value through specialist knowledge, parallel execution, context separation, synthesis, or independent review.
+The three exchange products are information functions:
 
-The shared repository persists maintained project knowledge and transports current exchange. It does not wake dormant sessions. A running context may still observe messages through active polling. Each deployment records its tested notification route and a polling, re-entry, or operator-mediated fallback.
+- **Implementation Brief:** objective, context, authority, expected result, and verification criteria.
+- **Result with Evidence:** actual result, changed artifacts, checks, deviations, and new findings.
+- **Verification Finding:** criterion, observed state, evidence, impact, and assessment for the examined scope.
 
-## Knowledge and transport
+## Project knowledge and communication
 
-Promptotyping supplies the maintained project-bound reconstruction basis. The initialized `knowledge/` directory records objectives, accepted decisions, methods, integration rules, and durable findings required for continuation.
+[Promptotyping](https://github.com/DigitalHumanitiesCraft/Promptotyping) supplies maintained, project-bound working knowledge. The initialized `knowledge/` directory records the objective, specification, accepted decisions, integration contract, unresolved handoff state, and durable findings needed for continuation.
 
-A [Grounded Vault](https://github.com/DigitalHumanitiesCraft/grounded-vault) is optional. It becomes active after the project defines and verifies a binding among claims, evidence objects, identifiers, validation responsibility, and write-back.
+The **Context Stream** is the file-based protocol for current exchange among working contexts. Each role writes immutable messages to its own outbox; each recipient maintains its own cursor state. Messages use stable thread identifiers and reference canonical artifacts. Shared files transport state but do not wake an inactive AI session, so each project records its observed notification route and a polling, re-entry, or human-mediated fallback.
 
-The Context Stream carries current assignments, results, notices, and findings. Each role owns an immutable outbox. Each recipient owns its cursor state. Messages use stable thread identifiers and reference canonical artifacts. Verified durable findings enter the responsible Knowledge Document through a controlled write-back.
+[Grounded Vault](https://github.com/DigitalHumanitiesCraft/grounded-vault) is optional long-term evidence infrastructure. It becomes active only after a project defines and verifies a binding among claims, evidence objects, identifiers, validation responsibility, and write-back.
 
-## Public method package
+## System prompt and skill
 
-The publication bundle contains the technical website, role contracts, initializer source, downloadable skill package, Knowledge Core, and contract tests. Its source list is an exact positive list in [`publication-manifest.json`](publication-manifest.json). Operational dashboard data, situation views, reports, shared runtime messages, and work directories remain source-repository components and are omitted from the bundle.
+[`SYSTEM-PROMPT.md`](SYSTEM-PROMPT.md) is the single user-facing initialization contract. It configures the smallest sufficient structure, preserves existing project instructions, and produces ready-to-paste project bindings for the selected roles.
 
-Create a local review bundle with the standard-library builder.
+[`skills/research-mission-control/`](skills/research-mission-control/) packages the same initialization logic as an installable skill with a transactional scaffolder, templates, evals, and tests. The skill is the automated execution form of the system prompt; it is not a second method or competing entry point.
+
+Generated workspaces contain the complete local role contracts in `mission-control/roles/` and concise project bindings in `mission-control/start-*.md`. The Research context continues in the first task; the human user pastes the Operations and Verification bindings into fresh contexts opened at the same repository.
+
+## Public package
+
+The publication bundle contains the technical website, system prompt, role contracts, skill package, Knowledge Core, and contract tests. [`publication-manifest.json`](publication-manifest.json) is its exact positive file list. Operational dashboards, reports, shared runtime messages, and work directories remain private-source components.
+
+Create a local review bundle and run the public contracts:
 
 ```powershell
 python tools/build_public_release.py --draft
+python -m pytest
 ```
 
-The builder permits targets only below `dist/`, rejects configured absolute home-directory markers in distributed text, verifies local HTML and Markdown link targets, and creates `downloads/research-mission-control.skill` deterministically from the copied skill source. The marker scan is a bounded publication-path check and does not claim general secret detection. The draft flag permits a local review build from an uncommitted or dirty source state without asserting publication authorization. A release build requires the committed source worktree to be clean.
-
-Run the release contracts with `python -m pytest tests/test_public_release.py`. Official skill validation remains a separate quality gate because it depends on the target harness and its current validator.
+Release builds require a clean committed source worktree. The builder validates distribution paths, local links, licenses, deterministic skill packaging, and bounded private-path markers.
 
 ## Canonical sources
 
 | Path | Function |
 | --- | --- |
-| [`skills/research-mission-control/`](skills/research-mission-control/) | initializer, transactional scaffolder, templates, evals, and tests |
-| [`orchestrators/bootstrap.md`](orchestrators/bootstrap.md) | complete portable initialization prompt |
+| [`SYSTEM-PROMPT.md`](SYSTEM-PROMPT.md) | complete initialization and operating contract |
+| [`skills/research-mission-control/`](skills/research-mission-control/) | installable execution package, templates, evals, and tests |
 | [`orchestrators/`](orchestrators/) | canonical role contracts and harness adapters |
 | [`knowledge/INDEX.md`](knowledge/INDEX.md) | map of the publication Knowledge Core |
-| [`knowledge/project.md`](knowledge/project.md) | purpose, system boundary, completion, and publication boundary |
-| [`knowledge/integration.md`](knowledge/integration.md) | component, transport, grounding, and write-back relationship |
+| [`knowledge/project.md`](knowledge/project.md) | purpose, boundary, completion, and publication status |
+| [`knowledge/integration.md`](knowledge/integration.md) | component, communication, grounding, and write-back relations |
 
-## Verification boundary
+## Maturity and licensing
 
-Automated checks establish formal conformance of the packaged artifacts. Observed operation in a fresh Codex context and a fresh Claude Code context is a separate release criterion. The file-level MIT and CC BY 4.0 assignments are fixed; scholarly validation, operator acceptance, and publication authorization remain human-controlled findings.
+Automated checks establish formal conformance of the packaged artifacts. Fresh Codex and Claude Code trials establish observed model behavior. Human assessment of those trials remains the final criterion for version 1.0.
+
+Code and the installable skill are licensed under MIT. Documentation and the website are licensed under CC BY 4.0. Citation metadata is provided in [`CITATION.cff`](CITATION.cff).

@@ -10,13 +10,13 @@ related: [integration, orchestration-architecture, method-specification]
 
 ## Purpose
 
-Research Mission Control provides a model-independent and harness-portable operating architecture for accountable agentic research. It assigns conceptual work, implementation, bounded specialist work, and verification to explicit roles while keeping consequential human decisions with one operator.
+Research Mission Control provides a model-independent and harness-portable architecture for agentic research orchestration. It connects conceptual work, implementation, bounded specialist work, independent verification, and human direction through explicit role and communication contracts.
 
-The repository is the canonical executable source for the general method. The publication package contains the initializer, role contracts, communication protocol, maintained knowledge, technical start interface, and tests. The working source repository can additionally carry internal operational references that remain outside the publication package.
+The repository is the canonical source for the general method. Its executable artifacts are the complete system prompt, installable skill, transactional workspace scaffolder, role contracts, and tests. The publication package also contains the communication protocol, maintained method knowledge, and technical start interface. The working source repository can carry internal operational references outside the publication package.
 
 ## System boundary
 
-The method governs the transition from an operator's objective to an implemented and verified project state. It defines responsibility, authority, minimum exchange, evidence, escalation, and canonical write-back. It does not establish scholarly truth through technical checks, confer authority through tool access, or guarantee cross-session notification through shared files.
+The method governs the transition from a human user's objective to an implemented and verified project state. It defines responsibility, authority, minimum exchange, evidence, escalation, and canonical write-back. It does not establish scholarly truth through technical checks, confer authority through tool access, or guarantee cross-session notification through shared files.
 
 A deployment may use one context for contained work. The reference configuration uses a shared project repository and three contexts. Their responsibilities can be assigned to different frontier models or agentic coding harnesses without changing the method contract.
 
@@ -24,19 +24,19 @@ A deployment may use one context for contained work. The reference configuration
 
 | Level | Role | Responsibility |
 | --- | --- | --- |
-| Research direction | Operator as Research Director and Critical Expert | defines objectives, supplies accountable domain judgement, and decides reserved matters |
-| Postdoc | Research Orchestrator | develops concepts, sources, criteria, and executable briefs with the operator |
-| Postdoc | Operational Orchestrator | changes actual project state, coordinates implementation, and integrates bounded results |
+| Research direction | Human user as Research Director | directs the work and defines delegation, authority, assessment, and acceptance |
+| Postdoc | Research Orchestrator, an LLM-based AI agent in an AI harness | develops concepts, sources, criteria, and executable briefs with the human user |
+| Postdoc | Operational Orchestrator, an LLM-based AI agent in an AI harness | changes actual project state, coordinates implementation, and integrates bounded results |
 | Predoc | Specialist or subagent | completes one bounded research, implementation, or verification assignment |
-| Independent control | Verification Context | checks results against criteria and evidence, then reports the complete finding first and only to the Operator |
+| Independent control | Independent Verification Agent, an LLM-based AI agent in a separate working context | checks results against criteria and evidence, then reports the complete finding first and only to the human user |
 
 The academic labels are a functional metaphor. They describe scope, synthesis responsibility, supervision, and escalation.
 
 ## Decision routing
 
-Predoc roles decide reversible implementation details inside a bounded assignment. The two postdoc roles resolve complex conceptual or operational questions inside their responsibilities. The operator retains decisions about research objectives, consequential scholarly positions, rights and attribution, publication, external effects, and difficult-to-reverse changes.
+Predoc roles decide details inside a bounded assignment and its configured authority. The two Postdoc roles resolve more complex conceptual or operational questions inside their configured responsibilities. The human user directs the work and defines which decisions remain human and which are delegated. Agents stop before actions for which the project contract supplies no authority.
 
-An Operator Point presents the concrete object, relevant context, assessment criterion, material consequences, uncertainty, supported options, a recommendation, and the expected answer format. Other work continues when it is authorized and independent of the open point.
+A Human Decision Point presents the concrete object, relevant context, assessment criterion, material consequences, uncertainty, supported options, a recommendation, and the expected answer format. Other work continues when it is authorized and independent of the open point.
 
 ## Knowledge profile
 
@@ -54,9 +54,9 @@ The three separate controls have distinct meanings.
 
 - **Independent Verification** uses a separate assessment context and read-only access to the evaluated target. It may receive the complete Result with Evidence and does not imply concealment from production roles.
 - **Blind Verification** is Independent Verification with a declared reading-order restriction. The verifier forms an initial finding before reading named producer reasoning, reports, earlier findings, or preferred conclusions. It does not imply secrecy.
-- **Shadow Verification** is an Operator-commissioned visibility and isolation profile. It requires a technically separate context, read-only target access, a private return route to the Operator, and omission of its identity and route from production contracts. Without verified infrastructure for those properties, the review must be described as Independent or Blind rather than Shadow.
+- **Shadow Verification** is a human-commissioned visibility and isolation profile. It requires a technically separate context, read-only target access, a private return route to the human user, and omission of its identity and route from production contracts. Without verified infrastructure for those properties, the review must be described as Independent or Blind rather than Shadow.
 
-A Verification Context never becomes the producer of a correction. It reports and rechecks; the Operator routes an accepted finding to Research or Operations for interpretation and implementation.
+A Verification Agent never becomes the producer of a correction. It reports and rechecks; the human user routes an accepted finding to Research or Operations for interpretation and implementation.
 
 ## Completion criteria
 
@@ -68,7 +68,7 @@ The method is release-ready when the following results agree.
 - Public repository content contains no private portfolio state, machine-specific paths, or unlicensed material.
 - The publication manifest assigns MIT to code and the installable skill and CC BY 4.0 to documentation, prompts, evaluation material, release metadata, and the website; public reuse is authorized under those assignments.
 
-Technical validation establishes the first two criteria. A local draft-package probe has established representative operation across fresh Claude Code and Codex contexts for one bounded technical assignment. Publication safety, current-bundle browser verification, domain validation, and operator acceptance remain separate findings.
+Technical validation establishes the first two criteria. A local draft-package probe has established representative operation across fresh Claude Code and Codex contexts for one bounded technical assignment. Publication safety, current-bundle browser verification, domain validation, and human acceptance remain separate findings.
 
 ## Publication boundary
 

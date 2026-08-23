@@ -21,10 +21,10 @@ class SkillContractTest(unittest.TestCase):
     def test_skill_names_required_roles_and_authority(self) -> None:
         skill = SKILL_PATH.read_text(encoding="utf-8").lower()
         for phrase in (
-            "human user remains the operator",
+            "human user directs the work",
             "research orchestrator",
             "operational orchestrator",
-            "independent verification context",
+            "independent verification agent",
             "predoc specialists",
             "github remote",
             "grounded vault",
@@ -43,17 +43,17 @@ class SkillContractTest(unittest.TestCase):
         ]
         self.assertEqual(3, len(questions))
         self.assertIn("Ask no more than three initial configuration questions", skill)
-        self.assertIn("Ask in the Operator's language", skill)
+        self.assertIn("Ask in the human user's language", skill)
         self.assertIn("Language selection never consumes one of the three questions", skill)
         self.assertIn(
             "Research Mission Control (https://github.com/DigitalHumanitiesCraft/research-mission-control)", skill
         )
         self.assertIn("Which role should this working context assume", skill)
-        self.assertIn("what criteria will the Operator use to accept that result", skill)
+        self.assertIn("what criteria will the human user use to accept that result", skill)
         self.assertIn("data, documents, materials, code, repositories, or knowledge sources", skill)
         self.assertIn("Inspect and inventory material already present there", skill)
         self.assertIn('answer any numbered item with "Was empfiehlst du?"', skill)
-        self.assertIn("Do not ask the Operator to confirm that default", skill)
+        self.assertIn("Do not ask the human user to confirm that default", skill)
         self.assertIn("Context Stream transports messages but does not wake", skill)
         self.assertIn("After configuration", skill)
         self.assertIn("up to five short conceptual questions", skill)
@@ -67,8 +67,8 @@ class SkillContractTest(unittest.TestCase):
 
     def test_verification_reports_to_operator_without_claiming_secrecy(self) -> None:
         skill = SKILL_PATH.read_text(encoding="utf-8")
-        self.assertIn("complete finding directly to the Operator", skill)
-        self.assertIn("Operator controls disclosure and routing", skill)
+        self.assertIn("complete finding directly to the human user", skill)
+        self.assertIn("human user controls disclosure and routing", skill)
         self.assertIn("does not imply secrecy", skill)
         self.assertIn("Operations addresses the complete Result with Evidence to Verification", skill)
         self.assertIn("Excluding producer reasoning before the initial finding belongs only to Blind mode", skill)
@@ -102,7 +102,7 @@ class SkillContractTest(unittest.TestCase):
         for role_path in (
             "mission-control/roles/research-orchestrator.md",
             "mission-control/roles/operational-orchestrator.md",
-            "mission-control/roles/verification-context.md",
+            "mission-control/roles/independent-verification-agent.md",
         ):
             self.assertIn(role_path, skill)
         self.assertIn("complete, local role contracts", skill)

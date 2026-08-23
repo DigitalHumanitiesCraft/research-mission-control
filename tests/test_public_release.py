@@ -49,11 +49,11 @@ def test_draft_bundle_excludes_internal_runtime_state() -> None:
 
         public_index = (target / "index.html").read_text(encoding="utf-8")
         assert 'href="./dashboard/' not in public_index
-        assert "orchestrators/bootstrap.md" in public_index
+        assert "SYSTEM-PROMPT.md" in public_index
         assert "skills/research-mission-control/SKILL.md" in public_index
         assert "downloads/research-mission-control.skill" in public_index
         assert "The three configuration questions" in public_index
-        assert "currently open Codex task or Claude Code conversation" in public_index
+        assert "this separately open Codex task, Claude Code conversation" in public_index
         assert "data, documents, materials, code, repositories, or knowledge sources" in public_index
         assert "data-release-package-link hidden" not in public_index
         assert public_index.count("data-release-package-link") == 2
@@ -68,7 +68,7 @@ def test_draft_bundle_excludes_internal_runtime_state() -> None:
             assert "research-mission-control/assets/templates/knowledge/project.md.tmpl" in members
             assert f"{role_template_root}/research-orchestrator.md.tmpl" in members
             assert f"{role_template_root}/operational-orchestrator.md.tmpl" in members
-            assert f"{role_template_root}/verification-context.md.tmpl" in members
+            assert f"{role_template_root}/independent-verification-agent.md.tmpl" in members
             assert "research-mission-control/tests/test_init_workspace.py" in members
 
 
@@ -130,7 +130,7 @@ def test_official_license_texts_and_citation_identity_are_fixed() -> None:
     assert hashlib.sha256(cc_text.encode()).hexdigest() == CC_BY_4_0_SHA256
     assert hashlib.sha256(mit_bytes).hexdigest() == MIT_SHA256
     assert "Dr. Christopher Pollin" in (ROOT / "LICENSE").read_text(encoding="utf-8")
-    assert "version: 0.9.0rc1" in citation
+    assert "version: 0.9.0rc2" in citation
     assert "orcid: https://orcid.org/0000-0002-4879-129X" in citation
     assert "repository-code: https://github.com/DigitalHumanitiesCraft/research-mission-control" in citation
     assert "license:\n  - MIT\n  - CC-BY-4.0" in citation
@@ -139,7 +139,7 @@ def test_official_license_texts_and_citation_identity_are_fixed() -> None:
 def test_release_version_and_generated_sha_evidence_are_coherent() -> None:
     project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
     declared = json.loads((ROOT / "release-metadata.json").read_text(encoding="utf-8"))
-    assert project["project"]["version"] == "0.9.0rc1"
+    assert project["project"]["version"] == "0.9.0rc2"
     assert declared["version"] == project["project"]["version"]
     assert declared["status"] == "release-candidate"
     assert declared["repository"] == "https://github.com/DigitalHumanitiesCraft/research-mission-control"
@@ -147,7 +147,7 @@ def test_release_version_and_generated_sha_evidence_are_coherent() -> None:
     with _temporary_release_target() as target:
         MODULE.build(target, draft=True)
         built = json.loads((target / "release-metadata.json").read_text(encoding="utf-8"))
-        assert built["version"] == "0.9.0rc1"
+        assert built["version"] == "0.9.0rc2"
         assert built["source_commit"] is None or len(built["source_commit"]) == 40
         assert built["source_dirty"] is None or isinstance(built["source_dirty"], bool)
         assert len(built["publication_manifest_sha256"]) == 64

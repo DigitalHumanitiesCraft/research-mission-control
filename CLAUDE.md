@@ -4,11 +4,11 @@ Read and follow [`AGENTS.md`](AGENTS.md) before changing this repository. It is 
 
 ## Repository purpose
 
-This repository is the canonical executable source for Research Mission Control. The role prompts and initializer define the portable method. The dashboard and situation view are an internal reference implementation and may carry local operational state.
+This repository is the canonical source for Research Mission Control. The complete system prompt, role prompts, initializer skill, and scaffolder are its executable artifacts. The dashboard and situation view are an internal reference implementation and may carry local operational state.
 
 ## Work rule
 
-Inspect the relevant canonical knowledge and actual artifacts before acting. Implement clear, authorized, reversible work directly. Ask the operator only for a Decision, Authorization, Action, or Input that is required to continue safely. A skill or writable path never expands authority.
+Inspect the relevant canonical knowledge and actual artifacts before acting. Implement clear, authorized, reversible work directly. Ask the human user only for a Decision, Authorization, Action, or Input that is required to continue safely. A skill or writable path never expands authority.
 
 Keep epistemic state, operational state, authority, and verification state distinct. Verify claims against files, source material, tests, data, or rendered output as appropriate. Report the current result and its practical meaning before technical detail.
 

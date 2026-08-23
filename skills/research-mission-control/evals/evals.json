@@ -4,16 +4,16 @@
     {
       "id": 1,
       "prompt": "Richte für mein neues Editionsprojekt eine Forschungsleitstelle ein. Ich arbeite mit Codex für Forschung und Verifikation und Claude Code für die Umsetzung. Alle drei Arbeitskontexte sollen denselben neuen lokalen Projektordner verwenden.",
-      "expected_output": "The agent identifies Research Mission Control with its repository URL, asks in German at most three compact questions about role, result with acceptance criteria, and workspace with inputs, then initializes a shared local repository with Promptotyping knowledge and role bindings after authorization. Verification reports its complete finding directly to the Operator.",
+      "expected_output": "The agent identifies Research Mission Control with its repository URL, asks in German at most three compact questions about role, result with acceptance criteria, and workspace with inputs, then initializes a shared local repository with Promptotyping knowledge and role bindings after authorization. Verification reports its complete finding directly to the human user.",
       "files": [],
       "expectations": [
-        "The response names Research Mission Control with its canonical GitHub repository and keeps the human user as Operator.",
+        "The response names Research Mission Control with its canonical GitHub repository and keeps the human user as human user.",
         "The response asks in German, defines the current working context, and asks no more than three configuration questions about role, project result with acceptance criteria, and the workspace with its inputs.",
         "The response assigns Codex to Research and Verification and Claude Code to Operations without inventing a completed repository.",
         "The response selects maintained Promptotyping knowledge, keeps GitHub remote creation separately authorized, and names the Context Stream no-wake boundary.",
         "The generated contracts make Research the single writer for maintained knowledge and route Operations and Verification findings through role-owned immutable outboxes.",
         "Each start contract activates exactly one matching complete role prompt under mission-control/roles instead of restating a shortened role architecture.",
-        "Verification reports the complete finding directly to the Operator, who controls disclosure and routing to Research or Operations."
+        "Verification reports the complete finding directly to the human user, who controls disclosure and routing to Research or Operations."
       ]
     },
     {
@@ -24,10 +24,10 @@
       "expectations": [
         "The response recommends the three-context shared-workspace profile from the stated coordination need.",
         "The response identifies the Grounded Vault trigger but does not claim that grounding is active before a project-specific binding is verified.",
-        "The response treats attributable human verification as Operator or Critical Expert authority.",
+        "The response treats attributable human verification as human-user or named-domain-authority judgement.",
         "The response asks only for missing configuration information, treats 'Was empfiehlst du?' as the answer where evidence supports a default, and does not request confirmation of that default.",
         "The shared file protocol avoids concurrent canonical knowledge writes by assigning maintained knowledge integration to Research.",
-        "The response describes blind Verification as an initial reading-order control and keeps disclosure of the complete finding under Operator control."
+        "The response describes blind Verification as an initial reading-order control and keeps disclosure of the complete finding under human user control."
       ]
     },
     {
@@ -45,14 +45,14 @@
     {
       "id": 4,
       "prompt": "Set up Research Mission Control for a new oral-history project. The source interviews, consent records, and transcription code are already in a local Git repository, but I have not told you which role this Codex task should take or what result I will accept.",
-      "expected_output": "The agent identifies Research Mission Control with its canonical repository URL and asks the three defined configuration questions in English with their supporting explanations. It inventories discoverable project material instead of asking the Operator to enumerate it and treats rights or publication as later Operator Points when a concrete action reaches them.",
+      "expected_output": "The agent identifies Research Mission Control with its canonical repository URL and asks the three defined configuration questions in English with their supporting explanations. It inventories discoverable project material instead of asking the human user to enumerate it and treats rights or publication as later Human Decision Points when a concrete action reaches them.",
       "files": [],
       "expectations": [
         "The response keeps the interview in English and links the canonical Research Mission Control repository.",
         "The response defines the current working context as the separately open Codex task and asks which Research Mission Control role it should assume.",
-        "The response asks for the observable result and Operator acceptance criteria.",
+        "The response asks for the observable result and human acceptance criteria.",
         "The response identifies the existing Git repository as the project workspace and inspects its data, documents, materials, code, repositories, and knowledge sources before requesting missing inputs.",
-        "The response asks no more than three initial configuration questions and defers rights, publication, remote creation, grounding, and verification variants until a concrete trigger requires an Operator Point."
+        "The response asks no more than three initial configuration questions and defers rights, publication, remote creation, grounding, and verification variants until a concrete trigger requires a Human Decision Point."
       ]
     }
   ]

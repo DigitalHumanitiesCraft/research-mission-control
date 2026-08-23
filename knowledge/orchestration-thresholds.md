@@ -50,7 +50,7 @@ This produces four common choices:
 - independent specialist verification for consequential factual, scientific, security, and data-quality claims;
 - two-stage verification for context-dependent work with significant consequences.
 
-## Verification context
+## Context required for independent verification
 
 A separate verifier needs sufficient evaluation context:
 
@@ -67,11 +67,11 @@ The full process history can weaken an outside perspective by reproducing the sa
 - Implement internal and reversible work, then verify the result.
 - Use a bounded experiment to resolve low-risk uncertainty.
 - Verify public, destructive, identity-bearing, or difficult-to-reverse effects before they occur.
-- Return consequential subject-matter uncertainty to Research and the operator.
+- Return consequential subject-matter uncertainty to Research and the human user.
 
 ## Coordination warning
 
-Repeated planning is useful only when it resolves a named uncertainty, reduces material risk, or prepares a consequential decision. A clarification cycle should produce implementation, an experiment, evidence, a Verification Finding, or an Operator Point.
+Repeated planning is useful only when it resolves a named uncertainty, reduces material risk, or prepares a consequential decision. A clarification cycle should produce implementation, an experiment, evidence, a Verification Finding, or a Human Decision Point.
 
 ## Reduction principle
 

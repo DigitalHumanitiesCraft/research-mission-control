@@ -51,7 +51,7 @@ WORKSPACE_PATHS = (
     Path("communication/capsules/README.md"),
     Path("mission-control/roles/research-orchestrator.md"),
     Path("mission-control/roles/operational-orchestrator.md"),
-    Path("mission-control/roles/verification-context.md"),
+    Path("mission-control/roles/independent-verification-agent.md"),
     Path("mission-control/start-research.md"),
     Path("mission-control/start-operations.md"),
     Path("mission-control/start-verification.md"),
@@ -251,7 +251,7 @@ def _verify_workspace(root: Path, config: WorkspaceConfig, files: dict[Path, str
         ),
         Path("mission-control/start-verification.md"): (
             str(config.target),
-            "mission-control/roles/verification-context.md",
+            "mission-control/roles/independent-verification-agent.md",
             "knowledge/integration.md",
             "communication/verification/state.md",
             "communication/verification/outbox/",
@@ -266,7 +266,7 @@ def _verify_workspace(root: Path, config: WorkspaceConfig, files: dict[Path, str
     role_bindings = {
         "research": Path("mission-control/roles/research-orchestrator.md"),
         "operations": Path("mission-control/roles/operational-orchestrator.md"),
-        "verification": Path("mission-control/roles/verification-context.md"),
+        "verification": Path("mission-control/roles/independent-verification-agent.md"),
     }
     for role, role_path in role_bindings.items():
         start_path = Path(f"mission-control/start-{role}.md")
@@ -291,8 +291,8 @@ def _verify_workspace(root: Path, config: WorkspaceConfig, files: dict[Path, str
             raise RuntimeError(f"{role} role lacks the canonical knowledge write boundary")
 
     verification_role = (root / role_bindings["verification"]).read_text(encoding="utf-8")
-    if "report the complete independent finding to the operator" not in verification_role.lower():
-        raise RuntimeError("Verification role does not report its complete finding directly to the Operator")
+    if "report the complete independent finding to the human user" not in verification_role.lower():
+        raise RuntimeError("Verification role does not report its complete finding directly to the human user")
     if "not a security or secrecy guarantee" not in verification_role:
         raise RuntimeError("Verification role overstates blind-context secrecy")
     result = subprocess.run(

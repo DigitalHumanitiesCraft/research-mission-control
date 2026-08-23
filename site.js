@@ -1,4 +1,4 @@
-const promptUrl = "./orchestrators/bootstrap.md";
+const promptUrl = "./SYSTEM-PROMPT.md";
 
 const preview = document.querySelector("#prompt-preview code");
 const status = document.querySelector("#prompt-status");
@@ -23,7 +23,7 @@ function setUnavailable(isDirectFile = false) {
       ? "Direct file viewing cannot load the canonical prompt into this panel."
       : "The canonical prompt could not be loaded by this browser.",
     "",
-    "Open orchestrators/bootstrap.md to read and copy the complete prompt manually,",
+    "Open SYSTEM-PROMPT.md to read and copy the complete prompt manually,",
     "or serve this repository over HTTP to use the copy and download controls."
   ].join("\n");
   status.textContent = isDirectFile
@@ -51,7 +51,7 @@ async function loadPrompt() {
 
     setReady(text);
   } catch (error) {
-    console.info("Bootstrap prompt unavailable", error);
+    console.info("Complete system prompt unavailable", error);
     setUnavailable();
   }
 }
@@ -64,7 +64,7 @@ async function copyPrompt() {
   try {
     await navigator.clipboard.writeText(promptText);
     copyButton.textContent = "Copied";
-    status.textContent = "Bootstrap prompt copied to the clipboard.";
+    status.textContent = "Complete system prompt copied to the clipboard.";
     window.setTimeout(() => {
       copyButton.textContent = "Copy prompt";
     }, 1800);
@@ -84,12 +84,12 @@ function downloadPrompt() {
   const objectUrl = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = objectUrl;
-  link.download = "research-mission-control-bootstrap.md";
+  link.download = "research-mission-control-system-prompt.md";
   document.body.append(link);
   link.click();
   link.remove();
   URL.revokeObjectURL(objectUrl);
-  status.textContent = "Bootstrap prompt downloaded as a Markdown file.";
+  status.textContent = "Complete system prompt downloaded as a Markdown file.";
 }
 
 copyButton.addEventListener("click", copyPrompt);

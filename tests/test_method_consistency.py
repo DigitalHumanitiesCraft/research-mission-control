@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ROLE_BINDINGS = {
     "research": "research-orchestrator.md",
     "operations": "operational-orchestrator.md",
-    "verification": "verification-context.md",
+    "verification": "independent-verification-agent.md",
 }
 
 
@@ -54,22 +54,22 @@ def test_public_manifest_contains_every_packaged_role_template() -> None:
         assert expected in included
 
 
-def test_active_role_semantics_use_operator_controlled_verification() -> None:
+def test_active_role_semantics_use_human_controlled_verification() -> None:
     active_files = [
         ROOT / "orchestrators" / "research-orchestrator.md",
         ROOT / "orchestrators" / "operational-orchestrator.md",
-        ROOT / "orchestrators" / "verification-context.md",
+        ROOT / "orchestrators" / "independent-verification-agent.md",
         ROOT / "knowledge" / "orchestration-architecture.md",
         ROOT / "knowledge" / "project-governance.md",
         ROOT / "knowledge" / "method-specification.md",
     ]
     combined = "\n".join(path.read_text(encoding="utf-8") for path in active_files)
-    assert "reports its complete finding directly to the operator" in combined
-    assert "Only the operator decides" in combined
+    assert "reports its complete finding directly to the human user" in combined
+    assert "Only the human user decides" in combined
     assert "Verification and Integration Orchestrator selects" not in combined
 
 
-def test_reference_context_stream_has_one_accountable_route() -> None:
+def test_reference_context_stream_has_one_responsible_route() -> None:
     skill = (ROOT / "skills" / "research-mission-control" / "SKILL.md").read_text(encoding="utf-8")
     operational = (ROOT / "orchestrators" / "operational-orchestrator.md").read_text(encoding="utf-8")
     protocol = (
@@ -87,13 +87,13 @@ def test_reference_context_stream_has_one_accountable_route() -> None:
     assert "A directory-wide claim requires a baseline manifest" in protocol
     assert "when a running recipient polls or reads the file" in protocol
 
-    verification = (ROOT / "orchestrators" / "verification-context.md").read_text(encoding="utf-8")
+    verification = (ROOT / "orchestrators" / "independent-verification-agent.md").read_text(encoding="utf-8")
     assert "historical non-change claim" in verification
     assert "Check message dates and times against an observed clock" in verification
 
     operational = (ROOT / "orchestrators" / "operational-orchestrator.md").read_text(encoding="utf-8")
     assert "Git diff commands may omit untracked files" in operational
-    assert "Never imply that the operator will route it" in operational
+    assert "Never imply that the human user will route it" in operational
 
     integration_template = (
         ROOT / "skills" / "research-mission-control" / "assets" / "templates" / "knowledge" / "integration.md.tmpl"
@@ -105,6 +105,6 @@ def test_public_entry_surfaces_show_the_reference_route() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     index = (ROOT / "index.html").read_text(encoding="utf-8")
 
-    assert "Research -> Operations -> Verification -> Operator" in readme
-    assert "Research → Operations → Verification → Operator" in index
+    assert "Human user / Research Director" in readme
+    assert "Research → Operations → Verification → Human user" in index
     assert "Research verifies and integrates into canonical project knowledge" not in index

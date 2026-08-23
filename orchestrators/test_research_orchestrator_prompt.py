@@ -2,7 +2,7 @@
 """Validate the canonical role prompts against their scenario contract.
 
 The test reads the canonical prompt and the representative eval set, then
-checks activation safety, canonical prompt paths, operator authority, independent
+checks activation safety, canonical prompt paths, human direction, independent
 verification routing, result maturity, skill routing, and eval-schema integrity.
 Run it from the repository root with
 ``python orchestrators/test_research_orchestrator_prompt.py``.
@@ -20,14 +20,14 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 PROMPT_PATH = HERE / "research-orchestrator.md"
 OPERATIONS_PROMPT_PATH = HERE / "operational-orchestrator.md"
-VERIFICATION_PROMPT_PATH = HERE / "verification-context.md"
+VERIFICATION_PROMPT_PATH = HERE / "independent-verification-agent.md"
 EVALS_PATH = HERE / "evals" / "research-orchestrator.json"
 README_PATH = HERE / "README.md"
 SPECIFICATION_PATH = HERE.parent / "knowledge" / "method-specification.md"
 CANONICAL_PATHS = (
     "orchestrators/research-orchestrator.md",
     "orchestrators/operational-orchestrator.md",
-    "orchestrators/verification-context.md",
+    "orchestrators/independent-verification-agent.md",
 )
 EXPECTED_EVAL_IDS = set(range(1, 9))
 
@@ -40,11 +40,11 @@ PROMPT_REQUIREMENTS = {
         "answer a contained question directly",
         "without creating a project, lane, milestone, task schema, or persistent document",
     ),
-    "operator authority": (
-        "research objectives",
-        "rights and attribution",
-        "publication",
-        "external effects",
+    "human direction": (
+        "human user directs the work",
+        "defines how decisions and authority are delegated",
+        "smallest required contribution",
+        "installed skill does not expand authority",
     ),
     "persistent workstream": (
         "objective and responsible function",
@@ -57,7 +57,7 @@ PROMPT_REQUIREMENTS = {
         "formal validation",
         "observed operation",
         "domain validation",
-        "operator acceptance",
+        "human acceptance",
     ),
     "specialized routing": (
         "`leitstelle-profile`",
@@ -67,20 +67,20 @@ PROMPT_REQUIREMENTS = {
     ),
     "outcome-first communication": (
         "begin with the current result and its practical meaning",
-        "operator's selected language",
+        "human user's selected language",
     ),
     "context stream": (
         "research-owned outbox",
         "research-owned recipient state",
         "stable thread identifier",
         "do not wake another session",
-        "operator-mediated trigger",
+        "human-mediated trigger",
     ),
     "independent verification route": (
         "complete finding",
         "first and only",
-        "only the operator decides whether to route that finding",
-        "only after the operator routes it to you",
+        "only the human user decides whether to route that finding",
+        "only after the human user routes it to you",
     ),
 }
 
@@ -94,33 +94,34 @@ OPERATIONS_REQUIREMENTS = (
     "shared files transport state but do not wake another session",
     "task notice or result notice",
     "remains read-only against production artifacts",
-    "reports its complete finding directly to the operator",
-    "only the operator decides whether to disclose or route that finding",
-    "only after the operator delivers it",
+    "reports its complete finding directly to the human user",
+    "only the human user decides whether to disclose or route that finding",
+    "only after the human user delivers it",
 )
 
 VERIFICATION_REQUIREMENTS = (
     "supplied for review, comparison, editing, or discussion",
     "do not activate its role rules",
-    "separate control perspective",
+    "llm-based ai agent running in a separate working context",
+    "independent verification agent",
     "not a third postdoc orchestrator",
-    "report directly to the operator",
+    "report directly to the human user",
     "only in explicitly configured shadow mode",
     "receive your identity",
     "none of these modes is a security or secrecy guarantee",
     "operate read-only against production artifacts",
     "verification-owned outbox",
-    "sole initial recipient for the complete verification finding is the operator",
-    "the operator decides whether and when a finding is delivered",
+    "sole initial recipient for the complete verification finding is the human user",
+    "the human user decides whether and when a finding is delivered",
     "do not publish the finding to research or operations outboxes",
     "do not infer delivery, authority, independence",
     "from file access alone",
 )
 
 LEGACY_CONTRACTS = {
-    HERE / "knowledge-orchestrator.md": tuple(phrase for group in PROMPT_REQUIREMENTS.values() for phrase in group),
-    HERE.parent / "ORCHESTRATOR.md": OPERATIONS_REQUIREMENTS,
-    HERE / "verification-orchestrator.md": VERIFICATION_REQUIREMENTS,
+    HERE / "knowledge-orchestrator.md": ("research-orchestrator.md",),
+    HERE.parent / "ORCHESTRATOR.md": ("orchestrators/operational-orchestrator.md",),
+    HERE / "verification-orchestrator.md": ("independent-verification-agent.md",),
 }
 
 
@@ -223,7 +224,7 @@ def main() -> int:
     failures = _check_prompt(prompt) + _check_evals(payload)
     for role, role_prompt, requirements in (
         ("Operational Orchestrator", operations_prompt, OPERATIONS_REQUIREMENTS),
-        ("Verification Context", verification_prompt, VERIFICATION_REQUIREMENTS),
+        ("Independent Verification Agent", verification_prompt, VERIFICATION_REQUIREMENTS),
     ):
         missing = [phrase for phrase in requirements if phrase.lower() not in role_prompt.lower()]
         if missing:
@@ -237,7 +238,7 @@ def main() -> int:
 
     print(f"OK   Research Orchestrator prompt: {len(PROMPT_REQUIREMENTS)} behavior groups")
     print("OK   Canonical role paths and compatibility pointers")
-    print("OK   Operational Orchestrator and Independent Verification Context boundaries")
+    print("OK   Operational Orchestrator and Independent Verification Agent boundaries")
     print(f"OK   Research Orchestrator evals: {len(EXPECTED_EVAL_IDS)} representative cases")
     return 0
 

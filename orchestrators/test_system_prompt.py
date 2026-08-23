@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Validate the portable bootstrap prompt, adapters, and eval contract.
+"""Validate the complete system prompt, adapters, and eval contract.
 
-The test binds the canonical bootstrap to its required behavior, keeps harness
+The test binds the canonical system prompt to its required behavior, keeps harness
 details in adapter files, and checks representative eval coverage. Run it from
-the repository root with ``python orchestrators/test_bootstrap_prompt.py``.
+the repository root with ``python orchestrators/test_system_prompt.py``.
 """
 
 from __future__ import annotations
@@ -13,10 +13,10 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-PROMPT_PATH = HERE / "bootstrap.md"
+PROMPT_PATH = HERE.parent / "SYSTEM-PROMPT.md"
 CODEX_ADAPTER_PATH = HERE / "adapters" / "codex.md"
 CLAUDE_ADAPTER_PATH = HERE / "adapters" / "claude-code.md"
-EVALS_PATH = HERE / "evals" / "bootstrap.json"
+EVALS_PATH = HERE / "evals" / "system-prompt.json"
 PROMPTOTYPING_TEMPLATE_ROOT = HERE.parent / "skills" / "research-mission-control" / "assets" / "templates" / "knowledge"
 
 PROMPT_REQUIREMENTS = {
@@ -26,13 +26,13 @@ PROMPT_REQUIREMENTS = {
     ),
     "question limit and recommendation": (
         "never ask more than three configuration questions in total",
-        "use the operator's language",
+        "use the human user's language",
         "language selection never consumes one of the three questions",
         "user may answer any numbered item",
         '"what do you recommend?"',
         '"was empfiehlst du?"',
         "least structural option",
-        "do not ask the operator to confirm the recommended default",
+        "do not ask the human user to confirm the recommended default",
         "first substantive response",
         "local-only or still requires remote authorization",
         "context stream transports messages through shared files and does not wake another working context",
@@ -44,7 +44,7 @@ PROMPT_REQUIREMENTS = {
         "the **project workspace** is the shared local folder and git worktree",
         "**project inputs** are the data, documents, materials, code, repositories, or authorized knowledge sources",
         "which role should this working context assume",
-        "what criteria will the operator use to accept that result",
+        "what criteria will the human user use to accept that result",
         "inspect and inventory material already present there",
     ),
     "repositories": (
@@ -55,15 +55,15 @@ PROMPT_REQUIREMENTS = {
         "create only its mandatory core and the documents whose triggers hold",
     ),
     "standard shared workspace": (
-        "first is the operator-facing research orchestrator",
+        "first is the human-facing research orchestrator",
         "second is the operational orchestrator",
-        "third is an independent verification context",
+        "third is an independent verification agent",
         "same local workspace and canonical configuration",
         "omit its identity",
         "none of these modes is a security guarantee",
         "orchestrators/research-orchestrator.md",
         "orchestrators/operational-orchestrator.md",
-        "orchestrators/verification-context.md",
+        "orchestrators/independent-verification-agent.md",
     ),
     "safe initialization": (
         "invoke the installable research mission control skill or scaffolder",
@@ -78,9 +78,9 @@ PROMPT_REQUIREMENTS = {
         "rights or attribution decisions",
         "other external effects",
     ),
-    "functional metaphor": (
+    "functional role model": (
         "research director",
-        "exactly two primary postdoc roles",
+        "two primary postdoc roles",
         "research orchestrator",
         "operational orchestrator",
         "predoc specialists",
@@ -120,32 +120,32 @@ PROMPT_REQUIREMENTS = {
         "fresh context",
         "independent specialist",
     ),
-    "decision ladder": (
-        "bounded predoc specialist resolves reversible routine details",
-        "responsible postdoc orchestrator resolves more complex questions",
-        "operator decides consequential objectives",
+    "delegation ladder": (
+        "bounded predoc specialist resolves details within its assignment and authority",
+        "responsible postdoc orchestrator resolves questions",
+        "human user resolves any question retained in the project contract",
         "condensed results with evidence and verification findings",
     ),
     "authority": (
-        "reversible local actions",
-        "rights and attribution",
-        "difficult-to-reverse consequences",
+        "configured authority permits",
+        "changing rights or attribution",
+        "difficult-to-reverse change",
     ),
     "start contracts": (
         "contract 1: research orchestrator",
         "contract 2: operational orchestrator",
-        "contract 3: independent verification context",
+        "contract 3: independent verification agent",
         "repeat the exact same `workspace` and `canonical config` paths",
         "context stream",
         "communication/protocol.md",
         "role prompt",
-        "report the complete finding directly to the operator",
+        "report the complete finding directly to the human user",
     ),
     "harness capability boundary": (
         "skills and tools supply procedures; the role contract supplies authority",
         "complete capability catalogue does not belong in the shared prompt",
         "notification and wake behavior",
-        "polling, re-entry, or operator-mediated fallback",
+        "polling, re-entry, or human-mediated fallback",
     ),
 }
 
@@ -169,8 +169,8 @@ EXPECTED_EVAL_IDS = {
     "optional-grounded-vault",
     "context-stream-integrity",
     "blind-verification",
-    "operator-facing-verification-context",
-    "operator-decision",
+    "human-facing-verification",
+    "human-decision",
     "asymmetric-return-route",
     "review-without-activation",
     "compound-negative-invariants",
@@ -232,8 +232,8 @@ def _check_adapters() -> list[str]:
         missing = _missing_phrases(adapter, phrases)
         if missing:
             failures.append(f"{name} adapter: missing {', '.join(missing)}")
-        if "orchestrators/bootstrap.md" not in adapter:
-            failures.append(f"{name} adapter: missing shared bootstrap reference")
+        if "SYSTEM-PROMPT.md" not in adapter:
+            failures.append(f"{name} adapter: missing shared system-prompt reference")
         lowered = adapter.lower()
         if "ordinary independent verification may be named" not in lowered:
             failures.append(f"{name} adapter: ordinary Independent visibility is unclear")
@@ -250,8 +250,8 @@ def _check_evals(payload: dict[str, object]) -> list[str]:
     """Validate eval structure and exact representative scenario coverage."""
 
     failures = []
-    if payload.get("prompt_name") != "research-mission-control-bootstrap":
-        failures.append("prompt_name must be research-mission-control-bootstrap")
+    if payload.get("prompt_name") != "research-mission-control-system-prompt":
+        failures.append("prompt_name must be research-mission-control-system-prompt")
 
     evals = payload.get("evals")
     if not isinstance(evals, list):
@@ -271,7 +271,7 @@ def _check_evals(payload: dict[str, object]) -> list[str]:
             failures.append(f"eval {index}: expectations must be a non-empty list")
 
     if set(ids) != EXPECTED_EVAL_IDS:
-        failures.append("eval ids must match the required bootstrap scenarios")
+        failures.append("eval ids must match the required system-prompt scenarios")
     if len(ids) != len(set(ids)):
         failures.append("eval ids must be unique")
 
@@ -318,10 +318,10 @@ def main() -> int:
             print(f"ERROR {failure}", file=sys.stderr)
         return 1
 
-    print(f"OK   Bootstrap prompt: {len(PROMPT_REQUIREMENTS)} behavior groups, 3 questions")
+    print(f"OK   Complete system prompt: {len(PROMPT_REQUIREMENTS)} behavior groups, 3 questions")
     print("OK   Harness adapters: Codex and Claude Code")
     print("OK   Promptotyping core and integration-template compatibility")
-    print(f"OK   Bootstrap evals: {len(EXPECTED_EVAL_IDS)} representative cases")
+    print(f"OK   System-prompt evals: {len(EXPECTED_EVAL_IDS)} representative cases")
     return 0
 
 

@@ -29,23 +29,23 @@ An executable governance document covers:
 - write-back and conflict resolution among knowledge locations
 - privacy, rights, attribution, and disclosure
 - publication conditions
-- escalation to the Critical Expert
+- escalation to the human user or named domain authority
 
-The project Action Layer may narrow these boundaries for a specific session. Expanding them requires a documented Critical Expert decision.
+The project Action Layer may narrow these boundaries for a specific session. Expanding them requires a documented decision by the human user or named authority.
 
 ## Role integration
 
 ### Research Orchestrator
 
-The Research Orchestrator develops and maintains Project Governance with the Critical Expert. Its scope may include one or more projects. Each Implementation Brief references the relevant project authority, source hierarchy, interpretation boundaries, and publication conditions.
+The Research Orchestrator develops and maintains Project Governance with the human user. Its scope may include one or more projects. Each Implementation Brief references the relevant project authority, source hierarchy, interpretation boundaries, and publication conditions.
 
 ### Operational Orchestrator
 
 The Operational Orchestrator reads the applicable governance before decomposing an assignment. Each internal task names its authorized write scope, external boundaries, expected evidence, and write-back target. Practical implementation decisions remain inside this contract.
 
-### Independent Verification Context
+### Independent Verification Agent
 
-The Independent Verification Context is a separate read-only control perspective outside the two Postdoc Orchestrator roles. It reports its complete finding directly to the operator. Only the operator decides whether to disclose the context or route the finding to Research or Operations.
+The Independent Verification Agent is a separate read-only control perspective outside the two Postdoc Orchestrator roles. It reports its complete finding directly to the human user. Only the human user decides whether to disclose the context or route the finding to Research or Operations.
 
 Independent verification asks two separate questions:
 
@@ -76,7 +76,7 @@ WRITE-BACK
 Documents and evidence objects to update after implementation.
 
 ESCALATION
-Concrete conditions that return the work to Research or the Critical Expert.
+Concrete conditions that return the work to Research, the human user, or a named domain authority.
 ```
 
 ## Lane contract mapping
@@ -89,7 +89,7 @@ Existing fields express governance without a new mandatory schema:
 | Which decision may the lane make? | `authority` |
 | Which sources and governance state apply? | `inputs` |
 | Which artifacts should result? | `outputs` |
-| How is the work assessed? | `verification`, with consequential subject-matter judgement at its canonical Operator Point |
+| How is the work assessed? | `verification`, with consequential subject-matter judgement at its canonical Human Decision Point |
 | Which evidence is required? | `evidence` |
 | Which knowledge locations and lanes require write-back? | `touches` |
 
@@ -100,13 +100,13 @@ A complex project may represent governance as a subordinate Research workstream.
 | Information | Authoritative source |
 |---|---|
 | Project status | configured canonical project document, usually `knowledge/project.md` |
-| Operator point and decision | one named canonical location in maintained project knowledge |
+| human user point and decision | one named canonical location in maintained project knowledge |
 | Objective and expected result | canonical task context or Implementation Brief when persistence is required |
 | Authority, write boundaries, escalation, and write-back | task instructions and Project Governance where required |
 | Workstream objective, activity, next action, result, evidence, and verification | named assignment or optional lane record |
 | Observable work state | Git, worktree, and leaf artifacts |
 | Technical currency | generators and tests |
-| Subject-matter acceptance | Critical Expert or named authority |
+| Subject-matter acceptance | human user or named domain authority |
 
 The project-specific `knowledge/integration.md` is the binding source map. This table adds the governance-specific owners.
 
@@ -114,11 +114,11 @@ A lane report may update current state, next action, result, blockers, decision 
 
 ## Status model
 
-Project status, lane activity, evidence, and subject-matter judgement remain separate statements. Report, evidence, and contract status are optional technical reconciliation diagnostics. Operator Points are `open` or `closed` at their canonical location. Research Mission Control does not infer subject-matter validity from technical status.
+Project status, lane activity, evidence, and subject-matter judgement remain separate statements. Report, evidence, and contract status are optional technical reconciliation diagnostics. Human Decision Points are `open` or `closed` at their canonical location. Research Mission Control does not infer subject-matter validity from technical status.
 
 ## Write-back
 
-The Result with Evidence assigns each production finding to a canonical target. An independent Verification Finding enters production write-back only after the operator routes it to Research or Operations:
+The Result with Evidence assigns each production finding to a canonical target. An independent Verification Finding enters production write-back only after the human user routes it to Research or Operations:
 
 - project rule or authority boundary to `governance.md`
 - requirement or clarified subject-matter decision to the responsible knowledge document
@@ -127,9 +127,9 @@ The Result with Evidence assigns each production finding to a canonical target. 
 - cross-project method finding to Promptotyping or Research Mission Control knowledge
 - change affecting another lane to a documented handoff to its responsible role
 
-A write-back with significant subject-matter or public consequences becomes an open operator point.
+A write-back with significant subject-matter or public consequences becomes an open human user point.
 
-Each operator point has exactly one canonical location. Other projects and lanes link to or transclude it. The point closes after the decision, and the decision text remains at the same location.
+Each human user point has exactly one canonical location. Other projects and lanes link to or transclude it. The point closes after the decision, and the decision text remains at the same location.
 
 ## Escalation
 
@@ -143,8 +143,8 @@ Escalate when at least one condition applies:
 - subject-matter validity and operational correctness produce different findings
 - a project finding would change the general Promptotyping or Research Mission Control method
 
-The operator point names context, recommended state, concrete object, criterion, consequence, and expected answer.
+The human user point names context, recommended state, concrete object, criterion, consequence, and expected answer.
 
 ## Acceptance criteria
 
-The Project Governance interface is complete when every relevant Implementation Brief references applicable governance, each implementation exposes authority and write scope, every Verification Finding separates substantive and operational findings, the Independent Verification Context remains read-only and reports directly to the operator, each independent finding enters production only through an operator decision, each write-back has one canonical target, and every operator point is stored exactly once.
+The Project Governance interface is complete when every relevant Implementation Brief references applicable governance, each implementation exposes authority and write scope, every Verification Finding separates substantive and operational findings, the Independent Verification Agent remains read-only and reports directly to the human user, each independent finding enters production only through a human user decision, each write-back has one canonical target, and every human user point is stored exactly once.

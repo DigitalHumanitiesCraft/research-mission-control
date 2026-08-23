@@ -1,78 +1,40 @@
-# Role and Bootstrap Prompts
+# Role prompts
 
-This directory contains the portable prompt layer for Research Mission Control.
-The three canonical role prompts are:
+[`../SYSTEM-PROMPT.md`](../SYSTEM-PROMPT.md) is the single user-facing initialization contract. It selects the smallest sufficient configuration and, when three working contexts are useful, binds the following canonical role prompts to one verified workspace.
 
-| Session | Canonical prompt | Accountable function |
+| Context | Canonical prompt | Function |
 | --- | --- | --- |
-| 1 | [`research-orchestrator.md`](research-orchestrator.md) | develops objectives, criteria, interpretations, and Implementation Briefs with the operator |
-| 2 | [`operational-orchestrator.md`](operational-orchestrator.md) | implements accepted briefs, coordinates bounded Specialists, and returns Results with Evidence |
-| 3 | [`verification-context.md`](verification-context.md) | examines artifacts independently and reports Verification Findings directly to the operator |
+| 1 | [`research-orchestrator.md`](research-orchestrator.md) | LLM-based Research Orchestrator; develops objectives, evidence, criteria, interpretations, and Implementation Briefs with the human user |
+| 2 | [`operational-orchestrator.md`](operational-orchestrator.md) | LLM-based Operational Orchestrator; implements authorized briefs and integrates bounded specialist work |
+| 3 | [`independent-verification-agent.md`](independent-verification-agent.md) | LLM-based Independent Verification Agent; examines artifacts in a separate read-only working context and reports to the human user |
 
-The Independent Verification Context is a separate read-only control perspective,
-not a third Postdoc Orchestrator. Its complete finding goes first and only to the
-Operator. Only the Operator decides whether to route its finding to Research or
-Operations. Independent mode separates the assessment context. Blind mode adds a
-declared reading-order restriction. Shadow mode additionally requires verified
-technical isolation, a private Operator route, and omission from production
-contracts. None of these labels supplies a secrecy or security guarantee.
-Verification reports and rechecks; it never produces the correction.
+The first two roles are the primary production orchestrators. Independent Verification is a cross-cutting control function. Blind Verification adds a declared reading-order restriction. Shadow Verification additionally requires verified technical isolation and a private human return route. None of these modes establishes secrecy or security.
 
-[`bootstrap.md`](bootstrap.md) selects the smallest sufficient configuration and,
-when three separate sessions are justified, binds all three prompts to one verified
-workspace and canonical configuration. The installable
-`skills/research-mission-control/` initializer creates the corresponding local
-project structure. Add exactly one thin harness mapping from
-[`adapters/codex.md`](adapters/codex.md) or
-[`adapters/claude-code.md`](adapters/claude-code.md).
-
-## Exchange contract
+Persistent exchange uses the Context Stream Protocol:
 
 ```text
-Operator <-> Research Orchestrator
-                |
-                | Implementation Brief
-                v
-         Operational Orchestrator
-          |                      |
-          | Operations Result    | Result with Evidence
-          | Notice               |
-          v                      v
-       Research          Verification Context
-                                 |
-                                 | complete Verification Finding
-                                 v
-                              Operator
-
-Operator -- optional disclosure and routing --> Research or Operations
+Human user ↔ Research Orchestrator
+                  ↓ Implementation Brief
+           Operational Orchestrator ──→ Specialist Agents
+                  ↓ Result with Evidence
+           Independent Verification Agent
+                  ↓ Verification Finding
+              Human user
 ```
 
-Persistent cross-session messages use the Context Stream Protocol:
+Harness-specific mappings remain in [`adapters/codex.md`](adapters/codex.md) and [`adapters/claude-code.md`](adapters/claude-code.md). They adapt tasks, conversations, subagents, instruction files, and notification behavior without redefining the shared role semantics.
 
-- each role writes only to its immutable role-owned outbox;
-- each recipient advances sender cursors in its own state after successful processing;
-- messages keep stable thread identifiers and reference canonical artifacts;
-- task notices and result notices may wake a session but are not knowledge sources;
-- a shared file never establishes a universal wake guarantee;
-- every configured route therefore records observed notification behavior and a polling, re-entry, or operator-mediated fallback;
-- capsule thresholds are project-profile settings rather than protocol constants.
+Historical filenames are compatibility pointers:
 
-Historical paths remain as compatibility pointers:
+- [`knowledge-orchestrator.md`](knowledge-orchestrator.md) points to `research-orchestrator.md`;
+- [`verification-orchestrator.md`](verification-orchestrator.md) points to `independent-verification-agent.md`;
+- root [`ORCHESTRATOR.md`](../ORCHESTRATOR.md) points to `operational-orchestrator.md`.
 
-- `knowledge-orchestrator.md` points to `research-orchestrator.md`;
-- `verification-orchestrator.md` points to `verification-context.md`;
-- root `ORCHESTRATOR.md` points to `operational-orchestrator.md`.
-
-## Verification
-
-Run from the repository root:
+Run the prompt contracts from the repository root:
 
 ```bash
 python orchestrators/test_research_orchestrator_prompt.py
-python orchestrators/test_bootstrap_prompt.py
+python orchestrators/test_system_prompt.py
 ```
 
-The scenario sets are in `evals/research-orchestrator.json` and
-`evals/bootstrap.json`. They test review without activation, proportional
-orchestration, operator authority, shared-workspace initialization, Context Stream
-integrity, notification asymmetry, and independent verification.
+The representative scenarios are stored in [`evals/research-orchestrator.json`](evals/research-orchestrator.json) and [`evals/system-prompt.json`](evals/system-prompt.json).

@@ -316,7 +316,7 @@ def build(target: Path, *, draft: bool = False) -> list[Path]:
     """Create an atomically replaced public bundle and return copied paths."""
     resolved_target = _check_target(target)
     if not draft and not (ROOT / "LICENSE").is_file():
-        raise RuntimeError("Public release blocked: an operator-approved LICENSE is missing")
+        raise RuntimeError("Public release blocked: a human-approved LICENSE is missing")
     source_commit, source_dirty = _git_state()
     if not draft and source_commit is None:
         raise RuntimeError("Public release blocked: source commit is unavailable")

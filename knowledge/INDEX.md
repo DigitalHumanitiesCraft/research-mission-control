@@ -7,7 +7,7 @@ updated: 2026-08-23
 
 # Research Mission Control Knowledge Index
 
-This directory contains the publication Knowledge Core of the executable method. The repository is authoritative for role contracts, initialization, communication, and verification behavior. Source artifacts, generated workspaces, tests, and inspected Git state provide the evidence for implemented behavior.
+This directory contains the publication Knowledge Core of the reusable method. The repository is authoritative for role contracts, initialization, communication, and verification behavior. Source artifacts, generated workspaces, tests, and inspected Git state provide the evidence for implemented behavior.
 
 ## Entry and integration
 
@@ -40,9 +40,9 @@ Resolve a conflict according to the kind of state being claimed. No single docum
 
 | State class | Precedence |
 | --- | --- |
-| Authority | current explicit Operator decisions and applicable governance or local instructions, then the project integration contract; tool access and writable paths never confer authority |
+| Authority | current explicit human user decisions and applicable governance or local instructions, then the project integration contract; tool access and writable paths never confer authority |
 | Epistemic | direct sources and evidence, then maintained project knowledge and the current specification; later interpretation records supersede earlier ones only when they identify the supported transition |
 | Operational | inspected artifacts, repositories, data, and running-system state, then tests or captured observations; briefs, notices, dashboards, and reports are claims about that state |
-| Verification | the complete finding and its cited evidence for the examined scope, followed by any documented recheck; technical conformance, domain validation, and Operator acceptance remain separate judgements |
+| Verification | the complete finding and its cited evidence for the examined scope, followed by any documented recheck; technical conformance, domain validation, and Human acceptance remain separate judgements |
 
 More specific current instructions govern within their authority boundary. Historical records, observed cases, and messages preserve provenance or direct attention to evidence but do not override current state. When two sources of the same class still conflict, expose the conflict and obtain the responsible integration judgement instead of silently selecting the most convenient record.

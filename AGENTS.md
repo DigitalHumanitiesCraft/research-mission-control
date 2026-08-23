@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This repository is the canonical executable source for Research Mission Control. Work in this repository maintains the portable method, initializer, role contracts, knowledge core, tests, and internal reference implementation.
+This repository is the canonical source for Research Mission Control. Work in this repository maintains the reusable method and its executable artifacts: the complete system prompt, initializer skill, scaffolder, role contracts, and tests. It also maintains the Knowledge Core and internal reference implementation.
 
 Reading or reviewing a role prompt does not activate that role. A Research, Operations, or Verification role becomes active only through an explicit instruction or generated start contract.
 
@@ -13,11 +13,11 @@ Reading or reviewing a role prompt does not activate that role. A Research, Oper
 3. Follow the canonical document named for the affected component.
 4. Inspect actual artifacts and Git state before relying on reported status.
 
-The private Vault may provide project-specific background when the current environment is authorized to read it. It does not override this repository's executable method. Do not copy private paths or current local portfolio state into public method documentation.
+The private Vault may provide project-specific background when the current environment is authorized to read it. It does not override this repository's reusable method. Do not copy private paths or current local portfolio state into public method documentation.
 
 ## Action rule
 
-Move into implementation when the next useful action is sufficiently clear, authorized, proportionate in consequence, and verifiable. Use a bounded experiment when it can resolve a low-risk uncertainty. Ask the operator only when work requires a Decision, Authorization, Action, or missing Input.
+Move into implementation when the next useful action is sufficiently clear, authorized, proportionate in consequence, and verifiable. Use a bounded experiment when it can resolve a low-risk uncertainty. Ask the human user only when work requires a Decision, Authorization, Action, or missing Input.
 
 Keep four state classes distinct.
 
@@ -40,6 +40,6 @@ Keep four state classes distinct.
 
 Select checks according to the changed claim and likely failure mode. Run targeted tests during implementation and the documented suite before a release claim. Use `git diff --check` for every documentation or code change.
 
-Report the current result and its practical meaning first. Separate evidence, continuing autonomous work, required operator contribution, and known limits. A requested review item includes a substantive synthesis, the reason it matters, the assessment criterion, and its direct location.
+Report the current result and its practical meaning first. Separate evidence, continuing autonomous work, required human user contribution, and known limits. A requested review item includes a substantive synthesis, the reason it matters, the assessment criterion, and its direct location.
 
 Current code, documentation, prompts, examples, and interface text are English. Historical records retain their original language. Code comments are English and explain only constraints that the code does not express.

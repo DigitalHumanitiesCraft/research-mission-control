@@ -70,7 +70,7 @@ class WorkspaceInitializationTest(unittest.TestCase):
                 "communication/capsules/README.md",
                 "mission-control/roles/research-orchestrator.md",
                 "mission-control/roles/operational-orchestrator.md",
-                "mission-control/roles/verification-context.md",
+                "mission-control/roles/independent-verification-agent.md",
                 "mission-control/start-research.md",
                 "mission-control/start-operations.md",
                 "mission-control/start-verification.md",
@@ -96,14 +96,14 @@ class WorkspaceInitializationTest(unittest.TestCase):
             for name in ("research", "operations", "verification"):
                 contract = (target / f"mission-control/start-{name}.md").read_text(encoding="utf-8")
                 self.assertIn(str(target.resolve()), contract)
-                self.assertIn("human user remains the Operator", contract)
+                self.assertIn("human user directs the project", contract)
                 self.assertIn(f"communication/{name}/state.md", contract)
                 self.assertIn(f"communication/{name}/outbox/", contract)
 
             role_bindings = {
                 "research": "mission-control/roles/research-orchestrator.md",
                 "operations": "mission-control/roles/operational-orchestrator.md",
-                "verification": "mission-control/roles/verification-context.md",
+                "verification": "mission-control/roles/independent-verification-agent.md",
             }
             for role, role_path in role_bindings.items():
                 contract = (target / f"mission-control/start-{role}.md").read_text(encoding="utf-8")
@@ -117,8 +117,8 @@ class WorkspaceInitializationTest(unittest.TestCase):
 
             integration = (target / "knowledge/integration.md").read_text(encoding="utf-8")
             self.assertIn("Research is the single writer", integration)
-            self.assertIn("Complete Verification Finding--> Operator", integration)
-            self.assertIn("Operator controls disclosure and routing", integration)
+            self.assertIn("Complete Verification Finding--> human user", integration)
+            self.assertIn("human user controls disclosure and routing", integration)
             self.assertIn("read-only against evaluated project artifacts", integration)
             self.assertIn("write only its own outbox and recipient state", integration)
             operations = (target / "mission-control/start-operations.md").read_text(encoding="utf-8")
@@ -128,7 +128,7 @@ class WorkspaceInitializationTest(unittest.TestCase):
                 "read-only against evaluated project artifacts and maintained `knowledge/` documents", verification
             )
             self.assertIn("Verification-owned outbox and state record reporting and receipt", verification)
-            self.assertIn("complete Verification Finding directly to the Operator", verification)
+            self.assertIn("complete Verification Finding directly to the human user", verification)
             self.assertIn("does not create a security or secrecy guarantee", verification)
 
             protocol = (target / "communication/PROTOCOL.md").read_text(encoding="utf-8").lower()
@@ -140,8 +140,8 @@ class WorkspaceInitializationTest(unittest.TestCase):
                 "thread closes or re-entry cost becomes material",
                 "does not wake a session",
                 "no numeric compaction threshold applies",
-                "verification finding is addressed first and only to the operator",
-                "operator controls disclosure and routing",
+                "verification finding is addressed first and only to the human user",
+                "human user controls disclosure and routing",
             ):
                 self.assertIn(phrase, protocol)
 
@@ -195,7 +195,7 @@ class WorkspaceInitializationTest(unittest.TestCase):
             self.assertNotIn("Do not read `knowledge/handoff.md`", independent_contract)
             self.assertIn("Do not read `knowledge/handoff.md`", blind_contract)
             for contract in (independent_contract, blind_contract):
-                self.assertIn("complete Verification Finding directly to the Operator", contract)
+                self.assertIn("complete Verification Finding directly to the human user", contract)
                 self.assertIn("does not create a security or secrecy guarantee", contract)
 
     def test_generated_pointers_resolve_to_files(self) -> None:
@@ -225,7 +225,7 @@ class WorkspaceInitializationTest(unittest.TestCase):
             role_paths = {
                 "research": target / "mission-control/roles/research-orchestrator.md",
                 "operations": target / "mission-control/roles/operational-orchestrator.md",
-                "verification": target / "mission-control/roles/verification-context.md",
+                "verification": target / "mission-control/roles/independent-verification-agent.md",
             }
             review_boundary = "When this prompt is supplied for review, comparison, editing, or discussion"
             for path in role_paths.values():
@@ -240,8 +240,8 @@ class WorkspaceInitializationTest(unittest.TestCase):
             self.assertIn("Project-specific knowledge goes to the project's canonical knowledge location", research)
             self.assertIn("Do not write maintained `knowledge/` documents", operations)
             self.assertIn("Do not write maintained `knowledge/` documents", verification)
-            self.assertIn("report the complete independent finding to the operator", verification.lower())
-            self.assertIn("Only the operator decides whether to disclose", verification)
+            self.assertIn("report the complete independent finding to the human user", verification.lower())
+            self.assertIn("Only the human user decides whether to disclose", verification)
             self.assertIn("not a security or secrecy guarantee", verification)
 
     def test_all_start_bindings_share_workspace_and_integration_contract(self) -> None:

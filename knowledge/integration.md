@@ -12,7 +12,7 @@ related: [project, orchestration-architecture, research-to-operations-handoff, o
 
 | Component | Canonical source | Function |
 | --- | --- | --- |
-| Executable method | this repository | initializer, role contracts, protocol, knowledge, and tests |
+| Reusable method | this repository | initializer, role contracts, protocol, knowledge, and tests |
 | Promptotyping | [Promptotyping repository](https://github.com/DigitalHumanitiesCraft/Promptotyping) | maintained project knowledge and iterative artifact development |
 | Grounded Vault | [Grounded Vault repository](https://github.com/DigitalHumanitiesCraft/grounded-vault) | optional evidence-bound long-lived knowledge structure |
 | AI harness | configured Codex, Claude Code, or compatible environment | contexts, tools, permissions, execution feedback, and notification behavior |
@@ -22,9 +22,9 @@ This repository defines the portable method. Each initialized project repository
 
 ## Initialization relationship
 
-A working context is one separately open Codex task, Claude Code conversation, or equivalent harness context with its own context window and one assigned Research Mission Control role. The project workspace is the shared local folder and Git worktree. The first context invokes the initializer and remains the Research Orchestrator. It gathers up to three configuration answers in the Operator's language and creates a new shared local repository after authorization. Two generated contracts initialize Operations and Verification in separate contexts.
+A working context is one separately open Codex task, Claude Code conversation, or equivalent harness context with its own context window and one assigned Research Mission Control role. The project workspace is the shared local folder and Git worktree. The first context invokes the initializer and remains the Research Orchestrator. It gathers up to three configuration answers in the human user's language and creates a new shared local repository after authorization. Two generated contracts initialize Operations and Verification in separate contexts.
 
-The initialized repository contains one maintained Promptotyping knowledge core, the project-specific `knowledge/integration.md`, Context Stream directories, and role start contracts. It contains no remote until the operator authorizes ownership and visibility.
+The initialized repository contains one maintained Promptotyping knowledge core, the project-specific `knowledge/integration.md`, Context Stream directories, and role start contracts. It contains no remote until the human user authorizes ownership and visibility.
 
 ## Knowledge relationship
 
@@ -45,22 +45,22 @@ The Context Stream transports current assignments, results, notices, and finding
 
 Task and result notices provide notification and routing. They are never the source of project truth. A thread capsule records the verified outcome, canonical references, unresolved points, and final message identifiers when the thread closes or when the deployment's configured re-entry condition applies. Numeric compaction thresholds are project-profile settings and have no universal value.
 
-The standard route sends an `Implementation Brief` from Research to Operations, the complete `Result with Evidence` from Operations to Verification, an `Operations Result Notice` from Operations to Research, and the complete `Verification Finding` from Verification first and only to the Operator. The notice points to the accountable result and canonical artifacts; it does not duplicate or replace the Result with Evidence. A contained profile without a separate Verification Context may return a bounded result to Research or the Operator as defined by its integration contract.
+The standard route sends an `Implementation Brief` from Research to Operations, the complete `Result with Evidence` from Operations to Verification, an `Operations Result Notice` from Operations to Research, and the complete `Verification Finding` from Verification first and only to the human user. The notice points to the responsible result and canonical artifacts; it does not duplicate or replace the Result with Evidence. A contained profile without a separate Verification Agent may return a bounded result to Research or the human user as defined by its integration contract.
 
-The filesystem transports messages without waking a dormant context. This statement does not constrain polling or reads performed by a running context. Every deployment observes its actual delivery directions and records the wake route. An asymmetric route requires a polling, re-entry, or operator-mediated fallback.
+The filesystem transports messages without waking a dormant context. This statement does not constrain polling or reads performed by a running context. Every deployment observes its actual delivery directions and records the wake route. An asymmetric route requires a polling, re-entry, or human-mediated fallback.
 
 `communication/INDEX.md` is a compact Research-owned registry of active threads and completed capsules. Recipient-owned cursor files establish processing state. The registry is not a latest-message cursor and does not transfer cursor ownership to Research.
 
-Every project integration contract records explicit return-channel fields. At minimum these fields identify `implementation_brief_recipient`, `operations_result_recipient`, `operations_result_notice_recipient`, `verification_finding_initial_recipient`, `operator_routed_finding_recipient`, the observed wake or notification route for each direction, and the polling, re-entry, or Operator-mediated fallback. `operator_routed_finding_recipient` remains unset until the Operator makes a routing decision.
+Every project integration contract records explicit return-channel fields. At minimum these fields identify `implementation_brief_recipient`, `operations_result_recipient`, `operations_result_notice_recipient`, `verification_finding_initial_recipient`, `human_routed_finding_recipient`, the observed wake or notification route for each direction, and the polling, re-entry, or human-mediated fallback. `human_routed_finding_recipient` remains unset until the human user makes a routing decision.
 
 ## State-specific source precedence
 
 Source precedence follows the state being claimed.
 
-- Authority comes from current Operator decisions, applicable governance, and the project integration contract within their respective scope.
+- Authority comes from current human user decisions, applicable governance, and the project integration contract within their respective scope.
 - Epistemic claims come from direct sources and evidence, then their maintained interpretation in project knowledge.
 - Operational claims come from inspected artifacts, repositories, data, and running systems; messages and dashboards report that state but do not establish it.
-- Verification claims come from the complete finding and cited evidence for its examined scope, followed by any documented recheck. Operator acceptance remains a separate authority judgement.
+- Verification claims come from the complete finding and cited evidence for its examined scope, followed by any documented recheck. Human acceptance remains a separate authority judgement.
 
 When same-class sources conflict, the responsible role exposes the conflict and records the interpreted transition in the canonical target. Recency alone does not allow a message or report to supersede a direct source or actual artifact.
 
@@ -76,7 +76,7 @@ The minimum write-back routes are as follows.
 
 | Finding | Responsible integration target |
 | --- | --- |
-| project objective, concept, accepted interpretation, or operator decision | maintained project knowledge |
+| project objective, concept, accepted interpretation, or human user decision | maintained project knowledge |
 | implementation result and technical constraint | actual artifact and its responsible technical knowledge |
 | evidence relation covered by an active grounding contract | Grounded Vault instance |
 | protocol or general method finding | this repository after method review |
@@ -84,15 +84,15 @@ The minimum write-back routes are as follows.
 
 ## Verification relationship
 
-Research and Operations can verify bounded work in their current context. A separate Verification Context receives only the evaluation context required by the criterion. It returns a compact finding with target, criterion, observed state, evidence, consequence, and recommended integration role. The complete finding goes first and only to the Operator.
+Research and Operations can verify bounded work in their current context. A separate Verification Agent receives only the evaluation context required by the criterion. It returns a compact finding with target, criterion, observed state, evidence, consequence, and recommended integration role. The complete finding goes first and only to the human user.
 
 Independent, Blind, and Shadow describe different controls.
 
 - Independent Verification separates the assessment context from production and keeps it read-only against evaluated artifacts. It may receive the complete Result with Evidence and does not conceal its existence.
 - Blind Verification adds a declared reading-order restriction to Independent Verification. Named producer reasoning, reports, earlier findings, or preferred conclusions are withheld until the initial finding is sealed. It does not conceal the verifier's existence or create secrecy.
-- Shadow Verification adds Operator-controlled visibility and technical isolation. It requires a technically separate context, read-only target access, a private return route to the Operator, and omission of the verifier's identity and route from production contracts. Without those verified properties, use the Independent or Blind label. Shadow and Blind may be combined when both triggers hold.
+- Shadow Verification adds human user-controlled visibility and technical isolation. It requires a technically separate context, read-only target access, a private return route to the human user, and omission of the verifier's identity and route from production contracts. Without those verified properties, use the Independent or Blind label. Shadow and Blind may be combined when both triggers hold.
 
-The Operator decides whether a finding enters active work or canonical knowledge and which production role receives it. Verification never implements that consequence.
+The human user decides whether a finding enters active work or canonical knowledge and which production role receives it. Verification never implements that consequence.
 
 ## Publication relationship
 
