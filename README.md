@@ -31,15 +31,24 @@ The human user directs the work and defines how decisions and authority are dele
 ## Operating model
 
 ```text
-Human user / Research Director
-        ↕ objectives, assessment, decisions
-Research Orchestrator
-        ↓ Implementation Brief
-Operational Orchestrator ── bounded assignments ──→ Specialist Agents
-        ↓ Result with Evidence
-Independent Verification Agent
-        ↓ Verification Finding
-Human user ── optional routing ──→ Research or Operations
+PRIMARY ROUTE
+
+User as Research Director ↔ Research Orchestrator
+                                  │ Implementation Brief
+                                  ▼
+                          Operational Orchestrator
+                                  │ Result with Evidence
+                                  ▼
+                      Independent Verification Agent
+                                  │ Verification Finding
+                                  ▼
+                        User as Research Director
+
+SUPPORTING ROUTES
+
+Operational Orchestrator ↔ Specialist Agents
+Operational Orchestrator ── Operations Result Notice ──→ Research Orchestrator
+User as Research Director ── optional finding route ──→ Research or Operations
 ```
 
 The three exchange products are information functions:

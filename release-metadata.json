@@ -4,7 +4,7 @@
   "version": "0.9.0rc2",
   "status": "release-candidate",
   "repository": "https://github.com/DigitalHumanitiesCraft/research-mission-control",
-  "source_commit": "dc9ea6ef3aa068071104dd39aec72d6064d91029",
+  "source_commit": "2618ae25960c8b2d2ccb7e4dbc12001b50d8ba8a",
   "source_dirty": false,
   "publication_manifest_sha256": "168656ff49a3b24d875011a8fef5dd4769dc7806bcbc3324131248ee2b2ce1f3",
   "checksums": "SHA256SUMS"

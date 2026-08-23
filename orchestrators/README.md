@@ -13,13 +13,24 @@ The first two roles are the primary production orchestrators. Independent Verifi
 Persistent exchange uses the Context Stream Protocol:
 
 ```text
-Human user ↔ Research Orchestrator
-                  ↓ Implementation Brief
-           Operational Orchestrator ──→ Specialist Agents
-                  ↓ Result with Evidence
-           Independent Verification Agent
-                  ↓ Verification Finding
-              Human user
+PRIMARY ROUTE
+
+User as Research Director ↔ Research Orchestrator
+                                  │ Implementation Brief
+                                  ▼
+                          Operational Orchestrator
+                                  │ Result with Evidence
+                                  ▼
+                      Independent Verification Agent
+                                  │ Verification Finding
+                                  ▼
+                        User as Research Director
+
+SUPPORTING ROUTES
+
+Operational Orchestrator ↔ Specialist Agents
+Operational Orchestrator ── Operations Result Notice ──→ Research Orchestrator
+User as Research Director ── optional finding route ──→ Research or Operations
 ```
 
 Harness-specific mappings remain in [`adapters/codex.md`](adapters/codex.md) and [`adapters/claude-code.md`](adapters/claude-code.md). They adapt tasks, conversations, subagents, instruction files, and notification behavior without redefining the shared role semantics.

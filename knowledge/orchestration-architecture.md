@@ -105,29 +105,29 @@ Decision routing considers consequence, reversibility, and available authority. 
 ## Collaboration cycle
 
 ```text
-human user <-> Research Orchestrator
-                 |
-                 | clear enough for action?
-          +------+------+
-          |             |
-         yes        uncertainty remains
-          |             |
-          |       experiment, research,
-          |       or Human Decision Point
-          v
-Operational Orchestrator
-          |
-          | Result with Evidence
-          v
-Independent Verification Agent
-          |
-          | complete Verification Finding
-          v
-       human user
-          |
-          | optional disclosure and routing
-          v
-Research Orchestrator or Operational Orchestrator
+User as Research Director <-> Research Orchestrator
+                              |
+                              | clear enough for action?
+                       +------+------+
+                       |             |
+                      yes        uncertainty remains
+                       |             |
+                       |       experiment, research,
+                       |       or Human Decision Point
+                       v
+             Operational Orchestrator
+                       |
+                       | Result with Evidence
+                       v
+           Independent Verification Agent
+                       |
+                       | complete Verification Finding
+                       v
+             User as Research Director
+                       |
+                       | optional disclosure and routing
+                       v
+     Research Orchestrator or Operational Orchestrator
 ```
 
 ## Minimum exchange

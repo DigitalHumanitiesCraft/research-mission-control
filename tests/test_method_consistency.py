@@ -105,6 +105,6 @@ def test_public_entry_surfaces_show_the_reference_route() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     index = (ROOT / "index.html").read_text(encoding="utf-8")
 
-    assert "Human user / Research Director" in readme
+    assert "User as Research Director" in readme
     assert "Research → Operations → Verification → Human user" in index
     assert "Research verifies and integrates into canonical project knowledge" not in index

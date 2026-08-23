@@ -147,16 +147,24 @@
       </div>
 
       <h3>Message flow</h3>
-      <pre class="protocol-diagram" role="region" tabindex="0" aria-label="Research Mission Control message flow"><code>Human user / Research Director
-        ↕ objectives, assessment, decisions
-Research Orchestrator
-        ↓ Implementation Brief
-Operational Orchestrator ── bounded assignments ──→ Specialists
-        ↓ Operations-owned Result with Evidence
-Independent Verification Agent
-        ↓ complete Verification Finding
-Human user
-        └─ optional routing ──→ Research or Operations</code></pre>
+      <pre class="protocol-diagram" role="region" tabindex="0" aria-label="Research Mission Control message flow"><code>PRIMARY ROUTE
+
+User as Research Director ↔ Research Orchestrator
+                                  │ Implementation Brief
+                                  ▼
+                          Operational Orchestrator
+                                  │ Result with Evidence
+                                  ▼
+                      Independent Verification Agent
+                                  │ Verification Finding
+                                  ▼
+                        User as Research Director
+
+SUPPORTING ROUTES
+
+Operational Orchestrator ↔ Specialist Agents
+Operational Orchestrator ── Operations Result Notice ──→ Research Orchestrator
+User as Research Director ── optional finding route ──→ Research or Operations</code></pre>
       <p>The standard persistent route is <code>Research → Operations → Verification → Human user</code>. A contained profile may perform the same information functions sequentially in one context.</p>
 
       <h3>Persistent transport</h3>

@@ -68,10 +68,10 @@ The method is release-ready when the following results agree.
 - Public repository content contains no private portfolio state, machine-specific paths, or unlicensed material.
 - The publication manifest assigns MIT to code and the installable skill and CC BY 4.0 to documentation, prompts, evaluation material, release metadata, and the website; public reuse is authorized under those assignments.
 
-Technical validation establishes the first two criteria. A local draft-package probe has established representative operation across fresh Claude Code and Codex contexts for one bounded technical assignment. Publication safety, current-bundle browser verification, domain validation, and human acceptance remain separate findings.
+Technical validation establishes the first two criteria. A local draft-package probe has established representative operation across fresh Claude Code and Codex tasks for one bounded technical assignment. The public RC2 bundle and its release provenance have been verified from a fresh clone. Fresh Codex and Claude Code initialization with the same new project and human acceptance of the published interface remain separate findings.
 
 ## Publication boundary
 
 The public method consists of the repository instructions, downloadable skill, skill source, portable prompts, technical start interface, Knowledge Core, and tests. Operational views can contain local project names, paths, decisions, and evidence references. They remain non-delivered source-repository components unless a separate publication process replaces their state with verified synthetic data.
 
-The public repository and release use the file-level MIT and CC BY 4.0 assignments defined in `LICENSE` and `publication-manifest.json`. Publication evidence must still show that every delivered path has exactly one assignment and that the built bundle contains no excluded operational or private state.
+The public repository and release use the file-level MIT and CC BY 4.0 assignments defined in `LICENSE` and `publication-manifest.json`. The RC2 builder and release tests establish exactly one assignment for every delivered path and exclude operational dashboard state, private project data, runtime messages, and source-only history from the public bundle.
