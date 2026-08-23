@@ -1,0 +1,105 @@
+---
+title: "Integration: Research Mission Control"
+project:
+  name: {{PROJECT_NAME_YAML}}
+  repository: local
+method:
+  name: Promptotyping
+  url: https://github.com/DigitalHumanitiesCraft/Promptotyping
+template:
+  name: Vorlage Integration
+  version: 0.3
+  url: https://dhcraft.org/Promptotyping/promptotyping-document/integration
+counterpart:
+  name: Research, Operations, and Verification contexts
+  repository: {{RMC_URL}}
+direction: bidirectional
+status: active
+created: {{CREATED_DATE}}
+updated: {{CREATED_DATE}}
+related: [project, specification, handoff, journal]
+---
+
+# Integration: Research Mission Control
+
+This document is the canonical contract among the three working contexts using the shared project workspace at `{{TARGET_PATH}}`. A working context is one separately open Codex task, Claude Code conversation, or equivalent harness context with its own context window and one assigned Research Mission Control role. The project workspace is the shared local folder and Git worktree. Project identity, intended result, and canonical inputs remain in `knowledge/project.md`.
+
+## Roles and harnesses
+
+| Context | Harness | Accountable function |
+| --- | --- | --- |
+| Research | {{RESEARCH_HARNESS}} | develops objectives, concepts, sources, and criteria with the Operator |
+| Operations | {{OPERATIONS_HARNESS}} | implements in the actual repository within the accepted brief |
+| Verification | {{VERIFICATION_HARNESS}} | independently examines the intended result, artifact, and evidence, then reports the complete finding to the Operator |
+
+The Operator is the human Research Director and Critical Expert. Research and Operations are the two primary Postdoc functions. Verification is a cross-cutting control function in a fresh context. Bounded subagents perform Predoc functions and inherit no authority or canonical write target from delegation alone.
+
+## Authority
+
+Agents may perform reversible local work inside an accepted objective and write scope. The Operator retains research objectives, consequential subject-matter positions, rights, attribution, publication, external effects, and difficult-to-reverse consequences. A skill or writable path does not expand authority.
+
+## Knowledge profile
+
+- Promptotyping: active for maintained working knowledge across sessions. Canonical method source: https://github.com/DigitalHumanitiesCraft/Promptotyping
+- Grounded Vault: {{GROUNDED_VAULT_STATUS}}
+- Research Mission Control: {{RMC_URL}}
+- Optional external long-term Vault: inactive at initialization. Configure its exact source, selection boundary, read and write authority, and write-back rule here before use.
+
+## Data flow
+
+```text
+Operator <-> Research --Implementation Brief--> Operations
+Research <--Operations Result Notice-- Operations
+Operations --Result with Evidence--> Verification
+Verification --Complete Verification Finding--> Operator
+Operator --Authorized disclosure and routing--> Research or Operations
+```
+
+## Exchange and write ownership
+
+Research sends an Implementation Brief containing the objective and intended use, relevant context and canonical sources, authority, write boundary and exclusions, expected result, verification criteria, and decisions reserved for the Operator. In this reference three-context profile, Operations sends the complete Result with Evidence to Verification and an Operations Result Notice to Research. The notice references the accountable result and canonical artifacts and does not replace either. Verification reports its complete independent finding first and only to the Operator and may recommend the responsible integration role. The Operator controls disclosure and routing and decides whether, when, and to whom the finding is delivered. Verification does not contact Research or Operations with a finding unless the Operator authorizes that delivery.
+
+Each context writes messages only in its role-owned immutable outbox and advances only its recipient-owned state. Research is the single writer for maintained `knowledge/` documents unless this contract names a narrower owner. Operations changes authorized project artifacts and reports the result through its outbox. Verification remains read-only against evaluated project artifacts and maintained `knowledge/` documents. It may write only its own outbox and recipient state for reporting and receipt. Verification never produces a correction; Research or Operations implements an Operator-routed consequence, and Verification may recheck it. Research keeps only unresolved received deltas in `knowledge/handoff.md`, removes them after integration or rejection, and records durable provenance in `knowledge/journal.md`. This ownership prevents concurrent sessions from silently overwriting one another.
+
+The configured verification mode is `{{VERIFICATION_MODE}}`. Independent mode separates the read-only assessment context while allowing the evaluation material named in the verification packet. Blind mode adds a declared reading-order restriction and delays excluded producer reasoning or reports until the initial finding is sealed; it does not conceal the verifier's existence. Shadow mode is not activated by this initializer. A later Shadow profile requires verified technical isolation, a private Operator return route, and omission from production contracts; it may use ordinary or Blind reading order. No mode provides a secrecy or security guarantee.
+
+Messages transport current work. Durable project knowledge belongs in `knowledge/`; actual outputs remain in their project paths. A shared filesystem does not wake another session. This limitation does not determine when a running session polls or reads a message. Verify the harness notification route before relying on autonomous callbacks, and use polling or Operator-mediated delivery when it is asymmetric.
+
+The file-based transport follows `communication/PROTOCOL.md`. Messages use stable thread identifiers and point to canonical artifacts instead of copying durable knowledge.
+
+## Return channels
+
+```yaml
+implementation_brief_recipient: operations
+operations_result_recipient: verification
+operations_result_notice_recipient: research
+verification_finding_initial_recipient: operator
+operator_routed_finding_recipient: unset until Operator decision
+observed_wake_routes: unverified at initialization
+fallback: explicit polling, re-entry, or Operator-mediated delivery
+```
+
+Update `observed_wake_routes` with one entry per direction after direct observation. Do not infer a reverse route from a working forward route.
+
+## State-specific source precedence
+
+- Authority: current Operator decisions, applicable governance, and this integration contract within their scopes.
+- Epistemic state: direct sources and evidence, then maintained project knowledge.
+- Operational state: inspected artifacts, repositories, data, and running systems; messages and reports are claims about that state.
+- Verification state: the complete finding and cited evidence for its examined scope, followed by any documented recheck. Operator acceptance remains separate.
+
+## Acceptance criteria
+
+Technical conformance, domain validation, and Operator acceptance are separate findings. Verification receives the target, criteria, actual artifact, evidence, binding constraints, and exclusions. It does not require the producer's full conversation or preferred conclusion.
+
+The integration contract is operational when all three contexts resolve the same workspace and this file, each role respects its authority and write boundary, one complete exchange can be reconstructed from canonical artifacts, and every used return route and fallback has been observed and recorded in the explicit fields above.
+
+## Authoritative documents
+
+| Contract aspect | Source of truth | Writer |
+| --- | --- | --- |
+| Project identity, result, inputs | `knowledge/project.md` | Research |
+| Requirements and decisions | `knowledge/specification.md` | Research |
+| Role, authority, exchange, verification | `knowledge/integration.md` | Research |
+| Open received deltas | `knowledge/handoff.md` | Research |
+| Integrated transitions | `knowledge/journal.md` | Research |

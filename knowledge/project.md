@@ -1,0 +1,77 @@
+---
+title: Research Mission Control Project
+status: active
+language: en
+updated: 2026-08-23
+related: [integration, orchestration-architecture, method-specification]
+---
+
+# Research Mission Control Project
+
+## Purpose
+
+Research Mission Control provides a model-independent and harness-portable operating architecture for accountable agentic research. It assigns conceptual work, implementation, bounded specialist work, and verification to explicit roles while keeping consequential human decisions with one operator.
+
+The repository is the canonical executable source for the general method. The publication package contains the initializer, role contracts, communication protocol, maintained knowledge, technical start interface, and tests. The working source repository can additionally carry internal operational references that remain outside the publication package.
+
+## System boundary
+
+The method governs the transition from an operator's objective to an implemented and verified project state. It defines responsibility, authority, minimum exchange, evidence, escalation, and canonical write-back. It does not establish scholarly truth through technical checks, confer authority through tool access, or guarantee cross-session notification through shared files.
+
+A deployment may use one context for contained work. The reference configuration uses a shared project repository and three contexts. Their responsibilities can be assigned to different frontier models or agentic coding harnesses without changing the method contract.
+
+## Functional research group
+
+| Level | Role | Responsibility |
+| --- | --- | --- |
+| Research direction | Operator as Research Director and Critical Expert | defines objectives, supplies accountable domain judgement, and decides reserved matters |
+| Postdoc | Research Orchestrator | develops concepts, sources, criteria, and executable briefs with the operator |
+| Postdoc | Operational Orchestrator | changes actual project state, coordinates implementation, and integrates bounded results |
+| Predoc | Specialist or subagent | completes one bounded research, implementation, or verification assignment |
+| Independent control | Verification Context | checks results against criteria and evidence, then reports the complete finding first and only to the Operator |
+
+The academic labels are a functional metaphor. They describe scope, synthesis responsibility, supervision, and escalation.
+
+## Decision routing
+
+Predoc roles decide reversible implementation details inside a bounded assignment. The two postdoc roles resolve complex conceptual or operational questions inside their responsibilities. The operator retains decisions about research objectives, consequential scholarly positions, rights and attribution, publication, external effects, and difficult-to-reverse changes.
+
+An Operator Point presents the concrete object, relevant context, assessment criterion, material consequences, uncertainty, supported options, a recommendation, and the expected answer format. Other work continues when it is authorized and independent of the open point.
+
+## Knowledge profile
+
+The current context window holds selected working context. The project repository preserves maintained knowledge across sessions. Promptotyping supplies the project-bound reconstruction basis and functions as operational memory for the active work.
+
+Grounded Vault is optional long-lived knowledge infrastructure. It becomes relevant when substantive claims require machine-resolvable grounding and attributable human verification. The requirement remains pending until the deployment defines and verifies a project-specific binding.
+
+Another private, institutional, or project Vault is also an optional long-term knowledge source. A deployment may read or write it only after `knowledge/integration.md` names the exact source, selection boundary, authority, and write-back rule. An available Vault path alone does not activate that source.
+
+## Verification profile
+
+Verification follows the likely failure mode, required context, consequences, and value of independence. A working-context check suits bounded mechanical claims. A fresh context can reveal assumptions in prose, usability, and architecture. Consequential factual, scholarly, security, or data-quality claims can require independent specialist review. Context-dependent work with substantial consequences can use two stages.
+
+The three separate controls have distinct meanings.
+
+- **Independent Verification** uses a separate assessment context and read-only access to the evaluated target. It may receive the complete Result with Evidence and does not imply concealment from production roles.
+- **Blind Verification** is Independent Verification with a declared reading-order restriction. The verifier forms an initial finding before reading named producer reasoning, reports, earlier findings, or preferred conclusions. It does not imply secrecy.
+- **Shadow Verification** is an Operator-commissioned visibility and isolation profile. It requires a technically separate context, read-only target access, a private return route to the Operator, and omission of its identity and route from production contracts. Without verified infrastructure for those properties, the review must be described as Independent or Blind rather than Shadow.
+
+A Verification Context never becomes the producer of a correction. It reports and rechecks; the Operator routes an accepted finding to Research or Operations for interpretation and implementation.
+
+## Completion criteria
+
+The method is release-ready when the following results agree.
+
+- The role prompts, initializer, generated workspace, and maintained knowledge describe one architecture.
+- Contract tests and clean-workspace initialization establish the executable behavior claimed by the documentation.
+- A fresh Codex context and a fresh Claude Code context can initialize and operate the same representative project from the published materials.
+- Public repository content contains no private portfolio state, machine-specific paths, or unlicensed material.
+- The publication manifest assigns MIT to code and the installable skill and CC BY 4.0 to documentation, prompts, evaluation material, release metadata, and the website; public reuse is authorized under those assignments.
+
+Technical validation establishes the first two criteria. A local draft-package probe has established representative operation across fresh Claude Code and Codex contexts for one bounded technical assignment. Publication safety, current-bundle browser verification, domain validation, and operator acceptance remain separate findings.
+
+## Publication boundary
+
+The public method consists of the repository instructions, downloadable skill, skill source, portable prompts, technical start interface, Knowledge Core, and tests. Operational views can contain local project names, paths, decisions, and evidence references. They remain non-delivered source-repository components unless a separate publication process replaces their state with verified synthetic data.
+
+The public repository and release use the file-level MIT and CC BY 4.0 assignments defined in `LICENSE` and `publication-manifest.json`. Publication evidence must still show that every delivered path has exactly one assignment and that the built bundle contains no excluded operational or private state.

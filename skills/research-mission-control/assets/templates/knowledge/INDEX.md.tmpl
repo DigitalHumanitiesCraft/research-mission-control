@@ -1,0 +1,32 @@
+---
+title: Knowledge index
+project:
+  name: {{PROJECT_NAME_YAML}}
+  repository: local
+method:
+  name: Promptotyping
+  url: https://github.com/DigitalHumanitiesCraft/Promptotyping
+status: active
+created: {{CREATED_DATE}}
+updated: {{CREATED_DATE}}
+---
+
+# Knowledge index
+
+This directory contains maintained project knowledge for the Operator and all configured agent contexts. Operational artifacts and source material remain in their real repository paths.
+
+## Documents
+
+| Path | Function | Routing question |
+| --- | --- | --- |
+| `project.md` | Charter | What is the project and its boundary? |
+| `specification.md` | Substance | What must the project achieve, and why? |
+| `integration.md` | Integration | How do Research, Operations, and Verification exchange work and authority? |
+| `handoff.md` | Process inbox | Which received deltas still require checking or integration? |
+| `journal.md` | Provenance index | Which substantive transitions were integrated, rejected, or corrected? |
+
+## Reading paths
+
+- Session start: `knowledge/INDEX.md` → `knowledge/project.md` → `knowledge/integration.md` → `knowledge/handoff.md` when the verification mode permits it.
+- Objective or scope question: `project.md` → `specification.md`.
+- Provenance question: responsible document → `journal.md` → Git history when earlier wording is required.

@@ -1,0 +1,21 @@
+# Context Stream index
+
+This register locates active threads and completed capsules. Messages remain in role-owned outboxes; durable knowledge remains in canonical project files.
+
+## Endpoints
+
+| Context | Outbox | Recipient state |
+| --- | --- | --- |
+| Research | `research/outbox/` | `research/state.md` |
+| Operations | `operations/outbox/` | `operations/state.md` |
+| Verification | `verification/outbox/` | `verification/state.md` |
+
+The Operator receives complete Verification Findings directly and has no agent-owned cursor or outbox. The Operator decides whether a finding is disclosed or routed to Research or Operations.
+
+## Active threads
+
+No active threads.
+
+## Completed capsules
+
+No completed capsules.

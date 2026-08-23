@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research Mission Control 0.9.0 release candidate, technical entry point and complete system prompt.">
+  <title>Research Mission Control · Technical Reference</title>
+  <link rel="icon" href="./assets/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="./site.css">
+  <script src="./site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="repo-header">
+    <div class="shell repo-header__inner">
+      <a class="repo-brand" href="#main" aria-label="Research Mission Control technical reference">
+        <img src="./assets/dhcraft-mark-192.png" width="36" height="36" alt="">
+        <span>
+          <strong>Research Mission Control</strong>
+          <small>Technical reference · 0.9.0 RC</small>
+        </span>
+      </a>
+      <nav aria-label="Repository navigation">
+        <a href="#start">Start</a>
+        <a href="#protocol">Protocol</a>
+        <a href="#knowledge">Knowledge</a>
+        <a href="#repository">Repository</a>
+        <a href="https://github.com/DigitalHumanitiesCraft/research-mission-control">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="shell">
+    <header class="document-header">
+      <p class="document-kind">Digital Humanities Craft · Method repository</p>
+      <h1>Research Mission Control</h1>
+      <p class="release-status"><span>0.9.0</span> Release candidate</p>
+      <p>Research Mission Control defines how a human operator, two primary orchestrators, bounded specialist agents, and an independent verification context work from one shared project repository. Promptotyping preserves the project-bound reconstruction basis. The Context Stream transports current exchange across sessions. Grounded Vault can add long-lived evidence relations after a project-specific binding. An installable skill creates the reference workspace; the complete bootstrap prompt provides a portable fallback.</p>
+      <dl class="document-meta">
+        <div>
+          <dt>Recommended initializer</dt>
+          <dd>
+            <a href="./skills/research-mission-control/SKILL.md"><code>skills/research-mission-control/</code></a>
+            <a data-release-package-link href="./downloads/research-mission-control.skill" download><code>research-mission-control.skill</code></a>
+          </dd>
+        </div>
+        <div>
+          <dt>Portable fallback</dt>
+          <dd><a href="./orchestrators/bootstrap.md"><code>orchestrators/bootstrap.md</code></a></dd>
+        </div>
+        <div>
+          <dt>Configuration boundary</dt>
+          <dd>Operator-language interview, at most three questions, no execution before authorization</dd>
+        </div>
+      </dl>
+    </header>
+
+    <section class="section prompt-section" id="start" aria-labelledby="start-title">
+      <div class="section-heading">
+        <p class="section-number">01 / Start</p>
+        <h2 id="start-title">Initialize the shared workspace</h2>
+        <p>Use the installable skill when the harness can expose it. The skill conducts the configuration interview, runs the transactional scaffolder, and verifies the created repository. Use the standalone bootstrap prompt when skill installation is unavailable.</p>
+      </div>
+
+      <div class="artifact-grid">
+        <article class="artifact-card artifact-card--recommended">
+          <p class="artifact-kind">Recommended · automatic initializer</p>
+          <h3>Research Mission Control skill</h3>
+          <p>Activates from an initialization request, asks at most three unanswered questions, and creates the authorized local workspace with its project knowledge, Context Stream transport, and role starts.</p>
+          <div class="artifact-links">
+            <a data-release-package-link href="./downloads/research-mission-control.skill" download>Download installable skill</a>
+            <a href="./skills/research-mission-control/SKILL.md">Open skill source entry</a>
+            <a href="https://github.com/DigitalHumanitiesCraft/research-mission-control/tree/main/skills/research-mission-control">View skill folder on GitHub</a>
+          </div>
+        </article>
+
+        <article class="artifact-card">
+          <p class="artifact-kind">Portable fallback</p>
+          <h3>Complete system prompt</h3>
+          <p>Carries the activation boundary and configuration logic without depending on an installed skill. The complete raw Markdown source follows below.</p>
+          <div class="artifact-links">
+            <a href="./orchestrators/bootstrap.md">Open prompt source</a>
+          </div>
+        </article>
+      </div>
+
+      <section class="technical-note" aria-labelledby="configuration-questions-title">
+        <h3 id="configuration-questions-title">The three configuration questions</h3>
+        <p>The initializer names Research Mission Control (<a href="https://github.com/DigitalHumanitiesCraft/research-mission-control">public GitHub repository</a>) and asks these questions in the operator's language. Each question includes its explanatory sentence.</p>
+        <ol>
+          <li>
+            <strong>Which role should this working context assume within Research Mission Control: Research Orchestrator, Operational Orchestrator, or Independent Verification Context?</strong>
+            The working context is this separately open Codex task, Claude Code conversation, or equivalent context with its own context window. A new standard setup begins with the Research Orchestrator.
+          </li>
+          <li>
+            <strong>What is the project, what observable result should it produce, and what criteria will the Operator use to accept that result?</strong>
+            Describe the intended result and its acceptance criteria. Derive implementation steps only after this boundary is clear.
+          </li>
+          <li>
+            <strong>Where is the shared project workspace, and which existing data, documents, materials, code, repositories, or knowledge sources belong to the project?</strong>
+            The project workspace is the local folder or Git worktree shared by the selected contexts. The initializer inventories material already present there and asks the Operator to name only relevant inputs that cannot be discovered from the workspace.
+          </li>
+        </ol>
+      </section>
+
+      <section class="prompt-panel" aria-labelledby="prompt-title">
+        <div class="prompt-toolbar">
+          <div>
+            <p class="prompt-label">Complete system prompt · Markdown source</p>
+            <h3 id="prompt-title"><code>orchestrators/bootstrap.md</code></h3>
+          </div>
+          <div class="prompt-actions">
+            <button class="button button-primary" id="copy-prompt" type="button" disabled>Copy prompt</button>
+            <button class="button" id="download-prompt" type="button" disabled>Download .md</button>
+          </div>
+        </div>
+        <pre class="prompt-preview" id="prompt-preview" role="region" tabindex="0" aria-labelledby="prompt-title"><code>Loading the canonical bootstrap prompt…</code></pre>
+        <div class="prompt-status" id="prompt-status" role="status" aria-live="polite">Loading <code>./orchestrators/bootstrap.md</code>.</div>
+        <p class="prompt-fallback" id="prompt-fallback" hidden>Direct <code>file://</code> viewing cannot load the adjacent prompt into this panel in common browsers. <a href="./orchestrators/bootstrap.md">Open the complete prompt file</a> to read and copy it manually. Serve the repository over HTTP to enable the panel's copy and download controls.</p>
+      </section>
+
+      <ol class="procedure">
+        <li><strong>Begin with Research.</strong> The human remains Operator and Research Director. Activate the skill or paste the bootstrap prompt in the first working context, which is the currently open Codex task or Claude Code conversation.</li>
+        <li><strong>Confirm the configuration.</strong> Answer the three questions about role, intended result and acceptance, and the shared project workspace with its inputs.</li>
+        <li><strong>Initialize locally.</strong> After authorization, the initializer creates one new shared local Git repository. The Promptotyping core contains <code>project.md</code>, <code>specification.md</code>, <code>journal.md</code>, <code>handoff.md</code>, and <code>INDEX.md</code>; <code>knowledge/integration.md</code> carries the shared contract. <code>communication/</code> contains the Context Stream protocol, index, role-owned outboxes, recipient-owned state, threads, and capsules. <code>mission-control/roles/</code> contains the three complete role prompts, while the three <code>start-*.md</code> files bind them to the verified project.</li>
+        <li><strong>Open Operations and Verification.</strong> Open fresh second and third working contexts at the same folder. Paste <code>start-operations.md</code> and <code>start-verification.md</code> into their respective Codex tasks or Claude Code conversations.</li>
+      </ol>
+
+      <div class="note-grid">
+        <aside class="technical-note" aria-labelledby="transport-title">
+          <h3 id="transport-title">Context Stream transport</h3>
+          <p>The shared folder transports immutable messages between sessions and does not wake them. The integration contract records the tested notification route and a polling or Operator-mediated fallback.</p>
+        </aside>
+        <aside class="technical-note" aria-labelledby="boundaries-title">
+          <h3 id="boundaries-title">External and evidence boundaries</h3>
+          <p>A GitHub remote is created only after explicit authorization names its owner and visibility. Grounded Vault is requested only when substantive claims require machine-resolvable grounding and attributable human verification. It remains pending binding until a real project-specific binding is verified.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="protocol" aria-labelledby="protocol-title">
+      <div class="section-heading">
+        <p class="section-number">02 / Protocol</p>
+        <h2 id="protocol-title">Roles and exchange</h2>
+        <p>The operator remains the direct conversation partner of Research. Operations changes the actual project state. The independent Verification Context evaluates the intended result, actual artifact, and evidence, then reports its complete finding directly to the operator.</p>
+      </div>
+
+      <h3>Message flow</h3>
+      <pre class="protocol-diagram" role="region" tabindex="0" aria-label="Research Mission Control message flow"><code>Operator / Research Director
+        ↕ objectives, judgement, Operator Points
+Research Orchestrator
+        ↓ Implementation Brief
+Operational Orchestrator ── bounded assignments ──→ Specialists
+        ↓ Operations-owned Result with Evidence
+Independent Verification Context
+        ↓ complete Verification Finding
+Operator
+Operator decides whether and how the finding enters production work</code></pre>
+      <p>The standard persistent route is <code>Research → Operations → Verification → Operator</code>. A contained profile may perform the same information functions sequentially in one context.</p>
+
+      <h3>Persistent transport</h3>
+      <pre class="protocol-diagram" role="region" tabindex="0" aria-label="Context Stream persistent transport"><code>role-owned immutable outbox
+        ↓ stable thread id + canonical artifact references
+recipient-owned state and sender cursor
+        ↓ verified processing
+single-writer canonical integration
+        ↳ capsule when the thread closes or re-entry cost is material</code></pre>
+      <p>The Context Stream Protocol is the generic file-based transport. <code>communication/INDEX.md</code> locates active threads and completed capsules. Promptotyping remains the durable project knowledge layer. The Direct Communication Protocol from the two-orchestrator experiment is one concrete implementation and evidence source. The method defines no universal numeric compaction threshold.</p>
+
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Roles, responsibilities, and outputs">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Function</th>
+              <th scope="col">Responsibility</th>
+              <th scope="col">Output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="./skills/research-mission-control/SKILL.md"><code>skills/research-mission-control/SKILL.md</code></a></th>
+              <td>Installable automatic initializer and transactional workspace workflow</td>
+              <td>Verified local scaffold and three role starts</td>
+            </tr>
+            <tr>
+              <th scope="row">Context Stream Protocol</th>
+              <td>Current-work transport through immutable outboxes, recipient cursors, stable threads, and optional capsules</td>
+              <td>Message references and verified canonical write-back</td>
+            </tr>
+            <tr>
+              <th scope="row">Operator</th>
+              <td>Research objectives, consequential subject-matter positions, rights, publication, external effects, difficult-to-reverse consequences</td>
+              <td>Decision, authorization, domain judgement</td>
+            </tr>
+            <tr>
+              <th scope="row">Research Orchestrator</th>
+              <td>Objectives, concepts, sources, criteria, uncertainty, integration</td>
+              <td>Implementation Brief or Operator Point</td>
+            </tr>
+            <tr>
+              <th scope="row">Operational Orchestrator</th>
+              <td>Authorized implementation in the actual project state</td>
+              <td>Result with Evidence</td>
+            </tr>
+            <tr>
+              <th scope="row">Specialist agent</th>
+              <td>Bounded research, implementation, or verification assignment</td>
+              <td>Bounded result with evidence</td>
+            </tr>
+            <tr>
+              <th scope="row">Independent Verification Context</th>
+              <td>Read-only criterion-based examination outside the production routes</td>
+              <td>Complete Verification Finding sent directly to the operator</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="decision-levels">
+        <h3>Decision escalation</h3>
+        <dl>
+          <div>
+            <dt>Predoc function</dt>
+            <dd>Reversible routine details inside a bounded assignment</dd>
+          </div>
+          <div>
+            <dt>Postdoc function</dt>
+            <dd>Complex questions inside the Research or Operations responsibility</dd>
+          </div>
+          <div>
+            <dt>Operator</dt>
+            <dd>Consequential or reserved decisions requiring accountable human authority</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="knowledge" aria-labelledby="knowledge-title">
+      <div class="section-heading">
+        <p class="section-number">03 / Knowledge</p>
+        <h2 id="knowledge-title">Conditional knowledge profiles</h2>
+        <p>The bootstrap activates only the layers required by the project. Promptotyping supplies maintained operational memory. Grounded Vault supplies an optional long-lived evidence structure. Every state type receives one canonical location.</p>
+      </div>
+
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Knowledge layers and activation conditions">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Layer</th>
+              <th scope="col">Function</th>
+              <th scope="col">Activation condition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Context window</th>
+              <td>Immediate working context</td>
+              <td>Every session</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/DigitalHumanitiesCraft/Promptotyping">Promptotyping</a></th>
+              <td>Versioned project knowledge and structured inputs for iterative artifact development</td>
+              <td>Artifacts must be revised from maintained project knowledge; select only templates whose documented trigger holds</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://github.com/DigitalHumanitiesCraft/grounded-vault">Grounded Vault</a></th>
+              <td>Machine-resolvable provenance and attributable human verification</td>
+              <td>Requested when substantive claims require an evidence-bound audit path; pending until a project-specific binding is verified</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="reference-line"><a href="https://github.com/DigitalHumanitiesCraft/Promptotyping/tree/main/_content/promptotyping-document">Open the Promptotyping Knowledge Document template catalogue</a></p>
+    </section>
+
+    <section class="section" id="repository" aria-labelledby="repository-title">
+      <div class="section-heading">
+        <p class="section-number">04 / Repository</p>
+        <h2 id="repository-title">Authoritative files</h2>
+        <p>The page is a reading and copy interface. Method, prompts, tests, and operational state remain in their repository files.</p>
+      </div>
+
+      <div class="table-wrap" role="region" tabindex="0" aria-label="Authoritative repository files">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Path</th>
+              <th scope="col">Function</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="./orchestrators/bootstrap.md"><code>orchestrators/bootstrap.md</code></a></th>
+              <td>Canonical harness-portable bootstrap prompt</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="./orchestrators/research-orchestrator.md"><code>orchestrators/research-orchestrator.md</code></a></th>
+              <td>Canonical operator-facing Research role</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="./orchestrators/operational-orchestrator.md"><code>orchestrators/operational-orchestrator.md</code></a></th>
+              <td>Canonical implementation and specialist-integration role</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="./orchestrators/verification-context.md"><code>orchestrators/verification-context.md</code></a></th>
+              <td>Canonical independent verification role with direct operator reporting</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="./orchestrators/adapters/codex.md"><code>orchestrators/adapters/codex.md</code></a></th>
+              <td>Codex task, subagent, and instruction-file mapping</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="./orchestrators/adapters/claude-code.md"><code>orchestrators/adapters/claude-code.md</code></a></th>
+              <td>Claude Code session, agent, and instruction-file mapping</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="./knowledge/INDEX.md"><code>knowledge/INDEX.md</code></a></th>
+              <td>Entry point and authority map for the maintained method knowledge</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="./knowledge/research-to-operations-handoff.md"><code>knowledge/research-to-operations-handoff.md</code></a></th>
+              <td>Implementation Brief, callback, verification, and operator acceptance contract</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="./knowledge/method-specification.md"><code>knowledge/method-specification.md</code></a></th>
+              <td>Portable requirements, reference deployment, and method decisions</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <aside class="technical-note" aria-labelledby="publication-title">
+        <h3 id="publication-title">Publication boundary</h3>
+        <p>Operational views and runtime state are omitted from the public bundle. The builder copies an exact positive list, rejects configured absolute home-directory markers in distributed text, verifies local HTML and Markdown link targets, and fails a release build while the operator-approved licence is absent. This bounded marker check does not claim general secret detection. Official skill validation remains a separate harness quality gate.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="repo-footer">
+    <div class="shell repo-footer__inner">
+      <span>Research Mission Control</span>
+      <span>Digital Humanities Craft</span>
+    </div>
+  </footer>
+</body>
+</html>

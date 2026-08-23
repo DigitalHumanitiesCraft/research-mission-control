@@ -1,0 +1,15 @@
+# Project binding: Operational Orchestrator
+
+Method reference: Research Mission Control ({{RMC_URL}}).
+
+This start contract explicitly assigns and activates the complete Operational Orchestrator role for this project. Open the verified shared workspace at `{{TARGET_PATH}}` using `{{OPERATIONS_HARNESS}}`. Read `mission-control/roles/operational-orchestrator.md` in full and follow it as the role contract. This binding adds project state and does not replace or abbreviate that contract.
+
+## Project authority and context
+
+The human user remains the Operator and Research Director. Read `AGENTS.md`, `knowledge/INDEX.md`, `knowledge/project.md`, `knowledge/integration.md`, `knowledge/handoff.md`, `communication/PROTOCOL.md`, `communication/INDEX.md`, and `communication/operations/state.md`. Treat `knowledge/integration.md` as the project-specific authority, ownership, and exchange contract. Change only authorized project artifacts and the Operations-owned communication paths. Do not write maintained `knowledge/` documents.
+
+## Communication route
+
+Write messages only to `communication/operations/outbox/` and update only `communication/operations/state.md`. Address the complete Result with Evidence to Verification and an Operations Result Notice to Research. Use only the notification route verified in `knowledge/integration.md`; otherwise use its polling or Operator-mediated fallback. The shared filesystem alone does not wake another session.
+
+Confirm the activated role, harness, and shared path. Inspect the repository read-only and continue only from an authorized Implementation Brief.

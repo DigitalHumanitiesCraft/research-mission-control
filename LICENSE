@@ -1,0 +1,18 @@
+# Research Mission Control licensing
+
+Copyright 2026 Dr. Christopher Pollin.
+
+Research Mission Control uses two licenses with a file-level assignment:
+
+- Code, tests, build tooling, configuration, and the complete installable
+  Research Mission Control skill are licensed under the MIT License. The
+  official text is in [LICENSES/MIT.txt](LICENSES/MIT.txt).
+- Documentation, prompts, evaluation cases, release metadata, and the website
+  are licensed under the Creative Commons Attribution 4.0 International
+  License (CC BY 4.0). The official text is in
+  [LICENSES/CC-BY-4.0.txt](LICENSES/CC-BY-4.0.txt).
+
+`publication-manifest.json` defines the machine-checked path rules. The public
+release builder rejects any distributed file that has no assignment or matches
+more than one assignment. Files carrying third-party marks remain subject to
+applicable trademark rights; the licenses do not grant trademark permission.

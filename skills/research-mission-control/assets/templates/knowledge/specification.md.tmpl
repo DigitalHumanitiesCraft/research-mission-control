@@ -1,0 +1,36 @@
+---
+title: Specification
+project:
+  name: {{PROJECT_NAME_YAML}}
+  repository: local
+method:
+  name: Promptotyping
+  url: https://github.com/DigitalHumanitiesCraft/Promptotyping
+status: draft
+created: {{CREATED_DATE}}
+updated: {{CREATED_DATE}}
+---
+
+# Specification
+
+This document holds requirements, current scope, and durable decisions. It begins with the initialization objective and is refined by Research before implementation depends on an unresolved criterion.
+
+## Requirement
+
+- FR-01: The project shall produce the following observable result: {{OBJECTIVE}}
+
+## Completion criterion
+
+The Operator and Research Orchestrator must translate the observable result into inspectable acceptance criteria before a consequential or difficult-to-reverse implementation step.
+
+## Decisions
+
+### ADR-001 Shared Research Mission Control workspace
+
+Context. The project uses separate conceptual, operational, and verification contexts over one repository.
+
+Choice. The repository stores one Integration Document, one maintained knowledge base, and role-specific start contracts.
+
+Reason. Each context can recover its responsibility and current canonical sources without copying project state into several prompts.
+
+Effect. To be observed during the first complete Implementation Brief, Result with Evidence, and Verification Finding cycle.

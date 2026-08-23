@@ -1,0 +1,20 @@
+# Script-pipeline regime: the generators are run in place, never installed,
+# so this manifest carries no [build-system] and declares no dependencies.
+# Both generators are standard-library only.
+[project]
+name = "forschungsleitstelle"
+version = "0.9.0rc1"
+requires-python = ">=3.11"
+
+[tool.ruff]
+# Covers the existing sources (longest real line 113) so no file needs
+# reformatting; the limit is a guard against new runaway lines.
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+# sys.path.insert(0, HERE) has to run before make_data is imported, otherwise
+# the module is not importable when pytest collects from the repository root.
+"dashboard/test_make_data.py" = ["E402"]

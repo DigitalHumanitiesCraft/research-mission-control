@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Mission Control"
+  short_description: "Initialize a shared multi-agent research workspace"
+  default_prompt: "Use $research-mission-control to configure and initialize Research Mission Control (https://github.com/DigitalHumanitiesCraft/research-mission-control) in a shared project workspace. Ask the three configuration questions in my language."
