@@ -152,6 +152,9 @@ def test_release_version_and_generated_sha_evidence_are_coherent() -> None:
         assert built["source_dirty"] is None or isinstance(built["source_dirty"], bool)
         assert len(built["publication_manifest_sha256"]) == 64
 
+        for relative in ("index.html", "release-metadata.json", "SHA256SUMS"):
+            assert b"\r\n" not in (target / relative).read_bytes(), f"generated file is not LF-normalized: {relative}"
+
         checksum_lines = (target / "SHA256SUMS").read_text(encoding="utf-8").splitlines()
         expected_paths = {path.relative_to(target).as_posix() for path in target.rglob("*") if path.is_file()}
         checked_paths = set()

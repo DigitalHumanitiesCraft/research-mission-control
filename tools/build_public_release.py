@@ -220,7 +220,7 @@ def _write_release_metadata(
     payload["source_commit"] = source_commit
     payload["source_dirty"] = source_dirty
     payload["publication_manifest_sha256"] = hashlib.sha256(MANIFEST_PATH.read_bytes()).hexdigest()
-    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 
 
 def _write_checksums(bundle_root: Path) -> None:
@@ -231,7 +231,7 @@ def _write_checksums(bundle_root: Path) -> None:
             continue
         relative = path.relative_to(bundle_root).as_posix()
         lines.append(f"{hashlib.sha256(path.read_bytes()).hexdigest()}  {relative}")
-    (bundle_root / CHECKSUMS_PATH).write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (bundle_root / CHECKSUMS_PATH).write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
 
 
 def _package_skill(bundle_root: Path, copied: list[Path]) -> Path:
@@ -268,7 +268,11 @@ def _activate_release_links(bundle_root: Path) -> None:
     inactive_count = source.count(marker)
     total_count = source.count("data-release-package-link")
     if inactive_count == 2 and total_count == 2:
-        index_path.write_text(source.replace(marker, "data-release-package-link"), encoding="utf-8")
+        index_path.write_text(
+            source.replace(marker, "data-release-package-link"),
+            encoding="utf-8",
+            newline="\n",
+        )
         return
     if inactive_count == 0 and total_count == 2 and (bundle_root / SKILL_PACKAGE).is_file():
         return
