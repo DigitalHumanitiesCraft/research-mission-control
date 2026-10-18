@@ -66,13 +66,13 @@
     }
   }
 
-  function sourceHref(reference, anchor = '') {
-    if (typeof reference !== 'string' || typeof anchor !== 'string' || /[\\:\x00-\x1f]/.test(reference)
+  function sourceHref(reference, anchor = '', context = '') {
+    if (typeof reference !== 'string' || typeof anchor !== 'string' || typeof context !== 'string' || /[\\:\x00-\x1f]/.test(reference)
       || reference.split('/').some(part => !part || part.startsWith('.'))) return '';
     const aliases = { HOME: 'demo-guide', 'demo-guide.md': 'demo-guide' };
     const id = Object.hasOwn(aliases, reference) ? aliases[reference]
       : /^demo-sources\/demo-[a-z0-9-]+$/.test(reference) ? reference + '.md' : reference;
-    const project = new URL(location.href).searchParams.get('projekt') || new URLSearchParams(location.hash.slice(1)).get('bezug') || (id === 'demo-guide' ? 'demo-atlas' : '');
+    const project = context || new URL(location.href).searchParams.get('projekt') || new URLSearchParams(location.hash.slice(1)).get('bezug') || (id === 'demo-guide' ? 'demo-atlas' : '');
     return profileAddress(new URL('research.html#' + new URLSearchParams({ view: 'context', source: id, read: '1', ...(project ? { bezug: project } : {}),
       ...(anchor ? { anchor: anchor.toLowerCase().replace(/[^\p{L}\p{N}_\s-]/gu, '').replace(/\s/g, '-') } : {}) }), base)).href;
   }
@@ -107,6 +107,7 @@
       }
       const asset = endpoint === '/api/research' ? 'coverage.json' : endpoint === '/api/work' ? 'work.json'
         : endpoint === '/api/acceptance-review' && url.searchParams.get('lane') === 'demo-research' && url.searchParams.get('kennung') === 'DEMO-COMPARE' ? 'acceptance.json'
+        : endpoint === '/api/acceptance-review' && url.searchParams.get('lane') === 'demo-curation' && url.searchParams.get('kennung') === 'DEMO-LABEL' ? 'acceptance-workshop.json'
         : endpoint === '/api/agent-work' ? 'agent-work.json'
         : endpoint === '/api/operator-sessions' ? 'operator-sessions.json'
         : endpoint === '/api/relations' ? 'relations.json' : endpoint === '/api/progress' ? 'progress.json' : '';
@@ -120,8 +121,9 @@
   };
   document.addEventListener('DOMContentLoaded', () => {
     const notice = document.createElement('aside'); notice.className = 'demo-notice'; notice.setAttribute('aria-label', tr('Demostand', 'Demo status'));
-    const label = document.createElement('strong'); label.textContent = tr('Synthetische Demo · 0.9.0 RC3', 'Synthetic demo · 0.9.0 RC3');
-    const text = document.createElement('span'); text.textContent = tr(' Alle Projekte, Rollen, Befunde, Sitzungsmetadaten und Termine sind erfunden. Quellenlesen, Kopieren und Browser-Einstellungen funktionieren lokal. Versand, Agentenaktivität, Kalenderverbindung und kanonische Übernahme sind nicht verfügbar.', ' All projects, roles, findings, session metadata and dates are fictional. Source reading, copying and browser settings work locally. Sending, agent activity, calendar connections and canonical adoption are unavailable.');
+    const label = document.createElement('strong'); label.textContent = tr('Synthetische Demo · 0.9.0 RC5', 'Synthetic demo · 0.9.0 RC5');
+    const text = document.createElement('span'); text.textContent = tr(' Fiktives Beispiel. Änderungen bleiben im Browser.', ' Fictional case. Changes stay in this browser.');
+    const boundary = document.createElement('span'); boundary.textContent = tr(' Alle Projekte, Rollen, Befunde, Sitzungsmetadaten und Termine sind erfunden. Quellenlesen, Kopieren und Browser-Einstellungen funktionieren lokal. Versand, Agentenaktivität, Kalenderverbindung und kanonische Übernahme sind nicht verfügbar.', ' All projects, roles, findings, session metadata and dates are fictional. Source reading, copying and browser settings work locally. Sending, agent activity, calendar connections and canonical adoption are unavailable.');
     const profileControls = document.createElement('section'); profileControls.className = 'demo-profile';
     if (profile) {
       const language = window.UI_LANGUAGE?.language === 'de' ? 'de' : 'en';
@@ -132,7 +134,7 @@
       const description = document.createElement('p'); description.textContent = profile.description[language];
       const same = document.createElement('p'); same.textContent = registry.invariant[language];
       const detail = document.createElement('details');
-      const summary = document.createElement('summary'); summary.textContent = tr('Quellenablage und stabile Identitäten ansehen', 'Inspect source layout and stable identities'); detail.append(summary);
+      const summary = document.createElement('summary'); summary.textContent = tr('Quellen: ', 'Sources: ') + profile.title[language]; detail.append(summary);
       const tree = Object.create(null);
       for (const source of profile.sources) {
         const parts = source.storagePath.slice(profile.prefix.length).split('/');
@@ -153,13 +155,13 @@
         }
         return ul;
       };
-      detail.append(list(tree));
+      detail.append(label, boundary, description, same, list(tree));
       select.addEventListener('change', () => {
         const target = new URL(location.href); target.searchParams.set('profile', select.value);
         target.searchParams.set('lang', window.UI_LANGUAGE?.language || language);
         location.href = target.href;
       });
-      profileControls.append(label, description, same, detail);
+      profileControls.append(detail);
       if (invalidProfile || storageUnavailable) {
         const message = document.createElement('p'); message.setAttribute('role', 'status');
         message.textContent = invalidProfile ? tr('Unbekanntes oder mehrfach angegebenes Profil: Standardprofil wird angezeigt.', 'Unknown or repeated profile: showing the default profile.')

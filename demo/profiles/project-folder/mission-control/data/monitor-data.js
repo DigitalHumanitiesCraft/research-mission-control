@@ -1,26 +1,7 @@
 window.MONITOR = {
   "synthetic": true,
-  "stand": "17.10.2026, erfundenes Beispiel",
+  "stand": "18 October 2026, authored scenario",
   "quelle": "",
-  "korrekturen": [
-    {
-      "kurz": "Example: preserve uncertainty",
-      "stand": "offen",
-      "fehler": "A fictional draft omits the missing object identifier.",
-      "stelle": "Authored exhibition-label example",
-      "korrektur": "Retain the uncertainty beside the interpretation.",
-      "beleg": "Authored demo-guide; this case is not an observed coordination failure.",
-      "prompt": "Synthetic example only: discuss how the exhibit label should preserve the uncertain identification. Do not send a message or modify a real source."
-    },
-    {
-      "kurz": "Example: retain original wording",
-      "stand": "erledigt",
-      "fehler": "A fictional earlier label replaced source wording with an interpretation.",
-      "stelle": "Authored earlier label example",
-      "korrektur": "The authored current example keeps the original description.",
-      "beleg": "Preauthored corrected-case illustration, not an independently checked implementation."
-    }
-  ],
   "entscheidungen": [],
   "paraphrasen": [],
   "faelle": [
@@ -29,73 +10,88 @@ window.MONITOR = {
       "status": "belegt",
       "ergebnis": "teilweise",
       "art": "beispiel",
-      "kurz": "Beispiel: Offene Identität",
-      "text": "Die Beispielquelle nennt die fehlende Objektkennung ausdrücklich. Dies ist ein vorab verfasster Fall.",
-      "beleg": "Synthetische Quelle demo-guide, Beispielergebnis und Prüfgrenze."
+      "kurz": "R5 supersedes the earlier permission",
+      "text": "The original R1 permission remains historical; the current requirement follows R5.",
+      "beleg": "Authored records R1/R5 and RQ-06."
     },
     {
       "dimension": "umsetzen",
       "status": "ungeprüft",
       "ergebnis": "ungeprüft",
       "art": "beispiel",
-      "kurz": "Beispiel: Kein Umsetzungsnachweis",
-      "text": "Eine echte Umsetzung wurde nicht beobachtet. Der Beispielzustand begründet keine Abnahme.",
-      "beleg": ""
+      "kurz": "Independent review remains pending",
+      "text": "Prepared wording permits inspection, without supplying an independent finding or delivery approval.",
+      "beleg": "Requirement change and verification boundary."
     }
   ],
   "lagebild": [
     {
-      "titel": "Vollständig synthetisch",
-      "text": "Vorab verfasste Fälle. Keine tatsächliche Koordination und kein Gesamturteil."
+      "titel": "Authored material state",
+      "text": "Requirements and workshop artifacts are prepared. H-01 is pending; no workshop occurred."
     }
   ],
   "verlaesslichkeit": [
     {
-      "titel": "Geltungsbereich",
-      "text": "Nur Beispieldaten. Keine empirische Messung."
-    },
-    {
-      "titel": "Offen",
-      "text": "Eine menschliche Beurteilung wurde nicht vorgenommen."
+      "titel": "Scope",
+      "text": "Internal consistency of fictional records can be inspected. Effectiveness and learning remain untested."
     }
   ],
   "fehler": [],
+  "korrekturen": [
+    {
+      "kurz": "Inspect material-policy propagation",
+      "stand": "offen",
+      "fehler": "The historical baseline invited original project excerpts.",
+      "stelle": "Historical baseline-v1 exercise",
+      "korrektur": "The supplied restricted-v2 artifacts instead require wholly fictional cases. Compare every current instruction against R5.",
+      "beleg": "Authored before/after passages, not an observed coordination failure.",
+      "prompt": "Discuss how the current materials implement R5 and retain H-01. Do not import real project material, send a message or claim delivery."
+    },
+    {
+      "kurz": "Retain the superseded source",
+      "stand": "erledigt",
+      "fehler": "Replacing R1 would conceal the grounds of the requirement change.",
+      "stelle": "Authored source history",
+      "korrektur": "R1 remains visible and explicitly superseded by R5.",
+      "beleg": "Completed authored source-preservation example, not an independent check."
+    }
+  ],
   "evidenzlog": [
     {
       "id": "demo-atlas-identity",
-      "titel": "Atlas: object identity remains unresolved",
+      "titel": "Requirements: independent source review pending",
       "status": "offen",
       "art": "Verification gap",
       "stufe": "verständnis",
       "basis": "offen",
       "owner": "demo-research",
-      "aktion": "Read the missing shared identifier as an unresolved prerequisite in the authored example; do not infer object identity from matching colour and form.",
-      "beleg": "The Atlas requires clarification of the shared object identifier; no such identifier is supplied.\n\nAuthored fiction only. No actual check, run, human acceptance or closure is claimed.",
-      "fassung": "demo-guide @ 244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092"
+      "aktion": "Compare every requirement with its named record and distinguish retained instructions from inferences.",
+      "beleg": "The authored case analysis yields a handover structure with a located source, a bounded next action and a visible decision boundary. R2 supplies a receiver's stated obstacles, while R1, R3–R5 supply explicit requirements. These records support the requirements below within the fictional scenario. They provide no evidence that this structure improves real project outcomes.\n\nAuthored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
+      "fassung": "demo-guide @ 5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db"
     },
     {
       "id": "demo-exhibit-reuse",
-      "titel": "Exhibition: qualify reuse of the Atlas comparison",
+      "titel": "Workshop: inspect R5 propagation and retain H-01",
       "status": "ungeprüft",
       "art": "Qualified reuse",
       "stufe": "integration",
       "basis": "offen",
       "owner": "demo-curation",
-      "aktion": "Keep the written reuse relationship separate from a verified integration or an identification of the two objects. The fictional label task remains assigned, not observed running.",
-      "beleg": "The exhibition builds on the Atlas comparison.\n\nAuthored fiction only. This relationship is written example context, not a checked integration, actual execution or human acceptance.",
-      "fassung": "demo-guide @ 244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092"
+      "aktion": "Inspect the agenda, worksheet and model against R5. Keep material approval and the room-format choice separate from completed preparation.",
+      "beleg": "The workshop builds on the requirements synthesis.\n\nAuthored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
+      "fassung": "demo-guide @ 5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db"
     },
     {
       "id": "demo-archive-background",
-      "titel": "Archive: closed illustrative background contribution",
+      "titel": "Archive: completed authored source-preservation contribution",
       "status": "geschlossen",
       "art": "Background example",
       "stufe": "prüfung",
       "basis": "offen",
-      "owner": "Unassigned in the authored background example",
-      "aktion": "Retain the written background contribution without creating a follow-up. Closed describes only this fictional scenario; no real verification or institutional outcome is asserted.",
-      "beleg": "No new archive task or follow-up is commissioned.\n\nAuthored fiction only. The illustrative closed state is not an observed check, real completion or human acceptance.",
-      "fassung": "demo-guide @ 244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092"
+      "owner": "Unassigned authored background",
+      "aktion": "Retain the source and supersession record without commissioning a follow-up.",
+      "beleg": "The supporting archive retains the source and supersession record as completed authored background, without a follow-up assignment.\n\nAuthored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
+      "fassung": "demo-guide @ 5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db"
     }
   ]
 };

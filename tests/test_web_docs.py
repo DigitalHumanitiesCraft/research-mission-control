@@ -65,6 +65,17 @@ class WebDocsTests(unittest.TestCase):
         self.assertIn('href="notes/b.html#same_1"', output)
         self.assertIn('href="a.html#a"', output)
 
+    def test_section_links_name_their_heading_without_changing_sources_or_targets(self) -> None:
+        text = "# Method\n\n## Read *sources* & reuse\n\n[Return](#read-sources-reuse)\n"
+        self.source("a.md", text)
+        original = (self.root / "a.md").read_bytes()
+        output = self.render(["a.md"])
+        self.assertIn('aria-label="Link to section: Method"', output)
+        self.assertIn('aria-label="Link to section: Read sources &amp; reuse"', output)
+        self.assertIn('href="a.html#read-sources-reuse"', output)
+        self.assertIn('<h2 id="read-sources-reuse">Read <em>sources</em> &amp; reuse', output)
+        self.assertEqual((self.root / "a.md").read_bytes(), original)
+
     def test_missing_fragment_fails_before_outputs(self) -> None:
         self.source("a.md", "# A\n\n[Missing](#missing)")
         with self.assertRaisesRegex(ValueError, "missing section"):

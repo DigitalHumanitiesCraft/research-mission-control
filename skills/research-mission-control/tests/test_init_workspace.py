@@ -163,6 +163,19 @@ class WorkspaceInitializationTest(unittest.TestCase):
             self.assertEqual("keep", marker.read_text(encoding="utf-8"))
             self.assertEqual([marker], list(target.iterdir()))
 
+    def test_refuses_existing_empty_target_without_modifying_it(self) -> None:
+        """An empty folder remains user-owned and is not a fresh target."""
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            target = Path(temporary_directory) / "empty-project"
+            target.mkdir()
+
+            with self.assertRaises(FileExistsError):
+                self._config(target)
+
+            self.assertTrue(target.is_dir())
+            self.assertEqual([], list(target.iterdir()))
+            self.assertEqual([target], list(Path(temporary_directory).iterdir()))
+
     def test_grounded_vault_is_conditional(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             parent = Path(temporary_directory)

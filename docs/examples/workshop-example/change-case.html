@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"><title>Requirement change and first local exercise | Research Mission Control</title><link rel="stylesheet" href="../../../site.css"><link rel="stylesheet" href="../../docs.css"></head>
+<body><a class="skip-link" href="#document">Skip to document</a>
+<header class="docs-header"><a class="brand" href="../../../index.html">Research Mission Control</a><nav aria-label="Primary navigation"><a href="../../../index.html">Overview</a><a href="../../knowledge/system-description.html">Method in practice</a><a href="../../../index.html#downloads">Reference</a></nav></header>
+<main class="docs-layout" id="document" tabindex="-1"><details class="contents"><summary>Sections in this reference</summary><div class="toc">
+<ul>
+<li><a href="#material-restriction-and-dependent-revisions">Material restriction and dependent revisions</a><ul>
+<li><a href="#source-change">Source change</a></li>
+<li><a href="#wording-changes">Wording changes</a></li>
+<li><a href="#propagation-and-ownership">Propagation and ownership</a></li>
+<li><a href="#bounded-implementation-brief">Bounded implementation brief</a></li>
+<li><a href="#first-local-exercise">First local exercise</a></li>
+<li><a href="#verification-and-acceptance">Verification and acceptance</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><article><h1 id="material-restriction-and-dependent-revisions">Material restriction and dependent revisions<a aria-label="Link to section: Material restriction and dependent revisions" class="headerlink" href="change-case.html#material-restriction-and-dependent-revisions" title="Link to section: Material restriction and dependent revisions">&para;</a></h1>
+<p><a href="records.html#r5-replacement-material-rule">R5</a> changes the scenario's material rule from permission to use anonymized original excerpts to a prohibition on all original project material. The current workshop, worksheet and maintained requirement use only wholly fictional cases. The before/after passages below are authored revision fixtures. They describe a proposed change sequence without claiming an observed instruction, agent correction or human approval.</p>
+<h2 id="source-change">Source change<a aria-label="Link to section: Source change" class="headerlink" href="change-case.html#source-change" title="Link to section: Source change">&para;</a></h2>
+<p>The previous source wording appears in <a href="records.html#r1-original-brief">R1</a>.</p>
+<blockquote>
+<p>Participants may use anonymized excerpts from their own project records. Remove personal identifiers and confidential details before bringing an excerpt.</p>
+</blockquote>
+<p>The controlling replacement appears in <a href="records.html#r5-replacement-material-rule">R5</a>.</p>
+<blockquote>
+<p>Original project material is prohibited throughout the workshop, including anonymized, redacted, paraphrased or otherwise transformed excerpts. Use only wholly fictional training material authored for the workshop.</p>
+</blockquote>
+<p>R5 also expressly covers preparation, examples, exercises, worksheets, discussion and take-away material, requires removal of invitations to supply project content, and reserves approval before delivery for the human owner. Restricting names alone would fail this source instruction.</p>
+<h2 id="wording-changes">Wording changes<a aria-label="Link to section: Wording changes" class="headerlink" href="change-case.html#wording-changes" title="Link to section: Wording changes">&para;</a></h2>
+<p>The <code>baseline-v1</code> passages below are historical fixture wording. The <code>restricted-v2</code> passages are the exact operative wording at their linked artifact sections.</p>
+<table>
+<thead>
+<tr>
+<th>Artifact and requirement</th>
+<th>Before, baseline-v1</th>
+<th>After, restricted-v2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exercise, RQ-06</td>
+<td>“Bring an anonymized excerpt from your project and use it as the source for your handover.”</td>
+<td>“Use only Case U or Case C, revision <code>training-v2</code>, supplied in <a href="model-handover.html#training-source">the training source</a>.” See <a href="workshop.html#exercise">Exercise</a>.</td>
+</tr>
+<tr>
+<td>Worksheet material instruction, RQ-02 and RQ-06</td>
+<td>“Paste your anonymized project excerpt and record its original location.”</td>
+<td>“Use only <a href="model-handover.html#training-source">Case U or Case C</a>, revision <code>training-v2</code>. Original project content is prohibited, including anonymized, redacted and paraphrased excerpts.” See <a href="worksheet.html">worksheet opening</a>. W1 now requests the supplied source file, section and row IDs.</td>
+</tr>
+<tr>
+<td>Facilitator briefing, RQ-06</td>
+<td>“Invite participants to bring project excerpts and check that names and confidential details have been removed.”</td>
+<td>“Read the material rule before the first activity. Use only the supplied wholly fictional cases.” See <a href="workshop.html#facilitator-briefing">Facilitator briefing</a>. The following instructions stop original-content disclosure and redirect to the cases.</td>
+</tr>
+<tr>
+<td>Maintained requirement RQ-06</td>
+<td>“Allow anonymized project excerpts when identifiers and confidential details have been removed.”</td>
+<td>“Admit only wholly fictional workshop material and remove invitations to supply original content.” See <a href="requirements.html#requirements-matrix">requirements matrix</a>. Its supporting record changes from R1 to R5.</td>
+</tr>
+<tr>
+<td>Training examples, RQ-06 and RQ-08</td>
+<td>“Participants supply a university or company project excerpt for the model.”</td>
+<td>“Every row, category, prepared output and handover below is authored fictional training material.” See <a href="model-handover.html">model opening</a>. Case U and Case C provide inspectable material for both contexts.</td>
+</tr>
+</tbody>
+</table>
+<p>The exact before wording for RQ-06 operationalizes R1's permission as an authored baseline requirement. R5 supersedes it. References to the earlier permission remain only in the source history and this change account. They carry no current permission to introduce original project material.</p>
+<h2 id="propagation-and-ownership">Propagation and ownership<a aria-label="Link to section: Propagation and ownership" class="headerlink" href="change-case.html#propagation-and-ownership" title="Link to section: Propagation and ownership">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Maintained object</th>
+<th>Required consequence</th>
+<th>Proposed responsible role</th>
+<th>Boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requirements matrix</td>
+<td>Revise RQ-06, cite R5 and preserve the supersession reference to R1.</td>
+<td>Research</td>
+<td>Interpret the source change without inventing sponsor decisions.</td>
+</tr>
+<tr>
+<td>Workshop exercise and briefing</td>
+<td>Replace original-excerpt invitations with the fictional case instruction and enforce it during discussion.</td>
+<td>Operations within the workshop-material assignment</td>
+<td>Prepare artifacts, without scheduling or delivering a workshop.</td>
+</tr>
+<tr>
+<td>Worksheet</td>
+<td>Replace the paste field with supplied source IDs, revision and material declaration.</td>
+<td>Operations</td>
+<td>Preserve the handover evidence fields required by RQ-01–RQ-05.</td>
+</tr>
+<tr>
+<td>Model handover</td>
+<td>Supply wholly authored U and C sources and keep the category decision open.</td>
+<td>Operations</td>
+<td>Do not import, anonymize or paraphrase actual project content.</td>
+</tr>
+<tr>
+<td>Source references and result notice</td>
+<td>Name R5 and <code>restricted-v2</code> in the submission and cite changed sections.</td>
+<td>Operations</td>
+<td>A notice alone establishes no receipt or processing.</td>
+</tr>
+<tr>
+<td>Independent finding</td>
+<td>Compare all submitted changes against R5 and the retained requirements.</td>
+<td>Separate Verification context</td>
+<td>Read only, full finding first to the human owner.</td>
+</tr>
+<tr>
+<td>Approval and H-01</td>
+<td>Approve material for delivery and select the room format.</td>
+<td>Human owner represented in fiction</td>
+<td>Neither decision is recorded in this pack.</td>
+</tr>
+</tbody>
+</table>
+<p>These role assignments apply the method contract in the supplied context. They do not document actual agents or a fictional team having worked.</p>
+<h2 id="bounded-implementation-brief">Bounded implementation brief<a aria-label="Link to section: Bounded implementation brief" class="headerlink" href="change-case.html#bounded-implementation-brief" title="Link to section: Bounded implementation brief">&para;</a></h2>
+<p>This historical example is the brief for the authored <code>baseline-v1</code> to <code>restricted-v2</code> transition. The supplied artifacts already contain the replacement wording, so this brief is evidence of the intended assignment boundary. It supplies no fresh change task on the current pack. Paths are relative to the historical workspace. It grants no authority over the public demo, a vault or any actual project.</p>
+<pre><code class="language-text">Read records.md in full, especially R1, R3, R5 and R6.
+Update workshop.md, worksheet.md and model-handover.md only.
+Use requirements.md as the maintained research input.
+Apply RQ-06 using R5 and preserve RQ-01–RQ-05, RQ-07 and RQ-08.
+Use wholly fictional training material. Import no original project content.
+Preserve H-01 as open and prepare both agenda-slot variants.
+Do not edit records.md or requirements.md.
+Do not schedule, deliver, contact anyone or publish.
+Return the changed passages, source revision, checks performed and limits.
+Submit the full result to the separately configured Verification route.
+Send Research a result notice identifying affected sections.
+Keep transport, receipt and processing evidence distinct.
+</code></pre>
+<p>Research separately maintains <a href="requirements.html#requirements-matrix">RQ-06</a>. That separation prevents an implementation brief from silently granting ownership of its own research criteria.</p>
+<h2 id="first-local-exercise">First local exercise<a aria-label="Link to section: First local exercise" class="headerlink" href="change-case.html#first-local-exercise" title="Link to section: First local exercise">&para;</a></h2>
+<p>Copy the complete source pack into a new local folder of your choice and work only in that copy. Leave the supplied files unchanged. The task creates one new result and requires no connection to an actual project or an external account.</p>
+<pre><code class="language-text">Read records.md in full in the copied workspace.
+Create results/ if needed. Write ONLY results/handover-requirements.md.
+Do not edit any supplied file or create any other result.
+Derive a requirements table from the authored records.
+Give every row an ID, a requirement, an exact source-section citation,
+and a statement of whether it retains an explicit instruction or infers
+a requirement from a stated need. Explain each inference in the row.
+Link citations from the result to ../records.md and its exact heading anchor.
+Distinguish R1's superseded material permission from R5's current rule.
+Preserve H-01 as open, identify its owner and state its consequence.
+Describe the result as analysis of fictional records. Claim no research run,
+workshop, independent review, learning outcome or human acceptance.
+Finish and save the first draft before reading requirements.md.
+Then use requirements.md as the supplied comparison answer.
+Record supported differences and any correction within the same result file.
+</code></pre>
+<p>Check each requirement against the cited section in <code>records.md</code>, follow every source link from the new result, and confirm that each inference is distinguished from an explicit instruction. Check that R5 controls the current material rule and that H-01 remains unanswered with its printing and allocation consequence visible. Finally compare the draft with <a href="requirements.html#requirements-matrix">the supplied matrix</a>. Matching its wording or row grouping is unnecessary when the alternative remains supported by the records.</p>
+<p>Stop after the comparison and any justified revision to <code>results/handover-requirements.md</code>. Report the checks actually performed and their limits. The stopping point is a source-checked local draft. Delivery, independent Verification and human acceptance remain outside this exercise.</p>
+<h2 id="verification-and-acceptance">Verification and acceptance<a aria-label="Link to section: Verification and acceptance" class="headerlink" href="change-case.html#verification-and-acceptance" title="Link to section: Verification and acceptance">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Check to perform in a separate review</th>
+<th>Evidence</th>
+<th>What a finding can establish</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read R5 and compare every operative material instruction.</td>
+<td>Workshop exercise, worksheet opening and W1, facilitator briefing, model source.</td>
+<td>Whether those instructions apply the stated prohibition.</td>
+</tr>
+<tr>
+<td>Distinguish history from current permission.</td>
+<td>R1 supersession statement, change table, current RQ-06.</td>
+<td>Whether an earlier permission is clearly historical.</td>
+</tr>
+<tr>
+<td>Trace retained requirements.</td>
+<td>RQ-01–RQ-08 against W1–W5 and the model.</td>
+<td>Whether the material change preserved the handover requirements.</td>
+</tr>
+<tr>
+<td>Recompute agenda duration and inspect both slot variants.</td>
+<td>Agenda intervals and H-01.</td>
+<td>Whether each format fits the stated 90 minutes.</td>
+</tr>
+<tr>
+<td>Inspect provenance and uncertainty statements.</td>
+<td>Fiction notices, model unresolved rows, empty worksheet findings.</td>
+<td>Whether the artifacts avoid claims of an executed run or resolved human choice.</td>
+</tr>
+</tbody>
+</table>
+<p>The submitted artifacts themselves allow source inspection. A textual review of this pack cannot establish the absence of prohibited material in an unseen participant submission. It cannot establish learning or successful task resumption. A separate reviewer must return the full finding to the human owner under R3. Human acceptance of the revised workshop remains unrecorded. H-01 remains an actual open choice within the fiction, with final sheet allocation and its associated activity dependent on the answer.</p></article>
+<details class="source-meta"><summary>Document source and release information</summary><p>Package release 0.9.0rc5</p><p>Source <code>examples/workshop-example/change-case.md</code>. <a href="../../../examples/workshop-example/change-case.md" download>Download original Markdown</a></p><details><summary>Original document metadata</summary><p>Document versions and dated evidence describe their recorded scope. Rendering this document in another package does not update those findings.</p><dl></dl></details></details>
+</main><footer class="docs-footer"><a href="../../../index.html">Overview</a><a href="../../../index.html#downloads">Reference and reuse</a><a href="../../../examples/workshop-example/change-case.md" download>Original Markdown</a></footer></body></html>

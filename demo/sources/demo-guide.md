@@ -1,108 +1,541 @@
-# Beispielquelle: Atlas der Dinge
+# Traceable project handovers
 
-Dies ist ein vollständig erfundenes Beispiel für eine öffentliche Interface-Demo. Projekt, Material, Rollen, Fragen und Ergebnisse haben keinen Bezug zu realen Forschungsvorhaben. Das Beispieldatum 12. Januar 2026 bezeichnet keinen tatsächlich erfolgten Arbeitslauf.
+Authored fictional source and artifacts. No research run, workshop delivery, independent review or human acceptance occurred. Scenario revisions describe supplied wording, without representing Git history.
 
-Quellen-ID: demo-guide
-Projekt-ID: demo-atlas
-Beispielrolle: demo-research
+Source ID: demo-guide
+Research project ID: demo-atlas
+Workshop project ID: demo-exhibit
+Scenario date: 18 October 2026
 
-## Forschungsfrage
+The original seven-file pack is supplied separately in the method distribution under examples/workshop-example/. Its workspace filenames in the exercises refer to that pack. The complete text below uses local section links for browser reading.
 
-Was lässt sich aus zwei ähnlichen Inventarbeschreibungen über Gestalt, Funktion und mögliche Objektidentität ableiten?
+## Research question
 
-## Erfundenes Material
+What does a colleague need to resume a project task from a documented handover? The requirements study analyses R1–R6 and supplies the workshop with an authored requirements synthesis. The workshop converts that synthesis into a 90-minute plan, a worksheet and a model handover. Independent review and workshop delivery remain unperformed.
 
-Die erfundene Inventarnotiz A beschreibt einen blauen Würfel als Spielstein. Die ebenfalls erfundene Inventarnotiz B beschreibt einen blauen Würfel als Musterstück. Eine gemeinsame Objektkennung fehlt. Aus den ähnlichen Beschreibungen folgt daher keine gesicherte Identität.
+## Requirements assignment
 
-## Beispielergebnis
+Read the authored records R1–R6. Produce a requirements matrix with an exact record citation for every row. Distinguish retained instructions from inferred requirements. Preserve R1 as superseded history, apply R5 as the current material rule and keep H-01 open. The supplied synthesis is a completed authored result; it is not evidence of an agent carrying out this assignment.
 
-Ein beschreibender Vergleich kann Farbe, Form und zugeschriebene Funktion getrennt ausweisen. Die Funktionswörter widersprechen sich, während Farbe und Form übereinstimmen. Ob beide Notizen dasselbe Objekt meinen, bleibt in diesem erfundenen Material offen.
+## Workshop assignment
 
-Both invented notes describe a blue cube. Note A calls it a game piece; note B calls it a sample. The table separates those descriptions from the unresolved object identity. This is authored fiction, not an executed run.
+Use the requirements synthesis to prepare the 90-minute workshop plan, participant worksheet and completed model handover. Apply R5 throughout, retain RQ-01–RQ-08 and prepare both H-01 formats. Final printing, allocation, delivery and acceptance remain outside this completed authored planning result.
 
-Comparison of the two invented inventory notes
+## Example guide
 
-| Field | Invented note A | Invented note B | Comparison |
+This authored example connects a small case analysis with a dependent 90-minute workshop. The research question is “What does a colleague need to resume a project task from a documented handover?” Its completed example result is a requirements matrix derived from fictional records. The workshop turns those requirements into a handover, a peer review and a revision.
+
+Every record, quotation, project, role, result and pending choice below is invented. No research run, workshop delivery, team exchange, independent review or human acceptance occurred. Source-supported analysis of invented records establishes consistency within this scenario. It provides no empirical or scholarly validation of handover effectiveness.
+
+### Artifacts
+
+| File | Purpose | Scenario state |
+| --- | --- | --- |
+| [records.md](#original-records) | Original authored records, including the superseded permission and current prohibition | Source fixture |
+| [requirements.md](#requirements-synthesis) | Completed case analysis and maintained requirements | Authored result complete, independent review unperformed |
+| [workshop.md](#workshop-plan) | Audience adaptations, learning outcomes, exact agenda and facilitator briefing | Revised plan prepared, delivery unperformed |
+| [worksheet.md](#workshop-worksheet) | Participant handover worksheet and peer-review form | Revised blank training artifact |
+| [model-handover.md](#model-handover) | Wholly fictional training material and completed model handover | Authored worked example |
+| [change-case.md](#requirement-change) | Policy change, propagation, bounded brief and verification criteria | Authored propagation prepared, acceptance pending |
+
+### Reading route
+
+Read [the original permission](#r1-original-brief), [the replacement restriction](#r5-replacement-material-rule) and [the requirements matrix](#requirements-matrix). Follow RQ-06 into the [current exercise](#exercise), [worksheet](#w1-material-and-source) and [change record](#wording-changes). The [model handover](#completed-handover) shows an authored completed result. [H-01](#r6-pending-human-choice) keeps a fictional sponsor's choice open with an explicit consequence.
+
+For a fresh task with a new result, use [First local exercise](#first-local-exercise). Copy this pack into a separate local workspace, derive your own requirements from `records.md`, and consult the supplied matrix only after producing the first draft.
+
+### Citation contract
+
+`records.md` section IDs R1–R6 are the evidence addresses. Requirements carry stable IDs RQ-01–RQ-08. Artifact sections cite both where applicable. Revisions `baseline-v1` and `restricted-v2` are scenario identifiers. They are authored labels, without a claim about Git history or agent execution. A downstream renderer may add byte hashes when it builds these files. Such a hash establishes byte identity only.
+
+This pack cites only its own fully authored records and contains no published-literature claims.
+
+
+## Original records
+
+All passages are fictional source fixtures. Quoted speech is authored for this case. The records permit a bounded analysis of their stated needs. They do not document interviews, observations or actual institutional rules.
+
+### R1 Original brief
+
+Record ID R1. Scenario revision `baseline-v1`. Role represented in fiction, workshop sponsor. This permission is superseded by R5.
+
+> Prepare a 90-minute workshop called “Traceable project handovers” for colleagues who need to resume a small project task. Participants may use anonymized excerpts from their own project records. Remove personal identifiers and confidential details before bringing an excerpt. Each handover must identify the task, current state, source location, next action, checks already performed and any decision still needed. A receiver should be able to locate the material and state what they can do next.
+
+### R2 Receiver's account
+
+Record ID R2. Scenario revision `baseline-v1`. Role represented in fiction, incoming colleague.
+
+> The note said that the table was cleaned. It gave no table path or revision. I could not tell whether “cleaned” meant duplicate removal or spelling changes. The task was to prepare a category summary, but one row still had two possible categories. I need the exact table, what has changed, the unfinished part and the first action I am allowed to take. If a category depends on the project lead's choice, I need to know who makes that choice and what can continue meanwhile.
+
+### R3 Review instruction
+
+Record ID R3. Scenario revision `baseline-v1`. Role represented in fiction, independent reviewer.
+
+> Inspect the submitted handover against the named source revision. Each claim about completed work needs a source passage or an inspectable artifact. Record what was checked and the result. A file-existence check does not establish that its interpretation is sound. Return the full finding to the human owner before further routing. Do not edit the source or the submitted result. The human owner decides acceptance and who may apply a correction.
+
+### R4 Teaching brief
+
+Record ID R4. Scenario revision `baseline-v1`. Role represented in fiction, facilitator.
+
+> Use the same handover structure for a university research group and a company project team. In the university version, a colleague resumes cataloguing a fictional collection and preserves uncertainty about a classification. In the company version, a colleague resumes classifying fictional support requests and preserves uncertainty about a routing category. Each participant drafts a handover, reviews a partner's handover against the source, and revises it. Offer a printed source sheet as well as a local text file. The session lasts exactly 90 minutes, including a short break. Do not require access to an actual project system or an external account.
+
+### R5 Replacement material rule
+
+Record ID R5. Scenario revision `restricted-v2`. Role represented in fiction, workshop sponsor. This record supersedes the material permission in R1. The other workshop requirements in R1 remain applicable.
+
+> Original project material is prohibited throughout the workshop, including anonymized, redacted, paraphrased or otherwise transformed excerpts. Use only wholly fictional training material authored for the workshop. The prohibition covers preparation, examples, exercises, worksheets, discussion and take-away material. Remove any instruction inviting participants to bring or paste project content. Keep the source references, uncertainty and decision boundaries in the fictional cases. A human owner must approve the revised material before workshop delivery.
+
+### R6 Pending human choice
+
+Record ID R6. Scenario revision `restricted-v2`. Role represented in fiction, workshop sponsor. H-01 remains unanswered in this authored scenario.
+
+> The revised workshop may use either a mixed-room format, in which each pair compares the university and company cases, or an audience-specific format, in which each pair works only on its own context. I have not chosen the format. Prepare both. In a mixed room, preserve time for comparing category decisions across contexts. In an audience-specific room, use that time to inspect a second row in the selected case. Leave final printing and allocation of case sheets pending my choice.
+
+H-01 is a choice between the two stated teaching formats. Both use only fictional material. The open choice affects case-sheet allocation and the task during the comparison slot. The current material restriction has already been supplied by R5 and awaits no choice in this scenario.
+
+
+## Requirements synthesis
+
+Requirements and their operative evidence
+
+| ID | Requirement | Source records |
+| --- | --- | --- |
+| RQ-01 | State the task and the part still unfinished. | R1, R2 |
+| RQ-02 | Give the artifact location and source revision. | R2, R3 |
+| RQ-03 | Separate completed changes, source observations and interpretation. | R2, R3 |
+| RQ-04 | Give the first permitted next action and its stopping condition. | R2 |
+| RQ-05 | Preserve uncertainty and identify the role that owns the unresolved choice. | R2, R4 |
+| RQ-06 | Admit only wholly fictional workshop material and remove invitations to supply original content. | R5 supersedes R1 |
+| RQ-07 | Record checks and their limits. In separate independent Verification, return the full initial finding to the human owner and keep acceptance separate. | R3, R5 |
+| RQ-08 | Make the same structure usable in each audience context with printed or local material and no external account. | R4 |
+
+The authored case analysis yields a handover structure with a located source, a bounded next action and a visible decision boundary. R2 supplies a receiver's stated obstacles, while R1, R3–R5 supply explicit requirements. These records support the requirements below within the fictional scenario. They provide no evidence that this structure improves real project outcomes.
+
+### Analysis boundary
+
+The unit of analysis is a stated need or instruction in [R1–R6](#original-records). The analyst groups those statements by the information a receiver needs and retains exact section references. The matrix is a completed authored example result. No coding exercise, interview study, participant test or independent analysis was performed.
+
+### Requirements matrix
+
+| ID | Requirement inferred or retained from the records | Exact source and warrant | Inspectable realization |
 | --- | --- | --- | --- |
-| Colour | Blue | Blue | Same colour |
-| Form | Cube | Cube | Same form |
-| Attributed function | Game piece | Sample | Different attributed functions |
-| Shared object identifier | Not supplied | Not supplied | Object identity remains open |
+| RQ-01 | State the task and the part still unfinished. | [R1](#r1-original-brief), “task, current state”; [R2](#r2-receivers-account), “the unfinished part”. This retains explicit needs. | [W2](#w2-state-and-evidence), [model state](#completed-handover) |
+| RQ-02 | Give the artifact location and source revision. | [R2](#r2-receivers-account), “no table path or revision”; [R3](#r3-review-instruction), “named source revision”. This retains explicit needs. | [W1](#w1-material-and-source), fixture table and revision |
+| RQ-03 | Separate completed changes, source observations and interpretation. | [R2](#r2-receivers-account), ambiguity of “cleaned”; [R3](#r3-review-instruction), inspectable support for completed-work claims. These statements suggest that the categories need separate fields. | [W2](#w2-state-and-evidence), row-level evidence |
+| RQ-04 | Give the first permitted next action and its stopping condition. | [R2](#r2-receivers-account), “first action I am allowed to take” and work that “can continue meanwhile”. These needs suggest a stopping condition where authority runs out. | [W3](#w3-next-action-and-authority), model boundary at ambiguous row |
+| RQ-05 | Preserve uncertainty and identify the role that owns the unresolved choice. | [R2](#r2-receivers-account), category choice by project lead; [R4](#r4-teaching-brief), uncertainty in each context. This retains explicit needs. | [W4](#w4-open-decision), model classification question |
+| RQ-06 | Admit only wholly fictional workshop material and remove invitations to supply original content. | [R5](#r5-replacement-material-rule), explicit prohibition and replacement instruction. R1's permission is superseded. | [current exercise](#exercise), [W1](#w1-material-and-source), [briefing](#facilitator-briefing) |
+| RQ-07 | Record checks and their limits. In separate independent Verification, return the full initial finding to the human owner and keep acceptance separate. | [R3](#r3-review-instruction), independent review scope and routing; [R5](#r5-replacement-material-rule), approval before delivery. This retains explicit boundaries. | [W5](#w5-verification-and-revision) records exercise checks. [Change verification](#verification-and-acceptance) specifies the separate independent route. |
+| RQ-08 | Make the same structure usable in each audience context with printed or local material and no external account. | [R4](#r4-teaching-brief), audience, delivery and format requirements. This retains explicit instructions. | [adaptations](#audience-adaptations), [agenda](#agenda) |
 
-## Beispielaufgabe
+### Adopted scenario change
 
-Erstelle eine lesbare Gegenüberstellung der beiden erfundenen Notizen und kennzeichne die fehlende Objektidentität. Der dargestellte Aufgabenstand ist ein vorab verfasstes Beispiel und kein ausgeführter Agentenlauf.
+The maintained requirement RQ-06 follows `restricted-v2`. [R1's earlier permission](#r1-original-brief) remains visible as historical scenario evidence. [R5](#r5-replacement-material-rule) controls every participant-facing instruction. The [change record](#wording-changes) identifies the exact affected passages and their replacements.
 
-## Offene Beispielfrage
+### Open contribution
 
-Soll die Gegenüberstellung die unsichere Objektidentität ausdrücklich als eigene Spalte zeigen?
+[H-01](#r6-pending-human-choice) belongs to the fictional workshop sponsor. Both case sheets and agenda variants are prepared. Printing and pair allocation remain pending. The matrix and the common worksheet can be inspected without resolving that choice. The unanswered choice supplies no evidence of a real sponsor, request or waiting team.
 
-Diese Frage dient ausschließlich dem Ausprobieren des Gesprächsprompts. Sie ist kein tatsächlicher Auftrag und verlangt keine Antwort.
+### What a result check can establish
 
-## Prüfgrenze
+A reader can compare each matrix row with its named record, examine the worked handover and test whether the agenda totals 90 minutes. That establishes consistency of this authored package. Workshop suitability, learning and the sufficiency of these requirements in real handovers remain untested.
 
-Die Quelle belegt nur ihren eigenen erfundenen Wortlaut. Sie enthält weder historische Quellen noch eine empirische Messung. Der angezeigte Vergleich ist eine Illustration. Eine fachliche Abnahme oder automatische Umsetzung wird nicht behauptet.
+The classroom peer review under [R4](#r4-teaching-brief) is a learning activity. Feedback returns to the handover author for revision. It neither performs the separate independent Verification specified by R3 nor transfers acceptance authority to a participant. R3's full initial finding goes first to the human owner.
 
-## Gespräch ausprobieren
 
-Lies das Beispielergebnis und prüfe, ob es Beschreibung, Interpretation und offene Identitätsfrage unterscheidet. Der vollständige Prompt kann im Browser gelesen und kopiert werden. Kopieren versendet keine Nachricht und schreibt keine Entscheidung zurück.
+## Workshop plan
 
-## Weitere Ansichten als Beispiel
+Participants prepare a handover that lets a colleague locate the source, resume an authorized task and recognize where a human decision is required. The plan applies the authored [requirements matrix](#requirements-matrix). Its teaching suitability remains a design proposition until an actual workshop is examined.
 
-Die Kalendertermine am 17. und 19. Oktober 2026, die Frische-Daten und sämtliche Rolleneinschätzungen sind vorab verfasste Beispieldaten. Es gab keinen Kalenderabruf, Repository-Scan oder gemessenen Agentenlauf. Die Beispielstrategie lautet, Beobachtung und Deutung vor jeder Schlussfolgerung zu trennen.
+### Audience and prerequisites
 
-## Frühere qualitative Beispieleinschätzung
+The intended participants are university researchers and research-support colleagues, or company project staff who exchange small unfinished tasks. Participants need basic familiarity with tables and project notes. Paper and a pen suffice. A local text editor is optional. No real project material, account, repository or prior experience with an AI tool is required. This follows [R4](#r4-teaching-brief) and [R5](#r5-replacement-material-rule).
 
-Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden. Diese erfundene Originaleinschätzung bleibt als Text erhalten. Sie ist keine menschliche Abnahme.
+### Learning outcomes
 
-## Aktuelle qualitative Beispieleinschätzung
+By the end of the planned session, participants should be able to produce the following inspectable outputs. These are intended outcomes, without a claim that learning has occurred.
 
-Beispieldatum 17. Oktober 2026: Das Beispiel trennt Beschreibungen und Interpretation mit Vorbehalt. Die Identität der beschriebenen Gegenstände ist weiterhin offen. Die qualitative Einschätzung dient dem Interfacebeispiel und ist kein Messergebnis.
+| Outcome | Participant evidence | Requirements |
+| --- | --- | --- |
+| Locate the exact task source and distinguish an observation from a proposed interpretation. | W1 gives the source revision and section, and W2 connects each statement to a row. | RQ-01–RQ-03 |
+| Describe a permitted next action with a stopping condition. | W3 names one action and states when the receiver must stop. | RQ-04 |
+| Keep an unresolved decision actionable for its owner. | W4 names the role, available choices and the consequence of waiting. | RQ-05 |
+| Review and revise a handover against the source. | Completed peer-review form and a revision tied to one finding. | RQ-06–RQ-08 |
 
-## Monitorbeispiel
+### Audience adaptations
 
-Ein erfundener Fall zeigt eine ausdrücklich offene Identitätsfrage. Ein weiterer erfundener Fall bleibt ungeprüft. Aus diesen Beispielen folgt weder eine Gesamtbewertung noch eine Aussage über echte Koordination. Antworten werden in dieser Demo nicht gesendet.
+| Element | University version | Company version |
+| --- | --- | --- |
+| Fictional project | Catalogue a teaching collection. | Classify a training queue of support requests. |
+| Receiver's task | Prepare a summary by object category. | Prepare a summary by routing category. |
+| Source | [Case U](#case-u-university), revision `training-v2`. | [Case C](#case-c-company), revision `training-v2`. |
+| Uncertainty to retain | A “sample block” may be a teaching object or a material specimen. | An “access request after course transfer” may concern identity access or course administration. |
+| Decision owner | Fictional collection lead. | Fictional service owner. |
+| Domain discussion | Distinguish recorded description from a cataloguer's interpretation. | Distinguish a request's wording from a routing decision. |
+| Evidence standard | Cite the case section and item ID. | Cite the case section and request ID. |
+
+The handover fields and review criteria remain the same. In a mixed-room format, pairs compare the two contexts during minutes 72–82. In an audience-specific format, pairs inspect a second row in their selected case during that slot. [H-01](#r6-pending-human-choice) leaves the format and final sheet allocation with the fictional sponsor.
+
+### Agenda
+
+Agenda for the 90-minute workshop
+
+| Minutes | Duration | Activity and actual output |
+| --- | --- | --- |
+| 0–8 | 8 min | Read the question and material rule. Participants identify the source IDs on the sheet. |
+| 8–18 | 10 min | Inspect the weak handover and identify missing information against R2. Each pair marks two gaps. |
+| 18–28 | 10 min | Trace one row of the requirements matrix into the model handover. Each pair distinguishes source wording, interpretation and open decision. |
+| 28–40 | 12 min | Read the assigned fictional case and complete W1–W2. |
+| 40–45 | 5 min | Break. |
+| 45–60 | 15 min | Complete W3–W5 and the draft handover. |
+| 60–72 | 12 min | Exchange sheets. The receiver performs the source-based peer review and returns the complete form to its author. |
+| 72–82 | 10 min | Revise one finding. In a mixed room, compare the decision boundaries of U and C. In an audience-specific room, inspect a second row in the same case. |
+| 82–90 | 8 min | Each pair reads the next permitted action and stopping condition aloud. Complete the exit check and retain the revision record. |
+
+The durations total 90 minutes. The slot variation preserves the same duration and intended outcomes, as required by [R4](#r4-teaching-brief) and [R6](#r6-pending-human-choice).
+
+### Exercise
+
+Use only Case U or Case C, revision `training-v2`, supplied in [the training source](#training-source). Complete the [worksheet](#workshop-worksheet) with the case ID and row references. Prepare the receiver to summarize the rows that already have categories. Preserve the ambiguous row for the designated fictional decision owner. Exchange the handover and inspect it against the same source. Record one finding, revise the handover and retain the changed wording. Original project material, including anonymized, redacted or paraphrased excerpts, is prohibited throughout the exercise and discussion. This instruction implements RQ-01–RQ-08, especially [R5](#r5-replacement-material-rule).
+
+### Facilitator briefing
+
+Supply the requirements matrix, the selected fictional case sheets, the worksheet and the model handover as printed sheets or local files. Mark every sheet “Authored fictional training material.” Confirm the selected teaching format with the human owner before allocating or printing the final case sheets. H-01 remains pending in this example.
+
+Read the material rule before the first activity. Use only the supplied wholly fictional cases. If a participant begins introducing original project content, stop that contribution before it is displayed or copied and redirect the participant to Case U or Case C. Do not collect, reproduce or discuss the original content. This instruction applies [R5](#r5-replacement-material-rule).
+
+During classroom peer review, ask the receiver to locate the row cited in W2 and explain the first action in W3. Mark a missing source or an unsupported completion claim for revision and return the full exercise form to its author. A correct reference alone does not settle the category interpretation, as [R3](#r3-review-instruction) states. This learning activity follows R4. Separate independent Verification under R3 returns its full initial finding to the human owner, who decides routing and acceptance. The model's open classification question stays open. Workshop delivery requires the human owner's approval of the revised material, which is unrecorded here.
+
+### Exit check
+
+Each pair submits a handover, its peer-review form and one before/after revision. The receiver writes the next permitted action in their own words and names the condition that requires a decision. The facilitator can inspect these outputs against the worksheet criteria. No pass rate, learning measurement or acceptance is recorded in this authored plan.
+
+
+## Workshop worksheet
+
+Authored fictional training material. Use only [Case U or Case C](#training-source), revision `training-v2`. Original project content is prohibited, including anonymized, redacted and paraphrased excerpts. The restriction follows [R5](#r5-replacement-material-rule) and RQ-06.
+
+### W1 Material and source
+
+| Field | Complete during the exercise |
+| --- | --- |
+| Selected case | U or C |
+| Source file, section and revision | |
+| Row IDs used | |
+| Material declaration | I used only the supplied fictional training case. |
+| Receiver's task | |
+
+Trace RQ-01 and RQ-02 to [R1](#r1-original-brief) and [R2](#r2-receivers-account). Do not enter participant names or project details.
+
+### W2 State and evidence
+
+| Statement about the task | State or source observation | Exact row or section | Interpretation or uncertainty |
+| --- | --- | --- | --- |
+| | | | |
+| | | | |
+| | | | |
+
+State what the supplied prepared table already contains, what is unfinished and what evidence supports each claim. Distinguish the supplied authored result from any work you actually perform during the exercise. RQ-03 follows [R2](#r2-receivers-account) and [R3](#r3-review-instruction).
+
+### W3 Next action and authority
+
+| Field | Complete during the exercise |
+| --- | --- |
+| First action the receiver may take | |
+| Input and location | |
+| Expected output | |
+| Checks the receiver should perform | |
+| Stop when this condition is met | |
+| Actions reserved for the decision owner | |
+
+RQ-04 follows [R2](#r2-receivers-account). “Continue the work” is insufficient to identify the first action.
+
+### W4 Open decision
+
+| Field | Complete during the exercise |
+| --- | --- |
+| Unresolved classification question | |
+| Source wording that leaves it open | |
+| Fictional role that owns the decision | |
+| Available choices | |
+| Consequence while the choice is open | |
+| Work that can proceed meanwhile | |
+
+RQ-05 follows [R2](#r2-receivers-account) and [R4](#r4-teaching-brief). Preserve the uncertainty in the handover.
+
+### W5 Verification and revision
+
+| Check actually performed by the participant | Evidence inspected | Finding and limit |
+| --- | --- | --- |
+| | | |
+| | | |
+
+| Revision field | Complete after peer review |
+| --- | --- |
+| Finding received | |
+| Previous wording | |
+| Revised wording | |
+| Source supporting the revision | |
+| Decision or approval still needed | |
+
+RQ-07 follows [R3](#r3-review-instruction). Record only checks you actually perform in the exercise. The published model is authored and supplies no participant check result.
+
+### Peer review
+
+Reviewer uses the selected case and completed W1–W5. For each criterion, enter “supported”, “revise” or “unresolved by source”, cite a passage and describe the issue. These are exercise findings and carry no institutional acceptance.
+
+| Criterion | Trace | Finding, evidence and correction needed |
+| --- | --- | --- |
+| The task and unfinished part are explicit. | RQ-01, W2 | |
+| The input can be located at the named revision. | RQ-02, W1 | |
+| Completed-work statements match the supplied prepared table and preserve uncertainty. | RQ-03, W2 | |
+| The first permitted action and stopping condition are executable from the handover. | RQ-04, W3 | |
+| The open category decision has an owner and a consequence. | RQ-05, W4 | |
+| Every example comes from the wholly fictional source sheet. | RQ-06, W1 | |
+| Checks and limits are stated without claiming unperformed review or acceptance. | RQ-07, W5 | |
+| The handover works with the supplied printed or local case sheet. | RQ-08, W1–W3 | |
+
+Return the complete form to the handover author. In the method's operational equivalent, an independent reviewer returns the full finding first to the human owner, who decides routing and acceptance under [R3](#r3-review-instruction). Participant peer review does not constitute independent Verification of this demonstration.
+
+
+## Model handover
+
+Every row, category, prepared output and handover below is authored fictional training material. Revision `training-v2` names this supplied source sheet. No real collection, service queue or project record was used.
+
+### Training source
+
+The exercise task is to prepare a category summary from the prepared table. The supplied codebook permits a category total only where a category is already assigned. An unresolved row must remain separately visible. The receiver may summarize assigned rows and flag missing categories. Only the designated fictional decision owner may decide the ambiguous row. This codebook applies equally to the two cases below.
+
+### Case U University
+
+Case U represents an invented teaching-collection catalogue. The fictional collection lead owns category decisions. Source rows at `training-v2` are as follows.
+
+| Item ID | Recorded description | Recorded category |
+| --- | --- | --- |
+| U1 | Wooden counting board used in a classroom | teaching object |
+| U2 | Labelled limestone sample for material comparison | material specimen |
+| U3 | Printed geometry card used in a classroom | teaching object |
+| U4 | Sample block, use unspecified | Unassigned |
+
+The category vocabulary maps `teaching object` to `TEACHING` and `material specimen` to `SPECIMEN`. U4 has no assigned category. The phrase “sample block” permits more than one interpretation within the authored case, and the source supplies no decision between them.
+
+### Prepared university table
+
+The following completed authored transformation supplies the receiver's starting artifact. It applies the vocabulary mapping above and preserves U4 as unresolved. It represents a finished example result, without implying that a person or agent executed a transformation.
+
+| Item ID | Category code | Source reference | State |
+| --- | --- | --- | --- |
+| U1 | TEACHING | Case U, U1 | Mapped from recorded category |
+| U2 | SPECIMEN | Case U, U2 | Mapped from recorded category |
+| U3 | TEACHING | Case U, U3 | Mapped from recorded category |
+| U4 | UNRESOLVED | Case U, U4 | Decision required |
+
+### Case C Company
+
+Case C represents an invented training queue. The fictional service owner owns routing decisions. Source rows at `training-v2` are as follows.
+
+| Request ID | Recorded wording | Recorded routing category |
+| --- | --- | --- |
+| C1 | Password reset for training account | identity access |
+| C2 | Change the course shown in the training portal | course administration |
+| C3 | Unlock a training account after failed sign-in | identity access |
+| C4 | Access request after course transfer | Unassigned |
+
+The category vocabulary maps `identity access` to `ACCESS` and `course administration` to `COURSE`. C4 has no assigned category. Its wording leaves both routing categories possible within the authored case.
+
+### Prepared company table
+
+This completed authored transformation applies the supplied mapping and preserves C4 as unresolved.
+
+| Request ID | Category code | Source reference | State |
+| --- | --- | --- | --- |
+| C1 | ACCESS | Case C, C1 | Mapped from recorded category |
+| C2 | COURSE | Case C, C2 | Mapped from recorded category |
+| C3 | ACCESS | Case C, C3 | Mapped from recorded category |
+| C4 | UNRESOLVED | Case C, C4 | Decision required |
+
+### Weak handover
+
+> The table is cleaned. Finish the summary and put the sample block in the right category.
+
+This authored weak example fails to locate the table or define “cleaned.” It also delegates a decision that the supplied codebook reserves for the collection lead. The comparison uses RQ-02–RQ-05 and [R2](#r2-receivers-account).
+
+### Completed handover
+
+#### Task and source
+
+Resume the category summary for Case U. Use [Prepared university table](#prepared-university-table), source sheet `model-handover.md`, revision `training-v2`. Its evidence is [Case U University](#case-u-university), rows U1–U4 and the adjacent vocabulary mapping. All material is wholly fictional. This satisfies RQ-01, RQ-02 and RQ-06.
+
+#### State and evidence
+
+| Statement | Evidence | Limit |
+| --- | --- | --- |
+| The supplied table maps U1 and U3 to TEACHING. | Source category `teaching object` and the Case U mapping, compared with the prepared rows. | This is the supplied authored result. No execution is claimed. |
+| The supplied table maps U2 to SPECIMEN. | Source category `material specimen` and the Case U mapping, compared with the prepared row. | The mapping retains the stated category. |
+| U4 remains unresolved. | Source wording “Sample block, use unspecified” and source category “Unassigned”. | Assigning TEACHING or SPECIMEN would add a category decision absent from the source. |
+| The category summary remains to be prepared. | Exercise task under [Training source](#training-source). No summary artifact is supplied here. | A prepared input table does not establish a completed summary. |
+
+These statements implement RQ-03. They let the receiver distinguish the authored preparation from the unfinished exercise.
+
+#### Next permitted action
+
+Create an exercise output named `summary-u.md`. Group the already assigned rows by category code, list the item IDs in each group and include a separate unresolved section for U4. Check every listed ID against the prepared table and its source row. Stop before assigning a category to U4. The receiver may draft and check the summary. The receiver has no authority to change U4's category or claim that the project is accepted. This implements RQ-04 and RQ-07.
+
+#### Open decision and consequence
+
+The fictional collection lead must decide whether U4 belongs to TEACHING or SPECIMEN, or should remain unassigned pending further fictional documentation. The source sheet gives no basis to select one. While that decision is open, the summary can report assigned categories and keep U4 separately visible. A final summary claiming that every item has a category remains blocked. This implements RQ-05.
+
+#### Proposed check and its limit
+
+The receiver should compare the category labels, source links and unresolved status row by row, then record the actual finding in W5. This model contains no executed receiver check, independent review or acceptance. A reviewer must inspect the source interpretation separately from the existence of `summary-u.md`, following [R3](#r3-review-instruction).
+
+### Company handover adaptation
+
+For Case C, use [Prepared company table](#prepared-company-table), source revision `training-v2`. Replace item IDs with request IDs and group C1–C3 under ACCESS or COURSE. Keep C4 in the unresolved section. The fictional service owner decides whether its routing is ACCESS, COURSE or remains unassigned pending further fictional clarification. The receiver may prepare `summary-c.md` and check references. The stopping condition is the same, before assigning C4. Every other handover field and review criterion remains applicable under RQ-08.
+
+
+## Requirement change
+
+[R5](#r5-replacement-material-rule) changes the scenario's material rule from permission to use anonymized original excerpts to a prohibition on all original project material. The current workshop, worksheet and maintained requirement use only wholly fictional cases. The before/after passages below are authored revision fixtures. They describe a proposed change sequence without claiming an observed instruction, agent correction or human approval.
+
+### Source change
+
+The previous source wording appears in [R1](#r1-original-brief).
+
+> Participants may use anonymized excerpts from their own project records. Remove personal identifiers and confidential details before bringing an excerpt.
+
+The controlling replacement appears in [R5](#r5-replacement-material-rule).
+
+> Original project material is prohibited throughout the workshop, including anonymized, redacted, paraphrased or otherwise transformed excerpts. Use only wholly fictional training material authored for the workshop.
+
+R5 also expressly covers preparation, examples, exercises, worksheets, discussion and take-away material, requires removal of invitations to supply project content, and reserves approval before delivery for the human owner. Restricting names alone would fail this source instruction.
+
+### Wording changes
+
+The `baseline-v1` passages below are historical fixture wording. The `restricted-v2` passages are the exact operative wording at their linked artifact sections.
+
+| Artifact and requirement | Before, baseline-v1 | After, restricted-v2 |
+| --- | --- | --- |
+| Exercise, RQ-06 | “Bring an anonymized excerpt from your project and use it as the source for your handover.” | “Use only Case U or Case C, revision `training-v2`, supplied in [the training source](#training-source).” See [Exercise](#exercise). |
+| Worksheet material instruction, RQ-02 and RQ-06 | “Paste your anonymized project excerpt and record its original location.” | “Use only [Case U or Case C](#training-source), revision `training-v2`. Original project content is prohibited, including anonymized, redacted and paraphrased excerpts.” See [worksheet opening](#workshop-worksheet). W1 now requests the supplied source file, section and row IDs. |
+| Facilitator briefing, RQ-06 | “Invite participants to bring project excerpts and check that names and confidential details have been removed.” | “Read the material rule before the first activity. Use only the supplied wholly fictional cases.” See [Facilitator briefing](#facilitator-briefing). The following instructions stop original-content disclosure and redirect to the cases. |
+| Maintained requirement RQ-06 | “Allow anonymized project excerpts when identifiers and confidential details have been removed.” | “Admit only wholly fictional workshop material and remove invitations to supply original content.” See [requirements matrix](#requirements-matrix). Its supporting record changes from R1 to R5. |
+| Training examples, RQ-06 and RQ-08 | “Participants supply a university or company project excerpt for the model.” | “Every row, category, prepared output and handover below is authored fictional training material.” See [model opening](#model-handover). Case U and Case C provide inspectable material for both contexts. |
+
+The exact before wording for RQ-06 operationalizes R1's permission as an authored baseline requirement. R5 supersedes it. References to the earlier permission remain only in the source history and this change account. They carry no current permission to introduce original project material.
+
+### Propagation and ownership
+
+| Maintained object | Required consequence | Proposed responsible role | Boundary |
+| --- | --- | --- | --- |
+| Requirements matrix | Revise RQ-06, cite R5 and preserve the supersession reference to R1. | Research | Interpret the source change without inventing sponsor decisions. |
+| Workshop exercise and briefing | Replace original-excerpt invitations with the fictional case instruction and enforce it during discussion. | Operations within the workshop-material assignment | Prepare artifacts, without scheduling or delivering a workshop. |
+| Worksheet | Replace the paste field with supplied source IDs, revision and material declaration. | Operations | Preserve the handover evidence fields required by RQ-01–RQ-05. |
+| Model handover | Supply wholly authored U and C sources and keep the category decision open. | Operations | Do not import, anonymize or paraphrase actual project content. |
+| Source references and result notice | Name R5 and `restricted-v2` in the submission and cite changed sections. | Operations | A notice alone establishes no receipt or processing. |
+| Independent finding | Compare all submitted changes against R5 and the retained requirements. | Separate Verification context | Read only, full finding first to the human owner. |
+| Approval and H-01 | Approve material for delivery and select the room format. | Human owner represented in fiction | Neither decision is recorded in this pack. |
+
+These role assignments apply the method contract in the supplied context. They do not document actual agents or a fictional team having worked.
+
+### Bounded implementation brief
+
+This historical example is the brief for the authored `baseline-v1` to `restricted-v2` transition. The supplied artifacts already contain the replacement wording, so this brief is evidence of the intended assignment boundary. It supplies no fresh change task on the current pack. Paths are relative to the historical workspace. It grants no authority over the public demo, a vault or any actual project.
+
+```text
+Read records.md in full, especially R1, R3, R5 and R6.
+Update workshop.md, worksheet.md and model-handover.md only.
+Use requirements.md as the maintained research input.
+Apply RQ-06 using R5 and preserve RQ-01–RQ-05, RQ-07 and RQ-08.
+Use wholly fictional training material. Import no original project content.
+Preserve H-01 as open and prepare both agenda-slot variants.
+Do not edit records.md or requirements.md.
+Do not schedule, deliver, contact anyone or publish.
+Return the changed passages, source revision, checks performed and limits.
+Submit the full result to the separately configured Verification route.
+Send Research a result notice identifying affected sections.
+Keep transport, receipt and processing evidence distinct.
+```
+
+Research separately maintains [RQ-06](#requirements-matrix). That separation prevents an implementation brief from silently granting ownership of its own research criteria.
+
+### First local exercise
+
+Copy the complete source pack into a new local folder of your choice and work only in that copy. Leave the supplied files unchanged. The task creates one new result and requires no connection to an actual project or an external account.
+
+```text
+Read records.md in full in the copied workspace.
+Create results/ if needed. Write ONLY results/handover-requirements.md.
+Do not edit any supplied file or create any other result.
+Derive a requirements table from the authored records.
+Give every row an ID, a requirement, an exact source-section citation,
+and a statement of whether it retains an explicit instruction or infers
+a requirement from a stated need. Explain each inference in the row.
+Link citations from the result to ../records.md and its exact heading anchor.
+Distinguish R1's superseded material permission from R5's current rule.
+Preserve H-01 as open, identify its owner and state its consequence.
+Describe the result as analysis of fictional records. Claim no research run,
+workshop, independent review, learning outcome or human acceptance.
+Finish and save the first draft before reading requirements.md.
+Then use requirements.md as the supplied comparison answer.
+Record supported differences and any correction within the same result file.
+```
+
+Check each requirement against the cited section in `records.md`, follow every source link from the new result, and confirm that each inference is distinguished from an explicit instruction. Check that R5 controls the current material rule and that H-01 remains unanswered with its printing and allocation consequence visible. Finally compare the draft with [the supplied matrix](#requirements-matrix). Matching its wording or row grouping is unnecessary when the alternative remains supported by the records.
+
+Stop after the comparison and any justified revision to `results/handover-requirements.md`. Report the checks actually performed and their limits. The stopping point is a source-checked local draft. Delivery, independent Verification and human acceptance remain outside this exercise.
+
+### Verification and acceptance
+
+| Check to perform in a separate review | Evidence | What a finding can establish |
+| --- | --- | --- |
+| Read R5 and compare every operative material instruction. | Workshop exercise, worksheet opening and W1, facilitator briefing, model source. | Whether those instructions apply the stated prohibition. |
+| Distinguish history from current permission. | R1 supersession statement, change table, current RQ-06. | Whether an earlier permission is clearly historical. |
+| Trace retained requirements. | RQ-01–RQ-08 against W1–W5 and the model. | Whether the material change preserved the handover requirements. |
+| Recompute agenda duration and inspect both slot variants. | Agenda intervals and H-01. | Whether each format fits the stated 90 minutes. |
+| Inspect provenance and uncertainty statements. | Fiction notices, model unresolved rows, empty worksheet findings. | Whether the artifacts avoid claims of an executed run or resolved human choice. |
+
+The submitted artifacts themselves allow source inspection. A textual review of this pack cannot establish the absence of prohibited material in an unseen participant submission. It cannot establish learning or successful task resumption. A separate reviewer must return the full finding to the human owner under R3. Human acceptance of the revised workshop remains unrecorded. H-01 remains an actual open choice within the fiction, with final sheet allocation and its associated activity dependent on the answer.
+
 
 ## Fictional linked portfolio
 
-The following material is also wholly authored fiction. The Atlas example supplies the invented comparison to a second project, `demo-exhibit`, called Example exhibition: Objects in Context. The exhibition uses that comparison as illustrative input; this does not establish that the two blue cubes are identical. Its example question is: Should the uncertain identification appear beside every exhibit label? Its first task is to draft an exhibit label that keeps the uncertainty visible. The written task is assigned in this fixture, not running in an actual session.
-
-A third project, `demo-archive`, called Example archive: Preservation Notes, is background material. Its own example contribution is complete: an invented note recommends keeping source wording beside interpretations. No new archive task or follow-up is commissioned. Completion of that written contribution says nothing about a real institutional or funding outcome.
-
-The exhibition builds on the Atlas comparison. The archive note is possible methodological background for both; this is a possible relationship, not completed technical integration. A fictional shared workshop, Object Descriptions Workshop, connects comparison and communication as one object. No workshop actually took place.
+The workshop builds on the requirements synthesis. Its authored planning result is complete. No workshop was scheduled or delivered. The supporting archive retains the source and supersession record as completed authored background, without a follow-up assignment. H-01 remains with the fictional workshop sponsor; both room formats are prepared and final printing and case allocation wait for that choice.
 
 ## Fictional directions and relationships
 
-The five example directions are: separate description and interpretation; preserve source wording; explain uncertainty in public; practise source comparison in teaching; and coordinate source-bound work. These are authored intentions, not research findings. They relate to the three example projects and the one shared workshop.
-
-One optional overarching goal is explicitly a proposal: Make the uncertainty of invented collection descriptions understandable without turning interpretation into evidence. It is a proposed goal, not a commissioned programme. Public explanation does not establish a successful application or publication.
-
-The fictional exhibition team is an institutional role in this example. It is not an AI operator. The comparison table is a written example output. An object identifier shared by the two invented notes remains a missing prerequisite. The wording "a partner could support the next stage" leaves both partner and stage unspecified; this relationship remains unresolved instead of acquiring invented endpoints.
+The current directions are to distinguish source instructions from inferences, preserve original records and supersession, apply the material restriction across the workshop, translate requirements into practice, and keep reserved decisions with their owner. They are authored intentions. The optional overarching goal is a proposal to make source-bound project handovers inspectable; it commissions no programme. A partner could support the next stage. Neither the partner nor the stage is identified in that last sentence.
 
 ## Fictional dates and pending contributions
 
-The Atlas reading example is dated 17 October 2026. An exhibition-label discussion is dated 19 October 2026. A separate open reading slot on 19 October has no confirmed project association. These dates are fixture content, not calendar bookings or calendar retrievals.
+The fictional requirements-source reading is dated 18 October 2026, 10:00–11:00. A fictional workshop-material run-through is dated 19 October 2026, 10:00–11:30. A separate unassigned open reading slot on 19 October runs 14:00–14:45 without a confirmed project. These are authored dates, without a booking or calendar retrieval. H-01 has no invented deadline. It affects printing, sheet allocation and the task in minutes 72–82.
 
-The exhibition example awaits a fictional institutional role's choice of an exhibit label. That pending contribution is recorded separately from the example curation task. The archive has no next action. Calendar snapshots and source-comparison timestamps are authored examples, not scans or service observations.
+## Historical original records
+
+Earlier guide SHA-256, historical only: `244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092`. This identifies the prior cube example. The original wording below retains that historical binding and is not a current workshop artifact.
+
+The following older cube-example statements remain verbatim as dated historical wording. They do not describe the current requirements study or workshop artifacts.
+
+### Earlier qualitative original
+
+Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden.
+
+### Earlier Teaching original
+
+Example date 16 October 2026: the fictional lesson used the two invented cube descriptions. This remains a historical illustration, not an executed class or a new assignment.
+
+### Earlier planned Writing original
+
+Historical planning and activation wording, authored 17 October 2026. The profile remains planned and receives no task or activation.
+
+Proposed example project: demo-exhibit. Possible first assignment: write an uncertainty-preserving exhibit label. Boundary: copy-only illustration; no real work or activation commissioned.
+
+Synthetic example only: discuss whether a planned writing profile could prepare a sample exhibition label. Do not start a session, assign real work or modify a canonical source. Retain the uncertainty of the object identification.
 
 ## Fictional operator profiles and metadata
 
-The profile keys `demo-research`, `demo-curation`, `demo-writing`, `demo-teaching` and `demo-observer` identify invented demo roles only. Research and curation profiles are marked initialized in their authored source files. This describes profile setup, not current activity. Writing is explicitly planned and has a copy-only proposed activation prompt; it is not activated. Teaching is explicitly paused in its own source, retains its earlier written report and requests no resumption. The observer's setup and activity are unknown.
+Researcher and Knowledge Curation hold completed authored example results. Research Developer remains planned, Teaching remains explicitly paused with no project or task, and Quality Review has unknown setup and no assigned review. These are separate from a real working context or independent verification. A configuration illustration uses demo-model, medium and all-zero session identifiers ending in 1 and 2. No observed session or model call underlies those fields.
 
-One deliberately fictional configuration example uses the model label `demo-model`, the effort label `medium` and conspicuously artificial all-zero UUIDs ending in 1 and 2. These fields are handwritten examples for the metadata renderer. No session file, model request, token count, timing measurement or live agent observation underlies them. Other profiles show planned, paused or unavailable metadata as appropriate. The global demo notice applies to every metadata field and report.
+## Verification boundary
 
-## Fictional provenance and review limits
-
-Every displayed source revision is the SHA-256 of the corresponding authored example text. A hash establishes byte identity only. It does not establish independent verification, a human judgement, task execution or acceptance. The example result remains awaiting a decision inside the fictional scenario; copying its prompt does not send a message or change any canonical source.
-
-The example Monitor cases distinguish an authored resolved correction from an unchecked case. Their wording is an interface example, not a measurement of coordination quality. No aggregate performance score, probability, real account, chat identifier or private repository path is supplied.
-
-| Fictional direction | Explicit example project |
-| --- | --- |
-| Separate description and interpretation | demo-atlas |
-| Preserve source wording | demo-archive |
-| Explain uncertainty in public | demo-exhibit |
-| Practise source comparison in teaching | demo-atlas |
-| Coordinate source-bound work | demo-exhibit |
-
-The written comparison example is the Atlas output. The Atlas requires clarification of the shared object identifier; no such identifier is supplied. The proposed overarching goal belongs to the comparison direction as a proposal. Each row and relationship is authored fixture content, not a finding about any real project.
+The records and complete artifacts can be compared for internal consistency. A hash identifies exact bytes only. The source-supported requirements do not establish research effectiveness or learning. The nine agenda intervals total 90 minutes, but no workshop took place. A separate read-only Verification returns its complete initial finding to the human owner under R3; the owner controls routing and acceptance. H-01 and workshop-material approval remain unrecorded. Classroom peer review is a learning activity, without that independent authority. Copying prepares text and sends no message.

@@ -2,15 +2,15 @@
   "schema": "operator-session-metadata-1",
   "synthetic": true,
   "label": "Handwritten configuration example; no actual session, model call or measurement.",
-  "observedAt": "2026-10-17T10:00:00+02:00",
+  "observedAt": "2026-10-18T10:00:00+02:00",
   "operators": {
     "demo-research": {
       "synthetic": true,
-      "observedAt": "2026-10-17T10:00:00+02:00",
+      "observedAt": "2026-10-18T10:00:00+02:00",
       "reason": "dated-configuration",
       "sessionBinding": {
         "source": "demo-sources/demo-research.md",
-        "revision": "1a1ad5528d26b39d0104b5ae5e3db4eb28e4014ea28a55b59fbc409b39700923",
+        "revision": "7ab2f2742c9e21eb4b77a59b21c73de6a7da41941402704fc58cb7964b711f40",
         "harness": "codex",
         "sessionId": "00000000-0000-0000-0000-000000000001"
       },
@@ -18,7 +18,7 @@
         "model": "demo-model",
         "effort": "medium",
         "turnId": "00000000-0000-0000-0000-000000000002",
-        "recordedAt": "2026-10-17T10:00:00+02:00",
+        "recordedAt": "2026-10-18T10:00:00+02:00",
         "source": {
           "kind": "codex-turn-context",
           "sessionId": "00000000-0000-0000-0000-000000000001"
@@ -29,7 +29,7 @@
     },
     "demo-curation": {
       "synthetic": true,
-      "observedAt": "2026-10-17T10:00:00+02:00",
+      "observedAt": "2026-10-18T10:00:00+02:00",
       "reason": "unregistered",
       "sessionBinding": null,
       "configurationObserved": null,
@@ -37,7 +37,7 @@
     },
     "demo-writing": {
       "synthetic": true,
-      "observedAt": "2026-10-17T10:00:00+02:00",
+      "observedAt": "2026-10-18T10:00:00+02:00",
       "reason": "planned",
       "sessionBinding": null,
       "configurationObserved": null,
@@ -45,7 +45,7 @@
     },
     "demo-teaching": {
       "synthetic": true,
-      "observedAt": "2026-10-17T10:00:00+02:00",
+      "observedAt": "2026-10-18T10:00:00+02:00",
       "reason": "paused",
       "sessionBinding": null,
       "configurationObserved": null,
@@ -53,7 +53,7 @@
     },
     "demo-observer": {
       "synthetic": true,
-      "observedAt": "2026-10-17T10:00:00+02:00",
+      "observedAt": "2026-10-18T10:00:00+02:00",
       "reason": "unregistered",
       "sessionBinding": null,
       "configurationObserved": null,

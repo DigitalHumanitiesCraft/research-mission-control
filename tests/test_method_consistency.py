@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 import json
+import re
+import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -11,6 +14,37 @@ ROLE_BINDINGS = {
     "operations": "operational-orchestrator.md",
     "verification": "independent-verification-agent.md",
 }
+
+
+def test_system_prompt_role_paths_resolve_in_the_generated_workspace(tmp_path: Path) -> None:
+    prompt = (ROOT / "SYSTEM-PROMPT.md").read_text(encoding="utf-8")
+    contracts = prompt.split("### Ready-to-paste contracts", 1)[1].split("```text", 1)[1].split("```", 1)[0]
+    roles = re.findall(r"(?m)^ROLE PROMPT\n(\S+)$", contracts)
+    assert len(roles) == len(ROLE_BINDINGS)
+    target = tmp_path / "role-path-check"
+    subprocess.run(
+        [
+            sys.executable,
+            str(ROOT / "skills/research-mission-control/scripts/init_workspace.py"),
+            "--target",
+            str(target),
+            "--project-name",
+            "Fictional handover study",
+            "--objective",
+            "Derive source-linked handover requirements.",
+            "--research-harness",
+            "other",
+            "--operations-harness",
+            "other",
+            "--verification-harness",
+            "other",
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    for role in roles:
+        assert (target / role).is_file(), role
 
 
 def test_packaged_role_templates_match_canonical_prompts() -> None:

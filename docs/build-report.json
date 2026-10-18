@@ -5,11 +5,11 @@
   "sources": [
     {
       "path": "knowledge/system-description.md",
-      "sha256": "39c11e0ffe7baed5ba25e3659961b55f066e6087346dd5d5ecd8913763848176"
+      "sha256": "8b3707fb1c9114b654b0fc87fffb9b84950723c8e25af812bf66583c6c9ab102"
     },
     {
       "path": "knowledge/method-specification.md",
-      "sha256": "8113cef5a0e9dfef853850cbe7a04d6f0b7231f9c698bb84e96765fb0c06630e"
+      "sha256": "eec4cd35e7f3079bbf2154a36c534e6c7eb6f09c3da4e7bea7b1e807591d8739"
     },
     {
       "path": "orchestrators/README.md",
@@ -17,15 +17,15 @@
     },
     {
       "path": "README.md",
-      "sha256": "5fe14dab636ffcdd94a5cbb9b4b351222d82b8dbedbcd1c7dc718ff14c89c257"
+      "sha256": "a2a78cadd1534a609338d8d97852fee4e365c9c8f2cc9588d56a0c165fc382f6"
     },
     {
       "path": "knowledge/research-to-operations-handoff.md",
-      "sha256": "89c7ae758a734e86045bf5ef97e501fdc45d20dcf6f3b69bf51a5e32b9445a38"
+      "sha256": "06e015634069f967b6d1af5c08b371df2237c824c94df6e913f21adaa0fa1608"
     },
     {
       "path": "knowledge/knowledge-adapters.md",
-      "sha256": "75273c6e912377c8b940e90ba8aa070c2bd3ab3b9bb3c5fd9f897b63700a70a7"
+      "sha256": "2ba13ab3617a5d65629205c8e62e8185a78283ed3d8d43ce4f3763b46fac473d"
     },
     {
       "path": "knowledge/observed-context-stream-operation.md",
@@ -33,7 +33,7 @@
     },
     {
       "path": "knowledge/INDEX.md",
-      "sha256": "f8856b1b50e2dcda16ac787d1d8808f9146d0989e3e14923d45aaf2605c0da50"
+      "sha256": "8e8bb4e0de351684ef57caa3475f5838e6f4380cdc64bdf01dd40c383bc2df6b"
     },
     {
       "path": "AGENTS.md",
@@ -49,23 +49,23 @@
     },
     {
       "path": "knowledge/project.md",
-      "sha256": "b69913396e678399faf17c15d1bee767c82bed0ff76607b7eefa036a8e26068c"
+      "sha256": "ff9447a743ca569dcb1565116e96ffaa346362bab72957738f48bb283a922001"
     },
     {
       "path": "knowledge/integration.md",
-      "sha256": "a26d52399c5902359cf58fe1a993ff25f35f9f1dbd6be151e8b69cc8ab367645"
+      "sha256": "223d14345fd88bd412d047edf7c47dbd50c5d5610780e9ed6dfea351c4521c03"
     },
     {
       "path": "knowledge/orchestration-architecture.md",
-      "sha256": "b5e7e951519992bc1eb95b0296c28f9aa0540b2ab7ee53bbcc60bd5d998232b6"
+      "sha256": "77c0c419f5428a26419abc19988452e817c1dea49e5b7ac6c8be74a68510408a"
     },
     {
       "path": "knowledge/orchestration-thresholds.md",
-      "sha256": "21caba772d546466a5afa0b698e7046394b4412f9459595684cc7c90a6916439"
+      "sha256": "9ced199590b374a80429237f05181fe6509319ea665d8bf09dabe4d358e6ae15"
     },
     {
       "path": "knowledge/project-governance.md",
-      "sha256": "1575641007968eab9d8152affc061b85e4efecd28a9e32c745492d8c32c1f307"
+      "sha256": "2ece5f6ab09f64b67f56b8d53d9731aeb3a08b24d131e0119c09fc7b4cdcaf5d"
     },
     {
       "path": "knowledge/deterministic-checks.md",
@@ -77,7 +77,7 @@
     },
     {
       "path": "SYSTEM-PROMPT.md",
-      "sha256": "45042dd6fadb620318d61cd65e3e7f4e74776d0ce307d7cd7b0d9f91545ea7a5"
+      "sha256": "b2d40b8118bba684972dcfe4758d35c1da72549291a0a4a8e1187b5a7885463e"
     },
     {
       "path": "orchestrators/knowledge-orchestrator.md",
@@ -109,11 +109,11 @@
     },
     {
       "path": "skills/research-mission-control/SKILL.md",
-      "sha256": "4f7d8752eee64a25bc003d43708fa65d3e7271ef6098e21627cf538f55524112"
+      "sha256": "7ddfd988718f1b161efbdfc09e89e25dd873f56b066fe9a0f3260dc8d680bc4a"
     },
     {
       "path": "examples/knowledge/README.md",
-      "sha256": "1bd1105f798d48bd2a1e858fd1d1e3fe64e01e8d042f01c8f4861989af7a671e"
+      "sha256": "27b7c601d5f20bc4a8682553b797117fa75009481a2605bc8c790b33373852a5"
     },
     {
       "path": "examples/knowledge/notes/research-question.md",
@@ -129,7 +129,7 @@
     },
     {
       "path": "demo/README.md",
-      "sha256": "3035c0fdb946665fbf158c918a1bcd8505411a60f24dd4bcb3f380836c3068ed"
+      "sha256": "06b02d59a83036c9f0be22aa13a1c50630f1073c2f9fcd6a86e29c4605e76cb1"
     },
     {
       "path": "demo/docs/source-contract.md",
@@ -141,153 +141,217 @@
     },
     {
       "path": "demo/sources/demo-guide.md",
-      "sha256": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092"
+      "sha256": "5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db"
+    },
+    {
+      "path": "examples/workshop-example/README.md",
+      "sha256": "e973973d607a52cd5a513dd6089fab753d35850bc78969c194839f4eaff9c67f"
+    },
+    {
+      "path": "examples/workshop-example/records.md",
+      "sha256": "49094d5313ff6df45f3d01eac8a5eb79938668c7c35bc4ce0b0767de86805177"
+    },
+    {
+      "path": "examples/workshop-example/requirements.md",
+      "sha256": "6cf1c74353aaa6fea0c11da74f8b281fea664cc124aa433d300d74b28890a2b2"
+    },
+    {
+      "path": "examples/workshop-example/workshop.md",
+      "sha256": "dbde18f4fce63047f05fef5892c52cedd3c84796de30c8650360d4f352dae7a1"
+    },
+    {
+      "path": "examples/workshop-example/worksheet.md",
+      "sha256": "274f66f0d53817f9d6187e0a80ec2a0bec4c454207526ec4482a40298250eb76"
+    },
+    {
+      "path": "examples/workshop-example/model-handover.md",
+      "sha256": "ed866006fcaab3f11edb69dd1c404732188eb29250eb2bb20024c44f2a9e218c"
+    },
+    {
+      "path": "examples/workshop-example/change-case.md",
+      "sha256": "ebb3452036388ede5204fa4ccc013687441bbd21f9c47d603d3f0f23dba9506a"
+    },
+    {
+      "path": "examples/workshop-example/process-walkthrough.md",
+      "sha256": "48f9d820d6a13f217753aa4f76be7bb0bfb8775017ac365aad58aaa6a38c675d"
     }
   ],
   "files": [
     {
       "path": "docs/knowledge/system-description.html",
-      "sha256": "a17897cee6bba897e49bf7cf761423ea5255e1a63dc6281d15cb9b79a5c98887"
+      "sha256": "deeb759663d24e366fe8ebb6675287146b44197cb70563f879727402fa6339d2"
     },
     {
       "path": "docs/knowledge/method-specification.html",
-      "sha256": "5ebe76b5eaa868fd47dc582e81ff299b5519a697bd332ed7b40d7fd0e36eaf92"
+      "sha256": "53020b761955ba3959138662a9bf7cf467ac1c08e44f88f8486d935eec7fc27c"
     },
     {
       "path": "docs/orchestrators/README.html",
-      "sha256": "2783825ce5a58d45c1c891b9022e985f90037150296c91e65a69fa5c231277a0"
+      "sha256": "dbe444db891ec31e47477caf9c7263d45872d86b0b2370f47c35219009f75336"
     },
     {
       "path": "docs/README.html",
-      "sha256": "088a971191a0c6a77d99c5a5508037acf7c3372e3dcb9cefbd0fd7fa3302dcdc"
+      "sha256": "0a6897568b0d40bdfdda25143a10cb0823b02c15c5a676cfbe33ae886d27e83a"
     },
     {
       "path": "docs/knowledge/research-to-operations-handoff.html",
-      "sha256": "8409c458208a3b3971d784ed47022db4759803f1e410215577386ef7e9afe796"
+      "sha256": "f1a30c61831ca61fd42d4ae2636d0fe71772ae1b5dfab33c028ff37d02fe89a3"
     },
     {
       "path": "docs/knowledge/knowledge-adapters.html",
-      "sha256": "10923d63bff395036ce205cee3f1cc9f638716233b7bed4859fb0f6f34879e99"
+      "sha256": "90ad5d059f79e0f6a81d6e72d1a95d7a513b5a5724a9c252fb9beb5e25ce8e7e"
     },
     {
       "path": "docs/knowledge/observed-context-stream-operation.html",
-      "sha256": "dfff5a984838d6accf15d18adc1bea6e0fa52f1baa4d6158ae35c1f433a6bb96"
+      "sha256": "8f7e620e57db96b274a65575c31f0d150463fcd2cbade27bdb874ee62e599181"
     },
     {
       "path": "docs/knowledge/INDEX.html",
-      "sha256": "c8afa6f4b40c9b6535f8f2036d61a31acb9b27eb7bf9f5cfe461066166868905"
+      "sha256": "d5a2b356210c325ca45dc652167f1701ecae44298cdd5440183b109c0683e469"
     },
     {
       "path": "docs/AGENTS.html",
-      "sha256": "b3cbb272781dac4e9db0a360377b17bafe56cbd97dc8096468f5e08ba5992e63"
+      "sha256": "461ff5aed6d9242ed1439d266a7bc52411b17d42c8b8c13d75173406407faa0f"
     },
     {
       "path": "docs/CLAUDE.html",
-      "sha256": "771f6986e0ce0626aaa896fd6a83d825aa9c10c977f801d1ff7053332116dd87"
+      "sha256": "75dfea911a8dee2e4fff850f1836e4350b5bb62c43215786c09aca140a6b888c"
     },
     {
       "path": "docs/ORCHESTRATOR.html",
-      "sha256": "0ed0779ddac95ea702d1e91bb06479d8523a6f72d9449bd787c076ae58a7f5ad"
+      "sha256": "1044cd62971c2b520316f71171ba165f114a378bbda5678b0e5735b2f2df023e"
     },
     {
       "path": "docs/knowledge/project.html",
-      "sha256": "aff34f22285b293289dedb7d4d25c4416e6de8c97e3d219e436c37d028e047bb"
+      "sha256": "067e22cab1d1694ed1dc4a6d33cf84320581f9b5ef72b42a96eac6eb62d337af"
     },
     {
       "path": "docs/knowledge/integration.html",
-      "sha256": "0a3f61a8693955533df93f43bcf4744a72934267897bafe2d23c70f0c66c5e35"
+      "sha256": "8024394029e227a373ff81a1c356ca71bdf533c437d18b1438a3256e4515cdd9"
     },
     {
       "path": "docs/knowledge/orchestration-architecture.html",
-      "sha256": "584e92af56d2614b983a0c7d0d940471baf50938625d92fa9bf27dea87afcca7"
+      "sha256": "0b82a9d7fb40c258e635a8d893fe8b7147e88ccba3f375b6cef6c713c6c3b636"
     },
     {
       "path": "docs/knowledge/orchestration-thresholds.html",
-      "sha256": "f9e49799278a1bc8359c21259462b87979e6db160af176bde0c1e2004185d77e"
+      "sha256": "fe11aaeb0466b1fdc71370b1758cd09ad337a343079c92d3657b6b125c62f2c9"
     },
     {
       "path": "docs/knowledge/project-governance.html",
-      "sha256": "de9b0010c5f2772461baf2799fc90c4f2e8b4834c3719892b8a53dd1e490ef9a"
+      "sha256": "ac3399b59492e90742913565158cfb4c08965e5427ec5f5252ebacacd945e24a"
     },
     {
       "path": "docs/knowledge/deterministic-checks.html",
-      "sha256": "8ab51cc909a42c1e88ae7ee9740b7d30347d397f4d7cc03eb8665f021023976b"
+      "sha256": "400a5e21d3ea9d0f0074bc74576115e8dbb22207cd8d16e00faa65477c7a3c79"
     },
     {
       "path": "docs/knowledge/observed-live-demo-operation.html",
-      "sha256": "562963d900cdc1a242f96f13021bc6fa8dc95b40f6b8d644218052e041a1be09"
+      "sha256": "93eed156673622e95890327d927668c2fb9a24b99ae988405d4dafa5b7a95e6d"
     },
     {
       "path": "docs/SYSTEM-PROMPT.html",
-      "sha256": "7c6042891a391e112f2cb926c0bc459a7cb99396a4706b6e4c70e1fe2159a00a"
+      "sha256": "7c15236ed6d3a7a4af40be1e2583776eddc7ddfe3ec103f85919c309ad00f6d6"
     },
     {
       "path": "docs/orchestrators/knowledge-orchestrator.html",
-      "sha256": "fc2308de67ec777a03da6f0f7cb6aff281970a77d664ec859d6f8cb3f68af696"
+      "sha256": "7a9dde1b7f1264c5085a355c8f14798e110f68c3bf425ee12dcb67bbac78f023"
     },
     {
       "path": "docs/orchestrators/research-orchestrator.html",
-      "sha256": "bae5f0e72b8f1d23aedbd145edb64e271a9ba32d10fce1d90cf805b1e2f1b8d0"
+      "sha256": "35a340eb05dcc200c32ac1b6cd31635ef8c6a3eb5707afa5870c47ce9c49a0be"
     },
     {
       "path": "docs/orchestrators/operational-orchestrator.html",
-      "sha256": "a594e23d4a1429652edc644ecfa19019cba38d1b21153f915301320d1441592e"
+      "sha256": "063903f051d71fe81428dfdde41879af9696a83d238cdd7427ca618cc617da89"
     },
     {
       "path": "docs/orchestrators/independent-verification-agent.html",
-      "sha256": "966d7b5e644fb989505ab61ed7fd77f542a72fc213cecdee050e4454e515fc83"
+      "sha256": "d71ae9c9cabfa30a75ac786191608c5dbeb512fe4d46acf2ab99556f97ecf045"
     },
     {
       "path": "docs/orchestrators/verification-orchestrator.html",
-      "sha256": "4ab4b80f625e7173cde7254360fa546785e95bafafd61661907d937c1c74176a"
+      "sha256": "fb1339c0908c84eb5b1bd8fab23f2fad77de57d4d9455616f4420a3f6d7401b8"
     },
     {
       "path": "docs/orchestrators/adapters/codex.html",
-      "sha256": "84f466781e3d5401a70bc589edab53277fa4dab04eb196372964d173602693ea"
+      "sha256": "f539746bae35ea79f351ded4b804519ac9fce801ab85c8cb7cc1bebe12e32685"
     },
     {
       "path": "docs/orchestrators/adapters/claude-code.html",
-      "sha256": "a6ebd44e032e2c6acca9b6aab3dabf991b95e8e0e4f70d69ea73a9983d62796e"
+      "sha256": "06c3668974ac907da78fd0455224925e75d7a6025e51a7fa21d5debd0fdf648b"
     },
     {
       "path": "docs/skills/research-mission-control/SKILL.html",
-      "sha256": "cc0e076e65e6947adbf5056669101cb134a7a8a6ea8950a2d1a9934231e35b94"
+      "sha256": "2bd9e8e4f16781835e8153080dc4c51eadb90fca3c979e0fc662ece73d8cd04a"
     },
     {
       "path": "docs/examples/knowledge/README.html",
-      "sha256": "a0208efb9ee70c02ea24c8466362f88ed33b5dbb223817f692e7649e9a4cfb0a"
+      "sha256": "6a97b2cc23674897852cc0dbf96117701b70e458887be0cb1470c04b2b5a8018"
     },
     {
       "path": "docs/examples/knowledge/notes/research-question.html",
-      "sha256": "9fb67c2b327c7d396703b0604d79ce5b129a79d8e333675edda730d87278d28d"
+      "sha256": "e78c90351e126aab1f971e6fa10836a32eb621834270c558b8d93de20c8760c9"
     },
     {
       "path": "docs/examples/knowledge/notes/terms.html",
-      "sha256": "9acd9918281da76c4ea5742eba8fe3c5f488af85ab027b04c6fb8e15d3e4da6f"
+      "sha256": "e434873c0474d86dfb7c244493b0bda90a884554c358ac88e1220b143edbbb72"
     },
     {
       "path": "docs/demo/AGENTS.html",
-      "sha256": "2103c9be2ba721ff8e09c241a476370716b756e0fa72e1f48ec264801d23b0be"
+      "sha256": "35af002d9b0c45f25fcf3ad044a89ece26ecbe3cb5a8cee8cc3e1df6e61af7b6"
     },
     {
       "path": "docs/demo/README.html",
-      "sha256": "32c78b2314f54a46cc42a8280f58b4a0839cc38eec251050f3c221a9089d0cd0"
+      "sha256": "4ceaa25a7a9235db1a838b3ab83c9e6860df5542fd2ca6ea5e3bb0b71b134d4f"
     },
     {
       "path": "docs/demo/docs/source-contract.html",
-      "sha256": "0a13ef36878defd523b83c4be50a8f02dc7b3798eaf3244bb06f11cece365a9d"
+      "sha256": "e2ab86f333e734f276c4abf138f98df5e1e1fbe2a56fe3c203a9c9cbbd653167"
     },
     {
       "path": "docs/demo/docs/views.html",
-      "sha256": "8a50c1686acd74ff0bdfd6ab480daa2b520e63bc5221722cc4dfcc3fd0e8c594"
+      "sha256": "96275d2d2eada479cc83254eadd313b213ad0705be6eb3fe7e7a88a64be76dbc"
     },
     {
       "path": "docs/demo/sources/demo-guide.html",
-      "sha256": "ed103bdc3713b6b4dcaf2b1af1ad3dbd72da73cf8b97d226e02cb0bf4b9e6533"
+      "sha256": "8717a69f5492a9e156511ac8fbdaf37236b67d7b7258ef7274b22e1d3200b2f4"
+    },
+    {
+      "path": "docs/examples/workshop-example/README.html",
+      "sha256": "1f18db323301177922b16af06e0ad65627e34efe900ecf424031cc4ec70cd3cf"
+    },
+    {
+      "path": "docs/examples/workshop-example/records.html",
+      "sha256": "11f44c358aa1c1d3781048098cd10866181960b34b79bc52fda53ee20389cb63"
+    },
+    {
+      "path": "docs/examples/workshop-example/requirements.html",
+      "sha256": "486cc7aece75fb966f482a33d7769b92a4f0cba5e62c188c8a4f85f853923e24"
+    },
+    {
+      "path": "docs/examples/workshop-example/workshop.html",
+      "sha256": "d37872baa36e3b7c4a99544ee405a77299f7d75b23fd54a6ebeae808e8e0f45b"
+    },
+    {
+      "path": "docs/examples/workshop-example/worksheet.html",
+      "sha256": "4c7f03df845339f0e83729b5c67b9e6e2a0bfce0bf9710975e204ffeb645a35b"
+    },
+    {
+      "path": "docs/examples/workshop-example/model-handover.html",
+      "sha256": "c3c25da601ae52bb90cd49ecf58e218cd282242690acc340e5a0de6e5501e09d"
+    },
+    {
+      "path": "docs/examples/workshop-example/change-case.html",
+      "sha256": "dddd9bc755f82551c5cbe6a0224f5ea4968116be65a5c356897e9c4eb4abfec8"
+    },
+    {
+      "path": "docs/examples/workshop-example/process-walkthrough.html",
+      "sha256": "7e3ee570078fac3ccbdf42ce5297bbf09f653af23266c2bc4d7e0150e1d81a56"
     },
     {
       "path": "docs/docs.css",
-      "sha256": "dc89785ecf2be0a2c7dd39dd8577de8771836347148b1af916b736b99276b1ce"
+      "sha256": "75dab10c0788e1f1d19623e532ab21b8fb4f0a23cb97964623e042095a0d5b47"
     }
   ]
 }

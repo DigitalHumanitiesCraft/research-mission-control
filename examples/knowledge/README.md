@@ -4,9 +4,23 @@ The browser example, the knowledge catalog and the method initializer serve diff
 
 ## Prerequisites
 
-Use a downloaded or cloned method release that contains `demo/`, `example-data.json` inside that directory, its `tools/rebuild-example.cjs`, this example and the method initializer. If `demo/` is absent, that package does not provide the interface-copy route. The release metadata and manifests identify the delivered files; a proposed release is not evidence of their availability.
+Use a downloaded or cloned method release that contains `examples/workshop-example/`, `demo/`, `example-data.json` inside that directory, its `tools/rebuild-example.cjs`, this example and the method initializer. If `demo/` is absent, that package does not provide the interface-copy route. The release metadata and manifests identify the delivered files; a proposed release is not evidence of their availability.
 
 The commands below start in the method repository root, named `rmc-method`. Its parent directory must exist. Python 3.11 or later and Git support the initializer. Node.js supports the data rebuild and adapter checks. An ordinary browser and a local static HTTP server run the interface without an account or runtime package installation. Choose new target folders because the copy, catalog builder and initializer refuse existing destinations.
+
+## Derive a local requirements result
+
+From `rmc-method`, copy the [complete authored source pack](../workshop-example/README.md) into a new task folder:
+
+```sh
+python -c "import shutil; shutil.copytree('examples/workshop-example', '../my-handover-study')"
+```
+
+Open `my-handover-study` in an editor or a chosen AI harness. Read `records.md` and follow [First local exercise](../workshop-example/change-case.md#first-local-exercise). Create only `results/handover-requirements.md`, with exact source-section links and explicit distinctions between retained instructions and inferred requirements. Preserve all supplied files. Save the first draft before opening `requirements.md` as the comparison answer.
+
+Check that R5 supersedes R1's earlier permission. Current workshop material must be wholly fictional, including the university and company cases. H-01 leaves the fictional sponsor's format choice open and keeps printing and case-sheet allocation pending. Check every citation, compare the saved draft with the supplied matrix and record any supported correction in the same result file. The stopping point is a source-checked local draft. Independent Verification, workshop delivery and human acceptance are separate and unperformed by these commands.
+
+The supplied pack includes the records, completed requirements analysis, 90-minute plan, blank worksheet, completed model handover and exact before/after change account. These authored artifacts are a comparison basis, without evidence of an actual study or workshop. The copy command starts no agent. Subsequent command blocks begin in `rmc-method` unless they explicitly change directory.
 
 ## Copy and run the interface
 
@@ -20,11 +34,11 @@ python -m http.server 8000 --bind 127.0.0.1
 
 Open `http://127.0.0.1:8000/` in a browser. Stop the server with Ctrl+C when finished. This serves the copied files locally. The original method package remains intact. A different unused port can replace 8000.
 
-The authored Atlas comparison distinguishes a blue cube's description from its attributed function and leaves object identity unresolved. Exhibit uses that comparison without resolving the identity. Archive is completed background material with no new assignment. Read the source, inspect the projects and prepare a conversation. Copying a prompt does not deliver it.
+The requirements-study project links fictional handover records to a completed authored matrix. The dependent workshop applies those requirements in an agenda, worksheet and model handover. University and company cases preserve their unresolved category decisions. Read the source, inspect both projects and prepare a conversation. Copying a prompt does not deliver it.
 
 ## Edit and rebuild your copy
 
-Stop the server or use a second terminal in `my-rmc-ui`. Edit `example-data.json` with a text editor, preserving valid JSON and the existing stable IDs. For a small observable exercise, change `DEMO.sourceTitle` to `Beispielquelle: Atlas der Dinge (local copy)`. This changes the generated source title while preserving the research question and result.
+Stop the server or use a second terminal in `my-rmc-ui`. Edit `example-data.json` with a text editor, preserving valid JSON and the existing stable IDs. For a small observable exercise, change `DEMO.sourceTitle` to `Traceable project handovers (local copy)`. This changes the generated source title while preserving the research question and result.
 
 ```sh
 node tools/rebuild-example.cjs
@@ -77,10 +91,10 @@ Keep personal inputs and their local output outside a public distribution. Expli
 
 ## Initialize the method workspace separately
 
-From `rmc-method`, inspect the local workspace plan:
+From `rmc-method`, inspect the local workspace plan. Its source reference uses the separate task copy created under [Derive a local requirements result](#derive-a-local-requirements-result):
 
 ```sh
-python skills/research-mission-control/scripts/init_workspace.py --target ../my-research-workspace --project-name "Synthetic source comparison" --objective "Keep observations and interpretations distinguishable" --research-harness other --operations-harness other --verification-harness other --dry-run
+python skills/research-mission-control/scripts/init_workspace.py --target ../my-research-workspace --project-name "Traceable project handovers" --objective "Derive source-linked requirements from fictional records" --research-harness other --operations-harness other --verification-harness other --canonical-input ../my-handover-study/records.md --dry-run
 ```
 
 Inspect the proposed paths and then run the same command without `--dry-run` when that is the intended local setup. The initializer creates a new local Git repository and start contracts. It creates no commit or remote and launches no agent. Choose the actual supported harness values for your intended deployment. The optional `--canonical-input` records a reference; it does not import sources or connect them to the UI. Verify that reference from the created workspace before relying on it.

@@ -517,6 +517,15 @@ def build(target: Path, *, draft: bool = False) -> list[Path]:
             shutil.copy2(source, destination)
             copied.append(relative)
 
+        if Path(".gitattributes") not in copied:
+            raise RuntimeError("Publication Git byte contract requires allowlisted .gitattributes")
+        # Release hashes bind original bytes, including CRLF sources and pinned demo members.
+        (temp_dir / ".gitattributes").write_text(
+            "# Preserve checksummed release bytes during Git staging and checkout.\n"
+            "* -text\n\n*.ico binary\n*.png binary\n*.skill binary\n",
+            encoding="utf-8",
+            newline="\n",
+        )
         copied.append(_package_skill(temp_dir, copied))
         _activate_release_links(temp_dir)
         _write_release_metadata(temp_dir, source_commit, source_dirty)

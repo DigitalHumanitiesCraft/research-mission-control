@@ -99,14 +99,13 @@
 #rueckfrage form.sagen .status { font-family: var(--sans); font-size: var(--t-klein); line-height: 1.5; }
 
 @layer components {
-  .ab-comparison-table { inline-size: 100%; border-collapse: collapse; table-layout: fixed; margin-block: var(--s4); }
+  .ab-comparison-table { inline-size: 100%; border-collapse: collapse; table-layout: auto; margin-block: var(--s4); }
   .ab-comparison-table caption { text-align: start; font-weight: 600; margin-block-end: var(--s2); }
-  .ab-comparison-table th, .ab-comparison-table td { text-align: start; vertical-align: top; padding: var(--s2); overflow-wrap: anywhere; border-block-end: 1px solid var(--line); }
+  .ab-comparison-table th, .ab-comparison-table td { text-align: start; vertical-align: top; padding: var(--s2); overflow-wrap: break-word; border-block-end: 1px solid var(--line); }
   .ab-comparison-table thead th { font-weight: 600; }
+  .ab-comparison-table tbody th { min-inline-size: calc(6ch + 2 * var(--s2)); }
   @media (max-width: 30rem) {
     .ab-comparison-table { font-size: var(--t-klein); }
     .ab-comparison-table th, .ab-comparison-table td { padding: var(--s2) calc(var(--s1) / 2); }
-    .ab-comparison-table thead th:first-child, .ab-comparison-table thead th:last-child { inline-size: 28%; }
-    .ab-comparison-table thead th:nth-child(2), .ab-comparison-table thead th:nth-child(3) { inline-size: 22%; }
   }
 }

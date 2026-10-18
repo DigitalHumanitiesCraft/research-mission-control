@@ -21,7 +21,9 @@
 .docs-layout th, .docs-layout td { text-align: start; padding: 10px 12px; vertical-align: top; border-block-end: 1px solid var(--line); }
 .docs-layout blockquote { border-inline-start: 3px solid var(--purple); margin-inline-start: 0; padding-inline-start: 24px; }
 .docs-layout article a, .source-meta code { overflow-wrap: anywhere; }
-.headerlink { font-size: .65em; text-decoration: none; margin-inline-start: .6em; }
+.headerlink { position: relative; font-size: .65em; text-decoration: none; margin-inline-start: .6em; }
+/* Extend the pointer target without wrapping a section marker onto its own line. */
+.headerlink::after { content: ""; position: absolute; inline-size: 1.5rem; block-size: 1.5rem; inset-block-start: 50%; inset-inline-start: 50%; transform: translate(-50%, -50%); }
 .contents { margin-block: 0 30px; border-block-end: 1px solid var(--line); padding-block-end: 16px; }
 .contents ul { padding-inline-start: 20px; }
 .contents li { margin-block: 7px; font-size: 15px; }

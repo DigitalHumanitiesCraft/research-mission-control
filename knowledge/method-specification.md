@@ -4,7 +4,7 @@ status: active
 language: en
 version: 0.9.0rc2
 created: 2026-08-23
-updated: 2026-08-23
+updated: 2026-10-18
 related: [project, integration, orchestration-architecture, research-to-operations-handoff]
 ---
 
@@ -19,7 +19,7 @@ This specification defines the portable Research Mission Control method. It cove
 ### Initialization
 
 - **MS-01:** A fresh user can start from the complete system prompt or the installable skill.
-- **MS-02:** Configuration identifies Research Mission Control with its canonical repository URL, uses the human user's language, and asks no more than three questions. The questions establish the current working context's role, the project result and acceptance criteria, and the shared project workspace with its discoverable or explicitly supplied inputs. A working context is one separately open Codex task, Claude Code conversation, or equivalent harness context with its own context window. Rights, publication, remote creation, grounding, and verification variants become later Human Decision Points only when a concrete trigger requires them.
+- **MS-02:** Configuration identifies Research Mission Control with its canonical repository URL and uses the human user's language, one necessary question at a time. It reuses known answers, shows the current phase and next action, and establishes the role, a provisional first result and assessment criteria, and the workspace with available inputs. Exploratory projects are valid. Setup moves to configuration once a bounded first assignment is clear; broad subject research follows initialization. After creation, the integration contract holds the compact initialization state. A working context is one separately open Codex task, Claude Code conversation, or equivalent harness context with its own context window. Rights, publication, remote creation, grounding, and verification variants become later Human Decision Points only when a concrete trigger requires them.
 - **MS-03:** The initializer creates a new local Git repository transactionally and refuses every existing target without modifying it.
 - **MS-04:** Remote creation, publication, rights, and attribution remain separate human-authorized actions.
 
@@ -46,6 +46,16 @@ This specification defines the portable Research Mission Control method. It cove
 - **MS-15:** The Independent Verification Agent remains read-only against evaluated production artifacts. Each assignment has a bounded target, criterion, evidence packet, and completion condition; standing progress monitoring or heartbeat duties require a separate operational responsibility. It may update only its own reporting state and outbox. It reports its complete finding first and only to the human user. Only the human user decides whether to disclose or route that finding to Research or Operations. Verification never produces a correction; it may recheck a correction produced by the responsible production role.
 - **MS-16:** Draft, active installation, formal validation, observed operation, domain validation, and human acceptance remain distinct findings.
 - **MS-16a:** Independent means separate read-only assessment context. Blind adds a declared reading-order restriction. Shadow adds verified technical isolation, a private human user route, and omission from production contracts. Blind and Shadow are not synonyms, and neither label implies a security guarantee.
+
+### Inspectable state transitions
+
+- **MS-16b:** A transition claim identifies the responsible actor, affected artifact and revision, supporting evidence and applicable authority. Prepared, submitted, examined, correction-required, revised, rechecked, human accepted and written-back describe distinct states within a bounded assignment. Receipt and processing remain separately evidenced. A changed revision requires an assessment of the relevant changed scope before a prior finding can be applied to it.
+- **MS-16c:** Correction follows the assigned production write boundary. Independent Verification reports the complete finding first to the human user, who controls its disclosure and routing. A recheck does not grant acceptance. Human acceptance identifies the revision and intended use, and authorized write-back records and reads back the resulting consequence. Epistemic, operational, authority and verification state retain their distinct evidence.
+- **MS-16d:** An interface labels authored demonstrations and simulated decisions explicitly. Reserved decision gates require explicit illustrative action, and replay invalidates later choices when returning to an earlier snapshot. Observable actions and cited records support activity claims. Animation establishes neither hidden reasoning nor actual execution. The [workshop process walkthrough](../examples/workshop-example/process-walkthrough.md) illustrates the contract through a revision, a correction and a later session's selective reading. Its material acceptance leaves H-01 open and establishes no executed operator run or evaluation result.
+
+### Unresolved questions
+
+- **MS-16e:** Reports attach unresolved claims to their grounds and affected decisions. Operational observation gaps, missing authority and outstanding revision-specific checks remain separately described. The operator uses authorized source inspection, bounded experiments or specialist work when these can resolve the question, and asks the human user when the next action requires reserved judgement, authority or unavailable input. An unsupported consequential assumption can also require escalation. The [architecture](orchestration-architecture.md#describing-uncertainty-and-selecting-the-next-action) gives provisional descriptions and routing examples. It establishes no calibrated confidence score or validated comprehensive taxonomy.
 
 ### Communication and publication
 

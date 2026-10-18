@@ -1,35 +1,35 @@
 window.KALENDER_GOOGLE = {
   "synthetic": true,
-  "abgerufen": "2026-10-17 10:00",
-  "von": "2026-10-05",
+  "abgerufen": "2026-10-18 10:00",
+  "von": "2026-10-12",
   "bis": "2026-11-30",
   "kalender": [
-    "Beispielkalender, kein Google-Abruf"
+    "Fictional calendar"
   ],
   "farben": {
-    "Beispielkalender, kein Google-Abruf": "#6a75a8"
+    "Fictional calendar": "#6a75a8"
   },
   "termine": [
     {
-      "datum": "2026-10-17",
-      "titel": "Beispielprojekt: Atlas der Dinge, erfundene Lesesitzung",
+      "datum": "2026-10-18",
+      "titel": "Requirements study: Documented handovers, fictional source reading",
       "von": "10:00",
       "bis": "11:00",
-      "kalender": "Beispielkalender, kein Google-Abruf"
+      "kalender": "Fictional calendar"
     },
     {
       "datum": "2026-10-19",
-      "titel": "Beispiel: Offene Lesesitzung ohne Projektzuordnung",
+      "titel": "Workshop: Traceable project handovers, fictional material run-through",
+      "von": "10:00",
+      "bis": "11:30",
+      "kalender": "Fictional calendar"
+    },
+    {
+      "datum": "2026-10-19",
+      "titel": "Unassigned open reading slot",
       "von": "14:00",
       "bis": "14:45",
-      "kalender": "Beispielkalender, kein Google-Abruf"
-    },
-    {
-      "datum": "2026-10-19",
-      "titel": "Example exhibition: Objects in Context, fictional label discussion",
-      "von": "14:15",
-      "bis": "15:00",
-      "kalender": "Beispielkalender, kein Google-Abruf"
+      "kalender": "Fictional calendar"
     }
   ]
 };

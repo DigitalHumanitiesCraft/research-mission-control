@@ -8,12 +8,12 @@
       "kind": "uses_data",
       "state": "documented",
       "valid": true,
-      "qualifier": "Authored example only; no object-identity or implementation claim.",
+      "qualifier": "Authored requirements reused in a prepared workshop plan; no verified integration or delivery is claimed.",
       "problems": [],
       "source": {
         "path": "demo-guide",
-        "revision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
-        "quote": "The exhibition builds on the Atlas comparison."
+        "revision": "5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db",
+        "quote": "The workshop builds on the requirements synthesis."
       }
     }
   ],

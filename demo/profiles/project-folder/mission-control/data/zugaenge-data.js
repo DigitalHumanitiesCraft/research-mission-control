@@ -1,5 +1,5 @@
 window.ZUGAENGE = {
-  "generated": "2026-01-12",
+  "generated": "2026-10-18",
   "eintraege": {
     "demo-atlas": [],
     "demo-exhibit": [],

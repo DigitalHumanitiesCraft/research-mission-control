@@ -209,7 +209,9 @@
     };
     const renderSettings = focus => {
       list.replaceChildren();
-      for (const [index, key] of viewSettings.order.entries()) {
+      const configurableOrder = viewSettings.order.filter(key => !overviewChildren.has(key) || key === 'kalender');
+      const movableOrder = viewSettings.order.filter(key => !overviewChildren.has(key));
+      for (const key of configurableOrder) {
         const route = routes.find(item => item.key === key);
         const row = element('li', { 'data-view-setting': key });
         const checkbox = element('input', { type: 'checkbox', id: controlId(key, 'visible'), 'data-view-key': key, 'data-view-control': 'visible' });
@@ -224,17 +226,23 @@
           refreshHeaders({ key, kind: 'visible' });
         });
         row.append(label);
-        for (const [kind, direction, sign] of [['up', -1, '↑'], ['down', 1, '↓']]) {
-          const button = element('button', { type: 'button', id: controlId(key, kind), 'aria-label': route.label + (direction < 0 ? t(" nach oben", " move up") : t(" nach unten", " move down")), 'data-view-key': key, 'data-view-control': kind }, sign);
-          button.disabled = index + direction < 0 || index + direction >= viewSettings.order.length;
-          button.addEventListener('click', () => {
-            if (index + direction < 0 || index + direction >= viewSettings.order.length) return;
-            const order = [...viewSettings.order];
-            [order[index], order[index + direction]] = [order[index + direction], order[index]];
-            saveViewSettings({ ...viewSettings, order });
-            refreshHeaders({ key, kind });
-          });
-          row.append(button);
+        if (key !== 'kalender') {
+          const index = movableOrder.indexOf(key);
+          for (const [kind, direction, sign] of [['up', -1, '↑'], ['down', 1, '↓']]) {
+            const button = element('button', { type: 'button', id: controlId(key, kind), 'aria-label': route.label + (direction < 0 ? t(" nach oben", " move up") : t(" nach unten", " move down")), 'data-view-key': key, 'data-view-control': kind }, sign);
+            const neighbor = movableOrder[index + direction];
+            button.disabled = !neighbor;
+            button.addEventListener('click', () => {
+              if (!neighbor) return;
+              const order = [...viewSettings.order];
+              const from = order.indexOf(key);
+              const to = order.indexOf(neighbor);
+              [order[from], order[to]] = [order[to], order[from]];
+              saveViewSettings({ ...viewSettings, order });
+              refreshHeaders({ key, kind });
+            });
+            row.append(button);
+          }
         }
         list.append(row);
       }

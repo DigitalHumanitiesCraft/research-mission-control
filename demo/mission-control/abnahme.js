@@ -251,7 +251,7 @@
     const section = el('section', { class: 'ab-teil ab-entscheidung', id: 'entscheidung' },
       el('h2', { ...(hasProjectConversation() ? { id: 'rueckfrage', tabindex: '-1' } : {}), text: tr('Ergebnis im Chat beurteilen', 'Assess the result in conversation') }),
       !usable() ? el('p', { class: 'ab-fehlt', text: tr('Die vollständige Ergebnisvorlage fehlt. Kläre zuerst die fehlende Grundlage.', "The complete result template is missing. Clarify the missing basis first.") }) : '',
-      review.task.zustand !== 'erledigt' ? el('p', { text: tr('Der Auftrag ist noch nicht als fertig gemeldet. Besprich den aktuellen Stand und seine Voraussetzungen.', "The assignment has not been reported complete. Discuss its current state and prerequisites.") }) : '',
+      L.auftragOffen(review.task) ? el('p', { text: tr('Der Auftrag ist noch nicht als fertig gemeldet. Besprich den aktuellen Stand und seine Voraussetzungen.', "The assignment has not been reported complete. Discuss its current state and prerequisites.") }) : '',
       review.abnahmeart === 'Freigabe' ? el('p', { class: 'ab-hinweis', text: tr('Technische Freigabe folgt der unabhängigen Prüfung und der im Lab geregelten Zuständigkeit. Eine inhaltliche Beurteilung behält ihren eigenen Umfang.', "Technical approval follows independent review and the responsibilities defined by the lab. Content assessment retains its own scope.") }) : '',
       A.discussion(() => review.task, () => ({ ziel: 'abnahme', review, stale, unavailable: dirty,
         label: tr('Ergebnis im Chat besprechen', 'Discuss the result in conversation'), projectConversation: true })), error, feedback);

@@ -17,18 +17,18 @@
 </li>
 </ul>
 </div>
-</details><article><h1 id="deterministic-checks-by-project-type">Deterministic Checks by Project Type<a class="headerlink" href="deterministic-checks.html#deterministic-checks-by-project-type" title="Permanent link">&para;</a></h1>
-<h2 id="scope">Scope<a class="headerlink" href="deterministic-checks.html#scope" title="Permanent link">&para;</a></h2>
+</details><article><h1 id="deterministic-checks-by-project-type">Deterministic Checks by Project Type<a aria-label="Link to section: Deterministic Checks by Project Type" class="headerlink" href="deterministic-checks.html#deterministic-checks-by-project-type" title="Link to section: Deterministic Checks by Project Type">&para;</a></h1>
+<h2 id="scope">Scope<a aria-label="Link to section: Scope" class="headerlink" href="deterministic-checks.html#scope" title="Link to section: Scope">&para;</a></h2>
 <p>This catalog names, per project type, the completion criteria that a command can decide, together with the concrete command form. A criterion is deterministic when the command's exit code or exact output settles it without discretion. The method formalizes only such criteria. Everything beyond that boundary remains an assessment matter for the human user or the Verification role and is delimited per type below.</p>
 <p>For a deterministic criterion, the executed command together with its captured output is the check-command evidence element of a Result with Evidence as defined in <a href="research-to-operations-handoff.html"><code>research-to-operations-handoff.md</code></a>. The output carries the claim. A verdict restated without command and output remains a producer declaration in the sense of <a href="method-specification.html"><code>method-specification.md</code></a>. Judgment criteria are unaffected by this element and keep their evidence forms.</p>
-<h2 id="command-semantics">Command semantics<a class="headerlink" href="deterministic-checks.html#command-semantics" title="Permanent link">&para;</a></h2>
+<h2 id="command-semantics">Command semantics<a aria-label="Link to section: Command semantics" class="headerlink" href="deterministic-checks.html#command-semantics" title="Link to section: Command semantics">&para;</a></h2>
 <ul>
 <li>Commands run from the root of the examined project unless the form names another location. Placeholders in angle brackets are project-supplied.</li>
 <li>Interpret each command by its declared success condition. Suite and validation commands use their exit code. Queries such as <code>Test-Path</code> and <code>git rev-list --count</code> require the specified Boolean or numeric output as well as successful execution. Empty output indicates success only for a command whose stated criterion is an empty findings list. Capture each command's output and exit status separately.</li>
 <li>Suite runners, schemas, linters, and build commands come from the examined project's action layer or configuration. They are never guessed, and running a generic default against a project that configures something else decides nothing about that project.</li>
 <li>A passing check establishes the mechanical fact it names. Whether that fact satisfies the assignment's objective remains a judgment, and so does the choice of checks for a claimed result.</li>
 </ul>
-<h2 id="checks-for-every-project-type">Checks for every project type<a class="headerlink" href="deterministic-checks.html#checks-for-every-project-type" title="Permanent link">&para;</a></h2>
+<h2 id="checks-for-every-project-type">Checks for every project type<a aria-label="Link to section: Checks for every project type" class="headerlink" href="deterministic-checks.html#checks-for-every-project-type" title="Link to section: Checks for every project type">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -78,7 +78,7 @@
 <p><code>--untracked-files=all</code> overrides a configuration that hides untracked paths. Ignored files remain outside this status result. A directory-wide non-change claim requires a complete pre-action baseline and comparison of its declared scope, as described in <a href="method-specification.html"><code>method-specification.md</code></a>. See the <a href="https://git-scm.com/docs/git-status">Git status documentation</a>.</p>
 <p>The upstream count compares local references. To interpret this count as remote evidence, first verify a successful, time-stamped fetch that refreshes the configured upstream reference. Record the relevant ref names and object IDs. The comparison describes the state observed at that fetch. See <a href="https://git-scm.com/docs/gitrevisions">upstream revision syntax</a> and <a href="https://git-scm.com/docs/git-fetch#_configured_remote_tracking_branches">configured remote-tracking branches</a>.</p>
 <p>The two whitespace checks examine their respective diffs under <code>core.whitespace</code>. Untracked content needs a separately selected check. See <a href="https://git-scm.com/docs/git-diff">Git diff</a>. The <a href="https://docs.python.org/3/library/json.html#standard-compliance-and-interoperability">Python JSON documentation</a> describes decoder extensions and duplicate-name handling. The <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-path#-pathtype">PowerShell Test-Path documentation</a> defines the file-type and Boolean conditions.</p>
-<h2 id="code">Code<a class="headerlink" href="deterministic-checks.html#code" title="Permanent link">&para;</a></h2>
+<h2 id="code">Code<a aria-label="Link to section: Code" class="headerlink" href="deterministic-checks.html#code" title="Link to section: Code">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -116,7 +116,7 @@
 <li>Whether a fix addresses the root cause.</li>
 <li>Design quality, appropriateness of an abstraction, and performance adequacy.</li>
 </ul>
-<h2 id="edition-and-xml-tei">Edition and XML (TEI)<a class="headerlink" href="deterministic-checks.html#edition-and-xml-tei" title="Permanent link">&para;</a></h2>
+<h2 id="edition-and-xml-tei">Edition and XML (TEI)<a aria-label="Link to section: Edition and XML (TEI)" class="headerlink" href="deterministic-checks.html#edition-and-xml-tei" title="Link to section: Edition and XML (TEI)">&para;</a></h2>
 <p>Well-formedness is decidable with the Python standard library:</p>
 <pre><code>python -c &quot;import sys, xml.etree.ElementTree as ET; ET.parse(sys.argv[1])&quot; &lt;file.xml&gt;
 </code></pre>
@@ -138,7 +138,7 @@ sys.exit(0 if ok else 1)
 <li>Editorial decisions such as normalization, apparatus construction, and the modeling of uncertain readings.</li>
 <li>Whether a schema-valid file encodes the intended text. Validity is a statement about structure, and what the structure means stays an editorial judgment.</li>
 </ul>
-<h2 id="prose-and-knowledge-documents">Prose and knowledge documents<a class="headerlink" href="deterministic-checks.html#prose-and-knowledge-documents" title="Permanent link">&para;</a></h2>
+<h2 id="prose-and-knowledge-documents">Prose and knowledge documents<a aria-label="Link to section: Prose and knowledge documents" class="headerlink" href="deterministic-checks.html#prose-and-knowledge-documents" title="Link to section: Prose and knowledge documents">&para;</a></h2>
 <p>Where PyYAML is available, this snippet attempts to parse the first delimiter-separated fragment in top-level Markdown files beginning with <code>---</code>:</p>
 <pre><code>python -c &quot;
 import sys, pathlib, yaml
@@ -177,7 +177,7 @@ sys.exit(1 if bad else 0)
 <li>Argument quality, granularity, placement, and document structure beyond mechanically checkable patterns.</li>
 <li>Style conformance beyond patterns a linter can match.</li>
 </ul>
-<h2 id="static-site">Static site<a class="headerlink" href="deterministic-checks.html#static-site" title="Permanent link">&para;</a></h2>
+<h2 id="static-site">Static site<a aria-label="Link to section: Static site" class="headerlink" href="deterministic-checks.html#static-site" title="Link to section: Static site">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -211,7 +211,7 @@ sys.exit(1 if bad else 0)
 </table>
 <p><code>node dashboard/verify.js</code> belongs to the source repository's internal dashboard and is excluded from the public bundle. It uses a DOM stub, so its checks do not establish real browser rendering. The public example documents a separate browser check with Playwright and an explicitly served URL.</p>
 <p>A scripted browser check can establish an asserted state in its observed rendered output. A DOM-stub check establishes only the corresponding assertions in that stub environment. Visual quality, layout acceptance, and readability remain assessment matters, and a screenshot alone is insufficient evidence for page behavior, as the browser rule in <a href="research-to-operations-handoff.html"><code>research-to-operations-handoff.md</code></a> records.</p>
-<h2 id="judgment-boundary">Judgment boundary<a class="headerlink" href="deterministic-checks.html#judgment-boundary" title="Permanent link">&para;</a></h2>
+<h2 id="judgment-boundary">Judgment boundary<a aria-label="Link to section: Judgment boundary" class="headerlink" href="deterministic-checks.html#judgment-boundary" title="Link to section: Judgment boundary">&para;</a></h2>
 <p>Deterministic checks establish mechanical facts. The following classes remain with the human user or the Verification role in every project type.</p>
 <ul>
 <li>Whether the result satisfies the objective and acceptance criteria of the assignment.</li>
@@ -220,5 +220,5 @@ sys.exit(1 if bad else 0)
 <li>Interpretation, meaning, and quality wherever deciding the criterion requires understanding the content.</li>
 </ul>
 <p>A criterion that would need discretion to decide is a judgment criterion in this catalog's sense. It enters an assignment as an assessment task, and the check-command evidence element stays reserved for criteria a command decides.</p></article>
-<details class="source-meta"><summary>Document source and release information</summary><p>Package release 0.9.0rc3</p><p>Source <code>knowledge/deterministic-checks.md</code>. <a href="../../knowledge/deterministic-checks.md" download>Download original Markdown</a></p><details><summary>Original document metadata</summary><p>Document versions and dated evidence describe their recorded scope. Rendering this document in another package does not update those findings.</p><dl><dt>title</dt><dd>Deterministic Checks by Project Type</dd><dt>status</dt><dd>active</dd><dt>language</dt><dd>en</dd><dt>created</dt><dd>2026-08-25</dd><dt>updated</dt><dd>2026-10-17</dd><dt>related</dt><dd>[method-specification, research-to-operations-handoff, integration]</dd></dl></details></details>
+<details class="source-meta"><summary>Document source and release information</summary><p>Package release 0.9.0rc5</p><p>Source <code>knowledge/deterministic-checks.md</code>. <a href="../../knowledge/deterministic-checks.md" download>Download original Markdown</a></p><details><summary>Original document metadata</summary><p>Document versions and dated evidence describe their recorded scope. Rendering this document in another package does not update those findings.</p><dl><dt>title</dt><dd>Deterministic Checks by Project Type</dd><dt>status</dt><dd>active</dd><dt>language</dt><dd>en</dd><dt>created</dt><dd>2026-08-25</dd><dt>updated</dt><dd>2026-10-17</dd><dt>related</dt><dd>[method-specification, research-to-operations-handoff, integration]</dd></dl></details></details>
 </main><footer class="docs-footer"><a href="../../index.html">Overview</a><a href="../../index.html#downloads">Reference and reuse</a><a href="../../knowledge/deterministic-checks.md" download>Original Markdown</a></footer></body></html>

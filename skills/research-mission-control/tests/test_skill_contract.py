@@ -23,8 +23,8 @@ class SkillContractTest(unittest.TestCase):
         skill = SKILL_PATH.read_text(encoding="utf-8").lower()
         for phrase in (
             "human user directs the work",
-            "research orchestrator",
-            "operational orchestrator",
+            "research-orchestrator.md",
+            "operational-orchestrator.md",
             "independent verification agent",
             "predoc specialists",
             "github remote",
@@ -51,34 +51,26 @@ class SkillContractTest(unittest.TestCase):
                 self.assertTrue(target.is_relative_to(SKILL_ROOT.resolve()))
                 self.assertTrue(target.is_file())
 
-    def test_interview_has_exactly_three_questions(self) -> None:
+    def test_progressive_setup_has_a_selective_entry_and_resume_record(self) -> None:
         skill = SKILL_PATH.read_text(encoding="utf-8")
-        question_block = skill.split("## Configuration interview", maxsplit=1)[1].split(
-            "Supply these defaults", maxsplit=1
-        )[0]
-        questions = [
-            line for line in question_block.splitlines() if line.startswith(("1. ", "2. ", "3. ", "4. ", "5. "))
-        ]
-        self.assertEqual(3, len(questions))
-        self.assertIn("Ask no more than three initial configuration questions", skill)
-        self.assertIn("Ask in the human user's language", skill)
-        self.assertIn("Language selection never consumes one of the three questions", skill)
-        self.assertIn(
-            "Research Mission Control (https://github.com/DigitalHumanitiesCraft/research-mission-control)", skill
-        )
-        self.assertIn("Which role should this working context assume", skill)
-        self.assertIn("what criteria will the human user use to accept that result", skill)
-        self.assertIn("data, documents, materials, code, repositories, or knowledge sources", skill)
-        self.assertIn("Inspect and inventory material already present there", skill)
-        self.assertIn('answer any numbered item with "Was empfiehlst du?"', skill)
-        self.assertIn("Do not ask the human user to confirm that default", skill)
-        self.assertIn("Context Stream transports messages but does not wake", skill)
-        self.assertIn("After configuration", skill)
-        self.assertIn("up to five short conceptual questions", skill)
+        self.assertIn("## Selective reading", skill)
+        self.assertIn("## Progressive initialization", skill)
+        for phase in (
+            "Introduction",
+            "Minimum project framing",
+            "Configuration proposal",
+            "Local initialization",
+            "Operational check",
+            "First assignment and review",
+        ):
+            self.assertIn(phase, skill)
+        self.assertIn("knowledge/integration.md", skill)
+        self.assertIn("knowledge/journal.md", skill)
+        self.assertNotIn("Ask only unanswered questions in one batch", skill)
+        self.assertNotIn("Ask no more than three initial configuration questions", skill)
 
     def test_status_and_grounding_semantics_are_explicit(self) -> None:
         skill = SKILL_PATH.read_text(encoding="utf-8")
-        self.assertIn("first substantive response", skill)
         self.assertIn("local-only or still requires remote authorization", skill)
         self.assertIn("required with project-specific binding pending", skill)
         self.assertIn("does not activate an integration", skill)
@@ -105,7 +97,9 @@ class SkillContractTest(unittest.TestCase):
         self.assertEqual(25, len(list(TEMPLATE_ROOT.rglob("*.tmpl"))))
         payload = json.loads(EVALS_PATH.read_text(encoding="utf-8"))
         self.assertEqual("research-mission-control", payload["skill_name"])
-        self.assertEqual(set(range(1, 9)), {case["id"] for case in payload["evals"]})
+        identifiers = [case["id"] for case in payload["evals"]]
+        self.assertEqual(len(identifiers), len(set(identifiers)))
+        self.assertEqual("unexecuted", payload["execution_status"])
         for case in payload["evals"]:
             self.assertTrue(case["prompt"])
             self.assertTrue(case["expected_output"])
@@ -114,7 +108,10 @@ class SkillContractTest(unittest.TestCase):
     def test_openai_starter_preserves_method_identity_and_language(self) -> None:
         metadata = OPENAI_METADATA_PATH.read_text(encoding="utf-8")
         self.assertIn("https://github.com/DigitalHumanitiesCraft/research-mission-control", metadata)
-        self.assertIn("Ask the three configuration questions in my language", metadata)
+        self.assertIn("$research-mission-control", metadata)
+        self.assertIn("in my language", metadata)
+        self.assertIn("one question at a time", metadata)
+        self.assertNotIn("three configuration questions", metadata)
 
     def test_skill_exposes_preview_and_single_writer_contract(self) -> None:
         skill = SKILL_PATH.read_text(encoding="utf-8")

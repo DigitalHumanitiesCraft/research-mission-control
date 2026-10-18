@@ -35,3 +35,29 @@ test('writes, foreign origins, outside paths and unknown task identities never r
   for (const [url, options] of [['/api/answers', { method: 'POST' }], ['https://outside.invalid/source.json'], ['/private.json'], ['/api/acceptance-review?lane=other&kennung=DEMO-COMPARE']]) await assert.rejects(h.fetch(url, options));
   assert.equal(h.calls.length, 1);
 });
+
+test('each completed example result reads only its own static review record', async () => {
+  const h = harness();
+  for (const [lane, task, asset] of [
+    ['demo-research', 'DEMO-COMPARE', 'acceptance.json'],
+    ['demo-curation', 'DEMO-LABEL', 'acceptance-workshop.json'],
+  ]) {
+    await h.fetch('/api/acceptance-review?' + new URLSearchParams({ lane, kennung: task }));
+    assert.equal(h.calls.at(-1).url, 'https://demo.invalid/method/demo/demo-assets/' + asset);
+  }
+  const before = h.calls.length;
+  for (const [lane, task] of [['demo-research', 'DEMO-LABEL'], ['demo-curation', 'DEMO-COMPARE']]) {
+    await assert.rejects(h.fetch('/api/acceptance-review?' + new URLSearchParams({ lane, kennung: task })));
+  }
+  assert.equal(h.calls.length, before, 'crossed task identities never reach native fetch');
+});
+
+test('explicit result context overrides the guide default and preserves its exact source section', () => {
+  const h = harness();
+  const address = new URL(h.sourceHref('demo-guide', 'Workshop plan', 'demo-exhibit'));
+  const query = new URLSearchParams(address.hash.slice(1));
+  assert.equal(query.get('source'), 'demo-guide');
+  assert.equal(query.get('anchor'), 'workshop-plan');
+  assert.equal(query.get('bezug'), 'demo-exhibit');
+  assert.equal(new URLSearchParams(new URL(h.sourceHref('demo-guide')).hash.slice(1)).get('bezug'), 'demo-atlas');
+});

@@ -14,8 +14,6 @@ export function ensemble({ L, S, briefings = {}, openOperator }) {
   const root = el('section', { class: 'op-ensemble', 'aria-label': tr('Registrierte Operatoren', 'Registered operators') });
   const lists = new Map(families.map(([key, label]) => {
     const list = el('ul', { class: 'op-ensemble-list', role: 'list', 'aria-label': label });
-    root.append(el('div', { class: 'op-ensemble-family', 'data-family': key },
-      el('p', { class: 'op-ensemble-family-label', text: label }), list));
     return [key, list];
   }));
   const unknown = el('ul', { class: 'op-ensemble-list op-ensemble-unclassified', role: 'list',
@@ -57,10 +55,10 @@ export function ensemble({ L, S, briefings = {}, openOperator }) {
     if (window.UI_LANGUAGE?.href) href = window.UI_LANGUAGE.href(href);
     const workArea = window.LEITSTAND_ICONS?.workArea(lane, { L, briefing }) || lane.adresse || lane.key;
     const context = [title, status, state.text, tr('Aktuelle Aktivität unbekannt', 'Current activity unknown')].join(' — ');
-    const pip = el('span', { class: 'op-ensemble-pip', role: 'img', 'aria-label': status, title: status,
+    const pip = el('span', { class: 'op-ensemble-pip', role: 'img', 'aria-label': status,
       text: paused ? 'Ⅱ' : planned ? '○' : scope === 'outside' ? '·' : '' });
     const link = el('summary', { id: 'ensemble-open-' + lane.key, class: 'op-ensemble-token', 'data-operator': lane.key, 'data-family': family,
-      'data-active': String(documented), 'data-paused': String(paused), 'data-planned': String(planned), 'data-filter-state': scope, 'data-work-state': state.symbol, title: context });
+      'data-active': String(documented), 'data-paused': String(paused), 'data-planned': String(planned), 'data-filter-state': scope, 'data-work-state': state.symbol });
     if (identity) {
       const domain = identity.querySelector('.operator-domain');
       if (domain) { domain.textContent = workArea; identity.insertBefore(pip, domain); }
@@ -68,7 +66,7 @@ export function ensemble({ L, S, briefings = {}, openOperator }) {
       link.append(identity);
     } else link.append(pip, el('span', { class: 'operator-domain', text: workArea }));
     link.setAttribute('aria-label', workArea + ' — ' + context);
-    const projectList = el('ul', { class: 'op-ensemble-projects' });
+    const projectList = el('ul', { class: 'op-ensemble-projects', role: 'list' });
     const ids = [...new Set([...projects.map(project => project.id), ...(planned ? lane.planning?.projectIds || [] : [])])];
     for (const id of ids) {
       const project = L.entryById.get(id);
@@ -77,31 +75,39 @@ export function ensemble({ L, S, briefings = {}, openOperator }) {
       projectList.append(el('li', {}, project ? el('a', { href: projectHref, text: project.name || project.titel || id })
         : el('span', { text: id + tr(' — Zuordnung nicht bestätigt', ' — binding not confirmed') })));
     }
+    const fields = el('dl', { class: 'op-ensemble-profile-fields' });
+    const field = (label, value) => fields.append(el('div', {}, el('dt', { text: label }), el('dd', {}, value)));
+    field(ids.length === 1 ? tr('Projekt', 'Project') : tr('Projekte', 'Projects'), ids.length ? projectList
+      : el('span', { text: tr('Keine Projektzuordnung belegt', 'No project binding documented') }));
+    if (!documented && status !== state.text) field(tr('Auswahl', 'Selection'), el('span', { text: status }));
+    field(tr('Auftrag', 'Assignment'), el('span', { text: state.symbol === 'blocked' ? tr('Blockiert', 'Blocked') : state.text }));
+    field(tr('Aktuelle Aktivität', 'Current activity'), el('span', { text: tr('Unbekannt', 'Unknown') }));
+    const links = el('div', { class: 'op-ensemble-profile-links' },
+      el('a', { href: source, text: tr('Originalquelle', 'Original source') }));
     const panel = el('div', { class: 'op-ensemble-profile-content' },
-      el('p', { class: 'op-ensemble-profile-name', text: workArea }), el('p', { text: title }),
-      el('p', { text: status }), ...(state.text !== status ? [el('p', { text: state.text })] : []),
-      el('p', { text: tr('Aktuelle Aktivität unbekannt', 'Current activity unknown') }),
-      ...(ids.length ? [projectList] : []),
-      el('p', {}, el('a', { href: source, text: tr('Originalquelle', 'Original source') })),
-      el('div', { 'data-session-detail-operator': lane.key, text: tr('Sitzungsmetadaten nicht verfügbar.', 'Session metadata unavailable.') }));
+      el('p', { class: 'op-ensemble-profile-heading' }, el('span', { class: 'op-ensemble-profile-name', text: workArea }),
+        el('span', { class: 'op-ensemble-profile-role', text: title })), fields,
+      el('div', { 'data-session-detail-operator': lane.key, text: tr('Sitzungsmetadaten nicht verfügbar.', 'Session metadata unavailable.') }), links);
     if (lane.key !== L.orchestrator?.key) {
       const open = el('a', { href, class: 'op-ensemble-open-operator', text: tr('Operator öffnen', 'Open operator') });
       if (typeof openOperator === 'function') open.addEventListener('click', event => {
         if (event.button || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
         event.preventDefault(); openOperator(lane.key);
       });
-      panel.append(open);
+      links.append(open);
     }
-    const details = el('details', { class: 'op-session-badge op-ensemble-profile' }, link, panel);
-    let hoverOpened = false;
-    details.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse' && !details.open) { hoverOpened = true; details.open = true; } });
-    link.addEventListener('click', event => { if (hoverOpened) { event.preventDefault(); hoverOpened = false; details.open = true; } });
-    details.addEventListener('pointerleave', () => { if (!details.matches?.(':focus-within')) { hoverOpened = false; details.open = false; } });
-    let closing = false;
-    link.addEventListener('focus', () => { if (!closing && link.matches?.(':focus-visible')) details.open = true; });
-    details.addEventListener('focusout', event => { if (!details.contains?.(event.relatedTarget)) details.open = false; });
-    details.addEventListener('keydown', event => { if (event.key === 'Escape') { hoverOpened = false; closing = true; details.open = false; link.focus(); closing = false; } });
+    const details = el('details', { class: 'op-session-badge op-ensemble-profile', name: 'operator-ensemble-profile' }, link, panel);
+    details.addEventListener('keydown', event => {
+      if (event.key !== 'Escape') return;
+      event.preventDefault(); event.stopPropagation(); details.open = false; link.focus();
+    });
     (lists.get(family) || unknown).append(el('li', {}, details));
+  }
+  const populated = families.filter(([key]) => lists.get(key).children.length);
+  root.setAttribute('data-family-count', String(populated.length));
+  for (const [key, label] of populated) {
+    root.append(el('div', { class: 'op-ensemble-family', 'data-family': key },
+      el('p', { class: 'op-ensemble-family-label', text: label }), lists.get(key)));
   }
   if (unknown.children.length) root.append(unknown);
   return root;

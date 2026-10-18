@@ -1,23 +1,23 @@
 window.RESEARCH_PATHS = [
   {
     "id": "demo-comparison-reading",
-    "title": "Example: read a written comparison",
-    "prompt": "How does this fictional example retain the uncertain identity of the described objects?",
+    "title": "Read the source-supported requirements and their workshop reuse",
+    "prompt": "How does R5 change the exercise, worksheet, brief and maintained requirement while H-01 stays open?",
     "paths": [
       "demo-guide",
       "demo-sources/demo-research.md"
     ],
-    "reason": "Authored demo reading route: read the written comparison and then the fictional researcher profile. This is a navigation example, not a new finding, independent assessment or execution record.",
+    "reason": "Read R1/R5, the requirements matrix and the complete workshop artifacts, then inspect the fictional researcher profile. This route supplies no independent finding.",
     "sourceRefs": [
       {
         "path": "demo-guide",
-        "line": 17,
-        "revision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092"
+        "line": 97,
+        "revision": "5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db"
       },
       {
         "path": "demo-sources/demo-research.md",
         "line": 9,
-        "revision": "1a1ad5528d26b39d0104b5ae5e3db4eb28e4014ea28a55b59fbc409b39700923"
+        "revision": "7ab2f2742c9e21eb4b77a59b21c73de6a7da41941402704fc58cb7964b711f40"
       }
     ]
   }

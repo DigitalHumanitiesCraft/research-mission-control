@@ -1,13 +1,13 @@
 {
   "schema": "agent-work-1",
   "synthetic": true,
-  "generated": "2026-10-17T10:00:00+02:00",
+  "generated": "2026-10-18T10:00:00+02:00",
   "groups": [],
   "sources": {},
   "warnings": [
     {
       "source": "demo-guide",
-      "message": "Keine echten Ausführungsquellen für die synthetische Demo."
+      "message": "No actual execution sources are supplied for this authored example."
     }
   ]
 }

@@ -22,3 +22,9 @@
 .bericht-abschnitt pre code { background: none; padding: 0; }
 .bericht-abschnitt a { color: var(--ink); overflow-wrap: anywhere; }
 .bericht-abschnitt.folge { border-inline-start: 2px solid var(--line); padding-inline-start: var(--s2); }
+
+/* A complete assignment can exceed the narrow row; preserve the report label and read each field below it. */
+@media (max-width: 520px) {
+  .berichte .zeile { grid-template-columns: minmax(0, 1fr); }
+  .berichte .zeile > .ende { grid-column: 1; align-items: flex-start; }
+}

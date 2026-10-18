@@ -2,7 +2,7 @@
 title: Configurable Knowledge Sources
 status: active
 language: en
-updated: 2026-10-17
+updated: 2026-10-18
 related: [integration, project]
 ---
 
@@ -18,7 +18,7 @@ This adapter supplies the knowledge reader, its search and its evidenced documen
 
 Source organisation describes where documents live and how their relationships are represented. Project folders, linked notes and shared sources across project folders can carry the same research question, source wording and qualified result. Stable logical IDs and explicit source-backed links preserve document identities, source wording and recorded relationships across layouts. The adapter does not establish whether an interpretation remains valid after a change of context. A folder name or hyperlink does not establish a scholarly dependency.
 
-The work model describes projects, assignments, responsibilities, results, verification and authority. Moving a note does not create a project or start an operator. The catalog supplies documents and their stated links; the UI's project and operator contracts supply the work relationships. Adapt each at its existing boundary instead of inferring work state from a directory tree. The synthetic Atlas, Exhibit and Archive example keeps uncertain object identity and the distinction between assigned work and completed background contributions visible.
+The work model describes projects, assignments, responsibilities, results, verification and authority. Moving a note does not create a project or start an operator. The catalog supplies documents and their stated links; the UI's project and operator contracts supply the work relationships. Adapt each at its existing boundary instead of inferring work state from a directory tree. The synthetic requirements study and dependent workshop preserve the source restriction, unresolved category decisions and the distinction between completed authored artifacts and unperformed delivery. Their work relationships remain explicit across source layouts.
 
 The [adaptation walkthrough](../examples/knowledge/README.md) separates copying a working interface, selecting local Markdown sources and initializing a method workspace. The demo's own README and source contract define the actual layout selectors and identifiers supplied by a release. These are representation choices, not new role sets or evidence of one knowledge structure being more effective.
 

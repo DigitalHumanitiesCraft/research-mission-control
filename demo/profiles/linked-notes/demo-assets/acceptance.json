@@ -1,50 +1,50 @@
 {
   "synthetic": true,
-  "revision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
+  "revision": "5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db",
   "task": {
     "kennung": "DEMO-COMPARE",
-    "auftrag": "Beispiel: Die erfundenen Notizen vergleichen und die offene Objektidentität kennzeichnen.",
+    "auftrag": "Derive source-bound requirements for resuming a documented task from the fictional records R1–R6.",
     "vorhaben": "demo-atlas",
     "zustand": "erledigt",
-    "seit": "2026-01-12",
+    "seit": "2026-10-18",
     "abnahmeart": "inhaltlich",
-    "zweck": "Die Unterscheidung von Beschreibung und Interpretation an einem erfundenen Beispiel zeigen.",
-    "ergebnis": "Beispielergebnis: Farbe und Form stimmen überein, die zugeschriebenen Funktionen unterscheiden sich. Eine gemeinsame Objektkennung fehlt.",
-    "pruefung": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
+    "zweck": "Make a source-supported requirements analysis and its qualified reuse inspectable.",
+    "ergebnis": "The authored synthesis identifies RQ-01–RQ-08 from R1–R6, distinguishes explicit instructions from inferences and applies R5. Independent review is pending.",
+    "pruefung": "Source comparison and independent review remain to be performed by the reader. Authored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
     "vertragsfehler": "",
+    "quellenrevision": "5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db",
     "vertragsquelle": {
       "path": "demo-guide",
-      "href": "",
-      "revision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
-      "section": "Beispielaufgabe"
+      "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-atlas&anchor=requirements-assignment",
+      "revision": "5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db",
+      "section": "Requirements assignment"
     },
     "ergebnisZiele": [
       {
         "art": "mission-control",
-        "text": "Written comparison: source and limits",
-        "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-atlas&anchor=Beispielergebnis",
+        "text": "Requirements synthesis and source warrants",
+        "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-atlas&anchor=requirements-synthesis",
         "quelle": "beispiel"
       }
     ],
-    "quellenrevision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
     "operator": "demo-research",
     "entryId": "demo-atlas"
   },
   "vorlage": true,
   "abnahmeart": "inhaltlich",
-  "zweck": "Die Unterscheidung von Beschreibung und Interpretation an einem erfundenen Beispiel zeigen.",
-  "ergebnis": "Beispielergebnis: Farbe und Form stimmen überein, die zugeschriebenen Funktionen unterscheiden sich. Eine gemeinsame Objektkennung fehlt.",
-  "gepruft": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
+  "zweck": "Make a source-supported requirements analysis and its qualified reuse inspectable.",
+  "ergebnis": "The authored synthesis identifies RQ-01–RQ-08 from R1–R6, distinguishes explicit instructions from inferences and applies R5. Independent review is pending.",
+  "gepruft": "Source comparison and independent review remain to be performed by the reader. Authored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
   "ansehen": [
     {
       "art": "mission-control",
-      "text": "Written comparison: source and limits",
-      "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-atlas&anchor=Beispielergebnis",
+      "text": "Requirements synthesis and source warrants",
+      "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-atlas&anchor=requirements-synthesis",
       "quelle": "beispiel"
     }
   ],
   "warnings": [
-    "Vollständig erfundener Ergebnisdatensatz. Keine tatsächliche Abnahme."
+    "Authored result fixture; independent review and human acceptance remain pending."
   ],
   "material": null,
   "answer": null,

@@ -6,6 +6,8 @@
 .operator-session-proof { margin-block-start: var(--s1); }
 .operator-session-proof > summary { color: var(--soft); cursor: pointer; min-block-size: var(--control-size, 1.5rem); }
 .operator-session-proof > summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-.operator-session-proof dl { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; margin-block: var(--s2); }
-.operator-session-proof dt { color: var(--soft); }
-.operator-session-proof dd { margin: 0 0 var(--s2); }
+.operator-session-proof dl { margin-block: var(--s1); }
+.operator-session-proof dt { display: inline; color: var(--soft); }
+.operator-session-proof dt::after { content: ": "; }
+.operator-session-proof dd { display: inline; margin: 0; }
+.operator-session-proof dd::after { content: ""; display: block; margin-block-end: var(--s1); }

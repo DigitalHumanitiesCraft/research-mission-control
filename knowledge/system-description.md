@@ -9,106 +9,122 @@ related: [project, integration, orchestration-architecture, research-to-operatio
 
 # Research Mission Control in practice
 
-Research Mission Control connects project knowledge with bounded AI assignments and examined results. Atlas provides a small working example. Its invented inventory notes, comparison and reports let you follow the evidence and prepare the next contribution. They are authored demonstration material, rather than a record of agents conducting research.
+Research Mission Control connects project knowledge with bounded AI assignments and examined results. The authored case “Traceable project handovers” connects a requirements study with a dependent 90-minute workshop. Its records, requirements matrix, agenda, worksheet and model handover are available in full. They record no actual study, workshop delivery, agent execution, independent review or human acceptance.
 
 ## Begin with a question and its sources
 
-Atlas asks what two similar inventory descriptions establish about form, function and possible object identity. In the [project record](../demo/mission-control/projekte.html?lang=en&projekt=demo-atlas), open the comparison and follow its source reference.
+The [requirements study](../demo/mission-control/projekte.html?lang=en&projekt=demo-atlas) asks: “What does a colleague need to resume a project task from a documented handover?” The [original records](../examples/workshop-example/records.md) supply the evidence for a bounded analysis. R2 describes a table reported as “cleaned” without a path, revision, explanation or executable next action. R3 requires source support for completion claims and separates independent review from acceptance.
 
-Both notes are written inside the [example guide](../demo/sources/demo-guide.md). Note A describes a blue cube as a game piece. Note B describes a blue cube as a sample. Colour and shape agree, while the attributed function differs. There is no common object identifier. The comparison therefore leaves object identity unresolved.
+The [requirements matrix](../examples/workshop-example/requirements.md#requirements-matrix) retains explicit instructions and marks inferences from stated needs. RQ-02 locates the artifact and revision. RQ-03 separates completed changes, source observations and interpretation. RQ-04 bounds the next action, while RQ-05 keeps an unresolved category decision with its designated owner. These requirements are supported within the fictional records. They establish no empirical finding about actual handovers.
 
-The [source reader](../demo/research.html?lang=en#view=context&source=demo-guide&read=1&bezug=demo-atlas&anchor=Beispielergebnis) keeps the original German wording available beside the interpretation. A link gets you to the passage. Reading that passage establishes how far it supports the claim.
+[Read the original records in the interface](../demo/research.html?lang=en#view=context&source=demo-guide&read=1&bezug=demo-atlas&anchor=original-records), then compare them with the [authored synthesis](../demo/mission-control/abnahme.html?lang=en&lane=demo-research&kennung=DEMO-COMPARE#vorstellung). The source pack is written in English. The interface's English/German language choice changes its labels, while source wording remains available in its original language.
 
-Project folders, linked notes and shared sources offer different places to maintain the same guide. Select them in the example to inspect the difference. Its logical source identity and research result remain constant. An Obsidian vault is one possible knowledge environment, while the portable method also works with ordinary project files.
+Project folders, linked notes and shared sources offer different places to maintain the same material. Their logical source identities and authored results remain constant. An Obsidian vault is one possible environment; ordinary project files also support the portable method.
+
+## Turn project knowledge into an interface
+
+A knowledge interface makes selected project knowledge available for concrete investigation tasks. Define what the reader needs to discover, compare or check, identify the source and its limits, then choose the representation and interaction that support that task. In the [process walkthrough](../examples/workshop-example/process-walkthrough.md), selecting a document exposes its earlier and current wording, the responsible writer and the evidence behind the revision. The activity tracks explain the parallel assignments while the open decision retains its owner.
+
+Compare alternative views using the same task, source selection and recorded state. Preserve the selected evidence when changing representations. Examine incorrect, missing and incomplete values as well as the ordinary case. Agreement between an aggregate and a value computed from the same inputs establishes a calculation property. A documented source check needs its own evidence. Keep technical checks, observed interaction, domain interpretation and human acceptance distinct when assessing the result.
 
 ## Give an operator a bounded assignment
 
-An assignment specifies the expected contribution and the authority to produce it. This brief could be used for an Atlas comparison in a separately configured working environment:
+Copy the complete source pack as described below. In that new local folder, the following brief creates a result that the supplied package does not already contain:
 
 ```text
-Read sources/atlas-guide.md in the new workspace described below.
-Compare its invented inventory notes A and B.
-Deliver results/atlas-comparison.md with a table separating
-stated attributes from interpretations.
-Cite the source passages and record the source revision.
-Preserve the missing object identifier as an unresolved limit.
-Create results/ if needed; write only results/atlas-comparison.md.
-Preserve the guide and all other project files.
-Check each table row against the quoted passage and report deviations.
+Read records.md in full in the copied workspace.
+Create results/ if needed. Write ONLY results/handover-requirements.md.
+Preserve every supplied file.
+Derive a requirements table with an ID, requirement and exact source citation
+for each row. Distinguish explicit instructions from inferred requirements
+and explain each inference beside its supporting record.
+Link citations to ../records.md and its exact heading anchor.
+Distinguish R1's superseded permission from R5's current material rule.
+Keep H-01 open, identify its fictional owner and state its consequence.
+Describe the result as analysis of fictional records.
+Claim no actual study, workshop, independent review or human acceptance.
+Save the first draft before reading requirements.md.
+Then compare it with that supplied answer, record supported differences
+and make any justified revision within the same result file.
 ```
 
-The existing [Atlas result](../demo/mission-control/abnahme.html?lang=en&lane=demo-research&kennung=DEMO-COMPARE#vorstellung) shows the kind of artifact to inspect. It was authored for this demonstration. Copying the brief or the interface's [prepared conversation](../demo/mission-control/operatoren.html?lang=en&operator=demo-research) leaves execution with your chosen AI harness, its tools and permissions.
+The [complete local-exercise contract](../examples/workshop-example/change-case.md#first-local-exercise) states the source checks and stopping point. An alternative grouping can be supported by the records even when it differs from the supplied matrix. Copying this brief or a [prepared conversation](../demo/mission-control/operatoren.html?lang=en&operator=demo-research) does not execute it. Use the actual tools and authority of the context you choose.
 
-The role defines responsibility, the project supplies context, and the assignment sets the actual work and writing boundary. Within that assignment, an operator can inspect existing solutions and correct a relevant defect. A proposed extension needs its corresponding authority. Questions, suggestions and personal feedback become decisions only when the responsible person adopts them. An explicit pause remains effective until a new assignment changes it.
+The role defines responsibility, the project supplies context, and the assignment sets the actual result and writing boundary. [Operator Knowledge](orchestration-architecture.md#operator-session-and-working-instructions) supplies the maintained working instructions and relevant standing context, including how to interact with the human user. It may refer to existing role and skill documents. A session reads the applicable sources and verifies its actual tools and authority; a file does not become a system message by being named or read. A proposed extension needs its corresponding authority. An explicit pause remains effective outside the scope of a new assignment.
 
 ## Examine the result and its consequences
 
-Check the [comparison](../demo/mission-control/abnahme.html?lang=en&lane=demo-research&kennung=DEMO-COMPARE#vorstellung) against the guide. Do the rows accurately distinguish shared attributes from incompatible or uncertain interpretations? Does the conclusion preserve the unresolved identity? Software checks can confirm references and file structure. Source examination and human judgement determine whether the interpretation serves the investigation.
+The dependent [workshop](../demo/mission-control/projekte.html?lang=en&projekt=demo-exhibit) applies the requirements in a complete authored plan. Its agenda totals 90 minutes, including a short break. Participants draft a handover, inspect a partner's source references, revise one finding and state the next permitted action. Classroom peer review is a learning activity; it does not perform the method's separate Independent Verification or grant acceptance.
 
-[Exhibit](../demo/mission-control/projekte.html?lang=en&projekt=demo-exhibit) reuses Atlas as input to a public label. Its label assignment remains unexecuted in the authored example. The label must retain the unresolved identity, while the institutional wording choice remains a human contribution.
+| Completed authored material | What to inspect |
+| --- | --- |
+| [Requirements synthesis](../demo/research.html?lang=en#view=context&source=demo-guide&read=1&bezug=demo-atlas&anchor=requirements-synthesis) | Each requirement's record, warrant and realization. |
+| [Workshop plan](../demo/research.html?lang=en#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=workshop-plan) | Learning intentions, agenda and university/company adaptations. |
+| [Participant worksheet](../demo/research.html?lang=en#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=workshop-worksheet) | Source and revision, state, next action, open decision and checks. Findings remain blank until someone performs them. |
+| [Model handover](../demo/research.html?lang=en#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=model-handover) | Supplied prepared tables, a weak handover and its completed worked replacement. The receiver's category summary remains an exercise task. |
 
-To practise a correction, suppose your local comparison mistakenly says that the notes describe the same object. Follow this route in the separately initialized workspace; it is an exercise, not a recorded agent run:
+The university case uses a fictional teaching-collection catalogue. Its ambiguous row U4 remains unassigned for the collection lead. The company case uses a fictional support-request queue. Its ambiguous row C4 remains unassigned for the service owner. Both receivers may summarize already assigned rows and must stop before deciding the unresolved category. The [full model](../examples/workshop-example/model-handover.md) gives the actual rows, prepared mappings and complete handover.
 
-1. Operations submits `results/atlas-comparison.md` with its source revision and checks to Verification, and sends Research a notice pointing to that result.
-2. Verification checks it against `sources/atlas-guide.md` without editing either file. Its complete finding goes first to the human user: shared colour and form do not establish identity without a common identifier.
-3. The human user routes the finding to Operations for the result correction and to Research for the maintained interpretation. Operations corrects its assigned result. Research records the qualified statement in `knowledge/atlas.md`, links its source and corrected result, and adds it to `knowledge/INDEX.md`: “The notes share colour and form but assign different functions. Object identity remains unresolved because no common identifier is supplied.”
-4. Research checks the dependent Exhibit use. If its wording assumes identity, it prepares a bounded correction to `results/exhibit-label.md` for Operations within the authorized label assignment. The institutional wording decision stays with the human user. The browser example itself remains unchanged.
-5. Read the corrected result, maintained interpretation and any resulting label together. Check their source references, retained uncertainty and actual changes. Research records the adopted consequence and remaining decision in `knowledge/journal.md`. Subsequent work reads that maintained state.
+A source change tests whether that maintained knowledge reaches dependent artifacts. [R1](../examples/workshop-example/records.md#r1-original-brief) originally permitted anonymized project excerpts. [R5](../examples/workshop-example/records.md#r5-replacement-material-rule) supersedes that permission and prohibits original project material, including anonymized, redacted, paraphrased or otherwise transformed excerpts. The prohibition covers preparation, examples, exercises, worksheets, discussion and take-away material. Only wholly fictional training material is permitted.
 
-The [canonical write-back contract](integration.md#canonical-ownership-and-write-back) defines ownership. The links help locate affected work; the responsible writer examines and checks each correction. Copying a prompt or creating a workspace does not perform this sequence.
+The [change record](../examples/workshop-example/change-case.md#wording-changes) preserves the exact before/after wording. Current RQ-06 cites R5. The exercise uses the supplied fictional cases. The worksheet requests case IDs instead of pasted project content. The facilitator stops original-content disclosure, and the model supplies both audience versions. The existing pack already contains these revisions. Its historical implementation brief describes that authored transition and supplies no new task against the public example.
 
-A monitor can compare recorded plans and interpretations with original statements and observed actions, then explain discrepancies to the human user. Its evidence supports a second opinion. Bounded verification examines an assigned result against criteria. Human acceptance remains its own judgement, and an unsettled personal criterion stays open.
+For a later correction in a configured workspace, the [handoff contract](research-to-operations-handoff.md) supplies the route:
 
-Communication also needs evidence. A send operation establishes only the transport status reported by the configured route. Receipt and processing require their own evidence. Shared files alone do not wake a session. The [handoff contract](research-to-operations-handoff.md) specifies the result, evidence, receipt and return obligations.
+1. Operations submits the bounded result with source revision and performed checks to Verification, and sends Research a notice pointing to it.
+2. Independent Verification checks the actual result and dependent passages against the controlling record without editing them. Its complete finding returns first to the human user.
+3. The human user decides whether and where to route the finding. Operations corrects authorized artifacts. Research maintains the requirement and its source relation in the canonical knowledge and records the adopted consequence in the journal.
+4. Read the corrected requirement, exercise, worksheet and model together. Retain the superseded permission as history and check that no operative instruction invites original material.
+
+The [canonical write-back contract](integration.md#canonical-ownership-and-write-back) defines ownership. Links locate affected work; the responsible writer examines and checks the consequence. A send operation, receipt and processing require distinct evidence. Shared files alone do not wake a session.
+
+[H-01](../examples/workshop-example/records.md#r6-pending-human-choice) leaves the fictional sponsor's room-format choice open. Mixed-room pairs compare university and company cases during minutes 72–82. Audience-specific pairs inspect a second row in their selected case. Both variants fit the prepared agenda. Final printing and case-sheet allocation await that fictional choice. R5's material prohibition is already settled within the story. Approval before workshop delivery is also unrecorded. Human acceptance remains its own judgement.
 
 ## Run it locally
 
-Start with a method package containing `demo/`; check its release metadata and the required files in the [adaptation guide](../examples/knowledge/README.md#prerequisites). The [public repository](https://github.com/DigitalHumanitiesCraft/research-mission-control) distributes the method. The example and catalog need Python 3.11 or later; editing and rebuilding the example also needs Node.js. Workspace initialization additionally needs Git. No account or runtime package installation is needed for the browser example.
+Use a downloaded or cloned method package containing `examples/workshop-example/` and `demo/`. The [adaptation guide](../examples/knowledge/README.md#prerequisites) names the required files and tools. Name the method directory `rmc-method` and start there. Choose new destination folders under its existing parent.
 
-Name the unpacked method directory `rmc-method`. Run the commands from there, using new destination folders under its existing parent. Earlier releases without `demo/` do not support this route. Copy and serve the example:
+Copy the complete original source pack into a separate task folder:
 
 ```sh
+python -c "import shutil; shutil.copytree('examples/workshop-example', '../my-handover-study')"
+cd ../my-handover-study
+```
+
+Read `records.md` and use the bounded brief above. Save the first draft before opening `requirements.md` as the comparison answer. Check every requirement against its cited record, follow the source links and retain H-01's consequence. Stop after a source-checked local draft and any justified revision to `results/handover-requirements.md`. An unperformed check remains unperformed. This exercise requires Python for copying and an editor or a chosen AI harness for the actual task. It starts no agent and makes no external call.
+
+To inspect an editable interface copy, return to the method directory:
+
+```sh
+cd ../rmc-method
 python -c "import shutil; shutil.copytree('demo', '../my-rmc-ui')"
 cd ../my-rmc-ui
 python -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8000/`. Keep the server running, or stop it with Ctrl+C when finished. In a second terminal inside `my-rmc-ui`, edit `DEMO.sourceTitle` in `example-data.json` to `Beispielquelle: Atlas der Dinge (local copy)`, then rebuild and check it:
+Open `http://127.0.0.1:8000/`. Stop the server with Ctrl+C when finished. In a second terminal in `my-rmc-ui`, change `DEMO.sourceTitle` in `example-data.json` to `Traceable project handovers (local copy)`, then rebuild and check:
 
 ```sh
 node tools/rebuild-example.cjs
 node --test tools/check-adapter.cjs check-profiles.cjs
 ```
 
-Refresh the source reader and confirm the changed title beside the original text. The [example guide](../demo/README.md) explains the editable inputs, generated views and source contract. To connect selected Markdown files, return from `my-rmc-ui` to the method directory and build a separate catalog:
+Refresh the source reader and inspect the changed title beside the preserved original text. The [example guide](../demo/README.md) maintains the data and source contract. [Select your own Markdown sources](../examples/knowledge/README.md#select-your-own-markdown-sources) gives the separate reader-only catalog route. It requires an independent reader copy and disabled authored layout profiles. Project, operator and calendar views retain their own source contracts. Keep personal inputs and their local outputs outside public packages; the workshop training example continues to use only fictional material.
+
+For a new method workspace with role and communication contracts, return to `rmc-method` and inspect the initializer plan:
 
 ```sh
-cd ../rmc-method
-python tools/build_knowledge_catalog.py --config examples/knowledge/sources.json --target ../knowledge-preview
+python skills/research-mission-control/scripts/init_workspace.py --target ../my-research-workspace --project-name "Traceable project handovers" --objective "Derive source-linked requirements from fictional records" --research-harness other --operations-harness other --verification-harness other --canonical-input ../my-handover-study/records.md --dry-run
 ```
 
-The output contains `coverage.json`, `source-map.json` and source-response files. Continue with [Select your own Markdown sources](../examples/knowledge/README.md#select-your-own-markdown-sources): copy the reader independently, replace its catalog and source files, and disable its authored layout profiles so it actually reads the new root catalog. Open the documented `question` source and expand Full source text. This connects the reader only. Project, operator, assignment and calendar views retain their authored data until their separate contracts are deliberately adapted. Keep personal inputs and their outputs outside any public package.
-
-Return to `rmc-method` if you followed the reader-copy instructions. For a separate workspace with reference role and communication contracts, inspect the initializer plan:
-
-```sh
-python skills/research-mission-control/scripts/init_workspace.py --target ../my-research-workspace --project-name "Synthetic source comparison" --objective "Keep observations and interpretations distinguishable" --research-harness other --operations-harness other --verification-harness other --dry-run
-```
-
-Inspect the plan, then repeat without `--dry-run` to create the files. For the Atlas exercise above, copy the fictional guide into that new workspace, still from `rmc-method`:
-
-```sh
-python -c "from pathlib import Path; import shutil; root=Path('../my-research-workspace'); (root/'sources').mkdir(); shutil.copyfile('demo/sources/demo-guide.md', root/'sources/atlas-guide.md')"
-```
-
-Configure the generated integration contract and use its start prompts in the actual working environments you choose. The proposed assignment permits the result path above; Research retains knowledge ownership. Inspect the copied source and generated contracts before execution. The initializer creates no agents, remote or commit and does not connect the workspace to the copied interface. [Setup](../README.md#start-a-project) documents role binding; [the adaptation guide](../examples/knowledge/README.md) maintains the complete local commands.
+Repeat without `--dry-run` only when the plan matches your intended local setup. The reference records a path and imports no source. Inspect it from the created workspace, configure the integration contract and use its generated start prompts in the actual contexts you choose. The initializer creates no agent, remote or commit and does not connect this workspace to the copied interface. The [setup guide](../README.md#start-a-project) explains role binding; the [adaptation guide](../examples/knowledge/README.md) maintains the full copy, catalog and initialization routes.
 
 ## Responsibilities and further evidence
 
-The reference roles divide the work. Research develops the question, evidence and executable brief with the human user. Operations implements authorised changes and returns their evidence. Independent Verification examines a bounded result in a separate read-only context and returns its complete finding first to the human user, who controls subsequent routing. A contained task may use one context for clarification, implementation and production checks. Independent Verification requires a separate review context. The [role architecture](orchestration-architecture.md) and [specification](method-specification.md) maintain these responsibilities.
+Research develops the question, sources and criteria with the human user. Operations implements authorized artifacts and returns evidence. Independent Verification examines a bounded result in a separate read-only context and returns its complete finding first to the human user, who controls subsequent routing. A contained task may use one context for clarification, implementation and production checks. The [role architecture](orchestration-architecture.md) and [specification](method-specification.md) maintain these responsibilities.
 
-The portable Context Stream uses role-owned outboxes and recipient-owned processing records. Operations sends its complete result with evidence to Verification and a separate result notice to Research. [Integration](integration.md#context-stream-relationship) defines the actual routes, notification requirements and fallback. A separately configured monitor has its own communication contract and grants no acceptance or authority.
+A separately configured monitor compares recorded plans and interpretations with original statements and observed actions. It provides a second opinion under its own communication contract and grants no acceptance or authority. [Integration](integration.md#context-stream-relationship) defines deployment routes, notification requirements and fallback.
 
-The public interface is a wholly synthetic example. The private Second Brain pilot uses a flatter operator arrangement and different review-return rules. Its [recorded deployment](integration.md#recorded-vault-pilot) preserves those differences. Neither the example nor a separate session establishes independent reasoning or a measured research benefit. [Recorded Context Stream operation](observed-context-stream-operation.md), [analysis of an earlier demonstration](observed-live-demo-operation.md) and the [project's evidence limits](project.md) state what was observed and what remains untested. Proposed comparative studies remain unperformed.
+The public interface and all example choices are authored fiction. The private Second Brain pilot uses a flatter operator arrangement and different review-return rules under its [recorded deployment](integration.md#recorded-vault-pilot). [Recorded Context Stream operation](observed-context-stream-operation.md), [analysis of an earlier demonstration](observed-live-demo-operation.md) and the [project's evidence limits](project.md) retain their actual observation scopes. This case provides no measured research or teaching benefit. Proposed comparative studies remain unperformed.
 
 The knowledge arrangement draws on Luhmann's account of stable addresses and cross-references in a note collection ([1981, pp. 224–227](https://ckrybus.com/static/papers/luhmann1981.pdf)). [Obsidian's local Markdown files](https://help.obsidian.md/Files+and+folders/How+Obsidian+stores+data), [internal links](https://help.obsidian.md/Linking+notes+and+files/Internal+links) and [stated principles](https://obsidian.md/about) provide one implementation environment. Ango's [How I use Obsidian](https://stephango.com/vault) and [File over app](https://stephango.com/file-over-app) describe related personal practice and durable-file commitments. [Promptotyping](integration.md#knowledge-relationship) supplies the project-bound knowledge arrangement. These sources explain the rationale without establishing comparative effectiveness. [Gas Town](https://github.com/gastownhall/gastown) provides a related versioned-file approach through installed multi-agent runtime infrastructure; Research Mission Control supplies portable role and verification contracts. No measured performance comparison is implied.

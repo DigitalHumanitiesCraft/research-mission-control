@@ -13,14 +13,14 @@
 </li>
 </ul>
 </div>
-</details><article><h1 id="claude-code-instructions">Claude Code instructions<a class="headerlink" href="CLAUDE.html#claude-code-instructions" title="Permanent link">&para;</a></h1>
+</details><article><h1 id="claude-code-instructions">Claude Code instructions<a aria-label="Link to section: Claude Code instructions" class="headerlink" href="CLAUDE.html#claude-code-instructions" title="Link to section: Claude Code instructions">&para;</a></h1>
 <p>Read and follow <a href="AGENTS.html"><code>AGENTS.md</code></a> before changing this repository. It is the canonical repository action layer. The rules below restate the minimum contract for environments that do not load <code>AGENTS.md</code> automatically.</p>
-<h2 id="repository-purpose">Repository purpose<a class="headerlink" href="CLAUDE.html#repository-purpose" title="Permanent link">&para;</a></h2>
+<h2 id="repository-purpose">Repository purpose<a aria-label="Link to section: Repository purpose" class="headerlink" href="CLAUDE.html#repository-purpose" title="Link to section: Repository purpose">&para;</a></h2>
 <p>This repository is the canonical source for Research Mission Control. The complete system prompt, role prompts, initializer skill, and scaffolder are its executable artifacts. The dashboard and situation view are an internal reference implementation and may carry local operational state.</p>
-<h2 id="work-rule">Work rule<a class="headerlink" href="CLAUDE.html#work-rule" title="Permanent link">&para;</a></h2>
+<h2 id="work-rule">Work rule<a aria-label="Link to section: Work rule" class="headerlink" href="CLAUDE.html#work-rule" title="Link to section: Work rule">&para;</a></h2>
 <p>Inspect the relevant canonical knowledge and actual artifacts before acting. Implement clear, authorized, reversible work directly. Ask the human user only for a Decision, Authorization, Action, or Input that is required to continue safely. A skill or writable path never expands authority.</p>
 <p>Keep epistemic state, operational state, authority, and verification state distinct. Verify claims against files, source material, tests, data, or rendered output as appropriate. Report the current result and its practical meaning before technical detail.</p>
-<h2 id="canonical-entry-points">Canonical entry points<a class="headerlink" href="CLAUDE.html#canonical-entry-points" title="Permanent link">&para;</a></h2>
+<h2 id="canonical-entry-points">Canonical entry points<a aria-label="Link to section: Canonical entry points" class="headerlink" href="CLAUDE.html#canonical-entry-points" title="Link to section: Canonical entry points">&para;</a></h2>
 <ol>
 <li>Read <code>knowledge/INDEX.md</code> to locate the relevant source.</li>
 <li>Read <code>knowledge/project.md</code> for the repository purpose, system boundary, and accepted role model.</li>
@@ -29,7 +29,7 @@
 <li>Inspect the actual files and Git state before relying on a recorded result.</li>
 </ol>
 <p>When the source repository contains <code>knowledge/handoff.md</code>, use it only for open information needed by another context. Publication bundles omit this source-repository transition record. Accepted future work belongs in a plan where one exists. Integrated, rejected, or corrected transitions belong in <code>knowledge/journal.md</code>.</p>
-<h2 id="editing">Editing<a class="headerlink" href="CLAUDE.html#editing" title="Permanent link">&para;</a></h2>
+<h2 id="editing">Editing<a aria-label="Link to section: Editing" class="headerlink" href="CLAUDE.html#editing" title="Link to section: Editing">&para;</a></h2>
 <ul>
 <li>Preserve historical journal entries. Remove legacy reports only after their durable knowledge and unique evidence have been verified in a canonical source or retained report; Git history remains the recovery path.</li>
 <li>Keep public method documentation independent of private Vault paths, current local projects, and model-specific allocations.</li>
@@ -39,5 +39,5 @@
 <li>Create no commit, remote, publication, or external effect without the required authorization.</li>
 </ul>
 <p>Role activation is explicit. Reading or reviewing a prompt does not activate its role. The portable role contracts are under <code>orchestrators/</code>, and the executable initializer is under <code>skills/research-mission-control/</code>.</p></article>
-<details class="source-meta"><summary>Document source and release information</summary><p>Package release 0.9.0rc3</p><p>Source <code>CLAUDE.md</code>. <a href="../CLAUDE.md" download>Download original Markdown</a></p><details><summary>Original document metadata</summary><p>Document versions and dated evidence describe their recorded scope. Rendering this document in another package does not update those findings.</p><dl></dl></details></details>
+<details class="source-meta"><summary>Document source and release information</summary><p>Package release 0.9.0rc5</p><p>Source <code>CLAUDE.md</code>. <a href="../CLAUDE.md" download>Download original Markdown</a></p><details><summary>Original document metadata</summary><p>Document versions and dated evidence describe their recorded scope. Rendering this document in another package does not update those findings.</p><dl></dl></details></details>
 </main><footer class="docs-footer"><a href="../index.html">Overview</a><a href="../index.html#downloads">Reference and reuse</a><a href="../CLAUDE.md" download>Original Markdown</a></footer></body></html>

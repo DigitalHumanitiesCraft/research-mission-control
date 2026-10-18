@@ -509,7 +509,7 @@
     if (!file || file.startsWith('/') || /^[a-z]:/i.test(file) || /(?:^|\/)\.\.(?:\/|$)/.test(file)) return '';
     const key = laneKey(file.replace(/\.md$/i, ''));
     if (!file.includes('/') && lanes.some((lane) => lane.key === key)) file = 'demo-sources/' + key;
-    return window.SECOND_BRAIN_VAULT?.href(file, anchor || fragment) || '';
+    return window.MISSION_CONTROL_DEMO.sourceHref(file, anchor || fragment, project);
   }
 
   // Commissioning, the next actor and missing input remain separate facts.
@@ -1104,22 +1104,9 @@
     return Math.round((new Date(today) - new Date(iso.slice(0, 10))) / 86400000);
   }
 
-  // A date in the left slot of a row: a past date as its age, in days up to
-  // two weeks and in whole weeks from then on, so the slot stays short and
-  // reads as "how long already"; today as "heute", a future date as date.
-  function kurzDatum(iso, today = todayIso()) {
-    const tage = ageDays(iso, today);
-    if (tage === null) return '';
-    if (tage < 0) return fmt(iso);
-    if (tage === 0) return tr('heute', 'today');
-    return tage < 14 ? tr(`${tage} T`, `${tage} d`) : tr(`${Math.floor(tage / 7)} Wo`, `${Math.floor(tage / 7)} w`);
-  }
-
-  // Full wording of a past date for the tooltip: "Samstag, 22.08.2026, 54 Tage".
-  function alterLang(iso, today = todayIso()) {
-    const tage = ageDays(iso, today);
-    return tr(`${volldatum(iso.slice(0, 10))}, ${tage === 0 ? 'heute' : tage === 1 ? '1 Tag' : `${tage} Tage`}`, `${volldatum(iso.slice(0, 10))}, ${tage === 0 ? 'today' : tage === 1 ? '1 day' : `${tage} days`}`);
-  }
+  // These dates identify authored static fixtures.
+  function kurzDatum(iso) { return ageDays(iso) === null ? '' : fmtLang(iso); }
+  function alterLang(iso) { return ageDays(iso) === null ? '' : volldatum(iso.slice(0, 10)); }
 
   // Paid work after the field bezahlt:: of ACTIVE-WORK (vault convention
   // ACTIVE-WORK Felder, 15 October 2026): dhcraft is invoiced through DH

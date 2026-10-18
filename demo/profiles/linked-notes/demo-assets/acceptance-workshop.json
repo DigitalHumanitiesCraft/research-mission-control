@@ -1,0 +1,88 @@
+{
+  "synthetic": true,
+  "revision": "5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db",
+  "task": {
+    "kennung": "DEMO-LABEL",
+    "auftrag": "Prepare the complete 90-minute workshop materials from RQ-01–RQ-08 under the current R5 restriction.",
+    "vorhaben": "demo-exhibit",
+    "zustand": "erledigt",
+    "seit": "2026-10-18",
+    "abnahmeart": "inhaltlich",
+    "zweck": "Translate the requirements into a complete authored teaching package while preserving policy and decision boundaries.",
+    "ergebnis": "The authored 90-minute plan, worksheet and completed model handover use only fictional training material. H-01 remains open; printing, delivery and acceptance are unperformed.",
+    "pruefung": "The supplied materials permit source and duration checks; no independent finding or delivery approval is recorded.",
+    "vertragsfehler": "",
+    "quellenrevision": "5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db",
+    "vertragsquelle": {
+      "path": "demo-guide",
+      "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=workshop-assignment",
+      "revision": "5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db",
+      "section": "Workshop assignment"
+    },
+    "ergebnisZiele": [
+      {
+        "art": "mission-control",
+        "text": "Full 90-minute workshop plan",
+        "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=workshop-plan",
+        "quelle": "beispiel"
+      },
+      {
+        "art": "mission-control",
+        "text": "Participant worksheet",
+        "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=workshop-worksheet",
+        "quelle": "beispiel"
+      },
+      {
+        "art": "mission-control",
+        "text": "Completed model handover",
+        "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=model-handover",
+        "quelle": "beispiel"
+      },
+      {
+        "art": "mission-control",
+        "text": "Policy propagation and verification criteria",
+        "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=requirement-change",
+        "quelle": "beispiel"
+      }
+    ],
+    "operator": "demo-curation",
+    "entryId": "demo-exhibit"
+  },
+  "vorlage": true,
+  "abnahmeart": "inhaltlich",
+  "zweck": "Translate the requirements into a complete authored teaching package while preserving policy and decision boundaries.",
+  "ergebnis": "The authored 90-minute plan, worksheet and completed model handover use only fictional training material. H-01 remains open; printing, delivery and acceptance are unperformed.",
+  "gepruft": "The supplied materials permit source and duration checks; no independent finding or delivery approval is recorded.",
+  "ansehen": [
+    {
+      "art": "mission-control",
+      "text": "Full 90-minute workshop plan",
+      "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=workshop-plan",
+      "quelle": "beispiel"
+    },
+    {
+      "art": "mission-control",
+      "text": "Participant worksheet",
+      "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=workshop-worksheet",
+      "quelle": "beispiel"
+    },
+    {
+      "art": "mission-control",
+      "text": "Completed model handover",
+      "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=model-handover",
+      "quelle": "beispiel"
+    },
+    {
+      "art": "mission-control",
+      "text": "Policy propagation and verification criteria",
+      "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=requirement-change",
+      "quelle": "beispiel"
+    }
+  ],
+  "warnings": [
+    "Authored result fixture; independent review and human acceptance remain pending."
+  ],
+  "material": null,
+  "answer": null,
+  "receipt": null
+}

@@ -70,6 +70,14 @@ test('runtime selects URL profile before reads and confines all known GET/HEAD A
       assert.ok(h.calls.at(-1).url.pathname.includes('/' + profile.prefix + 'demo-assets/'));
       assert.equal(h.calls.at(-1).options.method, 'HEAD');
     }
+    for (const [lane, task, expected] of [
+      ['demo-research', 'DEMO-COMPARE', data.DEMO.acceptanceReview],
+      ['demo-curation', 'DEMO-LABEL', data.DEMO.workshopReview],
+    ]) {
+      const response = await h.fetch('/api/acceptance-review?' + new URLSearchParams({ lane, kennung: task }));
+      assert.deepEqual(await response.json(), expected);
+      assert.ok(h.calls.at(-1).url.pathname.includes('/' + profile.prefix + 'demo-assets/'));
+    }
     await h.fetch('/portable/demo/mission-control/briefings/current.json');
     assert.ok(h.calls.at(-1).url.pathname.endsWith(profile.prefix + 'mission-control/briefings/current.json'));
     const link = new URL(h.demo.sourceHref('demo-sources/demo-research.md', 'Current Report'));

@@ -79,6 +79,12 @@ class PublicLinks(Treeprocessor):
                     if child.get("id") == target:
                         parent.insert(offset, ET.Element("span", {"id": alias}))
                         offset += 1
+        for heading in root.iter():
+            for link in heading.findall("a[@class='headerlink']"):
+                label = "".join(heading.itertext()).removesuffix(link.text or "").strip()
+                description = f"Link to section: {label}"
+                link.set("aria-label", description)
+                link.set("title", description)
         for node in root.iter():
             attribute = "href" if node.tag == "a" else "src" if node.tag == "img" else None
             if attribute is None:

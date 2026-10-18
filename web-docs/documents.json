@@ -187,5 +187,45 @@
     "path": "demo/sources/demo-guide.md",
     "title": "Demo guide",
     "nav": false
+  },
+  {
+    "path": "examples/workshop-example/README.md",
+    "title": "Connected handover example",
+    "nav": false
+  },
+  {
+    "path": "examples/workshop-example/records.md",
+    "title": "Authored original records",
+    "nav": false
+  },
+  {
+    "path": "examples/workshop-example/requirements.md",
+    "title": "Requirements synthesis",
+    "nav": false
+  },
+  {
+    "path": "examples/workshop-example/workshop.md",
+    "title": "Workshop plan",
+    "nav": false
+  },
+  {
+    "path": "examples/workshop-example/worksheet.md",
+    "title": "Participant worksheet",
+    "nav": false
+  },
+  {
+    "path": "examples/workshop-example/model-handover.md",
+    "title": "Model handover",
+    "nav": false
+  },
+  {
+    "path": "examples/workshop-example/change-case.md",
+    "title": "Requirement change and first local exercise",
+    "nav": false
+  },
+  {
+    "path": "examples/workshop-example/process-walkthrough.md",
+    "title": "Interactive process walkthrough",
+    "nav": false
   }
 ]

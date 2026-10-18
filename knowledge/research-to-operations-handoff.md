@@ -6,7 +6,7 @@ project:
 status: active
 language: en
 created: 2026-08-17
-updated: 2026-10-17
+updated: 2026-10-18
 related: [orchestration-architecture, project-governance, integration, method-specification]
 ---
 
@@ -14,7 +14,7 @@ related: [orchestration-architecture, project-governance, integration, method-sp
 
 ## Shared workflow
 
-The human user defines direction, delegation, and acceptance. Research Director remains a proposed title whose suitability is an open question. The Research Orchestrator works directly with the human user to develop the objective. When the next useful step is sufficiently clear, authorized, proportionate, and verifiable, Research issues an Implementation Brief and Operations acts. Remaining low-risk uncertainty becomes a bounded experiment; consequential uncertainty becomes a Human Decision Point.
+The human user defines direction, delegation, and acceptance. Research Director remains a proposed title whose suitability is an open question. The Research Orchestrator works directly with the human user to develop the objective. When the next useful step is sufficiently clear, authorized, proportionate, and verifiable, Research issues an Implementation Brief and Operations acts. Unresolved questions first receive an authorized source check, bounded experiment or specialist examination where that can supply the missing grounds. A Human Decision Point is required when the next action depends on reserved judgement or authority, or when proceeding on an unsupported assumption would be inappropriate. The architecture defines the [routing and state distinctions](orchestration-architecture.md#describing-uncertainty-and-selecting-the-next-action).
 
 ```text
 human user <-> Research --Implementation Brief--> Operations

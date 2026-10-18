@@ -7,6 +7,7 @@ const { chromium } = require('playwright');
 const base = process.env.DEMO_URL;
 assert.ok(base, 'Set DEMO_URL to the static package URL, including its trailing slash.');
 const screenshots = process.env.DEMO_SCREENSHOTS;
+const retiredCollective = '.operator-coordination, #operator-coordination-scope, .operator-coordination-preview, [data-coordination-refresh], .operator-coordination-prompt, [data-chat-key*="coordination-briefing-"]';
 const demo = JSON.parse(fs.readFileSync(path.join(__dirname, 'example-data.json'), 'utf8'));
 const sourceText = fs.readFileSync(path.join(__dirname, 'sources/demo-guide.md'), 'utf8');
 const output = __dirname;
@@ -30,6 +31,7 @@ const routes = [
   ['mission-control/operatoren.html?ansicht=topologie&projekt=demo-atlas&thema=weitere', '#projekt-verbindungen'],
   ['mission-control/monitor.html', '.mo-review-need'],
   ['mission-control/abnahme.html?lane=demo-research&kennung=DEMO-COMPARE', '#entscheidung .chat-discussion'],
+  ['mission-control/abnahme.html?lane=demo-curation&kennung=DEMO-LABEL', '#entscheidung .chat-discussion'],
   ['mission-control/ausfuehrung.html', '#agenten > *'],
   ['research.html', '#research-space > :visible'],
   ...['context', 'atlas', 'board', 'paths'].map(view => ['research.html#view=' + view, '#research-space > :visible']),
@@ -56,8 +58,12 @@ async function contextFor(browser, width, scheme, clipboard = true) {
     } } });
     document.execCommand = () => false;
   }, { scheme, clipboard });
+  context.on('requestfailed', request => {
+    const failure = 'Request failed ' + request.url() + ': ' + request.failure()?.errorText;
+    faults.push(failure); console.error(failure);
+  });
   const page = await context.newPage();
-  page.on('pageerror', error => faults.push(error.message));
+  page.on('pageerror', error => { faults.push(error.message); console.error('Demo page error:', page.url(), error.stack); });
   page.on('response', response => { if (response.status() >= 400) faults.push('HTTP ' + response.status() + ' ' + response.url()); });
   return { context, page, faults, reads };
 }
@@ -68,7 +74,15 @@ async function noOverflow(page) {
 async function capture(page, name, fullPage = true) { if (screenshots) { fs.mkdirSync(screenshots, { recursive: true }); await page.screenshot({ path: path.join(screenshots, name + '.png'), fullPage }); } }
 async function ready(page, route, lang, selector) {
   await page.goto(url(route, lang));
-  await page.locator(selector).first().waitFor();
+  try { await page.locator(selector).first().waitFor(); }
+  catch (error) {
+    console.error('Failed demo route:', JSON.stringify({ route, lang, url: page.url(), state: await page.evaluate(() => ({
+      title: document.title, content: document.querySelector('main')?.innerText.slice(0, 1600), ready: document.readyState,
+      scripts: [...document.scripts].map(script => script.src),
+    })) }));
+    await capture(page, 'failed-route-' + page.viewportSize().width + '-' + lang, false);
+    throw error;
+  }
   assert.equal(await page.locator('html').getAttribute('lang'), lang);
   if (route.includes('ansicht=fluss') || route.includes('ansicht=topologie')) {
     const address = new URL(page.url());
@@ -95,6 +109,8 @@ async function profileContract(page, lang) {
   const select = page.locator('#demo-profile');
   assert.deepEqual(await select.locator('option').evaluateAll(nodes => nodes.map(node => node.value)), registry.profiles.map(profile => profile.id));
   const originalProfile = await select.inputValue();
+  const sourceDetails = page.locator('.demo-profile details');
+  const openSourceDetails = async () => { if (!await sourceDetails.evaluate(node => node.open)) await sourceDetails.locator(':scope > summary').press('Enter'); };
   const projectBytes = await page.evaluate(() => JSON.stringify(window.PROJEKTE));
   const discussion = page.locator('.pj-project-conversation .chat-discussion').first();
   const note = discussion.locator('.chat-composition-note');
@@ -107,6 +123,7 @@ async function profileContract(page, lang) {
     assert.deepEqual(profile.sources.map(source => [source.id, source.revision]), logicalSources);
     assert.ok(profile.sources.every(source => source.storagePath.startsWith(profile.prefix)));
     assert.notDeepEqual(profile.sources.map(source => source.storagePath), registry.profiles.find(item => item.id === originalProfile).sources.map(source => source.storagePath));
+    await openSourceDetails();
     await select.selectOption(profile.id);
     await page.waitForURL(address => address.searchParams.get('profile') === profile.id);
     await page.locator('#pj-titel').waitFor();
@@ -123,6 +140,7 @@ async function profileContract(page, lang) {
     await page.goBack(); await page.locator('#pj-titel').waitFor();
     await noOverflow(page);
   }
+  await openSourceDetails();
   await select.selectOption(originalProfile);
   await page.waitForURL(address => address.searchParams.get('profile') === originalProfile);
   await page.locator('#pj-titel').waitFor();
@@ -172,7 +190,7 @@ async function monitorEvidence(page, lang) {
   assert.equal(guide.text, sourceText); assert.equal(guide.revision, demo.DEMO.sourceRevision);
   await noOverflow(page); await capture(page, 'demo-monitor-evidence-' + page.viewportSize().width + '-' + lang, false);
 }
-async function atlasComparison(page, lang) {
+async function requirementsComparison(page, lang) {
   await ready(page, 'mission-control/abnahme.html?lane=demo-research&kennung=DEMO-COMPARE', lang, '#vorstellung .ab-comparison-table');
   const expected = demo.DEMO.editorial.introductions.find(item => item.projectId === demo.DEMO.projectId);
   const table = page.locator('#vorstellung table.ab-comparison-table');
@@ -180,6 +198,8 @@ async function atlasComparison(page, lang) {
   assert.deepEqual(await table.locator('thead th[scope=col]').allTextContents(), expected.table.columns);
   assert.deepEqual(await table.locator('tbody tr').evaluateAll(rows => rows.map(row => [...row.children].map(cell => cell.textContent))), expected.table.rows);
   assert.equal(await table.locator('tbody th[scope=row]').count(), expected.table.rows.length);
+  const columns = await table.locator('thead th').evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().width));
+  assert.ok(columns[1] > columns[0], 'the requirement text receives more width than its short identifier');
   assert.equal(await page.locator('#vorstellung .ab-auszuege blockquote').count(), expected.passages.length);
   for (const passage of expected.passages) assert.ok((await page.locator('#vorstellung').innerText()).includes(passage.text));
   assert.ok((await page.locator('#vorstellung').innerText()).includes(expected.boundary));
@@ -187,6 +207,53 @@ async function atlasComparison(page, lang) {
   assert.equal(source.revision, expected.revision); assert.equal(source.text, sourceText);
   assert.ok(source.text.includes(expected.table.caption));
   await noOverflow(page);
+}
+async function workshopMaterials(page, lang) {
+  await ready(page, 'mission-control/abnahme.html?lane=demo-curation&kennung=DEMO-LABEL', lang, '#vorstellung .ab-comparison-table');
+  assert.ok((await page.locator('#ergebnis').innerText()).includes(demo.DEMO.workshopReview.ergebnis));
+  assert.equal(demo.DEMO.workshopReview.answer, null, 'no fictional human acceptance is invented');
+  const agenda = page.locator('#vorstellung .ab-comparison-table');
+  await agenda.waitFor();
+  assert.deepEqual(await agenda.locator('tbody th[scope=row]').allTextContents(), ['0–8', '8–18', '18–28', '28–40', '40–45', '45–60', '60–72', '72–82', '82–90']);
+  await capture(page, 'demo-workshop-result-' + page.viewportSize().width + '-' + lang, false);
+  const primarySource = page.locator('#vorstellung a[href*="source=demo-guide"]').first();
+  const primaryQuery = new URLSearchParams(new URL(await primarySource.getAttribute('href'), page.url()).hash.slice(1));
+  assert.equal(primaryQuery.get('source'), 'demo-guide');
+  assert.equal(primaryQuery.get('anchor'), 'workshop-plan');
+  assert.equal(primaryQuery.get('bezug'), 'demo-exhibit', 'the primary source retains its result project, not the shared guide default');
+  const opened = page.waitForEvent('popup');
+  await primarySource.press('Enter');
+  const reader = await opened;
+  await reader.locator('#research-linked-section').waitFor();
+  await reader.locator('a[href*="projekte.html"][href*="demo-exhibit"]').first().press('Enter');
+  await reader.locator('#pj-titel').waitFor();
+  assert.equal(new URL(reader.url()).searchParams.get('projekt'), 'demo-exhibit');
+  await reader.close();
+  const completeTemplate = page.locator('.ab-vollvorlage');
+  if (!await completeTemplate.evaluate(node => node.open)) await completeTemplate.locator(':scope > summary').press('Enter');
+  assert.equal(await page.locator('#ergebnis .ab-ansehen a:visible').count(), 4, 'all complete workshop artifacts remain directly reachable');
+  for (const [anchor, required] of [
+    ['original-records', 'R5 Replacement material rule'],
+    ['requirements-synthesis', 'RQ-08'],
+    ['workshop-plan', '82–90'],
+    ['workshop-worksheet', 'W5 Verification and revision'],
+    ['model-handover', 'Next permitted action'],
+    ['requirement-change', 'First local exercise'],
+  ]) {
+    const target = new URL('research.html', base);
+    target.searchParams.set('lang', lang);
+    target.hash = new URLSearchParams({ view: 'context', source: 'demo-guide', read: '1', bezug: 'demo-exhibit', anchor });
+    await page.goto(target.href);
+    const section = page.locator('#research-linked-section .source-original');
+    await section.waitFor({ state: 'attached' });
+    assert.ok((await section.textContent()).includes(required), 'complete linked artifact: ' + anchor);
+    assert.equal(await page.locator('#research-inspector .source-original').filter({ hasText: sourceText }).textContent(), sourceText);
+    const back = page.locator('a[href*="projekte.html"][href*="demo-exhibit"]').first();
+    await back.press('Enter');
+    await page.locator('#pj-titel').waitFor();
+    assert.equal(new URL(page.url()).searchParams.get('projekt'), 'demo-exhibit');
+    await noOverflow(page);
+  }
 }
 (async () => {
   const browser = await chromium.launch({ headless: true, ...(process.env.BROWSER_CHANNEL ? { channel: process.env.BROWSER_CHANNEL } : {}) });
@@ -197,11 +264,22 @@ async function atlasComparison(page, lang) {
       await page.goto(new URL('mission-control/operatoren.html', base).href);
       await page.locator('#operator-list tbody tr').first().waitFor();
       assert.equal(await page.locator('html').getAttribute('lang'), 'en');
-      assert.match(await page.locator('.demo-notice').innerText(), /fictional/);
+      assert.match(await page.locator('.demo-notice').innerText(), /fictional/i);
       for (const [route, selector] of routes) await ready(page, route, lang, selector);
       await ready(page, 'mission-control/projekte.html?projekt=demo-atlas', lang, '#pj-titel');
+      const dates = await page.evaluate(() => ['2026-10-17', '2032-01-02'].map(today => window.LEITSTAND.kurzDatum('2026-10-17', today)));
+      assert.deepEqual(dates, [lang === 'en' ? '17 Oct 2026' : '17.10.2026', lang === 'en' ? '17 Oct 2026' : '17.10.2026'], 'authored dates retain identity when the viewing day changes');
+      const visibleProject = await page.locator('.pj-detail').innerText();
+      assert.equal(visibleProject.split(demo.DEMO.acceptanceReview.ergebnis).length - 1, 1, 'the full report has one primary reading locus; expected output and current status have distinct meanings');
+      const optionalConversation = page.locator('.pj-optional-project-conversation');
+      if (await optionalConversation.count() && !await optionalConversation.evaluate(node => node.open)) await optionalConversation.locator(':scope > summary').press('Enter');
+      const reportLines = await page.locator('.berichte .zeile > .name').evaluateAll(nodes => nodes.map(node => {
+        const range = document.createRange(); range.selectNodeContents(node);
+        return new Set([...range.getClientRects()].map(rect => Math.round(rect.y))).size;
+      }));
+      assert.ok(reportLines.length && reportLines.every(lines => lines <= 2), 'short report headings remain readable rather than wrapping character by character');
       const complete = await copyPrompt(page, page.locator('.chat-discussion').first());
-      assert.ok(complete.includes(demo.PRUEFANSICHT.posten[0].frage));
+      assert.ok(complete.includes(demo.PROJEKTE.projekte[0].titel), 'prompt retains this project context');
       assert.ok(complete.includes(demo.DEMO.sourceRevision));
       await capture(page, 'demo-project-' + width + '-' + lang);
       if (width === 1440) {
@@ -217,7 +295,8 @@ async function atlasComparison(page, lang) {
       await page.goBack(); await page.locator('#pj-titel').waitFor();
       assert.equal(new URL(page.url()).searchParams.get('projekt'), demo.DEMO.projectId);
       await profileContract(page, lang);
-      await atlasComparison(page, lang);
+      await requirementsComparison(page, lang);
+      await workshopMaterials(page, lang);
       await monitorEvidence(page, lang);
       const blocked = await page.evaluate(async () => {
         const messages = [];
@@ -225,7 +304,8 @@ async function atlasComparison(page, lang) {
         return messages;
       });
       assert.equal(blocked.length, 2); assert.ok(blocked.every(text => /Nothing was sent|nichts gesendet/.test(text)));
-      await ready(page, 'mission-control/operatoren.html', lang, '#operator-list tbody tr');
+      await ready(page, 'mission-control/operatoren.html?briefing=all&briefing-open=1', lang, '#operator-list tbody tr');
+      assert.equal(await page.locator(retiredCollective).count(), 0, 'legacy briefing parameters cannot recreate the retired collective UI');
       await page.waitForFunction(() => window.OPERATOR_SESSION_LOAD?.state === 'loaded');
       const active = demo.LAB_LANES.lanes.filter(lane => lane.state !== 'RETIRED');
       assert.equal(await page.locator('.op-ensemble-profile').count(), active.length);
@@ -295,14 +375,8 @@ async function atlasComparison(page, lang) {
       await page.waitForFunction(value => window.UI_LANGUAGE?.language === value, nextLanguage);
       await page.locator('#operator-list').waitFor();
       assert.equal(await page.locator('#operator-' + demo.DEMO.roleId + ' .chat-composition-note').inputValue(), 'Synthetic personal note, not sent.');
-      const coordination = page.locator('.operator-coordination');
-      assert.equal(await coordination.count(), 1, 'same shared coordination renderer is exported');
-      await coordination.locator(':scope > summary').press('Enter');
-      const briefing = await copyPrompt(page, coordination.locator('.chat-discussion'));
-      assert.ok(briefing.includes(demo.DEMO.roleId));
-      assert.ok(briefing.includes('Synthetic personal note, not sent.'));
+      assert.equal(await page.locator(retiredCollective).count(), 0, 'language redraw does not restore any collective scope, preview, refresh or shared prompt');
       await capture(page, 'demo-operators-' + width + '-' + lang);
-      await coordination.locator(':scope > summary').press('Enter');
       await page.locator('#operator-list').scrollIntoViewIfNeeded();
       await capture(page, 'demo-rows-' + width + '-' + lang, false);
       await page.locator('.app-settings > summary').press('Enter');
@@ -316,10 +390,12 @@ async function atlasComparison(page, lang) {
       assert.equal(await page.evaluate(() => localStorage.getItem('mission-control-demo-view-settings')), null);
       assert.ok(reads.some(file => file.endsWith('/demo-assets/operator-sessions.json')));
       assert.deepEqual(faults, []); await context.close();
-      console.log('Passed all routes, sources, metadata, drafts, coordination, language, history and settings:', width, scheme, lang);
+      console.log('Passed all routes, sources, metadata, individual drafts, retired collective UI, language, history and settings:', width, scheme, lang);
     }
     const fallback = await contextFor(browser, 355, 'dark', false);
     await ready(fallback.page, 'mission-control/projekte.html?projekt=demo-atlas', 'en', '#pj-titel');
+    const optionalFallback = fallback.page.locator('.pj-optional-project-conversation');
+    if (await optionalFallback.count() && !await optionalFallback.evaluate(node => node.open)) await optionalFallback.locator(':scope > summary').press('Enter');
     await fallback.page.locator('.chat-prompt-copy').first().click();
     assert.match(await fallback.page.locator('.chat-prompt-status').first().innerText(), /manual/);
     assert.equal(await fallback.page.locator('.chat-prompt-details').first().isVisible(), true);

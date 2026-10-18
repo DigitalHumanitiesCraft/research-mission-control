@@ -1,5 +1,5 @@
 window.LAB_LANES = {
-  "generated": "2026-01-12",
+  "generated": "2026-10-18",
   "lanes": [
     {
       "key": "demo-research",
@@ -14,56 +14,56 @@ window.LAB_LANES = {
       "rollenquelle": "demo-sources/demo-research.md",
       "arbeitsweise": "Preauthored examples only. Current activity is not observed.",
       "state": "DONE",
-      "goal": "Demonstrate source-bound project work with wholly fictional data.",
+      "goal": "Keep the source-supported requirements and their workshop reuse inspectable.",
       "setup": "initialized",
       "einrichtung": "eingerichtet",
       "setupSource": "demo-sources/demo-research.md",
-      "setupRevision": "1a1ad5528d26b39d0104b5ae5e3db4eb28e4014ea28a55b59fbc409b39700923",
+      "setupRevision": "7ab2f2742c9e21eb4b77a59b21c73de6a7da41941402704fc58cb7964b711f40",
       "messages": [],
       "open": [],
       "stand": {
-        "date": "2026-10-17",
-        "text": "Beispielergebnis: Farbe und Form stimmen überein, die zugeschriebenen Funktionen unterscheiden sich. Eine gemeinsame Objektkennung fehlt."
+        "date": "2026-10-18",
+        "text": "The authored synthesis identifies RQ-01–RQ-08 from R1–R6, distinguishes explicit instructions from inferences and applies R5. Independent review is pending."
       },
       "report": {
         "State": "DONE",
-        "Goal": "Demonstrate source-bound project work with wholly fictional data.",
-        "Result": "Beispielergebnis: Farbe und Form stimmen überein, die zugeschriebenen Funktionen unterscheiden sich. Eine gemeinsame Objektkennung fehlt.",
-        "Evidence": "Authored example source demo-guide. This is not an execution record.",
-        "Verification": "Preauthored illustration only; no independent check, model call or human acceptance occurred.",
-        "Deviation": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
-        "Blocker": "None recorded in the fictional profile.",
-        "Open risk": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
-        "Operator point": "Keine.",
-        "Next action": "Read the fictional comparison and its limits. No real follow-up is commissioned."
+        "Goal": "Keep the source-supported requirements and their workshop reuse inspectable.",
+        "Result": "The authored synthesis identifies RQ-01–RQ-08 from R1–R6, distinguishes explicit instructions from inferences and applies R5. Independent review is pending.",
+        "Evidence": "Authored source demo-guide and its complete artifacts. No execution record is supplied.",
+        "Verification": "Independent review, workshop delivery and human acceptance remain unperformed.",
+        "Deviation": "Authored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
+        "Blocker": "None recorded for the authored preparation result.",
+        "Open risk": "Authored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
+        "Operator point": "None.",
+        "Next action": "Read the requirements and their source warrants. This fixture commissions no real follow-up."
       },
       "auftraege": [
         {
           "kennung": "DEMO-COMPARE",
-          "auftrag": "Beispiel: Die erfundenen Notizen vergleichen und die offene Objektidentität kennzeichnen.",
+          "auftrag": "Derive source-bound requirements for resuming a documented task from the fictional records R1–R6.",
           "vorhaben": "demo-atlas",
           "zustand": "erledigt",
-          "seit": "2026-01-12",
+          "seit": "2026-10-18",
           "abnahmeart": "inhaltlich",
-          "zweck": "Die Unterscheidung von Beschreibung und Interpretation an einem erfundenen Beispiel zeigen.",
-          "ergebnis": "Beispielergebnis: Farbe und Form stimmen überein, die zugeschriebenen Funktionen unterscheiden sich. Eine gemeinsame Objektkennung fehlt.",
-          "pruefung": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
+          "zweck": "Make a source-supported requirements analysis and its qualified reuse inspectable.",
+          "ergebnis": "The authored synthesis identifies RQ-01–RQ-08 from R1–R6, distinguishes explicit instructions from inferences and applies R5. Independent review is pending.",
+          "pruefung": "Source comparison and independent review remain to be performed by the reader. Authored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
           "vertragsfehler": "",
+          "quellenrevision": "5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db",
           "vertragsquelle": {
             "path": "demo-guide",
-            "href": "",
-            "revision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
-            "section": "Beispielaufgabe"
+            "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-atlas&anchor=requirements-assignment",
+            "revision": "5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db",
+            "section": "Requirements assignment"
           },
           "ergebnisZiele": [
             {
               "art": "mission-control",
-              "text": "Written comparison: source and limits",
-              "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-atlas&anchor=Beispielergebnis",
+              "text": "Requirements synthesis and source warrants",
+              "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-atlas&anchor=requirements-synthesis",
               "quelle": "beispiel"
             }
-          ],
-          "quellenrevision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092"
+          ]
         }
       ]
     },
@@ -79,50 +79,75 @@ window.LAB_LANES = {
       "umgebung": "Static synthetic demo",
       "rollenquelle": "demo-sources/demo-curation.md",
       "arbeitsweise": "Preauthored examples only. Current activity is not observed.",
-      "state": "IDLE",
-      "goal": "Demonstrate source-bound project work with wholly fictional data.",
+      "state": "DONE",
+      "goal": "Keep the source-supported requirements and their workshop reuse inspectable.",
       "setup": "initialized",
       "einrichtung": "eingerichtet",
       "setupSource": "demo-sources/demo-curation.md",
-      "setupRevision": "ef493b0ce3e06f10c330d2603f27f8cfd11899ab8a84f4db66089fa63b753264",
+      "setupRevision": "07a07c860089a939871e394671af3c5ead40f7aa2be5b1875e9d09f965604609",
       "messages": [],
       "open": [],
       "stand": {
-        "date": "2026-10-17",
-        "text": "Example state: an exhibit-label task is assigned but not picked up. No actual execution is observed."
+        "date": "2026-10-18",
+        "text": "The authored 90-minute plan, worksheet and completed model handover use only fictional training material. H-01 remains open; printing, delivery and acceptance are unperformed."
       },
       "report": {
-        "State": "IDLE",
-        "Goal": "Demonstrate source-bound project work with wholly fictional data.",
-        "Result": "Example state: an exhibit-label task is assigned but not picked up. No actual execution is observed.",
-        "Evidence": "Authored example source demo-guide. This is not an execution record.",
-        "Verification": "Preauthored illustration only; no independent check, model call or human acceptance occurred.",
-        "Deviation": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
-        "Blocker": "None recorded in the fictional profile.",
-        "Open risk": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
-        "Operator point": "Keine.",
-        "Next action": "The fictional label task remains assigned in the example only."
+        "State": "DONE",
+        "Goal": "Keep the source-supported requirements and their workshop reuse inspectable.",
+        "Result": "The authored 90-minute plan, worksheet and completed model handover use only fictional training material. H-01 remains open; printing, delivery and acceptance are unperformed.",
+        "Evidence": "Authored source demo-guide and its complete artifacts. No execution record is supplied.",
+        "Verification": "Independent review, workshop delivery and human acceptance remain unperformed.",
+        "Deviation": "Authored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
+        "Blocker": "None recorded for the authored preparation result.",
+        "Open risk": "Authored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
+        "Operator point": "None.",
+        "Next action": "Inspect the prepared materials. H-01 and delivery approval stay with the fictional human owner."
       },
       "auftraege": [
         {
           "kennung": "DEMO-LABEL",
-          "auftrag": "Example: draft an exhibit label that preserves the uncertain object identity.",
+          "auftrag": "Prepare the complete 90-minute workshop materials from RQ-01–RQ-08 under the current R5 restriction.",
           "vorhaben": "demo-exhibit",
-          "zustand": "vergeben",
-          "seit": "2026-10-17",
+          "zustand": "erledigt",
+          "seit": "2026-10-18",
           "abnahmeart": "inhaltlich",
-          "zweck": "Show a documented assignment independently of actual activity.",
-          "ergebnis": "",
-          "pruefung": "",
+          "zweck": "Translate the requirements into a complete authored teaching package while preserving policy and decision boundaries.",
+          "ergebnis": "The authored 90-minute plan, worksheet and completed model handover use only fictional training material. H-01 remains open; printing, delivery and acceptance are unperformed.",
+          "pruefung": "The supplied materials permit source and duration checks; no independent finding or delivery approval is recorded.",
           "vertragsfehler": "",
-          "quellenrevision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
+          "quellenrevision": "5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db",
           "vertragsquelle": {
             "path": "demo-guide",
-            "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-atlas",
-            "revision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
-            "section": "Fictional linked portfolio"
+            "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=workshop-assignment",
+            "revision": "5ea4dd714c5e2e1499bd3145ea2bdfdd584d0dc54d61974cd2fe8cac756b01db",
+            "section": "Workshop assignment"
           },
-          "ergebnisZiele": []
+          "ergebnisZiele": [
+            {
+              "art": "mission-control",
+              "text": "Full 90-minute workshop plan",
+              "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=workshop-plan",
+              "quelle": "beispiel"
+            },
+            {
+              "art": "mission-control",
+              "text": "Participant worksheet",
+              "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=workshop-worksheet",
+              "quelle": "beispiel"
+            },
+            {
+              "art": "mission-control",
+              "text": "Completed model handover",
+              "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=model-handover",
+              "quelle": "beispiel"
+            },
+            {
+              "art": "mission-control",
+              "text": "Policy propagation and verification criteria",
+              "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-exhibit&anchor=requirement-change",
+              "quelle": "beispiel"
+            }
+          ]
         }
       ]
     },
@@ -139,27 +164,27 @@ window.LAB_LANES = {
       "rollenquelle": "demo-sources/demo-writing.md",
       "arbeitsweise": "Preauthored examples only. Current activity is not observed.",
       "state": "IDLE",
-      "goal": "Demonstrate source-bound project work with wholly fictional data.",
+      "goal": "Keep the source-supported requirements and their workshop reuse inspectable.",
       "setup": "planned",
       "einrichtung": "geplant",
       "setupSource": "demo-sources/demo-writing.md",
-      "setupRevision": "df9e0028726b0740e08087f0db679d6c6b8f5fde80a1301ef4c9f056083e8643",
+      "setupRevision": "d6611c83e23a00f497f29d8865f9eae3976fd7d19df9a3750ef4c82b30fdcf71",
       "messages": [],
       "open": [],
       "stand": {
-        "date": "2026-10-17",
+        "date": "2026-10-18",
         "text": "Explicitly planned fictional profile. No activation or execution is commissioned."
       },
       "report": {
         "State": "IDLE",
-        "Goal": "Demonstrate source-bound project work with wholly fictional data.",
+        "Goal": "Keep the source-supported requirements and their workshop reuse inspectable.",
         "Result": "Explicitly planned fictional profile. No activation or execution is commissioned.",
-        "Evidence": "Authored example source demo-guide. This is not an execution record.",
-        "Verification": "Preauthored illustration only; no independent check, model call or human acceptance occurred.",
-        "Deviation": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
-        "Blocker": "None recorded in the fictional profile.",
-        "Open risk": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
-        "Operator point": "Keine.",
+        "Evidence": "Authored source demo-guide and its complete artifacts. No execution record is supplied.",
+        "Verification": "Independent review, workshop delivery and human acceptance remain unperformed.",
+        "Deviation": "Authored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
+        "Blocker": "None recorded for the authored preparation result.",
+        "Open risk": "Authored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
+        "Operator point": "None.",
         "Next action": "No actual activation commissioned."
       },
       "auftraege": [],
@@ -167,12 +192,12 @@ window.LAB_LANES = {
         "projectIds": [
           "demo-exhibit"
         ],
-        "firstAssignment": "Write a fictional exhibit label that retains uncertainty.",
+        "firstAssignment": "Prepare a fictional handover exercise for the workshop.",
         "boundary": "No real activation, session or commission.",
-        "activationPrompt": "Synthetic example only: discuss whether a planned writing profile could prepare a sample exhibition label. Do not start a session, assign real work or modify a canonical source. Retain the uncertainty of the object identification.",
-        "original": "Proposed example project: demo-exhibit. Possible first assignment: write an uncertainty-preserving exhibit label. Boundary: copy-only illustration; no real work or activation commissioned.",
+        "activationPrompt": "Synthetic example only: discuss whether a planned writing profile could prepare a fictional handover exercise. Use wholly fictional workshop material and preserve H-01. Do not start a session, assign real work or modify a canonical source.",
+        "original": "Proposed example project: demo-exhibit. Possible first assignment: prepare a fictional handover exercise for the workshop. Boundary: copy-only illustration; no real work or activation commissioned.",
         "source": "demo-sources/demo-writing.md",
-        "revision": "df9e0028726b0740e08087f0db679d6c6b8f5fde80a1301ef4c9f056083e8643"
+        "revision": "d6611c83e23a00f497f29d8865f9eae3976fd7d19df9a3750ef4c82b30fdcf71"
       }
     },
     {
@@ -188,34 +213,34 @@ window.LAB_LANES = {
       "rollenquelle": "demo-sources/demo-teaching.md",
       "arbeitsweise": "Preauthored examples only. Current activity is not observed.",
       "state": "IDLE",
-      "goal": "Demonstrate source-bound project work with wholly fictional data.",
+      "goal": "Keep the source-supported requirements and their workshop reuse inspectable.",
       "setup": "initialized",
       "einrichtung": "eingerichtet",
       "setupSource": "demo-sources/demo-teaching.md",
-      "setupRevision": "f631eab27b0a04b9902116541ee75107d61d5434bc25f214a8fdc635dda878cb",
+      "setupRevision": "eaec5924b2259869ed35f769e1d304071d9eba65b4126787e0ba15b6c67837d7",
       "messages": [],
       "open": [],
       "stand": {
-        "date": "2026-10-17",
-        "text": "Paused explicitly in this authored example. Earlier example work remains readable; no resumption is commissioned."
+        "date": "2026-10-18",
+        "text": "Paused explicitly in this authored example. The earlier original report is historical; no resumption is commissioned."
       },
       "report": {
         "State": "IDLE",
-        "Goal": "Demonstrate source-bound project work with wholly fictional data.",
-        "Result": "Paused explicitly in this authored example. Earlier example work remains readable; no resumption is commissioned.",
-        "Evidence": "Authored example source demo-guide. This is not an execution record.",
-        "Verification": "Preauthored illustration only; no independent check, model call or human acceptance occurred.",
-        "Deviation": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
-        "Blocker": "None recorded in the fictional profile.",
-        "Open risk": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
-        "Operator point": "Keine.",
+        "Goal": "Keep the source-supported requirements and their workshop reuse inspectable.",
+        "Result": "Paused explicitly in this authored example. The earlier original report is historical; no resumption is commissioned.",
+        "Evidence": "Authored source demo-guide and its complete artifacts. No execution record is supplied.",
+        "Verification": "Independent review, workshop delivery and human acceptance remain unperformed.",
+        "Deviation": "Authored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
+        "Blocker": "None recorded for the authored preparation result.",
+        "Open risk": "Authored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
+        "Operator point": "None.",
         "Next action": "No further work; do not resume from this fixture."
       },
       "auftraege": [],
       "pause": {
         "paused": true,
         "source": "demo-sources/demo-teaching.md",
-        "revision": "f631eab27b0a04b9902116541ee75107d61d5434bc25f214a8fdc635dda878cb"
+        "revision": "eaec5924b2259869ed35f769e1d304071d9eba65b4126787e0ba15b6c67837d7"
       }
     },
     {
@@ -231,28 +256,28 @@ window.LAB_LANES = {
       "rollenquelle": "demo-sources/demo-observer.md",
       "arbeitsweise": "Preauthored examples only. Current activity is not observed.",
       "state": "IDLE",
-      "goal": "Demonstrate source-bound project work with wholly fictional data.",
+      "goal": "Keep the source-supported requirements and their workshop reuse inspectable.",
       "setup": "unknown",
       "einrichtung": "",
       "setupSource": "demo-sources/demo-observer.md",
-      "setupRevision": "17322cbb40f2943ea993eac897d3f78abfd6e17b7f69abb37006976e6cfba15e",
+      "setupRevision": "d56a7857c56110aa0bf639e08f6e875d6d6c5496c51a71ae04e49dd41d8380ae",
       "messages": [],
       "open": [],
       "stand": {
-        "date": "2026-10-17",
+        "date": "2026-10-18",
         "text": "No setup or activity evidence is supplied for this invented profile."
       },
       "report": {
         "State": "IDLE",
-        "Goal": "Demonstrate source-bound project work with wholly fictional data.",
+        "Goal": "Keep the source-supported requirements and their workshop reuse inspectable.",
         "Result": "No setup or activity evidence is supplied for this invented profile.",
-        "Evidence": "Authored example source demo-guide. This is not an execution record.",
-        "Verification": "Preauthored illustration only; no independent check, model call or human acceptance occurred.",
-        "Deviation": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
-        "Blocker": "None recorded in the fictional profile.",
-        "Open risk": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
-        "Operator point": "Keine.",
-        "Next action": "No task or session is inferred from the missing evidence."
+        "Evidence": "Authored source demo-guide and its complete artifacts. No execution record is supplied.",
+        "Verification": "Independent review, workshop delivery and human acceptance remain unperformed.",
+        "Deviation": "Authored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
+        "Blocker": "None recorded for the authored preparation result.",
+        "Open risk": "Authored fiction only. No research run, workshop delivery, independent review or human acceptance occurred.",
+        "Operator point": "None.",
+        "Next action": "Independent review is unperformed; no task or session is inferred."
       },
       "auftraege": []
     }

@@ -14,11 +14,11 @@
 </li>
 </ul>
 </div>
-</details><article><h1 id="repository-action-layer">Repository action layer<a class="headerlink" href="AGENTS.html#repository-action-layer" title="Permanent link">&para;</a></h1>
-<h2 id="purpose">Purpose<a class="headerlink" href="AGENTS.html#purpose" title="Permanent link">&para;</a></h2>
+</details><article><h1 id="repository-action-layer">Repository action layer<a aria-label="Link to section: Repository action layer" class="headerlink" href="AGENTS.html#repository-action-layer" title="Link to section: Repository action layer">&para;</a></h1>
+<h2 id="purpose">Purpose<a aria-label="Link to section: Purpose" class="headerlink" href="AGENTS.html#purpose" title="Link to section: Purpose">&para;</a></h2>
 <p>This repository is the canonical source for Research Mission Control. Work in this repository maintains the reusable method and its executable artifacts: the complete system prompt, initializer skill, scaffolder, role contracts, and tests. It also maintains the Knowledge Core and internal reference implementation.</p>
 <p>Reading or reviewing a role prompt does not activate that role. A Research, Operations, or Verification role becomes active only through an explicit instruction or generated start contract.</p>
-<h2 id="orientation">Orientation<a class="headerlink" href="AGENTS.html#orientation" title="Permanent link">&para;</a></h2>
+<h2 id="orientation">Orientation<a aria-label="Link to section: Orientation" class="headerlink" href="AGENTS.html#orientation" title="Link to section: Orientation">&para;</a></h2>
 <ol>
 <li>Read <code>knowledge/INDEX.md</code>.</li>
 <li>Read <code>knowledge/project.md</code> and <code>knowledge/integration.md</code>.</li>
@@ -26,7 +26,7 @@
 <li>Inspect actual artifacts and Git state before relying on reported status.</li>
 </ol>
 <p>The private Vault may provide project-specific background when the current environment is authorized to read it. It does not override this repository's reusable method. Do not copy private paths or current local portfolio state into public method documentation.</p>
-<h2 id="action-rule">Action rule<a class="headerlink" href="AGENTS.html#action-rule" title="Permanent link">&para;</a></h2>
+<h2 id="action-rule">Action rule<a aria-label="Link to section: Action rule" class="headerlink" href="AGENTS.html#action-rule" title="Link to section: Action rule">&para;</a></h2>
 <p>Move into implementation when the next useful action is sufficiently clear, authorized, proportionate in consequence, and verifiable. Use a bounded experiment when it can resolve a low-risk uncertainty. Ask the human user only when work requires a Decision, Authorization, Action, or missing Input.</p>
 <p>Keep four state classes distinct.</p>
 <ul>
@@ -35,7 +35,7 @@
 <li>Authority state covers permissions, reserved decisions, rights, and external effects.</li>
 <li>Verification state covers evidence, checks, deviations, and acceptance.</li>
 </ul>
-<h2 id="change-boundaries">Change boundaries<a class="headerlink" href="AGENTS.html#change-boundaries" title="Permanent link">&para;</a></h2>
+<h2 id="change-boundaries">Change boundaries<a aria-label="Link to section: Change boundaries" class="headerlink" href="AGENTS.html#change-boundaries" title="Link to section: Change boundaries">&para;</a></h2>
 <ul>
 <li>Preserve unrelated worktree changes.</li>
 <li>Preserve historical journal entries. Remove legacy reports only after their durable knowledge and unique evidence have been verified in a canonical source or retained report; Git history remains the recovery path.</li>
@@ -45,9 +45,9 @@
 <li>Do not create a commit, remote, release, publication, or external effect without the corresponding authorization.</li>
 <li>A skill, tool, filesystem permission, or writable path never expands authority.</li>
 </ul>
-<h2 id="verification-and-reporting">Verification and reporting<a class="headerlink" href="AGENTS.html#verification-and-reporting" title="Permanent link">&para;</a></h2>
+<h2 id="verification-and-reporting">Verification and reporting<a aria-label="Link to section: Verification and reporting" class="headerlink" href="AGENTS.html#verification-and-reporting" title="Link to section: Verification and reporting">&para;</a></h2>
 <p>Select checks according to the changed claim and likely failure mode. Run targeted tests during implementation and the documented suite before a release claim. Use <code>git diff --check</code> for every documentation or code change.</p>
 <p>Report the current result and its practical meaning first. Separate evidence, continuing autonomous work, required human user contribution, and known limits. A requested review item includes a substantive synthesis, the reason it matters, the assessment criterion, and its direct location.</p>
 <p>Current code, documentation, prompts, examples, and interface text are English. Historical records retain their original language. Code comments are English and explain only constraints that the code does not express.</p></article>
-<details class="source-meta"><summary>Document source and release information</summary><p>Package release 0.9.0rc3</p><p>Source <code>AGENTS.md</code>. <a href="../AGENTS.md" download>Download original Markdown</a></p><details><summary>Original document metadata</summary><p>Document versions and dated evidence describe their recorded scope. Rendering this document in another package does not update those findings.</p><dl></dl></details></details>
+<details class="source-meta"><summary>Document source and release information</summary><p>Package release 0.9.0rc5</p><p>Source <code>AGENTS.md</code>. <a href="../AGENTS.md" download>Download original Markdown</a></p><details><summary>Original document metadata</summary><p>Document versions and dated evidence describe their recorded scope. Rendering this document in another package does not update those findings.</p><dl></dl></details></details>
 </main><footer class="docs-footer"><a href="../index.html">Overview</a><a href="../index.html#downloads">Reference and reuse</a><a href="../AGENTS.md" download>Original Markdown</a></footer></body></html>

@@ -55,6 +55,7 @@ module.exports = function buildDataAssets(data, source) {
   for (const [file, value] of Object.entries({
     'source-map.json': map, 'demo-assets/coverage.json': coverage,
     'demo-assets/work.json': data.PRUEFANSICHT, 'demo-assets/acceptance.json': data.DEMO.acceptanceReview,
+    'demo-assets/acceptance-workshop.json': data.DEMO.workshopReview,
     'demo-assets/agent-work.json': data.DEMO.agentWork, 'demo-assets/operator-sessions.json': data.DEMO.operatorSessions,
     'demo-assets/relations.json': data.DEMO.relations, 'demo-assets/progress.json': data.DEMO.progress,
     'mission-control/briefings/current.json': { snapshot: '2026-10-17T080000Z.json' },

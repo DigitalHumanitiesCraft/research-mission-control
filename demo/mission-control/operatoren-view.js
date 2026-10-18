@@ -1,5 +1,4 @@
 import { ensemble } from './operatoren-ensemble.js';
-import { coordinationBriefing, coordinationViewState, coordinationViewHref } from './operator-coordination.js';
 import { plannedOperatorRow, lifecycle } from './operatoren-planning.js';
 import { legacyPerspectiveHref } from './operatoren-perspectives.js';
 import { buildRelations } from './relations-model.js';
@@ -179,7 +178,7 @@ function needsList(lane, summary, briefing) {
     if (!workText || /^(?:none|–|—|-)[.!]?$/i.test(workText.trim())) return el('div', { class: 'op-next' },
       nextWork || el('p', { class: 'op-muted', text: tr('Nächster Schritt nicht erfasst.', 'Next step not recorded.') }));
 
-    const optional = el('details', { class: 'op-optional-conversation' }, el('summary', { text: tr('Gespräch vorbereiten', 'Prepare a conversation') }));
+    const optional = el('details', { id: 'optional-conversation-' + lane.key, class: 'op-optional-conversation' }, el('summary', { text: tr('Gespräch vorbereiten', 'Prepare a conversation') }));
     const domains = [...new Set(operatorProjects(lane, briefing, L, S.visible).map(item => L.entryById.get(item.projectId)?.name || item.projectName).filter(Boolean))];
     const text = [tr('Besprechen wir den dokumentierten Stand von ', 'Let us review the documented work of ') + operatorName(lane) + (domains.length ? tr(' für ', ' for ') + domains.join(', ') : '') + '.',
       reportExcerpt(briefing.status, window.UI_LANGUAGE?.language || 'en'),
@@ -475,18 +474,17 @@ function showSessionMetadata() {
     const lane = L.lanes.find(item => item.key === host.dataset.sessionDetailOperator);
     if (!lane) continue;
     const focused = host.contains(document.activeElement);
+    const retryFocused = document.activeElement?.matches('[data-session-reload]');
+    const open = host.querySelector('.operator-session-proof')?.open;
     const description = metadata.description(lane);
+    const proof = description.querySelector('.operator-session-proof');
+    if (proof) proof.open = Boolean(open);
     const retry = metadataRetry(lane);
     if (retry) description.append(retry);
     host.replaceChildren(description);
-    if (focused) host.closest('details')?.querySelector('summary')?.focus({ preventScroll: true });
+    if (focused) (retryFocused && retry || proof?.querySelector('summary'))?.focus({ preventScroll: true });
   }
-  for (const details of root.querySelectorAll('.op-ensemble-profile')) {
-    const summary = details.querySelector('summary[data-operator]');
-    const lane = L.lanes.find(item => item.key === summary?.dataset.operator);
-    if (lane) summary.title = metadata.compactLabel(lane);
-    placeSessionPanel(details);
-  }
+  for (const details of root.querySelectorAll('.op-ensemble-profile')) placeSessionPanel(details);
 }
 async function loadSessionMetadata(manual = false) {
   if (sessionReadPending) return;
@@ -519,7 +517,6 @@ root.addEventListener('toggle', event => {
 }, true);
 
 function render() {
-  const { scope: initialScope, open: initiallyOpen } = coordinationViewState(location.href);
   const saved = captureFocus();
   const restoreReport = initialRender;
   summaries = new Map(operators.map((lane) => [lane.key, operatorSummary(lane, L, {}, undefined, S.visible)]));
@@ -541,16 +538,6 @@ function render() {
     const url = new URL(location.href); url.searchParams.delete('ansicht'); url.hash = 'operator-' + key;
     history.pushState(null, '', url); render(); document.getElementById('name-' + key)?.focus();
   } }), el('p', { id: 'operator-session-load', class: 'op-muted', role: 'status', tabindex: '-1' }), content);
-  root.insertBefore(coordinationBriefing({
-    L, S, briefings: chatBriefings, visible: S.visible, initialScope, initiallyOpen,
-    onStateChange: state => history.replaceState(history.state, '', coordinationViewHref(location.href, state)),
-    filterKey: S.filter() || '',
-    filterLabel: S.filter() ? window.LEITSTAND_THEMEN.label(S.filter()) : tr('alle Kategorien', 'all categories'),
-    snapshots: () => window.LEITSTAND_ANTWORTEN.conversationSnapshots({
-      operators: L.lanes.map(lane => lane.key),
-      nodes: root.querySelectorAll('#operator-list .chat-discussion'),
-    }),
-  }), content);
   showSessionMetadata();
   legacyRoute();
   for (const row of root.querySelectorAll('#operator-list tbody tr')) row.dataset.selected = String(location.hash === '#' + row.id);

@@ -14,6 +14,11 @@
     "publication-manifest.json",
     "release-metadata.json",
     "index.html",
+    "START.md",
+    "about.html",
+    "model.css",
+    "model.js",
+    "model-data.js",
     "site.css",
     "assets/dhcraft-mark-192.png",
     "assets/favicon.ico",
@@ -303,7 +308,19 @@
     "demo/tools/build-data.cjs",
     "demo/tools/check-adapter.cjs",
     "demo/tools/knowledge-profiles.cjs",
-    "demo/tools/rebuild-example.cjs"
+    "demo/tools/rebuild-example.cjs",
+    "examples/workshop-example/README.md",
+    "examples/workshop-example/records.md",
+    "examples/workshop-example/requirements.md",
+    "examples/workshop-example/workshop.md",
+    "examples/workshop-example/worksheet.md",
+    "examples/workshop-example/model-handover.md",
+    "examples/workshop-example/change-case.md",
+    "demo/demo-assets/acceptance-workshop.json",
+    "demo/profiles/linked-notes/demo-assets/acceptance-workshop.json",
+    "demo/profiles/project-folder/demo-assets/acceptance-workshop.json",
+    "demo/profiles/shared-sources/demo-assets/acceptance-workshop.json",
+    "examples/workshop-example/process-walkthrough.md"
   ],
   "excluded_runtime_state": [
     "dashboard/",
@@ -407,7 +424,9 @@
         "demo/check-package.cjs",
         "demo/check-profiles.cjs",
         "demo/index.html",
-        "demo/LICENSES/MIT.txt"
+        "demo/LICENSES/MIT.txt",
+        "model.css",
+        "model.js"
       ],
       "directories": [
         "skills/",
@@ -559,13 +578,21 @@
         "demo/docs/source-contract.md",
         "demo/docs/views.md",
         "demo/LICENSES/CC-BY-4.0.txt",
-        "demo/LICENSE.txt"
+        "demo/LICENSE.txt",
+        "demo/demo-assets/acceptance-workshop.json",
+        "demo/profiles/project-folder/demo-assets/acceptance-workshop.json",
+        "demo/profiles/linked-notes/demo-assets/acceptance-workshop.json",
+        "demo/profiles/shared-sources/demo-assets/acceptance-workshop.json",
+        "START.md",
+        "about.html",
+        "model-data.js"
       ],
       "directories": [
         "knowledge/",
         "orchestrators/adapters/",
         "orchestrators/evals/",
-        "examples/knowledge/"
+        "examples/knowledge/",
+        "examples/workshop-example/"
       ]
     },
     "OFL-1.1": {
@@ -627,6 +654,14 @@
     "docs/demo/docs/views.html": "CC-BY-4.0",
     "docs/demo/sources/demo-guide.html": "CC-BY-4.0",
     "docs/docs.css": "CC-BY-4.0",
-    "docs/build-report.json": "CC-BY-4.0"
+    "docs/build-report.json": "CC-BY-4.0",
+    "docs/examples/workshop-example/README.html": "CC-BY-4.0",
+    "docs/examples/workshop-example/records.html": "CC-BY-4.0",
+    "docs/examples/workshop-example/requirements.html": "CC-BY-4.0",
+    "docs/examples/workshop-example/workshop.html": "CC-BY-4.0",
+    "docs/examples/workshop-example/worksheet.html": "CC-BY-4.0",
+    "docs/examples/workshop-example/model-handover.html": "CC-BY-4.0",
+    "docs/examples/workshop-example/change-case.html": "CC-BY-4.0",
+    "docs/examples/workshop-example/process-walkthrough.html": "CC-BY-4.0"
   }
 }

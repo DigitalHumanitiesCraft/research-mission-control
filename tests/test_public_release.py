@@ -4,7 +4,11 @@ from __future__ import annotations
 
 import hashlib
 import importlib.util
+import io
 import json
+import os
+import shutil
+import subprocess
 import sys
 import tempfile
 import tomllib
@@ -54,10 +58,15 @@ def test_draft_bundle_excludes_internal_runtime_state() -> None:
         assert "SYSTEM-PROMPT.md" in public_index
         assert "skills/research-mission-control/SKILL.md" in public_index
         assert "downloads/research-mission-control.skill" in public_index
-        assert "research-mission-control-operating-model.png" in public_index
-        assert "Reference and reuse" in public_index
-        assert "docs/knowledge/method-specification.html" in public_index
-        assert "LICENSES/DHCraft-Brand.txt" in public_index
+        assert "START.md" in public_index
+        assert "about.html" in public_index
+        assert "model.js" in public_index
+        for name in ("START.md", "about.html", "model.css", "model.js", "model-data.js"):
+            assert Path(name) in copied
+            assert (target / name).read_bytes() == (ROOT / name).read_bytes()
+        public_about = (target / "about.html").read_text(encoding="utf-8")
+        assert "docs/knowledge/method-specification.html" in public_about
+        assert "LICENSES/DHCraft-Brand.txt" in public_about
         assert "Initialize the shared workspace" not in public_index
         assert "data-release-package-link hidden" not in public_index
         assert "data-source-package-link hidden" in public_index
@@ -76,6 +85,16 @@ def test_draft_bundle_excludes_internal_runtime_state() -> None:
             assert f"{role_template_root}/operational-orchestrator.md.tmpl" in members
             assert f"{role_template_root}/independent-verification-agent.md.tmpl" in members
             assert "research-mission-control/tests/test_init_workspace.py" in members
+            # A current website must distribute the same initializer it documents.
+            expected_members = {"research-mission-control/LICENSE.txt"}
+            for relative in copied:
+                if MODULE.SKILL_ROOT not in relative.parents:
+                    continue
+                member = "research-mission-control/" + relative.relative_to(MODULE.SKILL_ROOT).as_posix()
+                expected_members.add(member)
+                assert archive.read(member) == (ROOT / relative).read_bytes(), member
+            assert members == expected_members
+            assert archive.read("research-mission-control/LICENSE.txt") == (ROOT / "LICENSES/MIT.txt").read_bytes()
 
 
 def test_skill_package_is_deterministic() -> None:
@@ -138,7 +157,7 @@ def test_official_license_texts_and_citation_identity_are_fixed() -> None:
     assert hashlib.sha256(cc_text.encode()).hexdigest() == CC_BY_4_0_SHA256
     assert hashlib.sha256(mit_bytes).hexdigest() == MIT_SHA256
     assert "Dr. Christopher Pollin" in (ROOT / "LICENSE").read_text(encoding="utf-8")
-    assert "version: 0.9.0rc3" in citation
+    assert "version: 0.9.0rc5" in citation
     assert "orcid: https://orcid.org/0000-0002-4879-129X" in citation
     assert "repository-code: https://github.com/DigitalHumanitiesCraft/research-mission-control" in citation
     assert "license:\n  - MIT\n  - CC-BY-4.0" in citation
@@ -147,7 +166,7 @@ def test_official_license_texts_and_citation_identity_are_fixed() -> None:
 def test_release_version_and_generated_sha_evidence_are_coherent() -> None:
     project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
     declared = json.loads((ROOT / "release-metadata.json").read_text(encoding="utf-8"))
-    assert project["project"]["version"] == "0.9.0rc3"
+    assert project["project"]["version"] == "0.9.0rc5"
     assert declared["version"] == project["project"]["version"]
     assert declared["status"] == "release-candidate"
     assert declared["repository"] == "https://github.com/DigitalHumanitiesCraft/research-mission-control"
@@ -155,7 +174,7 @@ def test_release_version_and_generated_sha_evidence_are_coherent() -> None:
     with _temporary_release_target() as target:
         MODULE.build(target, draft=True)
         built = json.loads((target / "release-metadata.json").read_text(encoding="utf-8"))
-        assert built["version"] == "0.9.0rc3"
+        assert built["version"] == "0.9.0rc5"
         assert built["source_commit"] is None or len(built["source_commit"]) == 40
         assert built["source_dirty"] is None or isinstance(built["source_dirty"], bool)
         assert len(built["publication_manifest_sha256"]) == 64
@@ -500,6 +519,94 @@ def test_unsupported_asset_license_cannot_bypass_the_exact_assignment_gate() -> 
     manifest["license_rules"]["unsupported"] = {"files": ["site.css"], "directories": []}
     with ASSERTIONS.assertRaisesRegex(RuntimeError, "only supported asset licenses"):
         MODULE._check_license_assignments(manifest, [Path("site.css")])
+
+
+def test_publication_git_attributes_must_remain_allowlisted() -> None:
+    manifest = MODULE._load_manifest(MODULE.MANIFEST_PATH)
+    manifest["include"].remove(".gitattributes")
+    with _temporary_release_target() as target, mock.patch.object(MODULE, "_load_manifest", return_value=manifest):
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "requires allowlisted .gitattributes"):
+            MODULE.build(target, draft=True)
+        assert not target.exists()
+
+
+def test_git_staging_archive_checkout_and_rebuild_preserve_release_bytes() -> None:
+    with _temporary_release_target() as target, tempfile.TemporaryDirectory(prefix="git-release-") as git_temp:
+        MODULE.build(target, draft=True)
+        original = {
+            name.relative_to(target).as_posix(): name.read_bytes() for name in target.rglob("*") if name.is_file()
+        }
+        # A real README with CRLF also exposes the boundary on an all-LF source checkout.
+        countercase = "git-eol-countercase.md"
+        expected = {**original, countercase: original["README.md"].replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")}
+        assert b"\r\n" in expected[countercase]
+        environment = {key: value for key, value in os.environ.items() if not key.startswith("GIT_")}
+        environment.update(GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL=os.devnull)
+        for autocrlf in ("false", "true"):
+            repository = Path(git_temp) / ("git-" + autocrlf)
+            shutil.copytree(target, repository)
+            (repository / countercase).write_bytes(expected[countercase])
+            empty_template = Path(git_temp) / ("empty-template-" + autocrlf)
+            empty_template.mkdir()
+
+            def git(*arguments: str, cwd: Path = repository, data: bytes | None = None) -> bytes:
+                result = subprocess.run(
+                    [
+                        "git",
+                        "-c",
+                        f"core.autocrlf={autocrlf}",
+                        "-c",
+                        "commit.gpgsign=false",
+                        "-c",
+                        "user.name=Release fixture",
+                        "-c",
+                        "user.email=release@example.invalid",
+                        *arguments,
+                    ],
+                    cwd=cwd,
+                    env=environment,
+                    input=data,
+                    capture_output=True,
+                    check=True,
+                )
+                return result.stdout
+
+            git("init", "--initial-branch=main", "--template=" + str(empty_template))
+            names = sorted(expected)
+            git("add", "--pathspec-from-file=-", "--pathspec-file-nul", data="\0".join(names).encode() + b"\0")
+            raw = git("hash-object", "--no-filters", "--stdin-paths", data=("\n".join(names) + "\n").encode())
+            raw_ids = dict(zip(names, raw.decode().splitlines(), strict=True))
+            staged = {}
+            for entry in git("ls-files", "--stage", "-z").decode().rstrip("\0").split("\0"):
+                metadata, name = entry.split("\t", 1)
+                staged[name] = metadata.split()[1]
+            assert staged == raw_ids, f"core.autocrlf={autocrlf} changed staged release bytes"
+            git("commit", "-m", "Record the isolated release fixture")
+            with zipfile.ZipFile(io.BytesIO(git("archive", "--format=zip", "HEAD"))) as archive:
+                archived = {name: archive.read(name) for name in archive.namelist() if not name.endswith("/")}
+            assert archived == expected
+            checkout = Path(git_temp) / ("checkout-" + autocrlf)
+            git("clone", "--no-local", str(repository), str(checkout))
+            assert {name: (checkout / name).read_bytes() for name in names} == expected
+
+            # Bytecode caches would dirty this clean-clone fixture before provenance is read.
+            rebuilt = subprocess.run(
+                [sys.executable, "-B", "tools/build_public_release.py", "--target", "dist/git-byte-rebuild"],
+                cwd=checkout,
+                env=environment,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            assert rebuilt.returncode == 0, rebuilt.stdout + rebuilt.stderr
+            rebuilt_root = checkout / "dist/git-byte-rebuild"
+            assert (rebuilt_root / ".gitattributes").read_bytes() == original[".gitattributes"]
+            for name, content in original.items():
+                if name.startswith(("demo/", "examples/workshop-example/")):
+                    assert (rebuilt_root / name).read_bytes() == content
+            for line in (rebuilt_root / "SHA256SUMS").read_text(encoding="utf-8").splitlines():
+                digest, name = line.split("  ", 1)
+                assert hashlib.sha256((rebuilt_root / name).read_bytes()).hexdigest() == digest
 
 
 if __name__ == "__main__":

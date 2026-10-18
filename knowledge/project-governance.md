@@ -6,7 +6,7 @@ project:
 status: active
 language: en
 created: 2026-08-17
-updated: 2026-08-22
+updated: 2026-10-18
 method:
   name: Promptotyping
   url: https://dhcraft.org/Promptotyping/
@@ -35,49 +35,35 @@ The project Action Layer may narrow these boundaries for a specific session. Exp
 
 ## Role integration
 
+The [complete role contracts](../orchestrators/README.md) govern role authority. Project Governance adds the rules of the particular project.
+
 ### Research Orchestrator
 
-The Research Orchestrator develops and maintains Project Governance with the human user. Its scope may include one or more projects. Each Implementation Brief references the relevant project authority, source hierarchy, interpretation boundaries, and publication conditions.
+Research maintains Project Governance with the human user for its configured projects. Each Implementation Brief references applicable authority, source hierarchy, interpretation boundaries and publication conditions.
 
 ### Operational Orchestrator
 
-The Operational Orchestrator reads the applicable governance before decomposing an assignment. Each internal task names its authorized write scope, external boundaries, expected evidence, and write-back target. Practical implementation decisions remain inside this contract.
+Operations reads that governance before decomposing the assignment and names the authorized write scope, external boundaries, expected evidence and write-back target in its tasks.
 
 ### Independent Verification Agent
 
-The Independent Verification Agent is a separate read-only control perspective outside the two Postdoc Orchestrator roles. It reports its complete finding directly to the human user. Only the human user decides whether to disclose the context or route the finding to Research or Operations.
-
-Independent verification asks two separate questions:
+The [verification contract](research-to-operations-handoff.md#independent-verification) keeps the context read-only and the complete finding's initial return human-only. Governance supplies the project-specific criteria for two separate questions:
 
 1. Does the actual end state satisfy operational rules and acceptance criteria?
-2. Are statements, representations, and interpretations supported and validated under the named subject-matter rules?
+2. Are statements, representations and interpretations supported and validated under the named subject-matter rules?
 
-The Verification Finding keeps these classes distinct. A passed technical criterion establishes conformance only to that criterion. Subject-matter acceptance remains a separate decision. Prompt separation and asymmetric routes provide no secrecy or security guarantee.
+A passed technical criterion establishes conformance only to that criterion. Subject-matter acceptance remains a separate decision.
 
 ## Governance in the Implementation Brief
 
-An Implementation Brief references Project Governance when rights, authority, external services, or persistent state changes require a dedicated rule base:
+Use the [Implementation Brief contract](research-to-operations-handoff.md#research-to-operations). Reference dedicated Project Governance when rights, authority, external services or persistent state changes require it. The governance reference identifies:
 
-```text
-GOVERNANCE
-Canonical path to applicable Project Governance.
-Add a version or commit only when several relevant states exist.
-
-AUTHORITY
-Roles and decisions that apply to this assignment.
-
-SOURCES AND DATA
-Allowed sources, data, and required checks where relevant.
-
-WRITE AND EXECUTION BOUNDARIES
-Authorized locations, tools, external services, and excluded state changes.
-
-WRITE-BACK
-Documents and evidence objects to update after implementation.
-
-ESCALATION
-Concrete conditions that return the work to Research, the human user, or a named domain authority.
-```
+- the canonical path and a version or commit when several relevant states exist;
+- applicable roles and reserved decisions;
+- allowed sources, data and required checks;
+- authorized locations, tools and external services, with excluded state changes;
+- documents and evidence objects requiring write-back;
+- conditions requiring Research, the human user or a named domain authority.
 
 ## Lane contract mapping
 
@@ -118,18 +104,16 @@ Project status, lane activity, evidence, and subject-matter judgement remain sep
 
 ## Write-back
 
-The Result with Evidence assigns each production finding to a canonical target. An independent Verification Finding enters production write-back only after the human user routes it to Research or Operations:
+Apply the [finding and return contract](research-to-operations-handoff.md#finding-routes) before integrating an independent finding. A Result with Evidence identifies the production finding's canonical target:
 
-- project rule or authority boundary to `governance.md`
-- requirement or clarified subject-matter decision to the responsible knowledge document
-- chronological work finding to the journal
-- source or evidence relation to the Grounded Vault instance after verified project binding
-- cross-project method finding to Promptotyping or Research Mission Control knowledge
-- change affecting another lane to a documented handoff to its responsible role
+- a project rule or authority boundary belongs in `governance.md`;
+- a requirement or clarified subject-matter decision belongs in the responsible knowledge document;
+- a chronological work finding belongs in the journal;
+- a source or evidence relation belongs in a Grounded Vault instance after verified project binding;
+- a cross-project method finding belongs in Promptotyping or Research Mission Control knowledge;
+- a change affecting another lane requires a documented handoff to its responsible role.
 
-A write-back with significant subject-matter or public consequences becomes an open human user point.
-
-Each human user point has exactly one canonical location. Other projects and lanes link to or transclude it. The point closes after the decision, and the decision text remains at the same location.
+A write-back with significant subject-matter or public consequences becomes an open human user point. Keep that point and its eventual decision at one [canonical location](research-to-operations-handoff.md#human-decision-points), linked from dependent projects and lanes.
 
 ## Escalation
 
@@ -147,4 +131,4 @@ The human user point names context, recommended state, concrete object, criterio
 
 ## Acceptance criteria
 
-The Project Governance interface is complete when every relevant Implementation Brief references applicable governance, each implementation exposes authority and write scope, every Verification Finding separates substantive and operational findings, the Independent Verification Agent remains read-only and reports directly to the human user, each independent finding enters production only through a human user decision, each write-back has one canonical target, and every human user point is stored exactly once.
+Project Governance applies when every relevant brief references its rules, implementation exposes authority and write scope, verification separates substantive and operational findings, and each write-back and human user point has one canonical target. The existing [human-controlled finding route](research-to-operations-handoff.md#finding-routes) remains binding, including read-only Verification and human authorization before a production role receives its finding.

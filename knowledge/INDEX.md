@@ -13,28 +13,34 @@ This directory contains the publication Knowledge Core and source-only evidence,
 
 | Document | Function | Authority |
 | --- | --- | --- |
-| [`system-description.md`](system-description.md) | Atlas source, assignment, examination, corrected knowledge, dependent reuse and local setup | explanatory reading route; linked contracts govern |
+| [`system-description.md`](system-description.md) | Connected requirements study, dependent workshop, material-rule change and local source exercise | explanatory reading route; linked contracts govern |
 | [`project.md`](project.md) | purpose, system boundary, role model, completion, and publication boundary | canonical project description |
 | [`integration.md`](integration.md) | component ownership, knowledge, transport, write-back and public documentation build | canonical repository integration contract |
+
+The source-only `design.md` defines the public website hierarchy and interaction contract. `START.md` at the repository root is the portable setup entry.
 
 ## Reading routes
 
 - For the static authored interface example, read [the demo package](../demo/README.md) and its [source contract](../demo/docs/source-contract.md). The release metadata and exact manifests bind the demonstrated code and fiction.
-- For an explanatory account of the whole workflow, read `system-description.md`.
+- For an explanatory account of the whole workflow, read `system-description.md`. Its [complete fictional source pack](../examples/workshop-example/README.md) supplies the requirements, workshop materials and first local exercise.
 - For the purpose and scope, read `project.md`, then `integration.md` for the relationship to the private Second Brain deployment.
 - For a requested operator status round, use [Operator briefing](research-to-operations-handoff.md#operator-briefing) and [Operator briefing transport](integration.md#operator-briefing-transport).
 - For delegation and assessment, read `research-to-operations-handoff.md` and the relevant role contract. Verification and human acceptance have different authority.
 - For current private interface behavior, use the interface repository's own Knowledge Index. The dated console proposals below preserve research inputs and cannot substitute for its maintained specification or browser evidence.
 - For source continuation, read `handoff.md`. Its release observations retain their original dates and do not establish a fresh check of this worktree.
 
+For uncertainty routing, read [Describing uncertainty and selecting the next action](orchestration-architecture.md#describing-uncertainty-and-selecting-the-next-action). It separates claim uncertainty, observation gaps, authority and pending verification, with a provisional literature-based mapping.
+
+The [authored process walkthrough](../examples/workshop-example/process-walkthrough.md) connects the material-rule change to parallel assignments, a failed submission, owner-routed correction, recheck and illustrative acceptance. It is a teaching fixture, not observed operation.
+
 ## Core method
 
 | Document | Function |
 | --- | --- |
-| [`orchestration-architecture.md`](orchestration-architecture.md) | role, authority, exchange, scaling, and verification model |
+| [`orchestration-architecture.md`](orchestration-architecture.md) | AI Operator, Operator Knowledge, session, role, authority, exchange, scaling, and verification model |
 | [`research-to-operations-handoff.md`](research-to-operations-handoff.md) | assignment, result, finding, acceptance, and callback contract |
 | [`project-governance.md`](project-governance.md) | optional project authority, rights, publication, and write-back rules |
-| [`orchestration-thresholds.md`](orchestration-thresholds.md) | criteria for direct work, delegation, hierarchy, and verification form |
+| [`orchestration-thresholds.md`](orchestration-thresholds.md) | compatibility links to scaling and verification criteria in Architecture |
 | [`method-specification.md`](method-specification.md) | portable requirements, reference deployment, and method decisions |
 | [`deterministic-checks.md`](deterministic-checks.md) | machine-decidable completion criteria per project type, command forms, and the judgment delimitation |
 | [knowledge-adapters.md](knowledge-adapters.md) | configurable local Markdown sources and the existing UI catalog contract |
@@ -49,6 +55,8 @@ This directory contains the publication Knowledge Core and source-only evidence,
 Observed cases support only the protocol or method claims named in their evidence boundaries. They do not establish universal behavior for models, harnesses, permissions, notification routes, scholarly validity, or human acceptance of the current release.
 
 ## Source-repository proposals
+
+`plan.md` carries source-only follow-up work for progressive initialization validation and the interactive teaching website. It distinguishes implemented local contracts from unexecuted scenarios and publication work.
 
 These four documents preserve the vault pilot's proposal state of 15 October 2026. The proposed contract replacements and repository migration are unexecuted except for the dated optional skill-routing clarification in pilot-reconciliation.md. File inventories, vocabulary and interface observations require reinspection before reuse. They stay outside the publication bundle. They are named without links because the bundle's link check reads this index.
 

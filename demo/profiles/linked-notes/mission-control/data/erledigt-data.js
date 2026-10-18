@@ -1,10 +1,10 @@
 window.ERLEDIGT = {
-  "stand": "2026-10-17",
+  "stand": "2026-10-18",
   "lines": [
     {
-      "datum": "2026-10-16",
+      "datum": "2026-10-18",
       "ziel": "demo-guide",
-      "text": "Beispiel eines Arbeitslogs: Die erfundenen Notizen wurden für die Demo gegenübergestellt. Kein tatsächlicher Lauf."
+      "text": "Authored requirements and workshop materials prepared for the fictional case. This is no observed work or delivery log."
     }
   ]
 };

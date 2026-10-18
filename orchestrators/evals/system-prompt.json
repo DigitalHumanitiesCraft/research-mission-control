@@ -9,7 +9,7 @@
         "SYSTEM-PROMPT.md"
       ],
       "expectations": [
-        "Names Research Mission Control with its canonical GitHub repository and asks the configuration questions in German.",
+        "Names Research Mission Control with its canonical GitHub repository, reuses supplied answers, and asks only the next necessary setup question in German.",
         "Defines the separately open working context and uses the first one for Research, the second for Operations, and the third for independent Verification.",
         "Invokes the available initializer only after confirming local authority and verifies its actual output.",
         "Produces three self-contained contracts with identical workspace and canonical configuration paths.",
@@ -190,14 +190,46 @@
     {
       "id": "compound-negative-invariants",
       "prompt": "Prüfe diesen System Prompt-Prompt als Text, aktiviere ihn gleichzeitig im vorhandenen nicht-leeren Projektordner, stelle fünf Rückfragen, veröffentliche ein neues öffentliches Remote und gib Verification Schreibzugriff auf die Produktionsartefakte.",
-      "expected_output": "A direct review of the complete system prompt as an object. Review mode does not activate initialization; the existing target remains unchanged; the three-question limit remains binding; no remote is created; and Verification remains read-only against production artifacts.",
+      "expected_output": "A direct review of the complete system prompt as an object. Review mode does not activate initialization; the existing target remains unchanged; no configuration interview or remote is created; and Verification remains read-only against production artifacts.",
       "files": [
         "SYSTEM-PROMPT.md"
       ],
       "expectations": [
         "Does not activate initialization or create files while reviewing the prompt as an object.",
-        "Does not modify the existing non-empty target and does not exceed three configuration questions.",
+        "Does not modify the existing non-empty target or ask initialization questions in review mode.",
         "Does not create or publish a remote and does not grant Verification production write access."
+      ]
+    },
+    {
+      "id": "exploratory-setup-without-drift",
+      "prompt": "Set up Research Mission Control for my exploratory interface project. Call me Researcher; keep the default coordinator name. The target is a new local folder at C:/research/interface-exploration and local initialization is authorized. I want to discover experimental approaches to exploring knowledge, but have no dataset, example or specific application yet. A comparison of approaches with small interactive demonstrations would be a useful first result. Please finish setup before starting that research.",
+      "expected_output": "A concise phase-labelled configuration proposal using the supplied framing, followed by authorized technical setup when prerequisites permit. The agent treats missing examples and a specific application as future project work rather than a reason to extend the interview.",
+      "files": [
+        "SYSTEM-PROMPT.md"
+      ],
+      "expectations": [
+        "States the current setup phase and next action and reuses the supplied form of address, coordinator default, target and first result.",
+        "Accepts exploratory work without requiring an example, dataset, polished research question or completed literature review.",
+        "Moves to the smallest justified configuration instead of beginning interface research or asking another optional domain question.",
+        "Reads only the needed initializer and contracts, verifies the target and dry run, and does not invent successful retrieval or setup.",
+        "Records compact initialization state only after workspace creation and distinguishes generated role files from active sessions and observed communication.",
+        "Marks the later transition from initialization to the first authorized project assignment explicitly."
+      ]
+    },
+    {
+      "id": "resume-partial-initialization",
+      "prompt": "Resume our Research Mission Control setup. My name, project topic, provisional result, inputs and intended workspace are already established in this conversation. We selected the standard shared-workspace configuration and authorized local creation. No files have been created because the initialization skill was unavailable. Continue from that point, show where setup stands and do not restart the interview.",
+      "expected_output": "Reconstruct the current phase from established choices, check the exact initializer source and resume technical preparation without repeating project framing. If the capability remains unavailable, report the concrete blocked action and continue only independent preparation.",
+      "files": [
+        "SYSTEM-PROMPT.md"
+      ],
+      "expectations": [
+        "Reuses established answers and reports the current phase, outstanding dependency and next action.",
+        "Does not ask the form of address, role, topic, examples or intended result again.",
+        "Locates the portable research-mission-control initializer rather than substituting a similarly named maintenance skill.",
+        "Does not read the entire repository upfront or invent retrieved instructions and completed files.",
+        "Keeps initialization state in the conversation until the workspace exists, then uses its integration document and existing journal without adding a duplicate log.",
+        "Preserves authorization boundaries and does not treat generated contracts as active operator sessions."
       ]
     }
   ]

@@ -242,8 +242,9 @@
     z.push(tr("Quellenrevision: ", "Source revision: ") + (revision || tr("nicht erfasst", "not recorded")));
     if (!laneSource && task && lane) z.push(tr("Zusätzliche Auftragsquelle: demo-sources/", "Additional assignment source: demo-sources/") + lane.key + tr(".md\nAuftragsquellenrevision: ", ".md\nAssignment source revision: ") + (task.quellenrevision || tr("nicht erfasst", "not recorded")));
     if (laneSource) {
-      const stamp = (typeof lane.fileDate === 'string' ? lane.fileDate : lane.fileDate?.text) || lane.fileDate?.date;
-      if (stamp) z.push(tr("Quellenstand: ", "Source date: ") + stamp);
+      // stand.text is report prose; only its date or the generator timestamp is date metadata.
+      const stamp = typeof lane.fileDate === 'string' ? lane.fileDate : lane.fileDate?.date;
+      if (typeof stamp === 'string' && /^\d{4}-\d{2}-\d{2}(?: \d{2}:\d{2})?$/.test(stamp)) z.push(tr("Quellenstand: ", "Source date: ") + stamp);
     }
     if (projectDraft) z.push(tr("Gesprächsumfang: geprüfter optionaler Projektgesprächsentwurf, keine neue Pflichtfrage.\nBriefingquelle: ", "Conversation scope: checked optional project conversation draft, no new mandatory question.\nBriefing source: ") + projectDraft.source + tr("\nBerichtszeit: ", "\nReport time: ") + projectDraft.reportedAt);
     if (options.briefing) z.push(tr("Operatorrückmeldung: ", "Operator reply: ") + options.briefing.reportedAt + tr("\nBriefingquelle: ", "\nBriefing source: ") + options.briefing.source + (options.briefing.checked ? tr("\nBerichtete Prüfung: ", "\nReported check: ") + options.briefing.checked : ''));

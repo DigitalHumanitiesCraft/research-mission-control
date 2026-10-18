@@ -1,65 +1,79 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Research Mission Control | DHCraft</title>
-<meta name="description" content="Organise research with AI operators, inspect the sources behind a result, and carry checked findings into the next assignment. Try the Atlas example.">
-<link rel="icon" href="./assets/favicon.ico">
-<link rel="stylesheet" href="./site.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Mission Control, model and setup</title>
+<meta name="description" content="Set up and adapt Research Mission Control. Explore how LLM-based AI Operators use project knowledge, work in parallel and return results for separate assessment.">
+<link rel="icon" href="./assets/favicon.ico"><link rel="stylesheet" href="./model.css">
+<script type="module" src="./model.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="shell header-inner">
-<a class="brand" href="#overview"><img src="./assets/dhcraft-watercolor-192.png" width="48" height="48" alt="DHCraft"><span>Research Mission Control</span></a>
-<nav aria-label="Primary navigation"><a href="#overview" aria-current="page">Overview</a><a href="./docs/knowledge/system-description.html">Method in practice</a><a class="nav-demo" href="./demo/">Try the example</a></nav>
-</div></header>
-<main id="main" tabindex="-1">
-<section class="hero shell" id="overview">
-<div><p class="eyebrow">Research with AI operators</p>
-<h1>Keep the work connected to <span>its evidence</span></h1>
-<p>Research Mission Control organises assignments around a research question and its knowledge. Give an AI operator a bounded task, examine its result against the sources, and carry checked findings into the documents used by the next assignment.</p>
-<div class="actions"><a class="button primary" href="./demo/mission-control/projekte.html?lang=en&amp;projekt=demo-atlas">Open Atlas</a><a class="button secondary" href="./docs/knowledge/system-description.html">Follow the method</a></div>
-<p class="release-line"><span class="release-version">0.9.0 RC3</span>. Release candidate. <a href="./demo/demo-release.json">Example provenance</a></p>
-</div>
-<figure class="relationship">
-<div class="relationship__title">Atlas working record</div>
-<ol class="record-path">
-<li><a href="./demo/mission-control/projekte.html?lang=en&amp;projekt=demo-atlas">Read the research question</a><span>Two similar inventory descriptions. What can their comparison establish?</span></li>
-<li><a href="./demo/mission-control/abnahme.html?lang=en&amp;lane=demo-research&amp;kennung=DEMO-COMPARE#vorstellung">Inspect the comparison</a><span>Colour and shape agree. The attributed function differs.</span></li>
-<li><a href="./demo/research.html?lang=en#view=context&amp;source=demo-guide&amp;read=1&amp;bezug=demo-atlas&amp;anchor=Beispielergebnis">Check the original wording</a><span>A common object identifier is missing. Identity remains unresolved.</span></li>
-</ol>
-<figcaption>An authored fictional example. The interface lets you inspect each step.</figcaption>
-</figure>
-</section>
-<section class="section shell section--example" id="example" aria-labelledby="heading-example">
-<span id="perspectives" class="fragment-alias" aria-hidden="true"></span>
-<h2 id="heading-example">Try the comparison, then its reuse</h2>
-<div class="section-body"><p>One invented inventory note calls a blue cube a game piece. Another calls a blue cube a sample. Matching descriptions alone leave open whether they refer to the same object.</p>
-<p>Atlas holds the question, assigned comparison and qualified result. <a href="./demo/mission-control/projekte.html?lang=en&amp;projekt=demo-exhibit">Exhibit</a> uses that result to prepare a public label. Its label task is still assigned, and the wording awaits a human decision.</p>
-<p>Open the result and its source above. Then use <a href="./demo/mission-control/operatoren.html?lang=en&amp;operator=demo-research">conversation preparation</a> to discuss what the evidence supports. Copying prepares text for your chosen chat.</p></div>
-</section>
-<section class="section shell" id="method" aria-labelledby="heading-method">
-<span id="context" class="fragment-alias" aria-hidden="true"></span><span id="roles" class="fragment-alias" aria-hidden="true"></span>
-<h2 id="heading-method">Make the next contribution inspectable</h2>
-<div class="section-body"><p>A useful assignment names its sources, expected result, permitted changes and checks. The returned artifact keeps its evidence and uncertainty visible. The responsible writer incorporates authorised corrections and examines their consequences for dependent work.</p>
-<p>The <a href="./docs/knowledge/system-description.html">practical method</a> follows Atlas from its source and assignment through review, corrected knowledge and dependent reuse, then shows the local setup. Formal responsibilities and exchange rules remain available in the <a href="./docs/knowledge/method-specification.html">specification</a>.</p></div>
-</section>
-<section class="section shell" id="start" aria-labelledby="heading-start">
-<span id="knowledge" class="fragment-alias" aria-hidden="true"></span>
-<h2 id="heading-start">Use it with your own material</h2>
-<div class="section-body"><p>Copy the example, run it locally and edit its authored data. The supplied tools rebuild the interface. A separate Markdown catalog connects selected documents to the source reader, while the optional initializer creates role and communication contracts for a new workspace.</p>
-<p><a class="button secondary" href="./docs/knowledge/system-description.html#run-it-locally">Follow the local setup</a></p>
-<p>Compare the same evidence in <a href="./demo/mission-control/index.html?lang=en&amp;profile=project-folder">project folders</a>, <a href="./demo/mission-control/index.html?lang=en&amp;profile=linked-notes">linked notes</a> or <a href="./demo/mission-control/index.html?lang=en&amp;profile=shared-sources">shared sources</a>. These choices change where the source lives. The question, original text and research result stay the same.</p></div>
-</section>
-<section class="section shell" id="downloads" aria-labelledby="heading-downloads">
-<span id="feedback" class="fragment-alias" aria-hidden="true"></span>
-<h2 id="heading-downloads">Reference and reuse</h2>
-<div class="section-body"><div class="resource-links"><a href="./docs/knowledge/method-specification.html">Specification</a><a href="./docs/orchestrators/README.html">Role contracts</a><a href="./docs/demo/README.html">Example and rebuild guide</a><a href="https://github.com/DigitalHumanitiesCraft/research-mission-control">Source repository</a></div>
-<details><summary>Source downloads and recorded evidence</summary><div class="resource-links"><a href="./SYSTEM-PROMPT.md" download="research-mission-control-system-prompt.md">Complete system prompt</a><a href="./docs/skills/research-mission-control/SKILL.html">Workspace skill</a><a href="./skills/research-mission-control/SKILL.md" download>Skill Markdown</a><a data-source-package-link hidden href="https://github.com/DigitalHumanitiesCraft/research-mission-control/releases/download/v0.9.0-rc.2/research-mission-control.skill" download>Installable skill</a><a data-release-package-link href="./downloads/research-mission-control.skill" download>Installable skill</a><a href="./docs/knowledge/observed-context-stream-operation.html">Recorded operation</a><a href="./docs/knowledge/INDEX.html">Knowledge index</a><a href="./assets/research-mission-control-operating-model.png">Reference operating model</a><a href="./release-metadata.json">Release metadata</a></div></details>
-<p class="reuse-note">Code is MIT licensed and project documentation is CC BY 4.0. Fonts and <a href="./LICENSES/DHCraft-Brand.txt">DHCraft marks</a> retain their separate terms. Technical checks and this fictional example establish specific behaviours. Research benefit and human acceptance require observation in use.</p>
-<p><a href="https://github.com/DigitalHumanitiesCraft/research-mission-control/issues">Report an issue</a> with the version, page, expected behaviour and observed result, using only material suitable for publication.</p></div>
-</section>
-</main>
-<footer class="site-footer"><div class="shell footer-inner"><a class="brand" href="https://dhcraft.org/"><img src="./assets/dhcraft-watercolor-192.png" width="52" height="52" alt=""><span>Digital Humanities Craft</span></a><nav aria-label="Further resources"><a href="./docs/knowledge/system-description.html">Method in practice</a><a href="https://www.youtube.com/watch?v=B7TCJjcVA2k">Recorded session (German)</a><a href="./CITATION.cff">Citation</a><a href="./LICENSE">Licence</a></nav></div></footer>
+<header class="page-header shell"><a class="brand" href="./index.html"><img src="./assets/dhcraft-watercolor-192.png" width="44" height="44" alt="DHCraft"><span>Research Mission Control</span></a><nav aria-label="Primary"><a href="#model" data-mode="model">Model</a><a href="#example" data-mode="example">Worked example</a><a href="#start">Get started</a><a href="./about.html">About</a></nav></header>
+<main id="main" class="shell" tabindex="-1">
+<section class="intro" aria-labelledby="title"><h1 id="title">Research Mission Control</h1><p>A method developed by <a href="https://orcid.org/0000-0002-4879-129X">me</a> for coordinating knowledge work with AI Operators. These are agents based on Large Language Models (LLMs), configured within an AI harness with defined responsibilities, working instructions, and access to knowledge and tools. Explore how to set up their work, examine results and maintain project knowledge, then adapt the <a href="https://github.com/DigitalHumanitiesCraft/research-mission-control">GitHub repository</a> to your own project.</p><div class="metadata"><a href="./LICENSE">Text CC BY 4.0, code MIT</a><span>Updated <time datetime="2026-10-18">18 October 2026</time></span></div></section>
+<section class="walkthrough" id="model" aria-labelledby="model-heading">
+  <span id="example" aria-hidden="true"></span>
+  <div class="walkthrough-heading">
+    <h2 id="model-heading">Revise a workshop when its source rule changes</h2>
+    <a href="./docs/examples/workshop-example/process-walkthrough.html">Read the walkthrough</a>
+  </div>
+  <p class="scenario-note">Authored teaching simulation. The missed instruction, review, routing and acceptance are added fictional events. The published source pack already contains corrected materials.</p>
+  <div class="playback" id="playback" hidden>
+    <button type="button" id="back">Back</button>
+    <button type="button" id="play">Play</button>
+    <button type="button" id="next">Next</button>
+    <button type="button" id="restart">Restart</button>
+    <span id="play-state">Paused</span>
+  </div>
+  <ol class="event-timeline" id="event-timeline" aria-label="Illustrated event timeline"></ol>
+  <section class="event-description" aria-live="polite" aria-atomic="true">
+    <p id="scene-position">Historical starting point</p>
+    <h3 id="scene-title" tabindex="-1">Inspect the original material</h3>
+    <p id="scene-text">The original workshop allowed anonymized excerpts. A replacement rule will require wholly fictional material.</p>
+    <button type="button" class="gate-button" id="gate" hidden>Apply R5 in this simulation</button>
+  </section>
+  <section class="activity-section" aria-labelledby="activity-title">
+    <div class="activity-heading"><h3 id="activity-title">AI harness</h3><span>Separate LLM sessions, tools and permission controls</span></div>
+    <div class="operator-tracks">
+      <button type="button" class="operator-track" data-node="research" disabled><span>Session A</span><strong>Research</strong><span class="track-state">Maintaining requirements</span><code>requirements.md</code></button>
+      <div class="parallel-tracks"><span class="parallel-label">Parallel Operations assignments</span>
+        <button type="button" class="operator-track" data-node="workshop" disabled><span>Session B</span><strong>Workshop Operations</strong><span class="track-state">Prepared workshop</span><code>workshop.md</code></button>
+        <button type="button" class="operator-track" data-node="materials" disabled><span>Session C</span><strong>Materials Operations</strong><span class="track-state">Prepared worksheet</span><code>worksheet.md + model-handover.md</code></button>
+      </div>
+      <button type="button" class="operator-track" data-node="verification" disabled><span>Session D, read-only</span><strong>Verification</strong><span class="track-state">Awaiting result</span><code>Finding first to project owner</code></button>
+    </div>
+    <div class="operator-explanation" id="operator-explanation" hidden tabindex="-1"><h4 id="operator-title"></h4><p id="operator-description"></p><a id="operator-source" href="./docs/orchestrators/README.html">Role and evidence</a></div>
+  </section>
+  <dl class="assessment-state"><dt>Verification</dt><dd id="review-state">Not yet reviewed</dd><dt>Material acceptance</dt><dd id="acceptance-state">Pending</dd></dl><div class="artifact-layout">
+    <section class="document-workspace" aria-labelledby="document-title">
+      <div class="artifact-tabs" id="artifact-tabs" aria-label="Select an artifact">
+        <button type="button" data-artifact="source" disabled>Source R5</button>
+        <button type="button" data-artifact="requirement" disabled>Requirement RQ-06</button>
+        <button type="button" data-artifact="workshop" disabled>Workshop</button>
+        <button type="button" data-artifact="worksheet" disabled>Worksheet</button>
+        <button type="button" data-artifact="decision" disabled>Decision record</button>
+      </div>
+      <div class="document-heading"><h3 id="document-title">Worksheet instruction</h3><span id="revision-state">baseline-v1</span></div>
+      <p class="document-status" id="document-status">Historical wording before the replacement rule.</p>
+      <div class="passage-comparison">
+        <section><h4 id="before-label">Earlier wording</h4><blockquote id="before-text">Paste your anonymized project excerpt and record its original location.</blockquote></section>
+        <section><h4 id="current-label">Unchanged wording</h4><blockquote id="current-text">Paste your anonymized project excerpt and record its original location.</blockquote></section>
+      </div>
+      <p class="passage-note" id="passage-note">Historical wording from the fictional workshop.</p>
+      <a id="artifact-source" href="./docs/examples/workshop-example/change-case.html#wording-changes">Read supporting record</a>
+    </section>
+    <aside class="message-inspector" aria-labelledby="message-heading">
+      <h3 id="message-heading">Handover at this step</h3>
+      <dl><dt>Sender</dt><dd id="message-from">Historical source R1</dd><dt>Recipient</dt><dd id="message-to">Research</dd><dt>Artifact</dt><dd id="message-artifact">records.md</dd></dl>
+      <p id="message-body">The earlier source permits anonymized excerpts.</p>
+      <p class="message-evidence" id="message-evidence">Historical source fixture</p>
+      <a id="message-source" href="./docs/examples/workshop-example/records.html#r1-original-brief">Inspect the basis</a>
+    </aside>
+  </div>
+  <p class="open-decision"><strong>H-01 stays open.</strong> Mixed-room or audience-specific workshop? Both variants can be prepared. Final printing and case-sheet allocation wait for the <a href="./docs/examples/workshop-example/records.html#r6-pending-human-choice">sponsor’s choice</a>.</p>
+  <details class="structure-reference"><summary>How the responsibilities fit together</summary><p>Research interprets sources and maintains requirements. Separate Operations contexts prepare artifacts within disjoint write areas. Verification receives the full result and sends its complete initial finding first to the project owner. The owner decides further routing and acceptance. Authorized writers record the consequences in maintained project knowledge.</p><p>Operator Knowledge describes working instructions. A session is the current execution context. Project Knowledge persists through linked source, requirement, artifact and decision records. <a href="./docs/knowledge/orchestration-architecture.html">Read the complete model</a>.</p></details>
+  <noscript><p>The source change, historical worksheet passage and responsibility model remain readable above. The <a href="./docs/examples/workshop-example/change-case.html">complete source change</a> provides the before-and-after passages and bounded brief. JavaScript enables stepping through the fictional failure, correction and acceptance sequence.</p></noscript>
+</section><section id="start" class="getting-started" aria-labelledby="start-title"><h2 id="start-title">Set up your own project</h2><p>Begin with your topic, an exploratory idea or an intended result. The setup conversation helps define a first assignment and the smallest useful operator structure.</p><ol><li><strong>Open a new conversation in your AI harness.</strong> Use the start instructions below. The conversation proceeds in your language, with one necessary question at a time.</li><li><strong>Define the project and choose a workspace.</strong> Review the proposed responsibilities, knowledge sources and permissions before creating files.</li><li><strong>Try a bounded first assignment.</strong> Verify the actual sessions, tools and handovers, then adapt the structure from what you observe.</li></ol><div class="download-links"><a class="button primary" href="./START.md" download="research-mission-control-start.md">Download start instructions</a><a href="./START.md">Read start instructions</a><a href="./SYSTEM-PROMPT.md" download>Complete system prompt</a><a data-source-package-link hidden href="./skills/research-mission-control/SKILL.md" download>Skill source</a><a data-release-package-link href="./downloads/research-mission-control.skill" download>Installable skill</a></div><p>A fork and an Obsidian vault are optional. The initializer creates a new local target; existing projects need an explicit adoption plan. Your harness must support the tools required by the chosen setup.</p><p>Adapt <a href="./docs/orchestrators/README.html">role contracts</a>, <a href="./docs/knowledge/knowledge-adapters.html">knowledge sources</a> and <a href="./docs/knowledge/research-to-operations-handoff.html">handover boundaries</a>. To explore first, use the <a href="./docs/examples/workshop-example/change-case.html#first-local-exercise">local source exercise</a> or the <a href="./demo/">existing project views</a>.</p></section>
+<p class="boundary-note">Read the <a href="./docs/knowledge/system-description.html">method in practice</a> or watch an <a href="https://www.youtube.com/watch?v=B7TCJjcVA2k">earlier working session</a>. Its <a href="./docs/knowledge/observed-live-demo-operation.html">recorded analysis</a> concerns an earlier operating state.</p></main><footer class="shell page-footer"><span>0.9.0 RC5, acceptance pending</span><a href="https://dhcraft.org/">Digital Humanities Craft</a><a href="./about.html">About the method</a><a href="./docs/knowledge/INDEX.html">Documentation</a><a href="./CITATION.cff">Citation</a><a href="./LICENSE">Licenses</a></footer>
 </body></html>

@@ -143,17 +143,14 @@
     return node;
   }
 
-  // A stand note appears only when a source is not from today. ACTIVE-WORK
-  // counts by its updated date, the lanes by the newest report entry of a
-  // lane file; the generator's run time says nothing about the content.
+  // Static fixtures show absolute source dates; the title retains the original provenance.
   function standHinweis() {
-    const heute = L.todayIso();
     const aw = L.stand.activeWork.slice(0, 10);
     const lane = L.lanes.map(L.laneDatum).filter(Boolean).sort().pop() || '';
-    const alt = (d) => Boolean(d) && d < heute;
-    const wann = (d) => (L.ageDays(d, heute) === 1 ? t('von gestern', 'from yesterday') : t(`vom ${L.fmt(d)}`, `from ${L.fmt(d)}`));
+    const alt = (d) => Boolean(d);
+    const wann = d => t('vom ' + L.fmtLang(d), 'dated ' + L.fmtLang(d));
     const teile = alt(aw) && alt(lane) && wann(aw) === wann(lane)
-      ? [t(`ACTIVE-WORK und Lanes ${wann(aw)}`, `ACTIVE-WORK and lanes ${wann(aw)}`)]
+      ? [t(`Beispielquellen ${wann(aw)}`, `Example sources ${wann(aw)}`)]
       : [alt(aw) ? `ACTIVE-WORK ${wann(aw)}` : '', alt(lane) ? `Lanes ${wann(lane)}` : ''].filter(Boolean);
     if (!teile.length) return null;
     const title = [

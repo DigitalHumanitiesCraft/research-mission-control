@@ -4,11 +4,11 @@
     {
       "id": 1,
       "prompt": "Richte für mein neues Editionsprojekt eine Forschungsleitstelle ein. Ich arbeite mit Codex für Forschung und Verifikation und Claude Code für die Umsetzung. Alle drei Arbeitskontexte sollen denselben neuen lokalen Projektordner verwenden.",
-      "expected_output": "The agent identifies Research Mission Control with its repository URL, asks in German at most three compact questions about role, result with acceptance criteria, and workspace with inputs, then initializes a shared local repository with Promptotyping knowledge and role bindings after authorization. Verification reports its complete finding directly to the human user.",
+      "expected_output": "The agent reuses the supplied three-context and harness choices, shows the setup phase and next action in German, and asks only the next missing setup question. It proceeds to configuration when a bounded first assignment is clear, then creates and verifies the authorized local scaffold. Verification returns its complete finding directly to the human user.",
       "files": [],
       "expectations": [
         "The response names Research Mission Control with its canonical GitHub repository and keeps the human user as human user.",
-        "The response asks in German, defines the current working context, and asks no more than three configuration questions about role, project result with acceptance criteria, and the workspace with its inputs.",
+        "The response asks one short question at a time in German, reuses known choices, and makes the current setup phase and next action visible.",
         "The response assigns Codex to Research and Verification and Claude Code to Operations without inventing a completed repository.",
         "The response selects maintained Promptotyping knowledge, keeps GitHub remote creation separately authorized, and names the Context Stream no-wake boundary.",
         "The generated contracts make Research the single writer for maintained knowledge and route Operations and Verification findings through role-owned immutable outboxes.",
@@ -45,14 +45,14 @@
     {
       "id": 4,
       "prompt": "Set up Research Mission Control for a new oral-history project. The source interviews, consent records, and transcription code are already in a local Git repository, but I have not told you which role this Codex task should take or what result I will accept.",
-      "expected_output": "The agent identifies Research Mission Control with its canonical repository URL and asks the three defined configuration questions in English with their supporting explanations. It inventories discoverable project material instead of asking the human user to enumerate it and treats rights or publication as later Human Decision Points when a concrete action reaches them.",
+      "expected_output": "The agent resumes progressive setup in English, proposes Research as the coordinating default, asks only the next necessary question, and inventories the existing repository read-only. It proposes a separately scoped adoption instead of running the new-target initializer over existing material.",
       "files": [],
       "expectations": [
         "The response keeps the interview in English and links the canonical Research Mission Control repository.",
-        "The response defines the current working context as the separately open Codex task and asks which Research Mission Control role it should assume.",
+        "The response explains the coordinating Research function, preserves any established role, and avoids a mandatory role-selection question.",
         "The response asks for the observable result and human acceptance criteria.",
         "The response identifies the existing Git repository as the project workspace and inspects its data, documents, materials, code, repositories, and knowledge sources before requesting missing inputs.",
-        "The response asks no more than three initial configuration questions and defers rights, publication, remote creation, grounding, and verification variants until a concrete trigger requires a Human Decision Point."
+        "The response asks one setup-relevant question at a time, refuses destructive initialization over the existing repository, and defers external effects until corresponding authority exists."
       ]
     },
     {
@@ -108,6 +108,77 @@
         "Uses existing continuation knowledge instead of another handoff file.",
         "Starts no monitor, new operator, remote or release."
       ]
+    },
+    {
+      "id": 9,
+      "prompt": "Help me set up Research Mission Control. I am new to the method.",
+      "inputs": "The method repository is temporarily inaccessible. The form of address, topic and project location are unknown.",
+      "expected_output": "The agent begins the introductory conversation while clearly separating it from blocked technical initialization.",
+      "expectations": [
+        "Asks one short introductory question without a long technical preamble.",
+        "Shows the current setup phase and next action.",
+        "Does not substitute an unrelated local mission-control management skill for the requested initializer.",
+        "States unavailable source access truthfully and performs no source-dependent scaffolding until the required instructions are available."
+      ],
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "I want to explore experimental interfaces for discovering relationships in knowledge. I have no specific use case, dataset or interface example yet.",
+      "inputs": "Form of address and a new local target are already known. No concrete application has been selected.",
+      "expected_output": "The agent proposes a bounded exploratory first result and moves to a proportionate configuration instead of repeatedly demanding a finished research design.",
+      "expectations": [
+        "Accepts an exploratory project and records the missing application and examples as research questions.",
+        "Proposes a provisional result and assessment criteria sufficient for a first bounded assignment.",
+        "Uses known introductory and workspace answers rather than repeating them.",
+        "Transitions to configuration before undertaking substantive interface research.",
+        "Distinguishes a recommended direct-work structure from the existing three-context scaffolder capability."
+      ],
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "Create the agreed Research Mission Control workspace in the folder I supplied.",
+      "inputs": "The target directory already exists and is empty. Configuration and local creation are authorized; deletion or migration is not.",
+      "expected_output": "The agent preserves the existing target, explains the initializer limitation and resolves the target dependency without claiming a completed scaffold.",
+      "expectations": [
+        "Inspects the target and distinguishes an existing empty directory from a new path.",
+        "Recognizes that the initializer refuses every existing target.",
+        "Does not delete, rename or overwrite the target to bypass the restriction.",
+        "Proposes a supported new target or a separately scoped adoption and requests only the missing necessary decision.",
+        "Keeps the setup phase and unresolved dependency explicit."
+      ],
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "Continue setting up this project from where we stopped.",
+      "inputs": "Project framing and configuration are recorded. Scaffold files exist. The integration Initialization section marks operational checks pending. Sessions and return routes have not been observed.",
+      "expected_output": "The agent resumes operational checking from the recorded phase and actual files, without recreating the workspace or repeating project questions.",
+      "expectations": [
+        "Reads the integration record and verifies actual artifacts before selecting the next step.",
+        "Preserves known choices and does not restart the interview or scaffolder.",
+        "Distinguishes generated role files from active sessions and observed message routes.",
+        "Updates the existing initialization section and milestone journal without creating duplicate status documents.",
+        "Keeps the first project assignment separate until the required setup checks and its authorization support execution."
+      ],
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "Explore two research-interface cases in my Downloads folder. Keep everything local, without Git or commits. Use bounded parallel case work.",
+      "inputs": "The user selected the working location and excluded Git, remotes and publication. Data sources can be copied read-only. No persistent contexts or communication transport exist.",
+      "expected_output": "The agent respects the local no-Git adaptation, maintains only needed shared knowledge and gives each temporary case worker a disjoint write scope.",
+      "expectations": [
+        "Does not run the Git-initializing reference scaffolder or silently create a repository.",
+        "Records the selected adaptation, source provenance and actual write ownership in the existing project knowledge.",
+        "Preserves input copies and compares design alternatives against the same task and data.",
+        "Separates internal checking, observed interface behavior, scholarly interpretation and human acceptance.",
+        "Does not infer a working Context Stream, persistent operators or a validated design from created files and producer reports."
+      ],
+      "files": []
     }
-  ]
+  ],
+  "execution_status": "unexecuted",
+  "execution_note": "These are behavioral evaluation scenarios. Static schema checks do not establish an observed model run."
 }

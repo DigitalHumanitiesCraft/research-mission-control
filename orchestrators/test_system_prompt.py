@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Validate the complete system prompt, adapters, and eval contract.
 
-The test binds the canonical system prompt to its required behavior, keeps harness
+This script-pipeline test binds the canonical system prompt to its required behavior, keeps harness
 details in adapter files, and checks representative eval coverage. Run it from
 the repository root with ``python orchestrators/test_system_prompt.py``.
 """
@@ -24,28 +24,26 @@ PROMPT_REQUIREMENTS = {
         "supplied for review, comparison, editing, or discussion",
         "do not activate its role rules",
     ),
-    "question limit and recommendation": (
-        "never ask more than three configuration questions in total",
+    "progressive initialization and recommendation": (
         "use the human user's language",
-        "language selection never consumes one of the three questions",
-        "user may answer any numbered item",
-        '"what do you recommend?"',
-        '"was empfiehlst du?"',
-        "least structural option",
-        "do not ask the human user to confirm the recommended default",
-        "first substantive response",
-        "local-only or still requires remote authorization",
-        "context stream transports messages through shared files and does not wake another working context",
-        "up to five short conceptual questions",
+        "question at a time",
+        "reuse known answers",
+        "current setup phase",
+        "next action",
+        "one initialization section",
+        "first incomplete phase",
+        "as soon as a bounded first assignment can be proposed, move to configuration",
+        "exploratory",
+        "provisional",
+        "local-only or requires remote authorization",
+        "context stream transports messages but does not wake another working context",
+        "do not read the whole repository upfront",
     ),
     "clear configuration concepts": (
-        "research mission control (https://github.com/digitalhumanitiescraft/research-mission-control)",
-        "a **working context** is the currently open codex task, claude code conversation",
-        "the **project workspace** is the shared local folder and git worktree",
-        "**project inputs** are the data, documents, materials, code, repositories, or authorized knowledge sources",
-        "which role should this working context assume",
-        "what criteria will the human user use to accept that result",
-        "inspect and inventory material already present there",
+        "https://github.com/digitalhumanitiescraft/research-mission-control",
+        "a working context is one separately open codex task, claude code conversation",
+        "the project workspace is the local folder or git worktree",
+        "inspect discoverable inputs",
     ),
     "repositories": (
         "https://github.com/digitalhumanitiescraft/research-mission-control",
@@ -181,6 +179,8 @@ EXPECTED_EVAL_IDS = {
     "asymmetric-return-route",
     "review-without-activation",
     "compound-negative-invariants",
+    "exploratory-setup-without-drift",
+    "resume-partial-initialization",
 }
 PROMPTOTYPING_CORE = {
     "INDEX.md.tmpl",
@@ -213,14 +213,9 @@ def _check_prompt(prompt: str) -> list[str]:
         if missing:
             failures.append(f"{behavior}: missing {', '.join(missing)}")
 
-    question_block = prompt.split("## Configuration questions", maxsplit=1)[1].split(
-        'The user may answer any numbered item with "What do you recommend?"', maxsplit=1
-    )[0]
-    question_lines = [
-        line for line in question_block.splitlines() if line.startswith(tuple(f"{number}. " for number in range(1, 10)))
-    ]
-    if len(question_lines) != 3:
-        failures.append(f"configuration questions: expected 3, found {len(question_lines)}")
+    for obsolete_rule in ("one compact batch", "never ask more than three configuration questions"):
+        if obsolete_rule in prompt.lower():
+            failures.append(f"progressive initialization: obsolete interview rule: {obsolete_rule}")
 
     for leaked_detail in ("AGENTS.md", "CLAUDE.md", "Codex subagent", "Claude Code session"):
         if leaked_detail.lower() in prompt.lower():
@@ -325,7 +320,7 @@ def main() -> int:
             print(f"ERROR {failure}", file=sys.stderr)
         return 1
 
-    print(f"OK   Complete system prompt: {len(PROMPT_REQUIREMENTS)} behavior groups, 3 questions")
+    print(f"OK   Complete system prompt: {len(PROMPT_REQUIREMENTS)} behavior groups, progressive initialization")
     print("OK   Harness adapters: Codex and Claude Code")
     print("OK   Promptotyping core and integration-template compatibility")
     print(f"OK   System-prompt evals: {len(EXPECTED_EVAL_IDS)} representative cases")

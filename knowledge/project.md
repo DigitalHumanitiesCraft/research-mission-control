@@ -2,7 +2,7 @@
 title: Research Mission Control Project
 status: active
 language: en
-updated: 2026-10-17
+updated: 2026-10-18
 related: [integration, orchestration-architecture, method-specification, observed-live-demo-operation]
 ---
 
@@ -17,6 +17,16 @@ The repository is the canonical source for the general method. Its executable ar
 ## Documentation and manuscript outcome
 
 The commissioned documentation outcome connects a usable README, an extended factual [system description](system-description.md), and the source-only method-paper draft. The README provides entry and usage, the system description explains the working relationships through the maintained knowledge and execution cycle, and the manuscript develops the argument and proposed evaluation. Formal contracts remain at their current maintenance locations. The paper remains a draft until its scholarly claims and presentation have been assessed; the planned experiments are unperformed.
+
+## Manuscript objectives and scope
+
+The manuscript aims to define and justify a reusable method for researchers to organize work through AI Operators while keeping assignments and results connected to their sources, assumptions, decisions and examined evidence across sessions.
+
+Its subsidiary objectives are to define the core concepts and relationships, explain the workflow through a constructed research example, make adaptation understandable through the inspectable implementation, position the contribution against related approaches, and specify how potential benefits and maintenance costs could be evaluated. A concept model and a process model serve different explanatory purposes and use the same terms.
+
+The agreed outline covers the research problem, method and concepts, workflow and example, implementation and reuse, positioning and evaluation, and limitations. Draft prose remains subject to scholarly assessment. The first proposed comparison isolates knowledge structure and cannot establish the effectiveness of the whole method.
+
+The bounded revision introduces Operator Knowledge as maintained working instructions and standing context, distinct from project knowledge and from the technical channel that supplies it. It does not alter verification recipients or resolve the division of canonical method ownership between repository and external knowledge sources. A literature-grounded provisional description of uncertainty is maintained in the architecture and manuscript. Its coverage and usefulness, and a systematic comparison of candidate tools, remain research work. The current outline and wording are not evidence of a completed evaluation.
 
 ## Knowledge transfer as the methodological aim
 
@@ -36,59 +46,33 @@ Luhmann, N. (1981). Kommunikation mit Zettelkästen. Ein Erfahrungsbericht. In *
 
 ## System boundary
 
-The method governs the transition from a human user's objective to an implemented and verified project state. It defines responsibility, authority, minimum exchange, evidence, escalation, and canonical write-back. It does not establish scholarly truth through technical checks, confer authority through tool access, or guarantee cross-session notification through shared files.
+The method governs responsibility, authority, evidence, escalation and canonical write-back between an objective and an inspected result. Technical checks establish only their examined properties. Tool access supplies no authority, and shared files provide no notification guarantee.
 
-A deployment may use one context for contained work. The reference configuration uses a shared project repository and three contexts. Their responsibilities can be assigned to different frontier models or agentic coding harnesses without changing the method contract. Since October 2026 the method is also applied as an active installation outside a project repository, in a vault-based research lab whose lanes keep their state in files with one writer each and where each lane completes its assigned verification and scoped write-back, while the coordinating session resolves cross-project dependencies and conflicts under the deployment contract.
+The [orchestration architecture](orchestration-architecture.md) defines the role model, direct work and reference shared-workspace configuration across compatible AI harnesses. The [recorded vault pilot](integration.md#recorded-vault-pilot) describes the active installation outside a project repository since October 2026 and its separate deployment contract. In that pilot, each lane completes its assigned verification and scoped write-back, while coordination resolves cross-project dependencies and conflicts.
 
 ## Relationship to Second Brain
 
-The vault pilot applies the method within Second Brain, a personal research environment spanning maintained vault knowledge and project repositories. Its private Mission Control interface presents operational sources and results for human judgement. The reusable method, that private interface and public template distributions have separate implementation and publication scopes. Their maintained relationship is defined in [`integration.md`](integration.md#second-brain-deployment).
+Second Brain applies the method within a personal environment of maintained vault knowledge and project repositories. Its private Mission Control interface, reusable method and public template distributions have separate scopes under the [deployment contract](integration.md#second-brain-deployment).
 
-Human-facing assessment needs an identifiable result, its intended use, a concrete criterion and a direct way to inspect it. The existing Human Decision Point contract supplies these requirements. A completed implementation or a passing check alone does not establish that the interface meets them for its user.
-
-Current operator reports include completed results and keep the next authorized action, additional proposals and genuine human user questions distinguishable. A reasoned self-assessment describes the operator's view of the examined work and its limits. The [operator briefing contract](research-to-operations-handoff.md#operator-briefing) maintains these reporting functions and their relationship to routine work and acceptance.
+The [human acceptance contract](research-to-operations-handoff.md#human-acceptance) requires an identifiable result, intended use, criterion and direct inspection path. The [operator briefing contract](research-to-operations-handoff.md#operator-briefing) keeps completed results, next authorized action, additional proposals, genuine human questions and attributed self-assessment distinguishable. Implementation or passing checks alone establish neither interface usefulness nor acceptance.
 
 ## Functional research group
 
-| Level | Role | Responsibility |
-| --- | --- | --- |
-| Research direction | Human user (Research Director remains a proposed title) | directs the work and defines delegation, authority, assessment, and acceptance |
-| Postdoc | Research Orchestrator, an LLM-based AI agent in an AI harness | develops concepts, sources, criteria, and executable briefs with the human user |
-| Postdoc | Operational Orchestrator, an LLM-based AI agent in an AI harness | changes actual project state, coordinates implementation, and integrates bounded results |
-| Predoc | Specialist or subagent | completes one bounded research, implementation, or verification assignment |
-| Independent control | Independent Verification Agent, an LLM-based AI agent in a separate working context | checks results against criteria and evidence, then reports the complete finding first and only to the human user |
+The [role model](orchestration-architecture.md#roles) assigns human direction, two Postdoc orchestration functions, bounded Predoc specialists and separate Independent Verification. The academic labels describe functional scope, synthesis, supervision and escalation. Research Director remains a proposed human title.
 
-Research Director remains an open naming question. Human direction, delegation and acceptance do not depend on adopting that label.
-
-Monitoring examines the whole course of work and offers the human user a second opinion. It compares what coordination understands about the user, decisions and plans with the original statements, maintained documents and observed actions. Findings distinguish what the user said, the coordinator's interpretation and material taken over from another source. A monitor may evaluate alignment, omissions and discrepancies, while reporting its evidence and limits. Operational observations, such as stale reports or unanswered messages, provide context for that assessment. The monitor can send notices and evidence to coordination under an explicit communication contract, but cannot assign work, release results or grant acceptance. Its remit complements bounded verification and human judgement. A separate session does not guarantee independent reasoning, especially when it shares a model family with coordination.
-
-The academic labels are a functional metaphor. They describe scope, synthesis responsibility, supervision, and escalation.
+[Monitoring across the work](orchestration-architecture.md#monitoring-across-the-work) defines the second-opinion function and its communication limits. It confers no work-assignment, release or acceptance authority.
 
 ## Decision routing
 
-Predoc roles decide details inside a bounded assignment and its configured authority. The two Postdoc roles resolve more complex conceptual or operational questions inside their configured responsibilities. The human user directs the work and defines which decisions remain human and which are delegated. Agents stop before actions for which the project contract supplies no authority.
-
-A Human Decision Point presents the concrete object, relevant context, assessment criterion, material consequences, uncertainty, supported options, a recommendation, and the expected answer format. Other work continues when it is authorized and independent of the open point.
+[Action transition](orchestration-architecture.md#action-transition) routes decisions by authority, consequences and reversibility. A required [Human Decision Point](research-to-operations-handoff.md#human-decision-points) presents the object, context, criterion, consequences, uncertainty, supported options, recommendation and expected answer. Independent authorized work can continue while that point remains open.
 
 ## Knowledge profile
 
-The current context window holds selected working context. The project repository preserves maintained knowledge across sessions. Promptotyping supplies the project-bound reconstruction basis and functions as operational memory for the active work.
-
-Grounded Vault is optional long-lived knowledge infrastructure. It becomes relevant when substantive claims require machine-resolvable grounding and attributable human verification. The requirement remains pending until the deployment defines and verifies a project-specific binding.
-
-Another private, institutional, or project Vault is also an optional long-term knowledge source. A deployment may read or write it only after `knowledge/integration.md` names the exact source, selection boundary, authority, and write-back rule. An available Vault path alone does not activate that source.
+The [knowledge architecture](orchestration-architecture.md#knowledge-architecture) distinguishes the temporary context window from maintained project knowledge. The [knowledge integration contract](integration.md#knowledge-relationship) defines Promptotyping working memory, the pending-to-active Grounded Vault binding and the exact source, selection, authority and write-back requirements for another optional Vault.
 
 ## Verification profile
 
-Verification follows the likely failure mode, required context, consequences, and value of independence. A working-context check suits bounded mechanical claims. A fresh context can reveal assumptions in prose, usability, and architecture. Consequential factual, scholarly, security, or data-quality claims can require independent specialist review. Context-dependent work with substantial consequences can use two stages.
-
-The three separate controls have distinct meanings.
-
-- **Independent Verification** uses a separate assessment context and read-only access to the evaluated target. It may receive the complete Result with Evidence and does not imply concealment from production roles.
-- **Blind Verification** is Independent Verification with a declared reading-order restriction. The verifier forms an initial finding before reading named producer reasoning, reports, earlier findings, or preferred conclusions. It does not imply secrecy.
-- **Shadow Verification** is a human-commissioned visibility and isolation profile. It requires a technically separate context, read-only target access, a private return route to the human user, and omission of its identity and route from production contracts. If those properties cannot be verified, report the missing capability. Independent or Blind Verification still requires a separate assessment context, read-only target access and the portable human-only initial return route. A production self-check or automatic callback to its parent does not establish that conformance.
-
-A Verification Agent never becomes the producer of a correction. It reports and rechecks; the human user routes an accepted finding to Research or Operations for interpretation and implementation.
+Use the [verification selection criteria](orchestration-architecture.md#verification-selection) and the [Independent, Blind and Shadow controls](research-to-operations-handoff.md#independent-verification). A production self-check or automatic child callback does not establish independent verification. The complete finding returns first and only to the human user, who decides disclosure and routing. Verification reports and rechecks, while the authorized production role implements a correction.
 
 ## Completion criteria
 

@@ -1,4 +1,5 @@
-* text=auto eol=lf
+# Preserve checksummed release bytes during Git staging and checkout.
+* -text
 
 *.ico binary
 *.png binary
