@@ -106,5 +106,55 @@ def test_public_entry_surfaces_show_the_reference_route() -> None:
     index = (ROOT / "index.html").read_text(encoding="utf-8")
 
     assert "User as Research Director" in readme
-    assert "Research → Operations → Verification → Human user" in index
+    method = (ROOT / "knowledge/system-description.md").read_text(encoding="utf-8")
+    assert 'href="./docs/knowledge/system-description.html"' in index
+    assert "Independent Verification examines a bounded result in a separate read-only context" in method
+    assert "returns its complete finding first to the human user, who controls subsequent routing" in method
+    assert "A proposed extension needs its corresponding authority." in method
+    assert "Human acceptance remains its own judgement" in method
+    assert "roles, assignments or running sessions" in (ROOT / "examples/knowledge/README.md").read_text(
+        encoding="utf-8"
+    )
+    assert "[handoff contract](research-to-operations-handoff.md)" in method
     assert "Research verifies and integrates into canonical project knowledge" not in index
+
+
+def test_public_entry_surfaces_bind_the_evaluated_live_demo() -> None:
+    video_url = "https://www.youtube.com/watch?v=B7TCJjcVA2k"
+    manifest = json.loads((ROOT / "publication-manifest.json").read_text(encoding="utf-8"))
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    index = (ROOT / "index.html").read_text(encoding="utf-8")
+    observation = (ROOT / "knowledge" / "observed-live-demo-operation.md").read_text(encoding="utf-8")
+
+    assert video_url in readme
+    assert video_url in index
+    assert video_url in observation
+    assert "earlier operating state" in readme
+    assert "does not define the current method contract" in observation
+    assert "knowledge/observed-live-demo-operation.md" in manifest["include"]
+
+
+def test_artifact_relationship_and_bounded_verification_are_portable() -> None:
+    paths = [
+        ROOT / "SYSTEM-PROMPT.md",
+        ROOT / "knowledge" / "research-to-operations-handoff.md",
+        ROOT / "knowledge" / "method-specification.md",
+        ROOT / "orchestrators" / "research-orchestrator.md",
+        ROOT / "orchestrators" / "operational-orchestrator.md",
+        ROOT / "skills" / "research-mission-control" / "SKILL.md",
+    ]
+    combined = "\n".join(path.read_text(encoding="utf-8") for path in paths).lower()
+
+    assert "preserved, reused, adapted, or may be replaced" in combined
+    assert "before generating a substitute" in combined
+
+    verification_paths = [
+        ROOT / "SYSTEM-PROMPT.md",
+        ROOT / "knowledge" / "research-to-operations-handoff.md",
+        ROOT / "knowledge" / "method-specification.md",
+        ROOT / "orchestrators" / "independent-verification-agent.md",
+        ROOT / "skills" / "research-mission-control" / "SKILL.md",
+    ]
+    verification = "\n".join(path.read_text(encoding="utf-8") for path in verification_paths).lower()
+    assert "bounded target, criterion, evidence packet, and completion condition" in verification
+    assert "operational monitoring" in verification

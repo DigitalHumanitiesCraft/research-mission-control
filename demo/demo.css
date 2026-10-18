@@ -1,0 +1,18 @@
+.demo-notice { max-width: 100rem; margin: 0 auto; padding: .65rem 1rem; font-size: .9rem; line-height: 1.5; overflow-wrap: anywhere; }
+.demo-notice strong { margin-inline-end: .35rem; }
+.demo-notice button { min-height: 44px; margin-inline-start: .6rem; padding: .35rem .7rem; color: inherit; background: transparent; border: 1px solid currentColor; border-radius: .2rem; font: inherit; cursor: pointer; }
+.demo-notice button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (width < 40rem) {
+  .demo-notice { padding-inline: .75rem; }
+  .demo-notice strong { display: block; }
+  .demo-notice button { margin: .35rem .5rem 0 0; }
+}
+
+.demo-profile { display: grid; gap: .5rem; margin-block: .75rem; max-inline-size: 80ch; }
+.demo-profile p { margin: 0; }
+.demo-profile select { font: inherit; color: inherit; background: transparent; min-block-size: 44px; max-inline-size: 100%; }
+.demo-profile summary { cursor: pointer; min-block-size: 44px; align-content: center; }
+.demo-profile ul { padding-inline-start: 1.15rem; margin-block: .35rem; }
+.demo-profile code { display: block; font-size: .8rem; overflow-wrap: anywhere; }
+.demo-profile li { margin-block: .4rem; min-inline-size: 0; }
+.demo-profile select:focus-visible, .demo-profile summary:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }

@@ -1,0 +1,153 @@
+@layer reset, tokens, base, layout, components;
+
+@layer reset {
+  *, *::before, *::after { box-sizing: border-box; }
+  :where(body, h1, h2, h3, p, ul, ol, dl, dd, fieldset, legend, figure) { margin: 0; padding: 0; }
+  :where(ul[role="list"], ol[role="list"]) { list-style: none; }
+  :where(button, input, textarea, select) { font: inherit; color: inherit; }
+  :where(table) { border-collapse: collapse; }
+}
+
+@layer tokens {
+  :root {
+    /* Four hues, one meaning each: --dich (rust) marks what needs the
+       operator, the three lane hues mark lanes in small text and bars only.
+       Everything else is ink and neutral grey; groups differ by heading. */
+    --dich: light-dark(oklch(49% 0.15 27), oklch(74% 0.13 27));
+    --offen: var(--dich);
+    --stoerung: var(--dich);
+    --focus: var(--dich);
+    --bereit: var(--ink);
+    --andere: var(--soft);
+    --ruhend: var(--soft);
+    --operator: var(--soft);
+    --orchestrator: light-dark(oklch(48% 0.12 245), oklch(76% 0.10 245));
+    --review: light-dark(oklch(48% 0.09 165), oklch(76% 0.10 165));
+    --build: light-dark(oklch(48% 0.14 310), oklch(76% 0.11 310));
+    --context-tile-surface: color-mix(in oklab, var(--orchestrator) 9%, var(--surface));
+    --result-tile-surface: color-mix(in oklab, var(--review) 9%, var(--surface));
+    --limit-tile-surface: color-mix(in oklab, var(--soft) 9%, var(--surface));
+    --contribution-tile-surface: color-mix(in oklab, var(--build) 9%, var(--surface));
+    --r: var(--control-radius);
+    /* Widest content: beyond it lines get too long to scan and the blocks
+       drift apart, so wide screens get margins instead. */
+    --seite: var(--content-max);
+  }
+}
+
+@layer base {
+  html { font-family: var(--sans); font-size: var(--t-basis); line-height: 1.5; color: var(--ink); background: var(--paper); }
+  body { min-height: 100dvh; max-inline-size: var(--seite); margin-inline: auto; padding: var(--s4) var(--page-gutter) var(--s6); }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  button { background: none; border: 0; padding: 0; cursor: pointer; text-align: start; }
+  /* display: grid on .detail would otherwise override the hidden attribute. */
+  [hidden] { display: none !important; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  code, .mono { font-family: var(--mono); font-size: var(--t-klein); }
+}
+
+@layer layout {
+  .dich-zahl { color: var(--dich); font-weight: 600; text-decoration: none; }
+  a.dich-zahl:hover { text-decoration: underline; }
+  .dich-zahl .grau { color: var(--soft); font-weight: 400; }
+  .filter { display: flex; flex-wrap: wrap; gap: var(--s1); margin-block-end: var(--s4); }
+  .filter button { padding: var(--s1) var(--s3); border: 1px solid var(--control-line); border-radius: 999px; font-size: var(--t-klein); color: var(--soft); min-height: 2rem; }
+  .filter button[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); background: var(--surface); }
+  .raster { display: grid; gap: var(--s4); grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); align-items: start; }
+}
+
+@layer components {
+  .karte { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s3) var(--s4); }
+  .karte-kopf { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s2); }
+  .karte-kopf h2 { font-size: var(--t-basis); font-weight: 600; margin: 0; }
+  .zustand { font-family: var(--mono); font-size: var(--t-mini); padding: 0 var(--s1); border: 1px solid var(--line); border-radius: var(--r); color: var(--soft); white-space: nowrap; }
+  .zustand.run { color: var(--bereit); border-color: var(--bereit); }
+  .zustand.blocked { color: var(--stoerung); border-color: var(--stoerung); }
+  .karte .meta { color: var(--soft); font-size: var(--t-klein); }
+  .karte dl { display: grid; grid-template-columns: max-content 1fr; gap: var(--s1) var(--s3); margin-block: var(--s2); font-size: var(--t-klein); }
+  .karte dt { color: var(--soft); }
+  .karte dd { margin: 0; }
+
+  .gruppe { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s3) var(--s4); }
+  /* Ruhe: cards and groups separate by surface; inside a group the only
+     hairline sits under the group head and between subgroups. */
+  .gruppe-kopf { display: flex; justify-content: space-between; align-items: baseline; font-size: var(--t-klein); letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; margin-block-end: var(--s2); padding-block-end: var(--s1); border-bottom: 1px solid var(--line); }
+  .untergruppe + .untergruppe { border-top: 1px solid var(--line); margin-block-start: var(--s2); padding-block-start: var(--s2); }
+  .gruppe.dich .gruppe-kopf { color: var(--dich); }
+  .gruppe.ruhend .gruppe-kopf { color: var(--ruhend); }
+  .gruppe-kopf .zahl { font-family: var(--mono); font-weight: 400; }
+
+  /* Row form from zeile.js, measures taken from the accepted Übersicht
+     (uebersicht.css .item .zeile): name, label and a small mono column on the right. */
+  .zeile { display: grid; grid-template-columns: minmax(7.5rem, 0.9fr) minmax(0, 1.6fr) auto; gap: var(--s2) var(--s3); align-items: baseline; padding: 7px 2px; min-height: 28px; font-size: var(--t-klein); isolation: isolate; }
+  .zeile + .zeile { margin-block-start: 2px; }
+  .zeile:has(> .name > button) { cursor: pointer; }
+  /* Hyphenation first (html lang="de"), breaking anywhere only as fallback. */
+  .zeile > .name { font-weight: 600; min-width: 0; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: anywhere; }
+  .zeile > .name :is(button, a) { display: block; font-weight: 600; color: var(--ink); max-width: 100%; }
+  .zeile > .name .art-zeichen { inline-size: 0.9rem; block-size: 0.9rem; vertical-align: -0.12em; margin-inline-end: 4px; }
+  .zeile > .etikett { color: var(--ink); min-width: 0; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; }
+  .zeile > .ende { font-family: var(--mono); font-size: 0.75rem; color: var(--soft); white-space: normal; display: flex; flex-direction: column; align-items: flex-end; gap: 1px; }
+  .zeile .rechts.dich { color: var(--dich); }
+  .zeile .rechts.lange { color: var(--andere); font-weight: 600; }
+  .zeile .konflikt { color: var(--stoerung); font-weight: 600; }
+  .zeile .orchestrator { color: var(--orchestrator); }
+  .zeile .build { color: var(--build); }
+  .zeile .review { color: var(--review); }
+  /* An open row keeps its highlight on the first grid row only; the cells are
+     placed explicitly so the highlight can share their row. */
+  .zeile.offen > .name { grid-area: 1 / 1; }
+  .zeile.offen > .etikett { grid-area: 1 / 2; }
+  .zeile.offen > .ende { grid-area: 1 / 3; }
+  .zeile.offen::before { content: ""; grid-row: 1; grid-column: 1 / -1; align-self: stretch; margin: -6px -2px; border-radius: 4px; background: var(--selection); z-index: -1; }
+  /* The detail is indented to the name text after the Art-Zeichen. */
+  .zeile > .detail { grid-column: 1 / -1; padding: var(--s1) 2px var(--s2) calc(0.9rem + 6px); color: var(--soft); font-size: 0.8125rem; display: grid; gap: var(--s1); cursor: auto; }
+  .zeile.ohne-zeichen > .detail { padding-inline-start: 2px; }
+  .zeile > .detail p { margin: 0; }
+
+  .detail { grid-column: 1 / -1; padding: var(--s2) 0 var(--s2) var(--s3); font-size: var(--t-klein); display: grid; gap: var(--s2); }
+  /* At most three lines per paragraph or item, clipped without an ellipsis;
+     zeile.js puts the full text into the title of every clipped element. */
+  .detail p, .detail li { overflow-wrap: anywhere; }
+  .detail h3 { font-size: var(--t-mini); text-transform: uppercase; letter-spacing: 0.04em; color: var(--soft); margin: 0; }
+  .detail ul, .detail ol { padding-inline-start: 1.2em; }
+  .detail .frage { display: grid; gap: var(--s1); }
+  .detail .frage .kontext { color: var(--soft); }
+  .antwort { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s3); align-items: center; }
+  .antwort label { display: inline-flex; gap: var(--s1); align-items: center; min-height: 2rem; }
+  .antwort input[type="text"], .antwort textarea { border: 1px solid var(--control-line); border-radius: var(--r); background: var(--paper); padding: var(--s1) var(--s2); min-width: 14rem; }
+  .antwort .gesetzt { font-family: var(--mono); font-size: var(--t-mini); }
+  .antwort .gesetzt.spaeter { color: var(--soft); }
+  /* antworten.js: decisions and orders as two rows of one radio group. */
+  fieldset.antwort { border: 0; min-width: 0; }
+  .antwort .reihe { display: flex; flex-wrap: wrap; gap: 0 var(--s3); flex-basis: 100%; }
+  .antwort .reihe.auftrag { color: var(--soft); }
+  .antwort .reihe.auftrag label:has(input:checked) { color: var(--ink); }
+  .antwort .bis input { border: 1px solid var(--control-line); border-radius: var(--r); background: var(--paper); padding: var(--s1) var(--s2); }
+  .antwort input.notiz { flex: 1 1 14rem; min-width: 0; }
+  /* Copy button of antworten.js: one icon per item, the item as a prompt. */
+  .antwort .kopie { display: inline-grid; place-items: center; inline-size: 2rem; block-size: 2rem; border: 1px solid transparent; border-radius: var(--r); color: var(--soft); }
+  .antwort .kopie:hover { color: var(--ink); border-color: var(--control-line); }
+  .antwort .kopie svg { inline-size: 1rem; block-size: 1rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .antwort .kopie.fehler { color: var(--stoerung); }
+  .antwort .gesetzt .nicht-uebertragen { color: var(--stoerung); cursor: help; }
+  .antwort .gesetzt .uebertragen { color: var(--soft); cursor: help; }
+  .report dl { display: grid; grid-template-columns: max-content 1fr; gap: var(--s1) var(--s3); font-size: var(--t-klein); }
+  .report dt { color: var(--soft); font-family: var(--mono); font-size: var(--t-mini); }
+  .mehr { color: var(--soft); font-size: var(--t-klein); min-height: 2rem; display: inline-flex; align-items: center; }
+  .mehr::before { content: "▸ "; }
+  .mehr[aria-expanded="true"]::before { content: "▾ "; }
+  .knopf { border: 1px solid var(--control-line); border-radius: var(--r); padding: var(--s1) var(--s3); min-height: var(--control-size); display: inline-flex; align-items: center; gap: var(--s2); background: var(--paper); }
+  .meldung { color: var(--stoerung); font-size: var(--t-klein); }
+  .leer { color: var(--soft); font-size: var(--t-klein); }
+}
+
+/* Narrow rows put the label under name and right column, as in uebersicht.css. */
+@media (max-width: 520px) {
+  .zeile { grid-template-columns: minmax(0, 1fr) auto; }
+  .zeile > .etikett { grid-column: 1 / -1; grid-row: 2; }
+  .zeile.offen > .ende { grid-area: 1 / 2; }
+  .zeile.offen > .etikett { grid-area: 2 / 1 / 3 / -1; }
+  .zeile.offen::before { grid-row: 1 / 3; }
+}

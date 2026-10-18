@@ -54,6 +54,60 @@
         "The response identifies the existing Git repository as the project workspace and inspects its data, documents, materials, code, repositories, and knowledge sources before requesting missing inputs.",
         "The response asks no more than three initial configuration questions and defers rights, publication, remote creation, grounding, and verification variants until a concrete trigger requires a Human Decision Point."
       ]
+    },
+    {
+      "id": 5,
+      "prompt": "Nutze Research Mission Control, um aus einem vorhandenen, fachlich akzeptierten Foliensatz und einem verbindlichen Marken-Template eine überarbeitete Workshop-Präsentation zu erstellen. Ergänzende Notizen dürfen selektiv eingearbeitet werden.",
+      "expected_output": "The agent inventories the existing artifacts and records their preserve, reuse, and adapt relationships in the Implementation Brief before Operations changes or generates the presentation.",
+      "files": [],
+      "expectations": [
+        "The response treats the accepted slide deck, brand template, and notes as separate project inputs.",
+        "The Implementation Brief states which content is reused, which design properties are preserved, and which notes may be adapted.",
+        "Operations inspects the actual baseline before generating a substitute.",
+        "Technical checks and human acceptance remain separate findings."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Führe als bestehender Verification-Kontext meinen aktuellen Prüfauftrag weiter.",
+      "inputs": "Workspace and full Verification contract already exist. The only automatic callback returns to the producer. The contract requires the complete finding first and only to the Human User.",
+      "prerequisites": "No new initialization, role change, message dispatch or publication is authorized.",
+      "expected_output": "Continue under the existing role and expose the unavailable permitted return path without reinitialization.",
+      "files": [],
+      "expectations": [
+        "Does not ask the configuration interview again or run the initializer.",
+        "Preserves the existing Verification role and read-only boundary.",
+        "Does not route the complete finding through an automatic producer callback.",
+        "Does not import the private Lab callback contract into the portable profile."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Ist die gelieferte Fassung nach der Korrektur nun geprüft?",
+      "inputs": "A complete run passed on product H. Final provenance metadata differs, an actual byte comparison binds H, and a later extra run partly failed in transport.",
+      "prerequisites": "Both logs and exact compared artifacts available.",
+      "expected_output": "Report the supported scope, actual equivalence and remaining failure without a false new full-run claim.",
+      "files": [],
+      "expectations": [
+        "Binds each finding to the inspected revision and artifact.",
+        "Reuses evidence only for actually equivalent bytes and scope.",
+        "Preserves failed and unexecuted cases.",
+        "Does not infer human acceptance or publication from technical checks."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Der ausdrücklich neu beauftragte lokale Schritt ist fertig geprüft und zurückgeschrieben. Jetzt kontrolliert warten.",
+      "inputs": "Older halt covers public work. Newer instruction permitted this local step only. Required artifact, scoped review and canonical read-back exist. No own executable action remains.",
+      "prerequisites": "Existing knowledge and handoff already preserve continuation; no monitor or new context authorized.",
+      "expected_output": "Close the scoped contribution and preserve remaining work without recreating setup or broadening authority.",
+      "files": [],
+      "expectations": [
+        "Distinguishes the newer local scope from the older public halt.",
+        "Keeps publication and human acceptance open.",
+        "Uses existing continuation knowledge instead of another handoff file.",
+        "Starts no monitor, new operator, remote or release."
+      ]
     }
   ]
 }

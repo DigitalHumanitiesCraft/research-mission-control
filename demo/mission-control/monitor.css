@@ -1,0 +1,247 @@
+/* View-specific styles for monitor.html. Tokens, header and colour rule come
+   from base.css, navigation.css and shell.css. Few text styles: body, grey,
+   headings and the mark buttons; the prompt is machine text of its own.
+   Cases stand as quiet cards separated by space and one hairline, never box
+   in box; rust marks what is open for the coordination or for the Human
+   User, as in the other views. Unlayered, so these rules win over the
+   layered base. */
+body.mo { background: var(--paper); }
+.mo #inhalt { max-inline-size: 96rem; }
+.mo .grau { color: var(--soft); }
+.mo #titel, .mo h3, .mo h4 { font-size: var(--t-basis); color: var(--ink); }
+.mo #titel { font-size: 1.375rem; font-weight: 600; }
+.mo h3, .mo h4 { font-weight: 600; }
+.mo .unterzeile { margin-block-start: var(--s1); }
+
+/* What to do on the left, how well and how sure on the right; one column on
+   a narrow screen, actions first. */
+.mo-raster { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--s6) var(--s7, 3rem); align-items: start; margin-block-start: var(--s5); }
+@media (max-width: 62rem) { .mo-raster { grid-template-columns: minmax(0, 1fr); } }
+
+.bereich + .bereich { margin-block-start: var(--s7, 3rem); }
+.bereich > h3 { margin-block-end: var(--s3); }
+.bereich > p { max-inline-size: 70ch; line-height: 1.45; }
+.anzahl { font-weight: 400; }
+
+/* A case: its name or question, its state marks, then labelled fields. */
+.karten { display: grid; gap: var(--s4); }
+.karte-fall { padding-block-start: var(--s4); border-block-start: 1px solid var(--line); display: grid; gap: var(--s2); }
+.karten > .karte-fall:first-child { border-block-start: 0; padding-block-start: 0; }
+.fall-kopf { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2); }
+.felder { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--s1) var(--s3); margin: 0; line-height: 1.45; }
+.felder dt { color: var(--soft); }
+.felder dd { margin: 0; overflow-wrap: anywhere; }
+/* The state of a correction as one small word chip; open in rust. */
+.chip { display: inline-block; padding: 0 var(--s2); border: 1px solid var(--control-line); border-radius: 999px; line-height: 1.5; }
+.chip.offen { border-color: var(--control-line); color: var(--ink); }
+.chip.erledigt { background: var(--surface); }
+.fall-kopf .kopieren { margin-inline-start: auto; }
+/* One sign language: the same marks as the verdict buttons, coloured by result. */
+.mark { display: inline-grid; place-items: center; flex: none; }
+.mark.stimmt { color: var(--ink); }
+.mark.stimmt-nicht { color: var(--dich); }
+.mark.strittig { color: var(--soft); }
+.mark.teilweise, .mark.ungeprüft { color: var(--soft); }
+
+/* Evidence and prompts behind a disclosure, so they never lead. */
+.aufklapp > summary { cursor: pointer; color: var(--soft); padding-block: var(--s1); inline-size: fit-content; }
+.aufklapp > summary:hover { color: var(--ink); }
+.aufklapp[open] > summary { margin-block-end: var(--s2); }
+.aufklapp > * + * { margin-block-start: var(--s2); }
+.beleg { color: var(--soft); line-height: 1.45; overflow-wrap: anywhere; }
+
+/* Answers to a decision: each option with its consequence beside it. */
+.optionen { display: grid; gap: var(--s2); }
+.option-zeile { display: grid; grid-template-columns: minmax(9rem, max-content) minmax(0, 1fr); gap: var(--s3); align-items: baseline; }
+.option { min-block-size: 2.25rem; padding: var(--s1) var(--s3); border: 1px solid var(--control-line); border-radius: var(--r); background: var(--surface); color: var(--ink); text-align: start; }
+.option:hover { border-color: var(--ink); }
+.beantwortet { display: grid; gap: var(--s1); }
+.beantwortet > p { margin: 0; line-height: 1.45; }
+.gesendet { display: inline-flex; align-items: center; gap: var(--s1); font-weight: 600; }
+.gesendet svg { inline-size: 16px; block-size: 16px; }
+/* A failed send keeps its buttons; the reason stands at the object in rust. */
+.fehler { color: var(--dich); margin: 0; }
+.fehler:empty { display: none; }
+.aendern { min-block-size: 1.5rem; padding: 0 var(--s1); border: 0; background: none; color: inherit; text-decoration: underline; }
+
+/* His summaries, each quoted in full with its three marks. */
+.paraphrasen { display: grid; gap: var(--s3); }
+.paraphrase { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s3); align-items: start; padding-block-start: var(--s3); border-block-start: 1px solid var(--line); }
+.paraphrase:first-child { border-block-start: 0; padding-block-start: 0; }
+.paraphrase blockquote { margin: var(--s1) 0 0; line-height: 1.45; }
+/* Once answered, the answer and its prompt take the full row under the quote. */
+.paraphrase .antwort-ort.voll { grid-column: 1 / -1; }
+.urteile { white-space: nowrap; display: flex; gap: var(--s1); }
+.urteil.zeichen {
+  inline-size: 2.25rem; block-size: 2.25rem; padding: 0; display: inline-grid; place-items: center;
+  border: 1px solid var(--control-line); border-radius: var(--r); background: var(--surface); color: var(--ink);
+}
+.urteil.zeichen:hover { border-color: var(--ink); }
+
+/* The three dimensions: name and share, question, a thin bar, the basis. */
+.gesamt { margin-block-end: var(--s4); line-height: 1.45; }
+.dim-wert { font-weight: 600; }
+.dimensionen { display: grid; gap: var(--s4); }
+.dimension { display: grid; gap: var(--s1); }
+.dim-kopf { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s3); }
+.dim-kopf h4, .karte-fall h4 { margin: 0; }
+/* A dimension's cases as one segmented bar: met in ink, partly half tone,
+   missed in rust, unchecked hatched, contested outlined; the counts stand in
+   each segment's tooltip and in the info text. */
+.segmente { display: flex; gap: 2px; block-size: 10px; }
+.segment { flex: 0 0 calc(var(--teil) * 1% - 2px); border-radius: 2px; min-inline-size: 4px; }
+.segment.erfüllt { background: var(--ink); }
+.segment.teilweise { background: var(--soft); }
+.segment.verfehlt { background: var(--dich); }
+.segment.ungeprüft { background: repeating-linear-gradient(45deg, var(--soft) 0 1.5px, transparent 1.5px 4px); }
+.segment.strittig { border: 1.5px dashed var(--soft); }
+.dim-kopf h4 { display: flex; align-items: center; gap: var(--s1); }
+.info { display: inline-block; position: relative; }
+.info > summary { list-style: none; cursor: pointer; inline-size: 1.5rem; block-size: 1.5rem; display: grid; place-items: center; border-radius: 50%; color: var(--soft); border: 1px solid var(--control-line); }
+.info > summary::-webkit-details-marker { display: none; }
+.info > summary svg { inline-size: 14px; block-size: 14px; }
+.info[open] > summary, .info > summary:hover { color: var(--ink); border-color: var(--ink); }
+.info-text { position: absolute; z-index: 2; inset-block-start: 1.9rem; inset-inline-start: 0; inline-size: min(22rem, 80vw); padding: var(--s3); background: var(--paper); border: 1px solid var(--control-line); border-radius: var(--r); font-weight: 400; display: grid; gap: var(--s1); line-height: 1.45; }
+.fallliste { display: grid; gap: var(--s3); }
+.fallliste > li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--s2); align-items: start; }
+.fallliste p { margin: 0; line-height: 1.45; }
+.regeln { padding-inline-start: 1.25rem; display: grid; gap: var(--s1); line-height: 1.45; color: var(--soft); }
+
+/* monitor's own picture, set apart as its work by a rule at its side. */
+.von-monitor { padding-inline-start: var(--s4); border-inline-start: 3px solid var(--control-line); }
+
+/* The prompt to paste reads as machine text: monospace in one dashed frame,
+   the copy mark in its upper corner. */
+.prompt { position: relative; border: 1.5px dashed var(--control-line); border-radius: var(--r); }
+.prompt-ecke { position: absolute; inset-block-start: var(--s1); inset-inline-end: var(--s1); display: flex; align-items: center; gap: var(--s2); }
+.prompt-text { margin: 0; padding: var(--s3) 3rem var(--s3) var(--s3); white-space: pre-wrap; overflow-wrap: anywhere; font-family: ui-monospace, Consolas, "Cascadia Mono", Menlo, monospace; font-size: 0.875rem; line-height: 1.5; }
+.kopieren {
+  inline-size: 2.25rem; block-size: 2.25rem; display: inline-grid; place-items: center; padding: 0;
+  border: 1px solid var(--control-line); border-radius: var(--r); background: var(--paper); color: var(--ink);
+}
+.kopieren:hover { border-color: var(--ink); }
+.fuss { margin-block-start: var(--s4); }
+.fuss a { color: inherit; }
+
+@media (max-width: 34rem) {
+  .option-zeile, .felder { grid-template-columns: minmax(0, 1fr); }
+  .felder dd { margin-block-end: var(--s1); }
+  .paraphrase { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (forced-colors: active) {
+  .chip.offen { border-color: Highlight; color: CanvasText; }
+  .segment { forced-color-adjust: none; border: 1px solid CanvasText; }
+  .segment.erfüllt { background: CanvasText; }
+}
+
+/* In the side column, labels stand above their text, so the text keeps the
+   full width of the column instead of a narrow second track. */
+.mo-seite .felder { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.mo-seite .felder dd { margin-block-end: var(--s3); }
+
+/* Header line: the clock and time as in the operator view, then monitor's
+   own assessment of the coordination on the same red-to-green band. */
+.mo { --assessment-low: light-dark(oklch(63% .18 25), oklch(66% .16 25)); --assessment-gap: light-dark(oklch(72% .15 55), oklch(72% .13 55));
+  --assessment-middle: light-dark(oklch(82% .14 95), oklch(80% .12 95)); --assessment-sound: light-dark(oklch(74% .14 140), oklch(72% .13 140));
+  --assessment-ready: light-dark(oklch(62% .15 150), oklch(66% .14 150)); }
+.mo-kopfzeile { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
+.mo-kopfzeile .fact-icon { inline-size: 16px; block-size: 16px; }
+.mo-band { position: relative; inline-size: 6rem; block-size: .5rem; margin-inline-start: var(--s2); border-radius: 2px;
+  background: linear-gradient(to right, var(--assessment-low), var(--assessment-gap), var(--assessment-middle), var(--assessment-sound), var(--assessment-ready)); }
+.mo-band::after { content: ''; position: absolute; inset-block-start: -.25rem; block-size: 1rem; inline-size: 2px; background: var(--ink); box-shadow: 0 0 0 2px var(--paper); }
+.mo-band[data-level="critical"]::after { inset-inline-start: 2%; }
+.mo-band[data-level="gap"]::after { inset-inline-start: 25%; }
+.mo-band[data-level="qualified"]::after { inset-inline-start: 50%; }
+.mo-band[data-level="sound"]::after { inset-inline-start: 75%; }
+.mo-band[data-level="ready"]::after { inset-inline-start: 98%; }
+
+/* Marks: provenance as a small outline icon, new as a filled dot. */
+.herkunft { display: inline-grid; place-items: center; inline-size: 18px; flex: none; color: var(--soft); }
+.herkunft.auslegung, .herkunft.übernahme { color: var(--ink); }
+.herkunft svg { inline-size: 16px; block-size: 16px; }
+.neu-punkt { display: inline-block; inline-size: .5rem; block-size: .5rem; border-radius: 50%; background: var(--soft); flex: none; }
+.neu-ort { display: inline-grid; place-items: center; inline-size: .5rem; flex: none; }
+
+/* The map: provenance across, how it is recorded down, one dot per case. */
+.karte-rahmen { overflow-x: auto; margin-block-end: var(--s4); }
+.wissenskarte { border-collapse: collapse; inline-size: 100%; }
+.wissenskarte th { font-weight: 400; color: var(--soft); text-align: start; padding: var(--s1) var(--s2); white-space: nowrap; }
+.wissenskarte thead th > *, .wissenskarte tbody th > * { vertical-align: middle; }
+.wissenskarte thead th .herkunft, .wissenskarte tbody th .mark { margin-inline-end: var(--s1); }
+.wissenskarte td { border: 1px solid var(--line); padding: var(--s2); vertical-align: top; inline-size: 28%; }
+.punkte { display: flex; flex-wrap: wrap; gap: 6px; min-block-size: 1.25rem; }
+.punkt { inline-size: 1.25rem; block-size: 1.25rem; padding: 0; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--ink); cursor: pointer; }
+.punkt.neu { box-shadow: 0 0 0 2px var(--paper), 0 0 0 3.5px var(--soft); }
+.punkt.blass { opacity: .2; }
+.punkt.gewaehlt { background: var(--paper); border-width: 3px; }
+tr[data-zeile="teilweise"] .punkt { background: var(--soft); border-color: var(--soft); }
+tr[data-zeile="offen"] .punkt { background: transparent; border-style: dashed; border-color: var(--soft); }
+tr[data-zeile="falsch"] .punkt { background: var(--dich); border-color: var(--dich); }
+.punkt:hover, .punkt:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* The rows below the map: new dot, provenance, record mark, short name. */
+.aussagen { display: grid; }
+.aussagen > li { border-block-start: 1px solid var(--line); }
+.aussagen > li:first-child { border-block-start: 0; }
+.aussage { font: inherit; display: flex; align-items: center; gap: var(--s2); inline-size: 100%; padding: var(--s2) var(--s1); border: 0; background: none; color: var(--ink); text-align: start; cursor: pointer; }
+.aussage:hover .aussage-kurz { text-decoration: underline; }
+.aussage.gewaehlt { background: var(--surface); }
+
+/* The chosen case beside the map, held in view while the rows scroll. */
+.mo-detail { padding: var(--s4); border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
+.mo-detail h3 { display: flex; align-items: center; gap: var(--s2); }
+.mo-detail h3:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.mo-detail-marken { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s1); color: var(--soft); }
+.mo-detail > p { line-height: 1.45; }
+@media (min-width: 62rem) { .mo-seite .mo-detail { position: sticky; inset-block-start: var(--s4); z-index: 1; } }
+
+/* Sidebar filters, the pattern of the other views: a button per value with
+   its count, pressed when active. */
+.mo-filterleiste { display: grid; gap: var(--s2); }
+.mo-filter-titel { font-size: var(--t-basis); font-weight: 600; margin: var(--s3) 0 0; }
+.mo-filtergruppe { display: grid; gap: var(--s1); }
+.mo-filter { font: inherit; display: flex; align-items: center; gap: var(--s2); inline-size: 100%; padding: var(--s1) var(--s2); border: 1px solid transparent; border-radius: var(--r); background: none; color: var(--ink); text-align: start; }
+.mo-filter[aria-pressed="true"] { background: var(--surface); font-weight: 600; }
+.mo-filter-zahl { margin-inline-start: auto; color: var(--soft); font-variant-numeric: tabular-nums; }
+.mo-bei-dir { display: grid; gap: var(--s1); padding: 0; margin: 0; list-style: none; }
+.mo-bei-dir a { color: inherit; }
+
+.mo-review-need { max-inline-size: 70ch; margin-block: var(--s4); }
+.mo-review-need .gesamt { margin-block-end: var(--s2); }
+.mo-priority { max-inline-size: 90rem; }
+.mo-priority > .mo-haupt > .bereich { max-inline-size: 70ch; }
+.mo-priority > .mo-haupt > .bereich:first-child { margin-block-start: 0; }
+.mo-diagnostics { margin-block: var(--s5); }
+.mo-diagnostics > summary { color: var(--ink); }
+.mo-diagnostics .mo-raster { margin-block-start: var(--s3); gap: var(--s5); }
+.mo-diagnostics .mo-seite { min-width: 0; }
+.mo .dim-basis, .mo .dim-date { margin: 0; line-height: 1.45; }
+.mo .dim-limit { max-inline-size: 65ch; line-height: 1.45; }
+.mo .aussage-kurz { min-width: 0; overflow-wrap: anywhere; }
+.mo .aussage { align-items: start; }
+.mo .aussage .mark, .mo .aussage .herkunft, .mo .aussage .neu-ort { margin-block-start: .2em; }
+.mo .mo-filterleiste { gap: var(--s1); }
+.mo .mo-filter-titel { margin-block-start: var(--s2); }
+.mo .mo-filter > span:not(.mo-filter-zahl) { overflow-wrap: anywhere; }
+.mo .mo-filter:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.mo .mo-filter-options > summary { cursor: pointer; min-block-size: var(--control-size); display: list-item; align-content: center; }
+.mo .mo-filter-options[open] > summary { margin-block-end: var(--s1); }
+
+.mo-evidence { max-inline-size: 90rem; }
+.mo-evidence > p { max-inline-size: 75ch; }
+.mo-flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: var(--s2); margin-block: var(--s3); }
+.mo-flow-stage { font: inherit; display: flex; align-items: baseline; justify-content: space-between; gap: var(--s2); background: var(--surface); color: var(--ink); border: 1px solid var(--control-line); border-radius: var(--r); padding: var(--s2); min-block-size: 2.75rem; }
+.mo-flow-stage[aria-pressed="true"] { border-color: var(--ink); font-weight: 600; }
+.mo-flow-stage strong { font-variant-numeric: tabular-nums; }
+.mo-log-tools { display: flex; flex-wrap: wrap; gap: var(--s2); margin-block: var(--s3); }
+.mo-log-tools select, .mo-log-reset { font: inherit; color: var(--ink); background: var(--paper); border: 1px solid var(--control-line); border-radius: var(--r); min-block-size: 2.75rem; padding: var(--s1) var(--s2); }
+.mo-log-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s4); }
+.mo-log-row { min-inline-size: 0; }
+.mo-log-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2); }
+.mo-log-heading h4 { margin: 0; }
+.mo-log-meta { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); color: var(--soft); margin-block-start: var(--s1); }
+.mo-log-action { margin-block: var(--s2) 0; max-inline-size: 80ch; line-height: 1.5; }
+.mo-log-row p { overflow-wrap: anywhere; }
+.mo .mo-flow-stage:focus-visible, .mo .mo-log-tools :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }

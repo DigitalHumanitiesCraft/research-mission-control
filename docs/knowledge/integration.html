@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"><title>Integration | Research Mission Control</title><link rel="stylesheet" href="../../site.css"><link rel="stylesheet" href="../docs.css"></head>
+<body><a class="skip-link" href="#document">Skip to document</a>
+<header class="docs-header"><a class="brand" href="../../index.html">Research Mission Control</a><nav aria-label="Primary navigation"><a href="../../index.html">Overview</a><a href="system-description.html">Method in practice</a><a href="../../index.html#downloads">Reference</a></nav></header>
+<main class="docs-layout" id="document" tabindex="-1"><details class="contents"><summary>Sections in this reference</summary><div class="toc">
+<ul>
+<li><a href="#research-mission-control-integration">Research Mission Control Integration</a><ul>
+<li><a href="#components">Components</a></li>
+<li><a href="#second-brain-deployment">Second Brain deployment</a></li>
+<li><a href="#initialization-relationship">Initialization relationship</a></li>
+<li><a href="#knowledge-relationship">Knowledge relationship</a></li>
+<li><a href="#context-stream-relationship">Context Stream relationship</a></li>
+<li><a href="#operator-briefing-transport">Operator briefing transport</a></li>
+<li><a href="#state-specific-source-precedence">State-specific source precedence</a></li>
+<li><a href="#canonical-ownership-and-write-back">Canonical ownership and write-back</a></li>
+<li><a href="#verification-relationship">Verification relationship</a></li>
+<li><a href="#publication-relationship">Publication relationship</a></li>
+<li><a href="#synthetic-ui-distribution-input">Synthetic UI distribution input</a></li>
+<li><a href="#public-html-documentation">Public HTML documentation</a></li>
+<li><a href="#recorded-vault-pilot">Recorded vault pilot</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><article><h1 id="research-mission-control-integration">Research Mission Control Integration<a class="headerlink" href="integration.html#research-mission-control-integration" title="Permanent link">&para;</a></h1>
+<h2 id="components">Components<a class="headerlink" href="integration.html#components" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Canonical source</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reusable method</td>
+<td>this repository</td>
+<td>initializer, role contracts, protocol, knowledge, and tests</td>
+</tr>
+<tr>
+<td>Promptotyping</td>
+<td><a href="https://github.com/DigitalHumanitiesCraft/Promptotyping">Promptotyping repository</a></td>
+<td>maintained project knowledge and iterative artifact development</td>
+</tr>
+<tr>
+<td>Grounded Vault</td>
+<td><a href="https://github.com/DigitalHumanitiesCraft/grounded-vault">Grounded Vault repository</a></td>
+<td>optional evidence-bound long-lived knowledge structure</td>
+</tr>
+<tr>
+<td>AI harness</td>
+<td>configured Codex, Claude Code, or compatible environment</td>
+<td>contexts, tools, permissions, execution feedback, and notification behavior</td>
+</tr>
+<tr>
+<td>Initialized project repository</td>
+<td>generated local repository</td>
+<td>canonical project state, active knowledge, communication, and role start contracts</td>
+</tr>
+</tbody>
+</table>
+<p>This repository defines the portable method. Each initialized project repository defines its own objective, authority, evidence, integration, and write-back boundaries.</p>
+<h2 id="second-brain-deployment">Second Brain deployment<a class="headerlink" href="integration.html#second-brain-deployment" title="Permanent link">&para;</a></h2>
+<p>Second Brain is the personal research environment in which the vault pilot operates. Its maintained vault holds cross-project knowledge and operational sources. Project repositories maintain their own implementation knowledge. Research Mission Control supplies the reusable coordination method. The private ACTIVE-WORK interface provides the deployment's Mission Control views and knowledge interface.</p>
+<ul>
+<li>This source repository maintains the method, its executable contracts and the operator-data adapter in <code>dashboard/make_lab_lanes.py</code>.</li>
+<li>The private interface repository maintains the running interface, its source adapters, answer inbox, design, implementation plan and browser checks. Its <code>knowledge/INDEX.md</code> is the entry point for current interface behavior.</li>
+<li>The pilot's operator files hold assignment and report state. Their technical addresses support routing. Descriptive role titles support human recognition. A generated view presents the adapter-captured source state with an inspectable reference and revision. It does not establish current session activity or receipt by another operator.</li>
+<li>An answer saved by the interface, an answer received by the responsible operator and its adoption into canonical work are distinct events. Their evidence belongs in the deployment's integration contract.</li>
+<li>Public Second Brain templates and the public Research Mission Control distribution have separate publication boundaries. A source-repository change neither publishes a release nor transfers private interface data into it.</li>
+</ul>
+<p>The dated console contract, fixture inventory and migration plan in this source knowledge folder remain proposals. Their historical observations do not specify the current interface. Reconciliation of assignment, lane and workstream terminology requires an explicit method decision before changing portable contracts or generated workspaces.</p>
+<h2 id="initialization-relationship">Initialization relationship<a class="headerlink" href="integration.html#initialization-relationship" title="Permanent link">&para;</a></h2>
+<p>A working context is one separately open Codex task, Claude Code conversation, or equivalent harness context with its own context window and one assigned Research Mission Control role. The project workspace is the shared local folder and Git worktree. In a new standard setup, the first context invokes the initializer and remains the Research Orchestrator. It gathers up to three configuration answers in the human user's language and creates a new shared local repository after authorization. Two generated contracts initialize Operations and Verification in separate contexts. An existing Operations or Verification context follows its verified start contract. It does not silently become Research or initialize the workspace again. The initializer refuses an existing target.</p>
+<p>The initialized repository contains one maintained Promptotyping knowledge core, the project-specific <code>knowledge/integration.md</code>, Context Stream directories, and role start contracts. It contains no remote until the human user authorizes ownership and visibility.</p>
+<h2 id="knowledge-relationship">Knowledge relationship<a class="headerlink" href="integration.html#knowledge-relationship" title="Permanent link">&para;</a></h2>
+<p>Promptotyping is the default project-bound knowledge profile. Its Knowledge Documents permit reconstruction of accepted project state and continuation after context loss only to the extent that decisions, evidence and unfinished actions were recorded. The repository knowledge acts as operational memory for the active project.</p>
+<p>Grounded Vault is activated only by a project-specific binding. The binding names the claims, evidence objects, identifiers, validation responsibilities, and write-back relationship covered by grounding. Until that contract is established and verified, its state remains <code>required; project-specific binding pending</code> or inactive.</p>
+<p>A private, institutional, or project Vault can serve as an optional long-term knowledge source only when the project integration contract names its exact source, selection boundary, read and write authority, and write-back rule. It remains outside the portable method contract and cannot override project authority or inspected artifact state. The presence of a readable Vault path does not configure or activate it.</p>
+<p>The <a href="knowledge-adapters.html">configurable knowledge adapter</a> implements a bounded read-only selection from arbitrary local Markdown layouts. It emits the existing UI catalog and source-response formats. Its configuration does not grant write-back or publication authority, activate Grounded Vault, or create a portfolio from notes. Project and operator adapters remain separate.</p>
+<h2 id="context-stream-relationship">Context Stream relationship<a class="headerlink" href="integration.html#context-stream-relationship" title="Permanent link">&para;</a></h2>
+<p>The Context Stream transports current assignments, results, notices, and findings among persistent contexts. It has four integrity rules.</p>
+<ol>
+<li>Each role appends only to its own immutable outbox.</li>
+<li>Each recipient owns and advances its own sender cursor after successful processing.</li>
+<li>Each message uses a stable thread identifier and references canonical artifacts.</li>
+<li>Durable findings enter project knowledge only through verified canonical write-back.</li>
+</ol>
+<p>Task and result notices provide notification and routing. They are never the source of project truth. A thread capsule records the verified outcome, canonical references, unresolved points, and final message identifiers when the thread closes or when the deployment's configured re-entry condition applies. Numeric compaction thresholds are project-profile settings and have no universal value.</p>
+<p>The standard route sends an <code>Implementation Brief</code> from Research to Operations, the complete <code>Result with Evidence</code> from Operations to Verification, an <code>Operations Result Notice</code> from Operations to Research, and the complete <code>Verification Finding</code> from Verification first and only to the human user. The notice points to the responsible result and canonical artifacts; it does not duplicate or replace the Result with Evidence. A contained profile without a separate Verification Agent may return a bounded result to Research or the human user as defined by its integration contract.</p>
+<p>The filesystem transports messages without waking a dormant context. This statement does not constrain polling or reads performed by a running context. Every deployment observes its actual delivery directions and records the wake route. An asymmetric route requires a polling, re-entry, or human-mediated fallback.</p>
+<p><code>communication/INDEX.md</code> is a compact Research-owned registry of active threads and completed capsules. Recipient-owned cursor files establish processing state. The registry is not a latest-message cursor and does not transfer cursor ownership to Research.</p>
+<p>Every project integration contract records explicit return-channel fields. At minimum these fields identify <code>implementation_brief_recipient</code>, <code>operations_result_recipient</code>, <code>operations_result_notice_recipient</code>, <code>verification_finding_initial_recipient</code>, <code>human_routed_finding_recipient</code>, the observed wake or notification route for each direction, and the polling, re-entry, or human-mediated fallback. <code>human_routed_finding_recipient</code> remains unset until the human user makes a routing decision.</p>
+<h2 id="operator-briefing-transport">Operator briefing transport<a class="headerlink" href="integration.html#operator-briefing-transport" title="Permanent link">&para;</a></h2>
+<p>The deployment records its operator registry, verified context identities, permitted dispatch and read-back capabilities, and unavailable routes. Prefer an existing context whose role is evidenced. A cross-harness continuation is valid only when the installed client supports it, the exact existing session has been identified, and the requested permissions preserve the briefing's read-only scope. Do not substitute an unrelated active context or create a new one merely to fill a missing reply. A skill or installed client grants no additional authority.</p>
+<p>A briefing record retains the requested round, actual response identity and timestamp, attributed status, project and assignment references, completed results and result material, genuine questions, gaps, continuation or halt, and the scope of checks actually performed. Preserve the separation of the next authorized action, additional proposals and required human contributions defined in the <a href="research-to-operations-handoff.html#operator-briefing">operator briefing contract</a>. Retain a requested self-assessment as the operator's attributed judgement, with its scope, source date, evidence and limits, separately from Next action. A coordinator's own report is identified as such rather than attributed to a dispatched counterpart. Claims newly reported and work newly verified are separate facts.</p>
+<p>Where an interface stores briefing snapshots, retain a completed round as an immutable source artifact and update a stable current-round reference only after validation succeeds. Bind displayed excerpts to the canonical report, project and assignment revisions they describe. Reject a mismatched binding and fall back to the explicitly dated canonical report. A missing or invalid current reference must not silently relabel old replies as fresh. Keep historical rounds accessible without treating their questions as current authority.</p>
+<p>These artifacts are a deployment adapter for the <a href="research-to-operations-handoff.html#operator-briefing">operator briefing workflow</a>. Private context identifiers, portfolio reports and machine-specific invocation details remain outside the portable method and its publication bundle.</p>
+<h2 id="state-specific-source-precedence">State-specific source precedence<a class="headerlink" href="integration.html#state-specific-source-precedence" title="Permanent link">&para;</a></h2>
+<p>Source precedence follows the state being claimed.</p>
+<ul>
+<li>Authority comes from current human user decisions, applicable governance, and the project integration contract within their respective scope.</li>
+<li>Epistemic claims come from direct sources and evidence, then their maintained interpretation in project knowledge.</li>
+<li>Operational claims come from inspected artifacts, repositories, data, and running systems; messages and dashboards report that state but do not establish it.</li>
+<li>Verification claims come from the complete finding and cited evidence for its examined scope, followed by any documented recheck. Human acceptance remains a separate authority judgement.</li>
+</ul>
+<p>When same-class sources conflict, the responsible role exposes the conflict and records the interpreted transition in the canonical target. Recency alone does not allow a message or report to supersede a direct source or actual artifact.</p>
+<h2 id="canonical-ownership-and-write-back">Canonical ownership and write-back<a class="headerlink" href="integration.html#canonical-ownership-and-write-back" title="Permanent link">&para;</a></h2>
+<p>Canonical project files use one responsible writer at a time. Operations returns results and proposed knowledge changes through its role-owned transport. Research verifies and integrates conceptual or project-level knowledge in its canonical location. Research is the default owner of maintained project knowledge. Operations integrates implementation state inside its authorized artifact scope and may write technical knowledge only at exact paths explicitly assigned to it by the integration contract. Conceptual and scholarly consequences return to Research. Each path retains one responsible writer at a time. Verification reports findings through its own transport and never produces a correction or alters the evaluated target. It may recheck a correction produced by the responsible Research or Operations context.</p>
+<p>A multi-writer exception must be explicit, append-only or otherwise collision-safe, and covered by a verified concurrency rule. A successful pilot write does not establish a general shared-write contract.</p>
+<p>Claims that a protected file or directory remained unchanged require a pre-action baseline covering the complete claimed scope. A declared write set is producer evidence and does not prove that no other path changed. Git diff evidence must account for untracked files. Reports distinguish substantive source material from workflow provenance and reserve <code>verbatim</code> for exact quotation.</p>
+<p>The minimum write-back routes are as follows.</p>
+<table>
+<thead>
+<tr>
+<th>Finding</th>
+<th>Responsible integration target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>project objective, concept, accepted interpretation, or human user decision</td>
+<td>maintained project knowledge</td>
+</tr>
+<tr>
+<td>implementation result and technical constraint</td>
+<td>actual artifact and its responsible technical knowledge</td>
+</tr>
+<tr>
+<td>evidence relation covered by an active grounding contract</td>
+<td>Grounded Vault instance</td>
+</tr>
+<tr>
+<td>protocol or general method finding</td>
+<td>this repository after method review</td>
+</tr>
+<tr>
+<td>transient assignment, notification, or result notice</td>
+<td>Context Stream</td>
+</tr>
+</tbody>
+</table>
+<h2 id="verification-relationship">Verification relationship<a class="headerlink" href="integration.html#verification-relationship" title="Permanent link">&para;</a></h2>
+<p>Research and Operations can perform bounded production checks in their current context. Those checks do not constitute Independent Verification. A separate Verification Agent receives only the evaluation context required by the criterion. It returns a compact finding with target, criterion, observed state, evidence, consequence, and recommended integration role. The complete finding goes first and only to the human user.</p>
+<p>Independent, Blind, and Shadow describe different controls.</p>
+<ul>
+<li>Independent Verification separates the assessment context from production and keeps it read-only against evaluated artifacts. It may receive the complete Result with Evidence and does not conceal its existence.</li>
+<li>Blind Verification adds a declared reading-order restriction to Independent Verification. Named producer reasoning, reports, earlier findings, or preferred conclusions are withheld until the initial finding is sealed. It does not conceal the verifier's existence or create secrecy.</li>
+<li>Shadow Verification adds human user-controlled visibility and technical isolation. It requires a technically separate context, read-only target access, a private return route to the human user, and omission of the verifier's identity and route from production contracts. If these properties are unavailable, report the missing control. Use the Independent or Blind label only when a separate read-only review context and the required human-only initial return route are verified. Shadow and Blind may be combined when both triggers hold.</li>
+</ul>
+<p>An automatic child-agent callback to a producer does not satisfy the requirement that the complete finding go first and only to the human user. If a separate review context or that return route is unavailable, report the limitation and describe only the check actually performed. The private pilot callback follows a separate deployment contract and does not establish conformance with this portable route.</p>
+<p>The human user decides whether a finding enters active work or canonical knowledge and which production role receives it. Verification never implements that consequence.</p>
+<h2 id="publication-relationship">Publication relationship<a class="headerlink" href="integration.html#publication-relationship" title="Permanent link">&para;</a></h2>
+<p>The public method release includes only allowlisted instructions, source code, the generated skill package, and evidence suitable for redistribution. Operational views, live portfolio data, private project decisions, runtime messages, and inaccessible Vault references remain outside that release. A separate publication process can publish an operational view after replacing its state with verified synthetic data.</p>
+<h2 id="synthetic-ui-distribution-input">Synthetic UI distribution input<a class="headerlink" href="integration.html#synthetic-ui-distribution-input" title="Permanent link">&para;</a></h2>
+<p>The separately maintained UI exports a self-contained demo through an exact file list. This repository stages only that explicitly selected package under the ignored demo/ directory and retains its exact export manifest as demo-export-manifest.json. The publication manifest enumerates every delivered demo file and its license. The release builder verifies the staged bytes, file set, source revision and clean source flag against that pin before adding them to the ordinary distribution. A public clone already contains these demo sources and can rebuild their synthetic data with the bundled tools. The private source repository requires the explicitly supplied, pinned export input; it does not discover or read any personal portfolio source.</p>
+<p>Publication requires the fixed package and its review evidence. A draft export can be inspected while its source is dirty, and the non-draft builder rejects that state.</p>
+<p>Release metadata identifies both the method source commit and the UI source commit and export-manifest digest. These are separate provenance claims. After source-history consolidation, former revisions remain historical evidence anchors. Refresh the current distribution from the selected clean interface checkout through the same exporter, exact manifest pin and byte checks. A changed history identifier alone establishes no product change; a separate byte comparison can identify unchanged product files. Earlier checks and reviews retain their examined revision and scope. Optional operator briefings enrich a canonical first render without blocking it. Their pending or unavailable status stays explicit. A valid late snapshot updates affected projections while preserving personal conversation drafts, keyboard focus and selected scope. Sources and required results retain independent availability. The shared application contract is exercised against delayed and rejected synthetic reads. The demo is a read-only synthetic example with local browser preferences and drafts. It cannot deliver messages, activate operators or claim real calendar, model or acceptance observations.</p>
+<h2 id="public-html-documentation">Public HTML documentation<a class="headerlink" href="integration.html#public-html-documentation" title="Permanent link">&para;</a></h2>
+<p>The public reading route has two primary pages. index.html introduces the method through the Atlas example; the generated docs/knowledge/system-description.html follows the practical assignment, examination and setup. Reference documents remain directly linked. Their navigation and optional collapsed contents share the same static reading layout without a persistent sidebar. The existing document manifest carries validated aliases for earlier section URLs.</p>
+<p>The practical correction exercise names a preserved synthetic source, an Operations-owned result and Research-owned maintained interpretation in a separately initialized workspace. It leaves the authored browser fixtures unchanged and routes the complete Verification finding first to the human user. Local adaptation follows three existing boundaries: an editable demo copy, a reader-only catalog with authored profiles disabled, and a separate method workspace. The example guide maintains the complete commands. Neither catalog generation nor initialization binds portfolio data or launches an agent.</p>
+<p>The publication builder renders the Markdown documents selected by web-docs/documents.json from the already allowlisted bundle. The maintained Markdown remains canonical and downloadable without byte changes. Generated pages retain stable section links, original metadata and the distinction between package version and a document's recorded version. A different package version does not update historical evidence.</p>
+<p>Python-Markdown is a pinned build-only dependency recorded in pyproject.toml and uv.lock. Rendering runs without network discovery. Unsafe schemes, escaping paths, unselected source reads and active raw HTML are rejected or rendered inert under the documented contract. Generated HTML, CSS and reports use LF bytes so Git delivery preserves their checksums across platforms. Original Markdown downloads remain byte-exact. The generated report binds the examined source and output hashes. Original file licences also govern their rendered text. Supplied font and DHCraft brand assets retain their explicit separate assignments and notices.</p>
+<p>The static example and initializer need no Markdown parser at runtime. Public source-package rebuilding uses the documented web-docs extra. A generated release target containing Git state is preserved and requires a fresh output directory.</p>
+<h2 id="recorded-vault-pilot">Recorded vault pilot<a class="headerlink" href="integration.html#recorded-vault-pilot" title="Permanent link">&para;</a></h2>
+<p>Since 14 October 2026 the method runs as a pilot in the author's Obsidian vault, a Second Brain instance, with several AI harnesses at once (Claude Code, Codex, Gemini). The pilot draws on the method's role prompts and adds a flatter operating layer with deployment-specific contracts. Those contracts do not agree with every portable return route:</p>
+<ul>
+<li>An operator has one state file with a stable technical address. Its descriptive role title is a separate field for human-facing views. For example, <code>build</code> remains a routing address while Developer names its function. The persona defines responsibility and authority. The head table records the role source, execution environment, session and aliases.</li>
+<li>In the pilot, an assignment is recorded as a lane row with its identifier, expected result, state and project. Its contract defines execution scope, verification, acceptance responsibility and stopping point. Technical verification and human acceptance remain separate judgements. The portable method's broader workstream meaning of lane is described in <a href="orchestration-architecture.html#lane"><code>orchestration-architecture.md</code></a>. Reconciling these meanings remains proposal work.</li>
+<li>Messages go into the sender's own file and are receipted in the recipient's. The human user is a recipient like any other.</li>
+<li>The operator adapter <code>dashboard/make_lab_lanes.py</code> reads these files for the private Mission Control interface of the Second Brain instance. The interface also has its own adapters for portfolio and knowledge sources. Its current implementation and checks are maintained in that interface's repository.</li>
+</ul>
+<p>The pilot's bounded reviewer is instructed to deliver its finding to coordination. The portable Independent Verification Agent must deliver the complete finding first and only to the human user, who controls subsequent routing. These are different authority and communication contracts. The direct pilot callback cannot be represented as conformance with the portable route without an explicit reconciliation decision. Monitoring has its own communication contract and does not supply that decision.</p>
+<p>The pilot's observations are recorded in its lab documents and in the source repository's journal. Its dated reconciliation and migration proposals remain outside the publication bundle. They have not migrated the private interface into this repository or replaced the portable role contracts. <a href="integration.html#second-brain-deployment">the Second Brain deployment</a> defines the component boundary.</p></article>
+<details class="source-meta"><summary>Document source and release information</summary><p>Package release 0.9.0rc3</p><p>Source <code>knowledge/integration.md</code>. <a href="../../knowledge/integration.md" download>Download original Markdown</a></p><details><summary>Original document metadata</summary><p>Document versions and dated evidence describe their recorded scope. Rendering this document in another package does not update those findings.</p><dl><dt>title</dt><dd>Research Mission Control Integration</dd><dt>status</dt><dd>active</dd><dt>language</dt><dd>en</dd><dt>updated</dt><dd>2026-10-18</dd><dt>related</dt><dd>[project, orchestration-architecture, research-to-operations-handoff, observed-context-stream-operation, observed-live-demo-operation]</dd></dl></details></details>
+</main><footer class="docs-footer"><a href="../../index.html">Overview</a><a href="../../index.html#downloads">Reference and reuse</a><a href="../../knowledge/integration.md" download>Original Markdown</a></footer></body></html>

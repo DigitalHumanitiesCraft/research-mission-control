@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"><title>Observed live demo operation | Research Mission Control</title><link rel="stylesheet" href="../../site.css"><link rel="stylesheet" href="../docs.css"></head>
+<body><a class="skip-link" href="#document">Skip to document</a>
+<header class="docs-header"><a class="brand" href="../../index.html">Research Mission Control</a><nav aria-label="Primary navigation"><a href="../../index.html">Overview</a><a href="system-description.html">Method in practice</a><a href="../../index.html#downloads">Reference</a></nav></header>
+<main class="docs-layout" id="document" tabindex="-1"><details class="contents"><summary>Sections in this reference</summary><div class="toc">
+<ul>
+<li><a href="#observed-live-demo-operation">Observed Live-Demo Operation</a><ul>
+<li><a href="#observation-scope">Observation scope</a></li>
+<li><a href="#observed-sequence">Observed sequence</a></li>
+<li><a href="#supported-observations">Supported observations</a></li>
+<li><a href="#recorded-deviations-from-the-current-contract">Recorded deviations from the current contract</a></li>
+<li><a href="#method-consequences">Method consequences</a></li>
+<li><a href="#evidence-limits">Evidence limits</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><article><h1 id="observed-live-demo-operation">Observed Live-Demo Operation<a class="headerlink" href="observed-live-demo-operation.html#observed-live-demo-operation" title="Permanent link">&para;</a></h1>
+<h2 id="observation-scope">Observation scope<a class="headerlink" href="observed-live-demo-operation.html#observation-scope" title="Permanent link">&para;</a></h2>
+<p>The public video <a href="https://www.youtube.com/watch?v=B7TCJjcVA2k"><em>Research Mission Control: Eine Forschungsleitstelle mit mehreren KI-Agenten | Live-Demo</em></a> records an uncut German-language working session of approximately 93 minutes. The session applies an earlier Research Mission Control configuration to the preparation of research and teaching material. It shows human direction, conceptual synthesis, operational production, specialist delegation, file-based exchange, verification activity, and artifact review in one continuous case.</p>
+<p>The recording is an observation source. It does not define the current method contract. The current system prompt, role contracts, and Knowledge Core govern where the recorded terminology or behavior differs from the maintained RC2 method.</p>
+<h2 id="observed-sequence">Observed sequence<a class="headerlink" href="observed-live-demo-operation.html#observed-sequence" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Observed operation</th>
+<th>Evidentiary value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=B7TCJjcVA2k&amp;t=0s">00:00–11:15</a></td>
+<td>The session introduces the research-group metaphor, separate working contexts, shared repository knowledge, and the Context Stream.</td>
+<td>Shows that role separation and persistent knowledge can be explained to a human user as one operating model.</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=B7TCJjcVA2k&amp;t=910s">15:10–25:45</a></td>
+<td>The project workspace and communication routes are initialized while the human user steers the agents.</td>
+<td>Exposes the practical importance of explicit recipients, observed wake behavior, and compact status reporting.</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=B7TCJjcVA2k&amp;t=1564s">26:04–52:18</a></td>
+<td>Research develops concepts and criteria, delegates bounded inquiries, and transfers work toward implementation.</td>
+<td>Supports the distinction between conceptual synthesis, bounded specialist work, and implementation.</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=B7TCJjcVA2k&amp;t=3409s">56:49–1:20:23</a></td>
+<td>Existing teaching materials enter the task; a newly generated presentation and frontend are inspected and rejected.</td>
+<td>Shows that technically produced artifacts can fail intended-use and human-acceptance criteria when the implementation does not preserve the relevant reference material.</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=B7TCJjcVA2k&amp;t=4887s">1:21:27–1:28:47</a></td>
+<td>The session reviews the architecture, derived dashboard, and voice interaction.</td>
+<td>Records discussion and inspection of a compact human-facing control view. Its usability and benefit require separate assessment.</td>
+</tr>
+</tbody>
+</table>
+<p>The later general discussion about AI development lies outside this method evaluation because it does not test Research Mission Control behavior.</p>
+<h2 id="supported-observations">Supported observations<a class="headerlink" href="observed-live-demo-operation.html#supported-observations" title="Permanent link">&para;</a></h2>
+<p>The recording supports five case-specific findings.</p>
+<ol>
+<li>The human user repeatedly redirected role interpretation, artifact scope, and presentation quality. Human direction was an active control function in the observed session.</li>
+<li>The session discussed separate conceptual and operational contexts and questioned the need for additional hierarchy on small subtasks. That question informed the proportional-orchestration and direct-work threshold. The case supplies no comparative measurement of their benefit.</li>
+<li>File-based messages carried state, but the session did not establish a general autonomous wake mechanism. Observed transport and observed notification require separate claims.</li>
+<li>The generated presentation existed and could be inspected, yet it did not satisfy the intended use. Formal generation, technical verification, domain validation, and human acceptance remained distinct states.</li>
+<li>Existing artifacts became decisive only after a substitute had been produced. Reliable implementation therefore requires an explicit preserve, reuse, adapt, or replace decision for relevant project inputs before substitute generation.</li>
+</ol>
+<h2 id="recorded-deviations-from-the-current-contract">Recorded deviations from the current contract<a class="headerlink" href="observed-live-demo-operation.html#recorded-deviations-from-the-current-contract" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Recorded behavior or terminology</th>
+<th>Current RC2 contract</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The explanation can be heard as three equivalent top-level agents.</td>
+<td>Research and Operations are the two primary production orchestrators. Independent Verification is a cross-cutting read-only control function.</td>
+</tr>
+<tr>
+<td>Verification is used at points as a standing observer, heartbeat, or potential repair actor.</td>
+<td>An independent verification assignment has a bounded target, criterion, evidence packet, and completion condition. Operational monitoring is a separate responsibility. Verification reports a finding and never produces the correction.</td>
+</tr>
+<tr>
+<td>Shared files and messaging are discussed as though they might sustain an active loop by themselves.</td>
+<td>Shared files transport state. Each direction requires observed wake behavior and a polling, re-entry, or human-mediated fallback.</td>
+</tr>
+<tr>
+<td>Agent-specific knowledge areas are considered during the live exploration.</td>
+<td>Durable knowledge has one canonical project location and one responsible writer per file. Role-owned outboxes carry proposals and transient exchange.</td>
+</tr>
+<tr>
+<td>The derived dashboard is treated as a central control surface.</td>
+<td>A dashboard is a derived view. Inspected artifacts and canonical project knowledge remain authoritative for operational and epistemic state.</td>
+</tr>
+</tbody>
+</table>
+<p>These deviations make the recording useful as an evaluation case: it exposes plausible role drift and implementation failure that the maintained contracts must prevent.</p>
+<h2 id="method-consequences">Method consequences<a class="headerlink" href="observed-live-demo-operation.html#method-consequences" title="Permanent link">&para;</a></h2>
+<p>The reviewed case adds one durable requirement and sharpens one existing boundary.</p>
+<ul>
+<li><strong>Artifact relationship before generation.</strong> When an existing artifact constrains the result, Research records whether it must be preserved, reused, adapted, or may be replaced. Operations inventories that baseline and resolves the relationship before producing a substitute.</li>
+<li><strong>Bounded independent verification.</strong> Independent Verification examines a named target against a criterion and completion condition. A standing heartbeat, progress watch, or implementation repair loop belongs to operational monitoring and must have its own authority and role contract.</li>
+</ul>
+<p>The case also reinforces existing requirements for proportional orchestration, explicit wake fallbacks, human-readable status, canonical write-back, and separation of technical conformance from human acceptance.</p>
+<h2 id="evidence-limits">Evidence limits<a class="headerlink" href="observed-live-demo-operation.html#evidence-limits" title="Permanent link">&para;</a></h2>
+<p>The video demonstrates one project, one set of harness conditions, and one evolving method configuration. It provides no universal evidence about model quality, cross-harness portability, scholarly validity, notification reliability, or the current RC2 package. The public release tests and fresh-context probes establish separate technical and observed-operation claims. Human assessment remains necessary for intended use and version 1.0 acceptance.</p></article>
+<details class="source-meta"><summary>Document source and release information</summary><p>Package release 0.9.0rc3</p><p>Source <code>knowledge/observed-live-demo-operation.md</code>. <a href="../../knowledge/observed-live-demo-operation.md" download>Download original Markdown</a></p><details><summary>Original document metadata</summary><p>Document versions and dated evidence describe their recorded scope. Rendering this document in another package does not update those findings.</p><dl><dt>title</dt><dd>Observed Live-Demo Operation</dd><dt>status</dt><dd>observed-operation</dd><dt>language</dt><dd>en</dd><dt>updated</dt><dd>2026-10-17</dd><dt>related</dt><dd>[project, method-specification, research-to-operations-handoff, observed-context-stream-operation]</dd></dl></details></details>
+</main><footer class="docs-footer"><a href="../../index.html">Overview</a><a href="../../index.html#downloads">Reference and reuse</a><a href="../../knowledge/observed-live-demo-operation.md" download>Original Markdown</a></footer></body></html>

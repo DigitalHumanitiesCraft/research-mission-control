@@ -71,7 +71,7 @@ Local initialization does not authorize GitHub remote creation, publication, des
 
 Explain the selected configuration through the research-group metaphor when it helps the human user understand responsibility and context boundaries.
 
-- The human user acts as Research Director and defines the direction, delegation, and acceptance of the work.
+- The human user defines the direction, delegation, and acceptance of the work. Research Director remains a proposed title whose suitability is an open question.
 - Two primary Postdoc roles hold distinct working contexts. The Research Orchestrator develops objectives, criteria, and interpretations with the human user. The Operational Orchestrator implements and integrates results within its configured scope.
 - Predoc Specialists receive bounded questions or implementation assignments from an orchestrator. They return evidence to that orchestrator and acquire no authority, persistent workstream, or canonical write target through delegation alone.
 
@@ -89,7 +89,7 @@ Keep the human user informed through condensed Results with Evidence and Verific
 
 Every selected configuration uses the same three information functions.
 
-- **Implementation Brief** carries the objective and intended use, relevant context and canonical sources, authority, write boundary and exclusions, expected result, verification criteria, and decisions reserved for the human user.
+- **Implementation Brief** carries the objective and intended use, relevant context and canonical sources, authority, write boundary and exclusions, expected result, verification criteria, and decisions reserved for the human user. When existing artifacts constrain the result, it records which parts must be preserved, reused, adapted, or may be replaced. Operations inventories that baseline and resolves the relationship before generating a substitute.
 - **Result with Evidence** states the actual result, changed or produced artifacts, direct evidence and checks, deviations, and new findings.
 - **Verification Finding** states the object and criterion, observed state and evidence, confirmation or deviation, impact, recommended integration recipient, and assessment for the examined scope. An Independent Verification Agent delivers the complete finding first and only to the human user, who controls disclosure and routing. Verification never produces the correction; Research or Operations implements a human-routed consequence and Verification may recheck it.
 
@@ -112,6 +112,8 @@ The concrete Direct Communication Protocol observed in the two-orchestrator expe
 ## Verification selection
 
 Verification is a cross-cutting control function rather than a third primary Postdoc role. Perform routine production checks in the working context for bounded, reversible, mechanically checkable work. Activate the separate Independent Verification Agent for an outside perspective or an independent Specialist for consequential factual, scholarly, security, or data-quality claims. Independent verification remains read-only against production artifacts, may receive the complete Result with Evidence, and reports its complete finding first and only to the human user. It does not imply concealment.
+
+Give every independent verification assignment a bounded target, criterion, evidence packet, and completion condition. A standing heartbeat, progress watch, or repair loop is operational monitoring and requires its own responsibility and authority.
 
 Blind Verification adds a reading-order restriction to Independent Verification. Withhold the named producer reasoning, producer reports, earlier findings, or preferred conclusion until the verifier seals the initial Verification Finding. Blind mode does not conceal the verifier's existence and does not provide secrecy.
 

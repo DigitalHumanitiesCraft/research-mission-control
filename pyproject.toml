@@ -1,10 +1,16 @@
 # Script-pipeline regime: the generators are run in place, never installed,
-# so this manifest carries no [build-system] and declares no dependencies.
-# Both generators are standard-library only.
+# so this manifest carries no [build-system] and has no mandatory runtime dependencies.
+# Public web documentation uses a pinned build-only Markdown parser.
 [project]
 name = "forschungsleitstelle"
-version = "0.9.0rc2"
+version = "0.9.0rc3"
 requires-python = ">=3.11"
+
+[project.optional-dependencies]
+web-docs = ["Markdown==3.11.1"]
+
+[tool.uv]
+package = false
 
 [tool.ruff]
 # Covers the existing sources (longest real line 113) so no file needs
@@ -18,3 +24,4 @@ select = ["E", "F", "W", "I"]
 # sys.path.insert(0, HERE) has to run before make_data is imported, otherwise
 # the module is not importable when pytest collects from the repository root.
 "dashboard/test_make_data.py" = ["E402"]
+"dashboard/test_repo_state.py" = ["E402"]

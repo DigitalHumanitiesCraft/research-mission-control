@@ -6,7 +6,7 @@ project:
 status: active
 language: en
 created: 2026-08-17
-updated: 2026-08-23
+updated: 2026-10-17
 related: [orchestration-architecture, project-governance, integration, method-specification]
 ---
 
@@ -14,7 +14,7 @@ related: [orchestration-architecture, project-governance, integration, method-sp
 
 ## Shared workflow
 
-The human user serves as Research Director. The Research Orchestrator works directly with the human user to develop the objective. When the next useful step is sufficiently clear, authorized, proportionate, and verifiable, Research issues an Implementation Brief and Operations acts. Remaining low-risk uncertainty becomes a bounded experiment; consequential uncertainty becomes a Human Decision Point.
+The human user defines direction, delegation, and acceptance. Research Director remains a proposed title whose suitability is an open question. The Research Orchestrator works directly with the human user to develop the objective. When the next useful step is sufficiently clear, authorized, proportionate, and verifiable, Research issues an Implementation Brief and Operations acts. Remaining low-risk uncertainty becomes a bounded experiment; consequential uncertainty becomes a Human Decision Point.
 
 ```text
 human user <-> Research --Implementation Brief--> Operations
@@ -25,6 +25,27 @@ human user --optional authorized routing--> Research or Operations
 ```
 
 The exchange may remain in one conversation for a contained task. Persistent artifacts are useful when several agents, states, or write targets must remain distinguishable.
+
+## Operator briefing
+
+A requested briefing collects current, attributable reports from the existing working contexts. It supplies orientation and prepares the next conversation. A status request alone neither starts a new implementation assignment nor reopens a completed one. When the human user also explicitly assigns continuation, carry out the authorized work and its verification before reporting the resulting state. A briefing does not constitute verification, acceptance, canonical write-back or standing monitoring.
+
+1. Establish the requested scope from registered roles and their actual project and assignment bindings. Verify the existing context identity, available return route and permission boundary before dispatch.
+2. Request one compact first-person status paragraph, delivered results with material references, unresolved gaps, the next authorized action or explicit halt, separately identified additional proposals and genuine human user questions, and what the operator actually reread or checked. Include a reasoned self-assessment when requested. Ask for substantive project state rather than the administrative act of writing the briefing.
+3. Separate required Human Input, Decision, Authorization or Action from optional discussion and possible result assessment. For each question record its exact text, assignment or project reference and whether it blocks the next authorized action. A delivered result awaiting assessment does not by itself establish a required answer. Historical open acceptance retains its recorded state and becomes a current question only when a concrete contribution is needed for the present work.
+4. Retrieve the actual completed response. Keep request, dispatch, receipt, retrieval, source verification and integration distinguishable. A successful send acknowledgement proves neither receipt nor the content of a reply. Record the responding context, message identity and actual response timestamp.
+5. Check reported material and assignment bindings against the current sources. Preserve the distinction between the time of the response and the scope and date of the work actually examined. Reading yesterday's successful test log today does not establish a new successful test. Return unsupported or contradictory claims for correction before using them as current findings.
+6. Preserve the operator's own status wording and provenance. Integrate a closed, dated round only after its available responses and known gaps have been checked. Unreachable contexts remain explicit; an older report may be shown only with its actual source date. The deployment's integration contract defines storage, a current-round reference and failed-refresh behavior.
+7. Show the new report, genuine questions, result materials and limits together. A prepared conversation prompt includes the exact fresh question and briefing source alongside separately identified canonical project and assignment context. Copying it does not answer the question or authorize execution.
+8. Stop after the requested round. The responsible authorized context adopts actual decisions or corrections into canonical sources under the existing write-back contract. A briefing alone cannot close a task, change acceptance, advance a recipient cursor or resolve a disagreement between sources. Repeat on an explicit request or an already authorized re-entry trigger.
+
+The current status includes completed assignment results, their usable artifacts and verification limits. Continuation distinguishes the next already authorized action, an additional proposal outside that assignment and any genuinely required human contribution with its consequence. Use the human user's language for these functions, such as Stand and Weiter in a German deployment. The existing Result with Evidence, Next action and Human Decision Point fields carry them without a new mandatory schema. State none when no action or contribution is required.
+
+Production carries out clear, reversible routine corrections within its assigned subject and write scope and verifies the affected result. A required independent check or reserved decision remains binding. An additional proposal does not authorize execution or expand the assignment.
+
+Keep the operator's own self-assessment separate from Next action and human acceptance. It states the examined scope and source date, whether the work serves the user's objective, whether the result and evidence support the reported state, and whether continuation and its prerequisites are clear. Use a requested scale only with a reasoned subjective judgement. A score is not a measurement, and technical checks support only the properties they examined. Missing assessment remains neutral and does not imply poor quality, an open task or a request for user action.
+
+The [briefing transport contract](integration.md#operator-briefing-transport) specifies the deployment boundary. This status exchange does not change the private initial return route of a complete Verification Finding.
 
 ## Research to Operations
 
@@ -38,6 +59,8 @@ Every Implementation Brief provides the same minimum context needed for reliable
 - decisions reserved for the human user.
 
 Data, dependencies, versions, reference state, canonical write-back target, and a persistent brief file are added when the assignment requires them.
+
+When an existing artifact constrains the result, the brief names that artifact and its required relationship to the output: preserve, reuse, adapt, or replace. It records the relevant acceptance or reference boundary. Operations inventories the actual baseline and resolves this relationship before generating a substitute. An available input does not imply that every part must be retained; the brief identifies the parts that carry content, structure, style, provenance, or acceptance value.
 
 Decision routing follows the configured authority boundary, consequence, and reversibility. Predoc specialists resolve details inside their bounded assignments. The two Postdoc roles, Research and Operations, resolve more complex questions within their configured responsibilities. The human user defines which decisions remain human and which are delegated. Research converts a required human contribution into a concrete Human Decision Point only when it blocks or materially changes the next useful action.
 
@@ -102,6 +125,8 @@ Production checks precede a completion claim. The Independent Verification Agent
 
 Verification is a cross-cutting control function across Research and Operations. Routine production checks may run in the working context. Independent, Blind, and Shadow define separate controls.
 
+Every independent assignment has a bounded target, criterion, evidence packet, and completion condition. A standing heartbeat, progress watch, or repair loop is operational monitoring and requires its own responsibility and authority. It does not become Independent Verification by assigning it to the Verification Agent.
+
 - Independent Verification uses a separate read-only assessment context and may receive the complete Result with Evidence. Its existence need not be concealed.
 - Blind Verification adds a declared reading order. The verifier seals an initial finding before reading the named producer reasoning, reports, earlier findings, or preferred conclusion. It does not imply secrecy.
 - Shadow Verification adds verified technical isolation, a private route to the human user, and omission of the Independent Verification Agent's working context and route from production contracts. It may use ordinary or Blind reading order.
@@ -155,15 +180,11 @@ human user feedback becomes implementation input for the next revision. Operatio
 
 ## Acceptance sheet
 
-When a lane ends in a result the human user must accept, the orchestrator delivers an acceptance sheet in a fixed form that is readable in seconds. Translate all three labels into the human user's selected language and use the chosen wording consistently. Their semantic functions are:
+When a result requires human acceptance, the orchestrator presents a concise synthesis suited to the artifact and the decision. It states what is complete, explains the substantive result and inspectable evidence, and identifies reserved decisions with a recommendation where warranted. A linked review location includes the relevant content, why it matters, and what requires human judgement.
 
-- **Done** states what is complete, in one to three lines.
-- **Review** names two to five places to inspect. Each item gives a one-to-three-sentence substantive synthesis, explains why the place matters and what the human user should assess, and then provides the link. Internal identifiers or file locations alone are insufficient.
-- **Decide** lists the decisions that stand, each with the orchestrator's default proposal.
+An acceptance sheet can organise this information. Its form, length, labels, inspection sequence, and response format follow the task and the human user's needs. Personal quality criteria that remain unsettled stay open. Any labels used follow the human user's selected language.
 
-The human user answers per item with one word. The sheet goes to the conversation and can also appear as a rendered page when links matter. The answers return to the configured canonical Human Decision Point or project knowledge.
-
-The acceptance sheet concentrates human user attention on the integrated result, inspectable evidence, and reserved decisions. Operational detail remains with Research and Operations.
+The synthesis goes to the conversation and can also appear as a rendered page when links matter. The human user may accept, redirect, qualify the result, or request clarification. The attributable decision returns to the configured canonical Human Decision Point or project knowledge. Acceptance remains with the responsible human authority, and the presentation introduces no additional acceptance field. Operational detail remains with Research and Operations.
 
 ## Persistence
 

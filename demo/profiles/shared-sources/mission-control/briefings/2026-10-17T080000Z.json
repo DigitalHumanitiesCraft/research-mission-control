@@ -1,0 +1,288 @@
+{
+  "schema": "synthetic-demo-briefings-1",
+  "synthetic": true,
+  "roundId": "demo-example",
+  "assembledAt": "2026-10-17T10:00:00+02:00",
+  "operators": {
+    "demo-research": {
+      "source": {
+        "kind": "synthetic-example",
+        "reportedAt": "2026-10-17T10:00:00+02:00",
+        "label": "Vorab verfasstes Beispiel, kein Chatbericht"
+      },
+      "assessmentSource": {
+        "kind": "synthetic-example",
+        "reportedAt": "2026-10-17T10:00:00+02:00",
+        "label": "Vorab verfasstes Beispiel, kein Chatbericht"
+      },
+      "binding": {
+        "state": "DONE",
+        "result": "Beispielergebnis: Farbe und Form stimmen überein, die zugeschriebenen Funktionen unterscheiden sich. Eine gemeinsame Objektkennung fehlt.",
+        "point": "Keine.",
+        "next": "Read the fictional comparison and its limits. No real follow-up is commissioned.",
+        "assignments": [
+          [
+            "DEMO-COMPARE",
+            "demo-atlas",
+            "erledigt",
+            "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092"
+          ]
+        ]
+      },
+      "status": "Beispielergebnis: Farbe und Form stimmen überein, die zugeschriebenen Funktionen unterscheiden sich. Eine gemeinsame Objektkennung fehlt.",
+      "result": "Beispielergebnis: Farbe und Form stimmen überein, die zugeschriebenen Funktionen unterscheiden sich. Eine gemeinsame Objektkennung fehlt.",
+      "gaps": [
+        "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
+        "Frühere qualitative Originaleinschätzung: Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden."
+      ],
+      "selfAssessment": {
+        "level": "qualified",
+        "summary": "Authored qualitative example: source identity is retained, with the stated uncertainty.",
+        "scope": "Vorab verfasster synthetischer Quellenvergleich.",
+        "limits": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis. Earlier authored qualitative original: Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden.",
+        "dimensions": {
+          "understanding": "Beispiel: Die offene Identität bleibt erkennbar.",
+          "knowledge": "Nur der erfundene Quelltext ist vorhanden.",
+          "verification": "Kein tatsächlicher Lauf oder unabhängiger Befund."
+        },
+        "nextStep": "Beispielquelle und vollständigen Gesprächsprompt lesen."
+      },
+      "questions": [],
+      "projectIds": [
+        "demo-atlas"
+      ],
+      "resultItems": [
+        {
+          "text": "Beispielergebnis: Farbe und Form stimmen überein, die zugeschriebenen Funktionen unterscheiden sich. Eine gemeinsame Objektkennung fehlt.",
+          "taskId": "DEMO-COMPARE",
+          "projectIds": [
+            "demo-atlas"
+          ],
+          "note": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis."
+        }
+      ],
+      "originalReply": {
+        "report": "Beispielergebnis: Farbe und Form stimmen überein, die zugeschriebenen Funktionen unterscheiden sich. Eine gemeinsame Objektkennung fehlt.",
+        "workstate": "DONE",
+        "projects": [
+          "demo-atlas"
+        ],
+        "previousQualitativeOriginal": "Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden."
+      },
+      "conversationApproved": false,
+      "conversationProjectIds": [],
+      "checked": "Synthetisches Beispiel, keine technische oder menschliche Abnahme."
+    },
+    "demo-curation": {
+      "source": {
+        "kind": "synthetic-example",
+        "reportedAt": "2026-10-17T10:00:00+02:00",
+        "label": "Vorab verfasstes Beispiel, kein Chatbericht"
+      },
+      "assessmentSource": {
+        "kind": "synthetic-example",
+        "reportedAt": "2026-10-17T10:00:00+02:00",
+        "label": "Vorab verfasstes Beispiel, kein Chatbericht"
+      },
+      "binding": {
+        "state": "IDLE",
+        "result": "Example state: an exhibit-label task is assigned but not picked up. No actual execution is observed.",
+        "point": "Keine.",
+        "next": "The fictional label task remains assigned in the example only.",
+        "assignments": [
+          [
+            "DEMO-LABEL",
+            "demo-exhibit",
+            "vergeben",
+            "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092"
+          ]
+        ]
+      },
+      "status": "Example state: an exhibit-label task is assigned but not picked up. No actual execution is observed.",
+      "result": "Example state: an exhibit-label task is assigned but not picked up. No actual execution is observed.",
+      "gaps": [
+        "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
+        "Frühere qualitative Originaleinschätzung: Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden."
+      ],
+      "selfAssessment": {
+        "level": "qualified",
+        "summary": "Authored qualitative example: source identity is retained, with the stated uncertainty.",
+        "scope": "Vorab verfasster synthetischer Quellenvergleich.",
+        "limits": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis. Earlier authored qualitative original: Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden.",
+        "dimensions": {
+          "understanding": "Beispiel: Die offene Identität bleibt erkennbar.",
+          "knowledge": "Nur der erfundene Quelltext ist vorhanden.",
+          "verification": "Kein tatsächlicher Lauf oder unabhängiger Befund."
+        },
+        "nextStep": "Beispielquelle und vollständigen Gesprächsprompt lesen."
+      },
+      "questions": [],
+      "projectIds": [
+        "demo-exhibit"
+      ],
+      "resultItems": [],
+      "originalReply": {
+        "report": "Example state: an exhibit-label task is assigned but not picked up. No actual execution is observed.",
+        "workstate": "IDLE",
+        "projects": [
+          "demo-exhibit"
+        ],
+        "previousQualitativeOriginal": "Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden."
+      },
+      "conversationApproved": false,
+      "conversationProjectIds": [],
+      "checked": "Synthetisches Beispiel, keine technische oder menschliche Abnahme."
+    },
+    "demo-writing": {
+      "source": {
+        "kind": "synthetic-example",
+        "reportedAt": "2026-10-17T10:00:00+02:00",
+        "label": "Vorab verfasstes Beispiel, kein Chatbericht"
+      },
+      "assessmentSource": {
+        "kind": "synthetic-example",
+        "reportedAt": "2026-10-17T10:00:00+02:00",
+        "label": "Vorab verfasstes Beispiel, kein Chatbericht"
+      },
+      "binding": {
+        "state": "IDLE",
+        "result": "Explicitly planned fictional profile. No activation or execution is commissioned.",
+        "point": "Keine.",
+        "next": "No actual activation commissioned.",
+        "assignments": []
+      },
+      "status": "Explicitly planned fictional profile. No activation or execution is commissioned.",
+      "result": "Explicitly planned fictional profile. No activation or execution is commissioned.",
+      "gaps": [
+        "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
+        "Frühere qualitative Originaleinschätzung: Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden."
+      ],
+      "selfAssessment": {
+        "level": "qualified",
+        "summary": "Authored qualitative example: source identity is retained, with the stated uncertainty.",
+        "scope": "Vorab verfasster synthetischer Quellenvergleich.",
+        "limits": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis. Earlier authored qualitative original: Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden.",
+        "dimensions": {
+          "understanding": "Beispiel: Die offene Identität bleibt erkennbar.",
+          "knowledge": "Nur der erfundene Quelltext ist vorhanden.",
+          "verification": "Kein tatsächlicher Lauf oder unabhängiger Befund."
+        },
+        "nextStep": "Beispielquelle und vollständigen Gesprächsprompt lesen."
+      },
+      "questions": [],
+      "projectIds": [
+        "demo-exhibit"
+      ],
+      "resultItems": [],
+      "originalReply": {
+        "report": "Explicitly planned fictional profile. No activation or execution is commissioned.",
+        "workstate": "IDLE",
+        "projects": [
+          "demo-exhibit"
+        ],
+        "previousQualitativeOriginal": "Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden."
+      },
+      "conversationApproved": false,
+      "conversationProjectIds": [],
+      "checked": "Synthetisches Beispiel, keine technische oder menschliche Abnahme."
+    },
+    "demo-teaching": {
+      "source": {
+        "kind": "synthetic-example",
+        "reportedAt": "2026-10-17T10:00:00+02:00",
+        "label": "Vorab verfasstes Beispiel, kein Chatbericht"
+      },
+      "assessmentSource": {
+        "kind": "synthetic-example",
+        "reportedAt": "2026-10-17T10:00:00+02:00",
+        "label": "Vorab verfasstes Beispiel, kein Chatbericht"
+      },
+      "binding": {
+        "state": "IDLE",
+        "result": "Paused explicitly in this authored example. Earlier example work remains readable; no resumption is commissioned.",
+        "point": "Keine.",
+        "next": "No further work; do not resume from this fixture.",
+        "assignments": []
+      },
+      "status": "Paused explicitly in this authored example. Earlier example work remains readable; no resumption is commissioned.",
+      "result": "Paused explicitly in this authored example. Earlier example work remains readable; no resumption is commissioned.",
+      "gaps": [
+        "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
+        "Frühere qualitative Originaleinschätzung: Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden."
+      ],
+      "selfAssessment": {
+        "level": "qualified",
+        "summary": "Authored qualitative example: source identity is retained, with the stated uncertainty.",
+        "scope": "Vorab verfasster synthetischer Quellenvergleich.",
+        "limits": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis. Earlier authored qualitative original: Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden.",
+        "dimensions": {
+          "understanding": "Beispiel: Die offene Identität bleibt erkennbar.",
+          "knowledge": "Nur der erfundene Quelltext ist vorhanden.",
+          "verification": "Kein tatsächlicher Lauf oder unabhängiger Befund."
+        },
+        "nextStep": "Beispielquelle und vollständigen Gesprächsprompt lesen."
+      },
+      "questions": [],
+      "projectIds": [],
+      "resultItems": [],
+      "originalReply": {
+        "report": "Paused explicitly in this authored example. Earlier example work remains readable; no resumption is commissioned.",
+        "workstate": "IDLE",
+        "projects": [],
+        "previousQualitativeOriginal": "Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden."
+      },
+      "conversationApproved": false,
+      "conversationProjectIds": [],
+      "checked": "Synthetisches Beispiel, keine technische oder menschliche Abnahme."
+    },
+    "demo-observer": {
+      "source": {
+        "kind": "synthetic-example",
+        "reportedAt": "2026-10-17T10:00:00+02:00",
+        "label": "Vorab verfasstes Beispiel, kein Chatbericht"
+      },
+      "assessmentSource": {
+        "kind": "synthetic-example",
+        "reportedAt": "2026-10-17T10:00:00+02:00",
+        "label": "Vorab verfasstes Beispiel, kein Chatbericht"
+      },
+      "binding": {
+        "state": "IDLE",
+        "result": "No setup or activity evidence is supplied for this invented profile.",
+        "point": "Keine.",
+        "next": "No task or session is inferred from the missing evidence.",
+        "assignments": []
+      },
+      "status": "No setup or activity evidence is supplied for this invented profile.",
+      "result": "No setup or activity evidence is supplied for this invented profile.",
+      "gaps": [
+        "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
+        "Frühere qualitative Originaleinschätzung: Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden."
+      ],
+      "selfAssessment": {
+        "level": "qualified",
+        "summary": "Authored qualitative example: source identity is retained, with the stated uncertainty.",
+        "scope": "Vorab verfasster synthetischer Quellenvergleich.",
+        "limits": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis. Earlier authored qualitative original: Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden.",
+        "dimensions": {
+          "understanding": "Beispiel: Die offene Identität bleibt erkennbar.",
+          "knowledge": "Nur der erfundene Quelltext ist vorhanden.",
+          "verification": "Kein tatsächlicher Lauf oder unabhängiger Befund."
+        },
+        "nextStep": "Beispielquelle und vollständigen Gesprächsprompt lesen."
+      },
+      "questions": [],
+      "projectIds": [],
+      "resultItems": [],
+      "originalReply": {
+        "report": "No setup or activity evidence is supplied for this invented profile.",
+        "workstate": "IDLE",
+        "projects": [],
+        "previousQualitativeOriginal": "Beispieldatum 16. Oktober 2026: Die Gegenüberstellung ist verständlich, die offene Objektidentität muss deutlicher werden."
+      },
+      "conversationApproved": false,
+      "conversationProjectIds": [],
+      "checked": "Synthetisches Beispiel, keine technische oder menschliche Abnahme."
+    }
+  }
+}

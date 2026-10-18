@@ -2,7 +2,7 @@
 title: Orchestration Model of Research Mission Control
 status: active
 language: en
-updated: 2026-08-22
+updated: 2026-10-17
 related: [project, integration, research-to-operations-handoff, orchestration-thresholds]
 ---
 
@@ -10,7 +10,7 @@ related: [project, integration, research-to-operations-handoff, orchestration-th
 
 ## Purpose
 
-Research Mission Control connects clarification, implementation, and proportionate verification. It is an action model for one or several project contexts. The method can be exercised by one instance in sequence or distributed across orchestrators, specialists, and responsible workstreams.
+Research Mission Control connects clarification, implementation, and proportionate verification. It is an action model for one or several project contexts. One context can clarify the objective, implement an authorized change and perform production checks in sequence. Independent Verification requires a separate review context. Work can be distributed across orchestrators, specialists and responsible workstreams when those boundaries are useful.
 
 Its roles are contracts defined by responsibility, authority, input, and output. They are independent of a particular model and AI harness. A specific harness supplies context, tools, isolation, and permission enforcement without redefining the roles.
 
@@ -31,7 +31,7 @@ The working world model is distributed across:
 - authority state: permissions, boundaries, reserved decisions, rights, and external effects;
 - verification state: evidence, tested claims, deviations, validation status, and open findings.
 
-Canonical documents and actual artifacts persist these states. Role contexts retrieve the subset required for an action; no single agent or prompt is presumed to hold the complete model.
+Canonical documents and actual artifacts retain recorded parts of these states. A later context can reconstruct decisions, evidence and unfinished actions only to the extent that they were recorded. Role contexts retrieve the subset required for an action; no single agent or prompt is presumed to hold the complete model.
 
 ## AI Harness
 
@@ -39,13 +39,15 @@ The AI Harness is the technical cross-layer that supplies context, tool access, 
 
 ## Knowledge architecture
 
-The context window is the selected working context for the current action. It is temporary and may contain excerpts from several canonical sources. The repository `knowledge/` directory is persistent project working memory. It preserves the project's methods, specifications, decisions, and reusable understanding across sessions and agents.
+The context window is the selected working context for the current action. It is temporary and may contain excerpts from several canonical sources. The repository `knowledge/` directory is persistent project working memory. It preserves recorded methods, specifications, decisions and interpretations across sessions and agents.
 
 Promptotyping is a composable profile for iteratively developing research artifacts from maintained project knowledge and structured data. A Grounded Vault is an optional evidence-bound long-term knowledge profile. Its trigger records that a project-specific binding is required and pending. Grounding becomes active after that binding has been established and verified. The profiles can be selected separately or together. The evidence boundary follows the selected project profile.
 
 ## Reference initialization
 
-The standard distributed deployment uses one shared local Git repository and three open working contexts. A working context is one separately open Codex task, Claude Code conversation, or equivalent harness context with its own context window and one assigned Research Mission Control role. The first context is the Research Orchestrator and remains the human user's direct conversation partner. The second context is the Operational Orchestrator. The third is the Independent Verification Agent, a separate read-only control perspective outside the two primary postdoctoral roles.
+The standard distributed deployment uses one shared local Git repository and three open working contexts. A working context is one separately open Codex task, Claude Code conversation, or equivalent harness context with its own context window and one assigned Research Mission Control role. In a new standard setup, the first context is the Research Orchestrator and remains the human user's direct conversation partner. The second context is the Operational Orchestrator. The third is the Independent Verification Agent, a separate read-only control perspective outside the two primary postdoctoral roles.
+
+Existing Operations or Verification contexts continue under their verified start contracts, without silent role conversion or a second initialization. The initializer only creates new targets.
 
 The initializer identifies Research Mission Control with its repository URL and asks at most three questions in the human user's language. They establish the current context's role, the project result and acceptance criteria, and the shared project workspace with its discoverable or explicitly supplied inputs. It then creates the Promptotyping core, one `knowledge/integration.md` contract, the Context Stream transport under `communication/`, and three role-specific start contracts. All contexts read the same project and Integration Documents, so the start contracts assign responsibility without copying project state.
 
@@ -63,11 +65,15 @@ The Direct Communication Protocol observed in the two-orchestrator experiment is
 
 Canonical files use one responsible writer at a time. Results and proposed knowledge changes travel through the sender's immutable outbox. The responsible role verifies and integrates them at the canonical target. Any multi-writer exception must be explicit, collision-safe, and supported by direct concurrency evidence.
 
+## Monitoring across the work
+
+Monitoring examines the whole course of work and offers the human user a second opinion. It compares what coordination understands about the user, decisions and plans with the original statements, maintained documents and observed actions. Findings distinguish what the user said, the coordinator's interpretation and material taken over from another source. A monitor may evaluate alignment, omissions and discrepancies, while reporting its evidence and limits. Operational observations, such as stale reports or unanswered messages, provide context for that assessment. The monitor can send notices and evidence to coordination under an explicit communication contract, but cannot assign work, release results or grant acceptance. Its remit complements bounded verification and human judgement. A separate session does not guarantee independent reasoning, especially when it shares a model family with coordination.
+
 ## Roles
 
 ### Human user
 
-The human user serves as Research Director, develops objectives with the Research Orchestrator, and defines the project's delegation and authority boundaries. Domain judgement remains attributable to the human user or another named domain authority.
+The human user develops objectives with the Research Orchestrator and defines the project's delegation and authority boundaries. Research Director remains a proposed title whose suitability is an open question. Domain judgement remains attributable to the human user or another named domain authority.
 
 ### Research Orchestrator
 
@@ -105,7 +111,7 @@ Decision routing considers consequence, reversibility, and available authority. 
 ## Collaboration cycle
 
 ```text
-User as Research Director <-> Research Orchestrator
+Human user <-> Research Orchestrator
                               |
                               | clear enough for action?
                        +------+------+
@@ -123,7 +129,7 @@ User as Research Director <-> Research Orchestrator
                        |
                        | complete Verification Finding
                        v
-             User as Research Director
+             Human user
                        |
                        | optional disclosure and routing
                        v
@@ -183,13 +189,24 @@ An Independent Verification Agent receives target, criteria, artifacts and evide
 
 An optional shadow-verification lane supports independent review when disclosure to the working agents could alter the work or when shared context could reproduce assumptions. It is activated only when the AI harness can establish a separate context and a direct human user return route. The lane receives read-only access to the authorized target and evidence. Its existence, task, intermediate state, and findings are omitted from production contracts and routes. It reports the complete finding directly to the human user, who decides disclosure and routing to Research or Operations.
 
-Shadow verification is an operating mode of independent verification. Prompt separation and asymmetric routes provide no secrecy or security guarantee. When the harness cannot establish the required context separation and direct human user route, the review remains a disclosed independent specialist review.
+Shadow verification is an operating mode of independent verification. Prompt separation and asymmetric routes provide no secrecy or security guarantee. When the harness cannot establish the required context separation or human-only initial return route, report the missing control and describe only the check actually performed. A same-session production check is neither Independent nor Shadow Verification. A disclosed Independent review still requires a separate read-only context and the human-only initial return route. An automatic child-agent callback to a producer does not satisfy the human-only initial return route. The private pilot callback follows a separate deployment contract and does not establish conformance with this portable route.
 
 ## Lane
 
-A lane is an responsible workstream with a comprehensible objective, observable result, and appropriate verification. It is not inherently an agent, session, repository, or report. Small tasks need no lane.
+A lane is a responsible workstream with a comprehensible objective, observable result, and appropriate verification. It is not inherently an agent, session, repository, or report. Small tasks need no lane.
 
 The default lane state foregrounds objective, activity, next action, result, evidence, verification, blocker, and Human Decision Point. Extended contracts and reconciliation metadata are optional implementation instruments.
+
+## Operating levels
+
+The following operator-file convention applies to deployments that use it. It describes four operating levels without requiring portable workspaces to adopt those files or migrating private pilot state. Each level has its own canonical location.
+
+- Role. A role is one of the contracts described under Roles, fixed for the deployment as responsibility, write scope, limits, and start prompt. Each operator has exactly one role source, its persona. A role changes only by decision of the human user.
+- Operator. An operator is one LLM leading one AI harness. It keeps one operator file that carries state only, namely its lanes, its current report, and its messages. The operator file links to the persona and does not repeat it. Its stable technical address identifies the state file and message routes. Its descriptive role title names the function shown to the human user. A display-title change does not itself rename files or alter role authority.
+- Session. A session is the working context occupying a registered operator identity at a given time. On start it registers in the head table of its operator file with harness, working folder, and start time taken from the system clock, and it deregisters at the end. At most one session occupies a registered operator identity at a time. Separate operator identities may share a functional role when their responsibilities and write boundaries are explicit. Work that an unregistered session performs in the deployment's repositories does not count as work of the deployment, and the sync probe of the coordinating operator reports it as unregistered.
+- Lane. A lane, the workstream defined under Lane, is recorded as one assignment row in an operator file with its contract, project, and state. The contract stands with the lane in the recipient's operator file. A message from the coordinating operator only announces it.
+
+In deployments using this operator-file convention, operators start from one shared start prompt shape with the role as parameter. The persona adds the role-specific lines.
 
 ## Human Decision Point
 

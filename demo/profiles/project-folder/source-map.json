@@ -1,0 +1,8 @@
+{
+  "demo-guide": "profiles/project-folder/projects/demo-atlas/sources/demo-guide.json",
+  "demo-sources/demo-research.md": "profiles/project-folder/projects/demo-atlas/sources/demo-research.json",
+  "demo-sources/demo-curation.md": "profiles/project-folder/projects/demo-exhibit/sources/demo-curation.json",
+  "demo-sources/demo-writing.md": "profiles/project-folder/projects/demo-exhibit/sources/demo-writing.json",
+  "demo-sources/demo-teaching.md": "profiles/project-folder/projects/shared/sources/demo-teaching.json",
+  "demo-sources/demo-observer.md": "profiles/project-folder/projects/shared/sources/demo-observer.json"
+}

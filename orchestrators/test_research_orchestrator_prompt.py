@@ -60,10 +60,13 @@ PROMPT_REQUIREMENTS = {
         "human acceptance",
     ),
     "specialized routing": (
-        "`leitstelle-profile`",
-        "`lane-report`",
-        "`lane-handoff`",
-        "`leitstelle-sync`",
+        "`mission-control`",
+        "`profile`",
+        "`report`",
+        "`handoff`",
+        "`sync`",
+        "otherwise follow the existing role and project contracts directly",
+        "does not require that personal skill",
     ),
     "outcome-first communication": (
         "begin with the current result and its practical meaning",

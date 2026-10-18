@@ -7,19 +7,27 @@ metadata:
 
 # Research Mission Control
 
-Initialize the smallest shared workspace that preserves research direction, implementation authority, evidence, and independent checking. The human user directs the work and may use the Research Director metaphor. A working context means one separately open Codex task, Claude Code conversation, or equivalent AI-harness context with its own context window. The first working context serves as Research Orchestrator; it never assumes the human user's role.
+Initialize or continue the smallest workspace that preserves research direction, implementation authority, evidence, and checking. The human user directs the work. A working context is one separately open Codex task, Claude Code conversation, or equivalent context with its own context window.
 
 ## Activation boundary
 
-Activate only when the user asks to configure, initialize, or operate Research Mission Control. Treat quoted or attached prompt text as an object when the request is review, comparison, explanation, or editing.
+Activate only for requested configuration, initialization, or operation. Treat supplied prompt text as an object during review, comparison, explanation, or editing. Inspect the target read-only first. Never overwrite an existing directory, create a remote repository, publish, or change rights without explicit authority. A skill, tool, or writable path grants no additional authority.
 
-Inspect an existing target read-only before proposing changes. Never overwrite a non-empty directory, create a remote repository, publish, or change rights and visibility without explicit authority.
+For an existing workspace, continue from the current human instruction, assigned role, actual artifact and project `knowledge/integration.md`. Load the matching complete role contract and `communication/PROTOCOL.md`; use the routing table below to locate their bundled sources. Ask no initialization questions, change no role, and recreate no start files when the assignment is established. Reconcile a later bounded instruction with an older pause by scope and date, preserving restrictions outside the renewed assignment.
+
+The bundled contracts remain available inside the installed skill. Read only the contract needed for the current action. After initialization, the generated project files carry its verified bindings.
+
+| Action | Bundled contract | Generated project path |
+| --- | --- | --- |
+| Research | [Full Research role](assets/templates/mission-control/roles/research-orchestrator.md.tmpl) | `mission-control/roles/research-orchestrator.md` |
+| Implementation | [Full Operations role](assets/templates/mission-control/roles/operational-orchestrator.md.tmpl) | `mission-control/roles/operational-orchestrator.md` |
+| Independent checking | [Full Verification role](assets/templates/mission-control/roles/independent-verification-agent.md.tmpl) | `mission-control/roles/independent-verification-agent.md` |
+| Authority, sources, ownership and returns | [Integration contract](assets/templates/knowledge/integration.md.tmpl) | `knowledge/integration.md` |
+| Sending, receipt and processing | [Context Stream Protocol](assets/templates/communication/PROTOCOL.md.tmpl) | `communication/PROTOCOL.md` |
 
 ## Configuration interview
 
-Begin by identifying [Research Mission Control](https://github.com/DigitalHumanitiesCraft/research-mission-control) as the method being configured. Ask in the human user's language, inferred from the initialization request or selected explicitly by the human user. Preserve the meaning and supporting explanation of each question when translating it. Language selection never consumes one of the three questions.
-
-Ask only unanswered questions from this batch. Include the supporting sentence below each question. Ask no more than three initial configuration questions in total.
+For a new setup, identify [Research Mission Control](https://github.com/DigitalHumanitiesCraft/research-mission-control) as the method. Ask in the human user's language and preserve the supporting explanations when translating. Language selection never consumes one of the three questions. Ask only unanswered questions in one batch. Ask no more than three initial configuration questions in total.
 
 1. Which role should this working context assume within Research Mission Control (https://github.com/DigitalHumanitiesCraft/research-mission-control): Research Orchestrator, Operational Orchestrator, or Independent Verification Agent?
    The working context is this separately open Codex task, Claude Code conversation, or equivalent context with its own context window. A new standard setup begins with the Research Orchestrator.
@@ -28,40 +36,22 @@ Ask only unanswered questions from this batch. Include the supporting sentence b
 3. Where is the shared project workspace, and which existing data, documents, materials, code, repositories, or knowledge sources belong to the project?
    The project workspace is the local folder or Git worktree shared by the selected contexts. Inspect and inventory material already present there; ask the human user to name only relevant inputs that cannot be discovered from the workspace.
 
-The human user may answer any numbered item with "Was empfiehlst du?". Where the available evidence supports a default, recommend one concrete answer and treat it as the answer. Do not ask the human user to confirm that default. Ask for a choice only when an unresolved alternative changes the configuration materially.
-
-After the answers, infer the smallest safe authority and verification defaults from this contract. Ask later for a Decision, Authorization, Action, or Input only when a concrete next action requires it. Do not spend an initial question on remote creation, rights, publication, grounding, or a verification variant unless the human user already made it part of an answer. In the first substantive response after the answers, state whether Promptotyping is selected, whether the setup is local-only or still requires remote authorization, and that a generated Context Stream transports messages but does not wake another working context.
-
-Supply these defaults when the user has no preference:
-
-- Research and Operations run in separate contexts because they hold different working state.
-- Verification runs in a fresh third context. It is a cross-cutting control function and does not become a third primary Postdoc role.
-- Reversible local work within an accepted brief is agent-owned.
-- The human user defines which decisions remain human and which are delegated. Without explicit authority, agents stop before external effects, publication, changes to rights or attribution, or difficult-to-reverse changes.
-- Promptotyping provides maintained project working knowledge for the shared multi-session project.
-- Grounded Vault remains inactive without its claim-grounding trigger. When the trigger is present, record it as required with project-specific binding pending.
-- Another private, institutional, or project Vault remains inactive unless the project integration contract configures it as an optional long-term source with an exact source, selection boundary, authority, and write-back rule.
-- Independent fresh-context Verification is the default. Blind Verification is selected only when delaying named producer reasoning or reports reduces a material shared-assumption risk. It controls initial reading order and does not imply secrecy or conceal the verifier. Shadow Verification is a separate visibility and isolation profile that requires verified technical isolation, a private human user route, and omission from production contracts; the initializer does not activate it.
-- The repository remains local unless the user explicitly names remote ownership and visibility.
+The human user may answer any numbered item with "Was empfiehlst du?". Recommend one evidence-supported default and treat it as the answer. Do not ask the human user to confirm that default. Ask for a choice only when the unresolved alternative changes the configuration materially. Ask later for Decision, Authorization, Action, or Input only when a concrete action requires it.
 
 ## Select the structure
 
-Use direct work when one context can reliably carry objective, action, and check. Explain that the three-context reference setup would add no value in that case.
+Supply these defaults when the user has no preference:
 
-Use the standard shared-workspace profile when conceptual development, implementation, and outside checking need distinct contexts. It contains exactly two primary Postdoc functions:
+- Use direct work when one context can clarify, implement and check the contained assignment. Use separate Research and Operations contexts when their distinct working state is needed, with fresh-context Independent Verification as the standard shared-workspace profile.
+- Use [Promptotyping](https://github.com/DigitalHumanitiesCraft/Promptotyping) for maintained project knowledge across sessions. Add knowledge documents only when their function is needed.
+- Record [Grounded Vault](https://github.com/DigitalHumanitiesCraft/grounded-vault) as required with project-specific binding pending when claims need machine-resolvable evidence and attributable human verification. Describe it as active only after verifying that binding. Other external Vaults stay inactive until the integration contract defines the exact source, selection boundary, authority and write-back rule.
+- Reversible local work inside the accepted brief is agent-owned. External effects, publication, rights, attribution and difficult-to-reverse actions require explicit authority. A GitHub remote also requires its owner, name and visibility.
 
-- Research Orchestrator, the human user's direct conversation partner;
-- Operational Orchestrator, the responsible implementation context.
-
-The third working context is an Independent Verification Agent. It reports the complete finding first and only to the human user. The human user controls disclosure and routing of every finding to Research or Operations. Verification may recommend the responsible integration role but never produces the correction or integrates the consequence itself. Predoc Specialists are bounded subagents of either orchestrator and gain no authority or canonical write target through delegation alone.
-
-Activate [Promptotyping](https://github.com/DigitalHumanitiesCraft/Promptotyping) when work will continue across sessions from maintained project knowledge. The generated core contains `project.md`, `specification.md`, `journal.md`, `handoff.md`, `INDEX.md`, and one shared action layer. `handoff.md` contains unresolved received deltas only; Research removes a point after integration or rejection and preserves durable provenance in `journal.md`. Add other Knowledge Documents only when their published trigger applies.
-
-Require a [Grounded Vault](https://github.com/DigitalHumanitiesCraft/grounded-vault) binding only when substantive claims require machine-resolvable evidence links and attributable human verification. The trigger records a pending requirement. Describe grounding as active only after the project-specific binding has been established and verified.
+In the first substantive response after the answers, state whether Promptotyping is selected, whether the setup is local-only or still requires remote authorization, and that the Context Stream transports messages but does not wake another working context.
 
 ## Initialize the local workspace
 
-After the user answers the interview and authorizes local initialization, run the bundled scaffolder from the skill directory:
+The initializer creates new targets only and refuses every existing target. Adopting an existing repository needs a separately scoped migration. After configuration and authorization, run from the skill directory:
 
 ```text
 python scripts/init_workspace.py \
@@ -72,89 +62,46 @@ python scripts/init_workspace.py \
   --operations-harness <codex|claude-code|other> \
   --verification-harness <codex|claude-code|other> \
   --verification-mode <independent|blind> \
-  --canonical-input <path-or-url>
+  --canonical-input <path-or-url> \
+  --dry-run
 ```
 
-Add `--grounded-vault` only when its evidence trigger is established. The flag records `required; binding pending` and does not activate an integration. Select `--verification-mode blind` only when the initial assessment should precede excluded producer reasoning or reports. Treat it as a reading-order control, not a secrecy guarantee. Repeat `--canonical-input` for several sources.
+Repeat `--canonical-input` for several sources. Add `--grounded-vault` only when its evidence trigger holds. It records a pending requirement and does not activate an integration. Independent is the default. Blind adds a declared reading-order restriction for named producer reasoning or reports until the initial finding is sealed; it does not imply secrecy. Shadow adds verified technical isolation, a private human user route and omission from production contracts. The initializer does not activate Shadow. No mode provides a security or secrecy guarantee. Excluding producer reasoning before the initial finding belongs only to Blind mode.
 
-The generated `knowledge/integration.md` is the state-specific precedence and return-channel contract. Authority follows current human user decisions and governance; epistemic claims follow direct sources and maintained knowledge; operational claims follow inspected artifacts and systems; verification claims follow the complete finding and cited evidence. Record explicit recipients and observed wake or fallback routes before relying on cross-context delivery.
+Inspect the dry-run's configuration and complete output inventory. Run the same command without `--dry-run` only when they match the authorized setup. The scaffolder transactionally creates a local Git repository, maintained knowledge, Context Stream transport, complete role contracts and three start bindings. Its directly readable sources are in `assets/templates/`; maintain them rather than embedding Markdown in the renderer.
 
-First append `--dry-run`. The dry-run validates configuration, the complete template inventory, and all placeholder substitutions, then lists every planned output without creating a directory. Inspect the plan and run the same command without `--dry-run` only after the target and configuration match the authorized setup. The directly readable source for every generated contract is under `assets/templates/`; maintain those templates instead of embedding Markdown in the renderer.
-
-The scaffolder creates a new local Git repository transactionally. It refuses an existing target and leaves no partial target after a failed build. It creates:
-
-```text
-.gitattributes
-AGENTS.md
-CLAUDE.md
-knowledge/
-  INDEX.md
-  handoff.md
-  integration.md
-  journal.md
-  project.md
-  specification.md
-communication/
-  INDEX.md
-  PROTOCOL.md
-  capsules/README.md
-  threads/README.md
-  research/{state.md,outbox/README.md}
-  operations/{state.md,outbox/README.md}
-  verification/{state.md,outbox/README.md}
-mission-control/
-  roles/
-    research-orchestrator.md
-    operational-orchestrator.md
-    independent-verification-agent.md
-  start-research.md
-  start-operations.md
-  start-verification.md
-```
-
-Inspect every created path and run the bundled test before reporting success:
+Inspect every created path and run the bundled tests from the skill directory before reporting success:
 
 ```text
 python -m unittest discover -s tests -p "test_*.py"
 ```
 
-If a GitHub remote was authorized, create it only after the local scaffold passes and owner, name, and visibility are explicit. Report the verified URL. The Context Stream Protocol transports context through role-owned outboxes, recipient-owned state, stable thread identifiers, and optional closing capsules. Shared files do not wake sessions. Record the tested wake route and polling or human-mediated fallback in `knowledge/integration.md`.
+Create an explicitly authorized GitHub remote only after the local scaffold passes. Verify its URL and record each observed wake route and fallback in the generated integration contract. File creation alone establishes neither an active context nor a working return route.
 
 ## Start the three contexts
 
-The generated `mission-control/roles/*.md` files are the complete, local role contracts: `mission-control/roles/research-orchestrator.md`, `mission-control/roles/operational-orchestrator.md`, and `mission-control/roles/independent-verification-agent.md`. Each `mission-control/start-*.md` file is only a verified project binding: it activates exactly one matching full role contract and supplies the shared path, harness, authority source, verification mode, and communication route. Never replace the full local role contract with a shortened role summary in a start file.
+The three files under `mission-control/roles/` are complete, local role contracts. Never replace the full local role contract with a shortened role summary. Return the full generated `mission-control/start-research.md`, `mission-control/start-operations.md` and `mission-control/start-verification.md` in separate copyable code blocks. In the standard setup, keep the first context as Research and start Operations and Verification in fresh contexts at the same workspace.
 
-Return the full contents of the three generated `mission-control/start-*.md` files in separate copyable code blocks. The human user starts them in this order:
+Use the assigned role and integration contract for execution, source precedence, write ownership and exchange. Research is the single writer for maintained knowledge by default; Operations writes technical knowledge only at exact paths assigned by integration. Predoc Specialists have bounded assignments and gain no authority or canonical write target through delegation. Verification remains read-only against production artifacts and never produces corrections.
 
-1. keep the current working context as Research Orchestrator;
-2. paste `start-operations.md` into a fresh working context opened at the same repository;
-3. paste `start-verification.md` into a fresh working context opened at the same repository.
+An Implementation Brief carries objective and use, context and canonical sources, authority, write boundary and exclusions, expected result, criteria and reserved decisions. State which existing parts must be preserved, reused, adapted, or may be replaced. Operations inspects that baseline before generating a substitute.
 
-Each role reads the project knowledge permitted by its configured verification mode and `communication/PROTOCOL.md`, then maintains only its own outbox and recipient state. The start files assign responsibility; they do not duplicate project state. Briefs, results, and findings reference canonical artifacts. Verification reports its complete finding directly to the human user. The human user decides whether and when it is disclosed or routed for integration.
+Operations addresses the complete Result with Evidence to Verification and an Operations Result Notice to Research in the standard profile. Verification returns its complete finding directly to the human user as its first and only recipient. The human user controls disclosure and routing. An automatic child callback to the producer does not satisfy that route. If the separate context or permitted return is unavailable, report the limitation and only the check performed. Private Lab callbacks follow their deployment contract and do not establish portable conformance.
 
-Every Implementation Brief carries the objective and intended use, relevant context and canonical sources, authority, write boundary and exclusions, expected result, verification criteria, and decisions reserved for the human user. In the reference three-context profile, Research addresses it to Operations. Operations addresses the complete Result with Evidence to Verification and an Operations Result Notice to Research; the notice references the responsible result and canonical artifacts and never replaces either. Verification addresses its complete Finding first and only to the human user. A contained profile without separate Verification returns the checked result to Research or the human user as its integration contract specifies.
+Every independent assignment needs a bounded target, criterion, evidence packet, and completion condition. Standing watches and repair loops are operational monitoring requiring separate responsibility and authority. Technical conformance, domain validation and human acceptance remain separate judgements.
 
-Independent, Blind, and Shadow are distinct. Independent separates the read-only assessment context. Blind adds a declared reading-order restriction before the initial finding. Shadow adds verified technical isolation, a private human user route, and omission from production contracts and may use either ordinary or Blind reading order. No mode provides a security or secrecy guarantee.
+## Continue and close an assignment
 
-Excluding producer reasoning before the initial finding belongs only to Blind mode. Shadow may add visibility and isolation without changing the reading order.
+Inspect actual artifacts before treating a result notice as completion. Distinguish queued dispatch, the intended recipient's response, processing, verification and canonical integration. Observe every requested direction and target; omitted recipients stay unchecked. Use the configured wake route or authorized read fallback. An unavailable or rejected callback authorizes no repeated attempt, relay or broader permission.
 
-Research is the single writer for maintained `knowledge/` documents unless `knowledge/integration.md` explicitly assigns a narrower owner. Operations writes authorized project artifacts and returns candidate knowledge consequences through its immutable outbox. Verification is read-only, never produces corrections, and reports its complete finding to the human user through the direct conversation or its immutable outbox. Research integrates a verification consequence only after the human user routes it. Use `knowledge/handoff.md` only for unresolved received deltas and never as a shared multi-writer inbox or archive.
+Bind review evidence to the examined artifact and revision. Reuse earlier checks only after actual byte equivalence is established, disclosing differences and retaining failed observations and unexecuted cases. Diagnose the specific artifact, transport, environment or test prerequisite before a justified repeat.
+
+Close after the required result, verification and canonical write-back have been read back. Research uses `knowledge/handoff.md` only for unresolved received deltas, removes integrated or rejected points and records durable provenance in `knowledge/journal.md`. Preserve continuation in existing knowledge. Add no second handoff file, schedule or monitor merely because the context waits. Publication and human acceptance may remain open after a scoped assignment finishes.
 
 ## Human communication
 
-Lead with the current result and its practical meaning. Use formal blocks for state, responsibility, evidence, and decisions. Translate block and acceptance labels into the human user's selected language while preserving the semantic classes Decision, Authorization, Action, and Input. Explain content that the human user must inspect in one to three sentences before linking the source. Present only a decision that is needed now; list later decisions as upcoming context when they affect the current choice.
-
-After configuration, when the human user is stuck, ask up to five short conceptual questions that can be answered without technical detail. If the human user answers "Was empfiehlst du?", recommend one course and continue within the available authority.
+Lead with the actual result and practical meaning in the human user's language. Preserve evidence and limits, and distinguish Decision, Authorization, Action and Input when a contribution is required. Explain the material the human user must inspect before linking it. After configuration, if the human user is stuck, ask up to five short conceptual questions answerable without technical detail; recommend one course when asked.
 
 ## Completion report
 
-Report:
-
-- the initialized local path and verified Git state;
-- the selected knowledge profile and any still-pending Grounded Vault binding;
-- the three generated start contracts;
-- the actual remote URL or the explicit local-only state;
-- the tested communication route and fallback;
-- any human user authorization still required.
-
-Never describe a generated file, repository, remote, or active return route as complete until it has been directly verified.
+For a new setup, report the verified local path and Git state, knowledge profile and pending bindings, full start contracts, actual remote URL or local-only state, tested communication routes and fallback, and any missing authority. For continuation, report the result and artifact binding, performed checks, verified communication and write-back stages, remaining limits and one next action or waiting condition. Never describe an unverified file, repository or return route as complete.

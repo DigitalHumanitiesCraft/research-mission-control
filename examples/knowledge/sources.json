@@ -1,0 +1,35 @@
+{
+  "schema": "rmc-knowledge-sources-1",
+  "roots": {
+    "project": "notes"
+  },
+  "documents": [
+    {
+      "id": "question",
+      "root": "project",
+      "file": "research-question.md",
+      "title": "Research question",
+      "tags": [
+        "example"
+      ],
+      "type": "research"
+    },
+    {
+      "id": "terms",
+      "root": "project",
+      "file": "terms.md",
+      "title": "Terms",
+      "aliases": [
+        "Definitions"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "from": "question",
+      "to": "terms",
+      "line": 3,
+      "quote": "See [Terms](terms.md) for the example distinction."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"><title>Views | Research Mission Control</title><link rel="stylesheet" href="../../../site.css"><link rel="stylesheet" href="../../docs.css"></head>
+<body><a class="skip-link" href="#document">Skip to document</a>
+<header class="docs-header"><a class="brand" href="../../../index.html">Research Mission Control</a><nav aria-label="Primary navigation"><a href="../../../index.html">Overview</a><a href="../../knowledge/system-description.html">Method in practice</a><a href="../../../index.html#downloads">Reference</a></nav></header>
+<main class="docs-layout" id="document" tabindex="-1"><details class="contents"><summary>Sections in this reference</summary><div class="toc">
+<ul>
+<li><a href="#adding-a-view">Adding a view</a></li>
+</ul>
+</div>
+</details><article><h1 id="adding-a-view">Adding a view<a class="headerlink" href="views.html#adding-a-view" title="Permanent link">&para;</a></h1>
+<p>The existing mission-control/navigation.js route array is the only view registry. A route has a stable key, relative HTML file and visible label. Keep keys stable when a label changes. Existing keys retain their URLs, history and source/task identity.</p>
+<ol>
+<li>Add one route to that array. Do not copy the registry into another view or adapter. The settings normalizer appends a new key without destroying a person's existing order. Unknown/duplicate stored keys are normalized; Overview remains visible; a directly opened hidden route remains reachable.</li>
+<li>Add a semantic HTML page with the existing base/navigation/shell styles and loading order. Use the shared header rather than repeating navigation HTML. Read the data-independent header and an adjacent view before choosing dependencies. Match the existing classic window contracts where required; use native modules for module-based controllers.</li>
+<li>Keep project/source/task logic in the shared model owner. A view controller renders its bounded task and stores only appropriate local presentation state. Reuse the existing source helper and shared conversation component for full-text expansion, copying and manual fallback. An optional editorial data asset may enrich a result but cannot invent state or authority.</li>
+<li>Add the new HTML/code/style members to the explicit export manifest with their correct license. Every src/import/href destination must exist under the deployment subpath. A view that supports a result return also needs an explicit safe entry in ergebnisse.js returnTarget; this separate allowlist is a trust boundary, not a second navigation registry.</li>
+<li>Check direct URL, history/back/forward, active/hidden navigation, keyboard focus and restoration, narrow light/dark reflow, missing data and blocked storage. Run the package browser check and extend it with the actual user task. New code files must be included in the manifest before its hashes are refreshed.</li>
+</ol>
+<p>There is no view factory, personal Second Brain assumption, account requirement or live-agent inference. Shared UI/model code remains the same for the synthetic example and an explicitly selected project-source adapter.</p></article>
+<details class="source-meta"><summary>Document source and release information</summary><p>Package release 0.9.0rc3</p><p>Source <code>demo/docs/views.md</code>. <a href="../../../demo/docs/views.md" download>Download original Markdown</a></p><details><summary>Original document metadata</summary><p>Document versions and dated evidence describe their recorded scope. Rendering this document in another package does not update those findings.</p><dl></dl></details></details>
+</main><footer class="docs-footer"><a href="../../../index.html">Overview</a><a href="../../../index.html#downloads">Reference and reuse</a><a href="../../../demo/docs/views.md" download>Original Markdown</a></footer></body></html>

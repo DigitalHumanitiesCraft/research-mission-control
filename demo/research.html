@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title data-i18n-de="Second Brain | Überblick" data-i18n-en="Second Brain | Overview">Second Brain | Overview</title>
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mission-control/navigation.css">
+<link rel="stylesheet" href="demo.css">
+<script src="demo-profiles.js"></script>
+<script src="demo-runtime.js"></script>
+<script src="mission-control/vault-links.js"></script>
+<script src="mission-control/language.js"></script>
+<script src="mission-control/navigation.js"></script>
+  <link rel="stylesheet" href="shell.css">
+  <link rel="stylesheet" href="research.css">
+</head>
+<body class="research" data-shell-page="knowledge">
+  <a class="sprung" href="#research-query" data-i18n-de="Zur Suche" data-i18n-en="Skip to search">Skip to search</a>
+  <header class="kopf shell-kopf"><h1>Second Brain</h1></header>
+  <main class="research-main">
+    <div class="research-tools">
+      <form id="research-search" role="search">
+        <label for="research-query"><span data-i18n-de="Wissen finden" data-i18n-en="Find knowledge">Find knowledge</span><input id="research-query" type="search" placeholder="Title, keyword or path" data-i18n-placeholder-de="Titel, Schlagwort oder Pfad" data-i18n-placeholder-en="Title, keyword or path" maxlength="160" autocomplete="off"></label>
+        <button class="knopf" type="submit" data-i18n-de="Suchen" data-i18n-en="Search">Search</button>
+      </form>
+      <label for="research-view"><span data-i18n-de="Ansicht" data-i18n-en="View">View</span><select id="research-view"><option value="overview" data-i18n-de="Überblick" data-i18n-en="Overview">Overview</option><option value="context" data-i18n-de="Zusammenhänge" data-i18n-en="Connections">Connections</option><option value="atlas">Atlas</option><option value="board" data-i18n-de="Arbeitsfläche" data-i18n-en="Workspace">Workspace</option><option value="paths" data-i18n-de="Wissenswege" data-i18n-en="Knowledge paths">Knowledge paths</option></select></label>
+      <button class="knopf" id="coverage-open" type="button" data-i18n-de="Quellenumfang" data-i18n-en="Source coverage">Source coverage</button>
+      <a class="research-baseline" href="research.html#view=context&amp;source=demo-guide&amp;read=1">Obsidian</a>
+    </div>
+    <section id="resume-place" aria-label="Saved thinking state" data-i18n-aria-label-de="Gespeicherter Denkstand" data-i18n-aria-label-en="Saved thinking state" hidden></section>
+    <p id="research-error" class="stoerung" role="alert" hidden></p>
+    <p id="research-status" role="status" data-i18n-de="Quellen werden geladen." data-i18n-en="Loading sources.">Loading sources.</p>
+    <div class="research-layout">
+      <section class="research-stage" aria-labelledby="stage-title">
+        <div class="stage-heading"><h2 id="stage-title" tabindex="-1" data-i18n-de="Dein Wissen" data-i18n-en="Your knowledge">Your knowledge</h2><nav id="research-breadcrumb" aria-label="Current selection" data-i18n-aria-label-de="Aktueller Ausschnitt" data-i18n-aria-label-en="Current selection"></nav></div>
+        <div id="research-space"></div>
+      </section>
+      <aside id="research-inspector" class="research-inspector" aria-label="Selected source" data-i18n-aria-label-de="Ausgewählte Quelle" data-i18n-aria-label-en="Selected source" hidden></aside>
+    </div>
+  </main>
+  <dialog id="resume-dialog" aria-labelledby="resume-title">
+    <form id="resume-form">
+      <div class="dialog-heading"><h2 id="resume-title" data-i18n-de="Denkstand festhalten" data-i18n-en="Save thinking state">Save thinking state</h2><button class="knopf" id="resume-close" type="button" data-i18n-de="Schließen" data-i18n-en="Close">Close</button></div>
+      <p id="resume-source" class="source-origin"></p>
+      <label for="resume-note" data-i18n-de="Welche Frage oder Überlegung möchtest du wieder aufnehmen?" data-i18n-en="Which question or idea would you like to resume?">Which question or idea would you like to resume?</label>
+      <textarea id="resume-note" rows="5" maxlength="4000" required></textarea>
+      <p id="resume-error" class="stoerung" role="alert" hidden></p>
+      <button class="knopf" type="submit" id="resume-save" data-i18n-de="Denkstand speichern" data-i18n-en="Save thinking state">Save thinking state</button>
+    </form>
+  </dialog>
+  <dialog id="coverage-dialog" aria-labelledby="coverage-title">
+    <div class="dialog-heading"><h2 id="coverage-title" data-i18n-de="Erschlossene Quellen" data-i18n-en="Indexed sources">Indexed sources</h2><button class="knopf" id="coverage-close" type="button" data-i18n-de="Schließen" data-i18n-en="Close">Close</button></div>
+    <div id="coverage-content"></div>
+  </dialog>
+  <script src="mission-control/data/projekte-data.js"></script>
+  <script type="module" src="research.js"></script>
+</body>
+</html>

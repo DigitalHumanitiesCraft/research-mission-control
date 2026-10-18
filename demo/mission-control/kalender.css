@@ -1,0 +1,137 @@
+/* Kalender: six weeks as a large grid; weekdays wide, the weekend narrow,
+   past days quieter, today labelled at its date, a conflict day framed red. Each item is
+   its entry name; a daily native disclosure holds the complete work log.
+   The selected entry retains full appointment descriptions and log lines. A chosen entry opens its detail beside the grid. Uses the tokens of
+   base.css only. */
+@layer components {
+
+  .kal-kopf { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s4); margin-block-end: var(--s3); }
+  .kal-kopf h3 { font-size: var(--t-klein); font-weight: 600; }
+  .kal-blaettern { display: flex; gap: var(--s1); }
+  .kal-blaettern button { min-height: 2rem; min-width: 2rem; padding: 0 var(--s2); border: 1px solid var(--control-line); border-radius: 999px; font-size: var(--t-klein); color: var(--soft); }
+  .kal-blaettern button:hover { color: var(--ink); }
+  .kal-legende { display: grid; gap: var(--s2); font-size: var(--t-mini); color: var(--soft); }
+  .kal-legende-arten, .kal-legende-farben { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: 2px var(--s2); }
+  .kal-legende-gruppe { margin: 0; }
+  .kal-legende-art { color: var(--ink); }
+  .kal-legende-art.konflikt .kal-zeichen { color: var(--stoerung); font-weight: 700; }
+  .kal-legende-farben { margin-block-start: var(--s1); }
+  .kal-quellenstand { flex-basis: 100%; display: grid; gap: var(--s1); }
+  .kal-snapshot, .kal-abdeckung { font-size: var(--t-mini); color: var(--soft); line-height: 1.5; overflow-wrap: anywhere; }
+  .kal-abdeckung { color: var(--ink); }
+
+  /* The grid and, with a chosen entry, its detail beside it. */
+  .kal-flaeche { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s4); align-items: start; }
+  .kal-flaeche.mit-auswahl { grid-template-columns: minmax(0, 1fr) 22rem; }
+  /* Context grows above the calendar in the agenda; its grid must not anchor that expansion. */
+  @supports (overflow-anchor: none) {
+    .kal-flaeche.mit-auswahl { overflow-anchor: none; }
+  }
+
+
+  .kal-raster { display: grid; grid-template-columns: 3.25rem repeat(5, minmax(0, 1fr)) repeat(2, minmax(0, 0.55fr)); gap: 2px; }
+  .kal-wt { font-size: var(--t-mini); color: var(--soft); padding: 0 6px 4px; }
+  .kal-kw { font-family: var(--mono); font-size: 0.6875rem; color: var(--soft); padding-block-start: 6px; }
+  .kal-tag { scroll-margin-block-start: var(--s2); min-block-size: 3.5rem; padding: 6px; background: var(--surface); border-radius: 4px; border: 1px solid transparent; min-inline-size: 0; }
+  .kal-tag.we { background: transparent; }
+  /* The past week stays for the look back but steps back, by colour and
+     not by opacity, which would take the text below its contrast. */
+  .kal-tag.vorbei { background: transparent; }
+  :is(.kal-tag, .kal-balken).vorbei :is(.kal-name, .kal-zeichen) { color: var(--soft); }
+  .kal-tag.eng { border-color: var(--stoerung); }
+  .kal-datum { display: block; font-family: var(--mono); font-size: 0.75rem; color: var(--soft); margin-block-end: 4px; }
+  .kal-tag.heute .kal-datum { display: table; padding: 2px 6px; border-radius: var(--r); background: var(--ink); color: var(--paper); font-family: var(--sans); font-weight: 600; }
+  .kal-tag.heute:focus-visible { outline: none; }
+  .kal-tag.heute:focus-visible .kal-datum { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .kal-konflikt { color: var(--stoerung); font-weight: 700; cursor: help; }
+  .kal-tag ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+
+  .kal-logs { margin-block-start: var(--s2); font-size: 0.75rem; color: var(--soft); }
+  .kal-logs summary { min-block-size: 1.5rem; padding-block: 2px; cursor: pointer; overflow-wrap: anywhere; }
+  .kal-logs summary:hover { color: var(--ink); }
+  .kal-log-zuordnung { margin-block-start: var(--s1); margin-inline-start: 1.05rem; font-size: var(--t-mini); overflow-wrap: anywhere; }
+  .kal-log-zuordnung a { text-decoration: underline; text-underline-offset: 0.12em; }
+  .kal-log-herkunft { margin-block: var(--s1) var(--s2); font-size: var(--t-mini); color: var(--soft); }
+  .kal-tag .kal-log-zeilen { margin-block-start: var(--s1); margin-inline-start: 1.05rem; gap: var(--s1); line-height: 1.45; overflow-wrap: anywhere; }
+
+  /* An item: sign and title; descriptions remain in the selected detail. */
+  .kal-posten { font-size: 0.75rem; line-height: 1.3; min-inline-size: 0; border-radius: 3px; }
+  .kal-knopf, .kal-posten-kopf {
+    display: grid; grid-template-columns: 0.8rem minmax(0, 1fr); column-gap: 4px; align-items: baseline;
+    inline-size: 100%; padding: 2px; text-align: start; border-radius: 3px;
+  }
+  .kal-knopf { min-block-size: 1.5rem; cursor: pointer; font: inherit; color: inherit; background: none; border: 0; }
+  .kal-knopf:hover { background: color-mix(in oklch, var(--ink) 6%, transparent); }
+  .kal-knopf:focus-visible { outline-offset: -2px; }
+  .kal-posten.erledigt { color: var(--soft); }
+  /* A Google Calendar appointment: quieter than an ACTIVE-WORK item, as it
+     belongs to no entry. */
+  .kal-posten.kalender { cursor: help; color: var(--soft); }
+  .kal-posten.kalender .kal-name { font-weight: 500; }
+  /* The calendar an appointment comes from: a stripe in its Google Calendar
+     colour; the sign keeps the text colour for contrast. The legend names the
+     calendars with the same stripe. */
+  .kal-posten.mit-farbe { border-inline-start: 3px solid var(--kal-farbe); padding-inline-start: 2px; }
+  .kal-quelle { border-inline-start: 3px solid var(--kal-farbe); padding-inline-start: 4px; cursor: help; }
+  /* A bar over several days wraps within its calendar span. */
+  .kal-balken { align-self: center; padding: 1px 4px; background: color-mix(in oklch, var(--kal-farbe, var(--soft)) 16%, transparent); }
+  .kal-raster .kal-balken, .kal-balken .kal-knopf { display: flex; gap: 4px; align-items: baseline; }
+  .kal-balken .kal-name { min-inline-size: 0; overflow-wrap: anywhere; font-weight: 500; }
+  .kal-balken .kal-zeichen { grid-row: auto; }
+  .kal-balken .bezahlt { flex: none; margin-inline-start: 0; }
+  .kal-zeit { font-family: var(--mono); font-size: 0.6875rem; font-weight: 400; color: var(--soft); }
+  .kal-zeichen { color: var(--ink); grid-row: 1 / span 2; text-align: center; }
+  .kal-name { font-weight: 600; overflow-wrap: anywhere; }
+  .kal-text { color: var(--soft); overflow-wrap: anywhere; }
+  .kal-posten.eng .kal-zeichen, .kal-posten.frist.eng .kal-name { color: var(--stoerung); }
+
+  /* The pointed entry lights up across the grid; a chosen one stays lit
+     and the other items step back. */
+  .kal-posten.verwandt, .kal-posten.gewaehlt { background: color-mix(in oklch, var(--ink) 9%, transparent); box-shadow: inset 2px 0 0 var(--ink); }
+  .mit-auswahl .kal-haupt .kal-posten:not(.gewaehlt):not(.verwandt) :is(.kal-name, .kal-zeichen) { color: var(--soft); }
+
+  .kal-wann { font-family: var(--mono); font-size: var(--t-mini); color: var(--soft); white-space: nowrap; }
+
+  /* The selected entry follows the page scroll with all its content visible. */
+  .kal-detail {
+    padding: var(--s3); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; display: grid; gap: var(--s3);
+  }
+  .kal-detail-kopf { display: flex; align-items: start; justify-content: space-between; gap: var(--s2); }
+  .kal-detail-kopf h3 { font-size: var(--t-klein); font-weight: 700; }
+  .kal-schliessen { min-width: 2rem; min-height: 2rem; border: 1px solid var(--control-line); border-radius: 999px; color: var(--soft); font-size: 1rem; line-height: 1; }
+  .kal-schliessen:hover { color: var(--ink); }
+  .kal-detail-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: var(--t-klein); }
+  .kal-detail-liste li { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: var(--s2); align-items: baseline; }
+  .kal-stand, .kal-wartet, .kal-zeile-text { overflow-wrap: anywhere; }
+  .kal-stand { font-size: var(--t-klein); }
+  .kal-wartet { font-size: var(--t-klein); color: var(--soft); }
+  .kal-erledigt h4 { font-size: var(--t-mini); color: var(--soft); margin-block-end: var(--s2); }
+  .kal-detail-liste li.eng .kal-wann, .kal-hinweis { color: var(--stoerung); font-weight: 600; }
+  .kal-lane { font-size: var(--t-mini); color: var(--soft); }
+
+}
+
+/* Narrower: the detail moves above the grid. */
+@media (max-width: 70rem) {
+  .kal-flaeche.mit-auswahl { grid-template-columns: minmax(0, 1fr); }
+  .kal-detail { position: static; max-block-size: none; order: -1; }
+}
+
+/* Narrow: the calendar becomes one column of days, weekends included,
+   empty days left out. */
+@media (max-width: 48rem) {
+  .kal-raster { grid-template-columns: 1fr; }
+  .kal-wt { display: none; }
+  .kal-tag { min-block-size: 0; }
+  /* One column: everything flows in document order, bars before the days
+     of their week. */
+  .kal-raster > * { grid-row: auto !important; grid-column: 1 / -1 !important; }
+  .kal-tag:not(:has(li)):not(.heute) { display: none; }
+  .kal-tag .kal-datum::before { content: attr(data-wt); }
+}
+
+/* The shared sidebar reduces working width before the viewport becomes narrow. */
+@container mc-shell (max-width: 70rem) {
+  .kal-flaeche.mit-auswahl { grid-template-columns: minmax(0, 1fr); }
+  .kal-detail { position: static; max-block-size: none; order: -1; }
+}

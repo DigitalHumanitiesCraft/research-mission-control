@@ -1,0 +1,73 @@
+/* View-specific styles for frische.html. Tokens, header and row form come
+   from base.css, shell.css and icons.css; the column frame follows the
+   group columns of uebersicht.css. Unlayered, so these rules win over the layered
+   base where both style the same element. */
+body.fr { background: var(--paper); font-size: 0.875rem; }
+
+body.fr .erzeugt { font-family: var(--mono); font-size: 0.6875rem; color: var(--soft); margin: 0 0 8px; }
+body.fr .erzeugt [title] { cursor: help; }
+body.fr .erzeugt .veraltet, body.fr .erzeugt.fehlt { color: var(--ink); }
+
+body.fr .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 12px; align-items: start; }
+body.fr .stapel { display: grid; gap: 12px; align-content: start; min-width: 0; }
+
+/* Groups separate by surface; the one hairline sits under the group head. */
+body.fr .col { background: transparent; border-block-start: 1px solid var(--line); padding-block: var(--s2); min-width: 0; }
+body.fr .col h2 { position: sticky; top: 0; z-index: 1; background: var(--paper); padding: 8px 0 4px; margin: 0 0 6px; border-bottom: 1px solid var(--line);
+  font-size: 0.75rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.06em; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+body.fr .col h2 .n { font-family: var(--mono); color: var(--soft); cursor: help; }
+body.fr .col.ohne-beleg h2, body.fr .col.ruhend h2 { color: var(--soft); }
+body.fr .col.ohne-beleg, body.fr .col.ruhend { background: var(--paper); }
+body.fr .col.ohne-beleg h2, body.fr .col.ruhend h2 { background: var(--paper); }
+body.fr .col.ruhend .zeile > .name a, body.fr .col.ruhend .zeile > .etikett { color: var(--soft); }
+
+body.fr .col .zeile { scroll-margin-top: 2.25rem; }
+/* Every row is its own grid, so the fact gets a fixed track wide enough for
+   "Projektdokument 07.10." and aligns across rows; its parts break only
+   between each other, and the name keeps the rest of the column. */
+@media (min-width: 521px) {
+body.fr .col .zeile { grid-template-columns: minmax(0, 1fr) 11.5rem auto; }
+}
+body.fr .zeile > .etikett .beleg { white-space: nowrap; }
+body.fr .zeile > .etikett [title], body.fr .zeile > .ende [title] { cursor: help; }
+body.fr .zeile > .etikett .marke { font-family: var(--mono); font-size: 0.75rem; margin-inline-start: 3px; }
+body.fr .zeile > .etikett .marke.geaendert { color: var(--ink); }
+body.fr .zeile > .etikett .marke.ungepusht { color: var(--ink); }
+body.fr .zeile > .etikett .fakt-leer { color: var(--soft); }
+body.fr .zeile .zweite.markiert { color: var(--ink); }
+
+/* Detail without frame: small soft lead, the commit subject in ink. */
+body.fr .zeile > .detail { padding-block-end: 8px; }
+body.fr .zeile > .detail .lead { color: var(--soft); }
+body.fr .zeile > .detail .datum { font-family: var(--mono); font-size: 0.6875rem; color: var(--soft); }
+body.fr .zeile > .detail .text { color: var(--ink); }
+body.fr .zeile > .detail .zusatz { color: var(--ink); }
+body.fr .zeile > .detail a { color: var(--ink); }
+body.fr .zeile > .detail [title] { cursor: help; }
+body.fr .zeile > .detail a[title] { cursor: pointer; }
+body.fr .aktion { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin-block-start: 4px; }
+body.fr .aktion button { min-height: var(--control-size); padding: 2px 10px; border: 1px solid var(--control-line); border-radius: var(--r); background: var(--sunken); color: var(--ink); font-size: 0.8125rem; }
+body.fr .aktion button:hover { background: var(--selection); }
+body.fr .aktion .loesen { background: none; border-color: transparent; color: var(--soft); padding-inline: 2px; }
+body.fr .aktion .loesen:hover { color: var(--ink); background: none; }
+body.fr .aktion .markiert-text { font-family: var(--mono); font-size: 0.6875rem; color: var(--ink); }
+
+@media (max-width: 48rem) {
+body.fr .cols { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) { body.fr * { transition: none !important; } }
+
+.project-evidence { min-width: 0; margin-block: var(--s2); }
+.project-evidence > summary { cursor: pointer; }
+.project-evidence > .detail { padding-block: var(--s2); overflow-wrap: anywhere; }
+.project-evidence .lead, .project-evidence .datum { color: var(--soft); }
+.project-evidence .datum { font-family: var(--mono); }
+.project-evidence .copy-fallback { width: 100%; min-width: 0; }
+.project-evidence .evidence-status { flex-basis: 100%; }
+
+.project-evidence .aktion { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin-block-start: 4px; }
+.project-evidence .aktion button { min-height: var(--control-size); padding: 2px 10px; border: 1px solid var(--control-line); border-radius: var(--r); background: var(--sunken); color: var(--ink); font-size: 0.8125rem; }
+.project-evidence .aktion button:hover { background: var(--selection); }
+.project-evidence .aktion .loesen { background: none; border-color: transparent; color: var(--soft); }
+.project-evidence .markiert-text { font-family: var(--mono); font-size: 0.6875rem; }

@@ -1,0 +1,11 @@
+.operator-session-metadata { color: var(--soft); font-size: var(--t-klein); min-inline-size: 0; margin-block: var(--s1); }
+.operator-session-description { color: var(--ink); font-size: var(--t-klein); overflow-wrap: anywhere; max-inline-size: 70ch; min-inline-size: 0; }
+.operator-session-description p { margin-block: var(--s1); }
+.operator-session-description .operator-session-essential { color: var(--ink); white-space: normal; overflow-wrap: anywhere; text-overflow: clip; }
+.operator-session-description .operator-session-date { color: var(--soft); }
+.operator-session-proof { margin-block-start: var(--s1); }
+.operator-session-proof > summary { color: var(--soft); cursor: pointer; min-block-size: var(--control-size, 1.5rem); }
+.operator-session-proof > summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.operator-session-proof dl { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; margin-block: var(--s2); }
+.operator-session-proof dt { color: var(--soft); }
+.operator-session-proof dd { margin: 0 0 var(--s2); }

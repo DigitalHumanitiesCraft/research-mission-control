@@ -2,7 +2,7 @@
 title: Contextual Choice of Orchestration and Verification
 status: active
 language: en
-updated: 2026-08-22
+updated: 2026-10-17
 related: [project, orchestration-architecture]
 ---
 
@@ -14,7 +14,7 @@ This document helps choose direct work, delegation, hierarchy, and verification 
 
 ## Direct work
 
-Use one working context when the next action is clear, the artifact space is contained, relevant knowledge fits reliably, and the result can be checked directly. One instance may perform Research, Operations, and Verification responsibilities in a visible sequence.
+Use one working context when the next action is clear, the artifact space is contained, relevant knowledge fits reliably, and the result can be checked directly. One context can clarify the objective, implement an authorized change and perform production checks in a visible sequence. Independent Verification requires a separate review context.
 
 Direct work remains appropriate for many substantial tasks when their reasoning and artifact state are tightly coupled. Agent count and general complexity do not establish a need for orchestration.
 
@@ -45,7 +45,7 @@ Choose the verification form by asking:
 
 This produces four common choices:
 
-- working-instance verification for bounded, reversible, mechanically checkable, or strongly context-dependent work;
+- working-instance production checks for bounded, reversible, mechanically checkable, or strongly context-dependent work;
 - fresh-context review for readability, usability, documentation, and architectural blind spots;
 - independent specialist verification for consequential factual, scientific, security, and data-quality claims;
 - two-stage verification for context-dependent work with significant consequences.

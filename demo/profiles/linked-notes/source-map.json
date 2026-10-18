@@ -1,0 +1,8 @@
+{
+  "demo-guide": "profiles/linked-notes/notes/demo-guide.json",
+  "demo-sources/demo-research.md": "profiles/linked-notes/notes/demo-research.json",
+  "demo-sources/demo-curation.md": "profiles/linked-notes/notes/demo-curation.json",
+  "demo-sources/demo-writing.md": "profiles/linked-notes/notes/demo-writing.json",
+  "demo-sources/demo-teaching.md": "profiles/linked-notes/notes/demo-teaching.json",
+  "demo-sources/demo-observer.md": "profiles/linked-notes/notes/demo-observer.json"
+}

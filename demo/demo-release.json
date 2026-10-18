@@ -1,0 +1,7 @@
+{
+  "schema": "mission-control-demo-release-1",
+  "version": "0.9.0rc3",
+  "status": "release-candidate",
+  "sourceCommit": "fb722ed5e0690975b5bdf8060bb67e62c3cfab1f",
+  "sourceDirty": false
+}

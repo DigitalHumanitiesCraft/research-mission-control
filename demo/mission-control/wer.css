@@ -1,0 +1,56 @@
+/* View-specific styles for wer.html. Tokens, header and row form come from
+   base.css, shell.css and icons.css. Unlayered, so these rules win over
+   the layered base where both style the same element. */
+
+/* Same frame as index.html: the base body padding of base.css and no
+   own frame, so the shared header sits at the same place in both views. */
+main:has(> #block-instanzen) { display: grid; gap: var(--s4); }
+
+/* Blocks as the groups of the Übersicht: a panel, the head in the block's
+   colour, rows separated by space only. */
+.block { background: transparent; border-block-start: 1px solid var(--line); padding-block: var(--s3); min-inline-size: 0; }
+.block h2 { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 6px; display: flex; justify-content: space-between; gap: 8px; }
+.block h2 .n { font-family: var(--mono); font-weight: 400; color: var(--soft); cursor: help; }
+.block.du h2 { color: var(--dich); }
+.spalten { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 12px; align-items: start; }
+/* The operator block holds the questions with their answer forms, so it
+   gets the widest column while all three blocks stand side by side. */
+@media (min-width: 64rem) {
+  .spalten:not(:has(> [hidden])) { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr); }
+}
+
+/* Rows of the three entry blocks: the date as sort key on the left, the
+   name beside it and the label below the name, so names keep the column
+   width instead of breaking into syllables. */
+.spalten .zeile { grid-template-columns: 3.25rem minmax(0, 1fr) auto; }
+.spalten .zeile > .datum { grid-area: 1 / 1; font-family: var(--mono); font-size: 0.6875rem; color: var(--soft); white-space: nowrap; }
+.spalten .zeile > .datum[title] { cursor: help; }
+.spalten .zeile > .datum.dich { color: var(--dich); }
+.spalten .zeile > .datum.termin { color: var(--ink); }
+.spalten .zeile > .datum.lange { color: var(--andere); font-weight: 600; }
+.spalten .zeile > .datum.konflikt { color: var(--stoerung); font-weight: 600; }
+.spalten .zeile > .name { grid-area: 1 / 2; hyphens: manual; -webkit-hyphens: manual; overflow-wrap: break-word; }
+.spalten .zeile > .etikett { grid-area: 2 / 2 / 3 / -1; }
+.spalten .zeile > .ende { grid-area: 1 / 3; }
+.spalten .zeile > .ende:empty { display: none; }
+
+/* Lane rows: the call name in the lane colour, the entry as label. The block
+   spans the page, so the name column keeps the width it has in the narrower
+   blocks below instead of growing with the page. */
+@media (min-width: 521px) {
+  #liste-instanzen .zeile { grid-template-columns: minmax(9rem, 16rem) minmax(0, 1fr) auto; }
+}
+.zeile > .name :is(button, a).orchestrator { color: var(--orchestrator); }
+.zeile > .name :is(button, a).build { color: var(--build); }
+.zeile > .name :is(button, a).review { color: var(--review); }
+.zeile .zustand-wort { cursor: help; }
+.zeile .zustand-wort.run { color: var(--bereit); font-weight: 600; }
+.zeile .zustand-wort.blocked { color: var(--stoerung); font-weight: 600; }
+.zeile .zustand-wort.done { color: var(--andere); }
+.zeile > .ende [title], .zeile > .etikett[title], .zeile > .etikett [title] { cursor: help; }
+
+/* The conflict written out under the label of the row that must act. */
+.zeile > .etikett .label, .zeile > .etikett .konflikt-text { display: block; }
+.zeile > .etikett .konflikt-text { color: var(--stoerung); font-size: 0.75rem; font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

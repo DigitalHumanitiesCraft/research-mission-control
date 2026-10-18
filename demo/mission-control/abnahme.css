@@ -1,0 +1,112 @@
+@layer layout {
+  /* One reading column: the Human User reads top to bottom and decides at the end. */
+  #abnahme { max-inline-size: 46rem; margin: var(--s6) auto; padding: 0 var(--s4) var(--s6); overflow-wrap: anywhere; }
+  .ab-kopf { margin-bottom: var(--s6); }
+  .ab-kopf h1 { margin: var(--s3) 0 0; font-size: 1.6rem; line-height: 1.25; }
+  .ab-teil { margin-bottom: var(--s5); }
+  #abnahme h2 { font-size: 1.125rem; margin-block-end: var(--s2); color: var(--ink); font-weight: 600; }
+  #abnahme h3 { font-size: var(--t-klein); margin: var(--s4) 0 var(--s2); }
+  #abnahme p { margin-bottom: var(--s2); max-width: 70ch; }
+  .ab-teil > p { font-size: 1.05rem; }
+  .ab-befunde { padding-left: var(--s5); }
+  .ab-befunde li { margin-bottom: var(--s2); }
+  .ab-ansehen { display: flex; flex-wrap: wrap; gap: var(--s3); }
+  .ab-ansehen li { display: grid; gap: .4rem; align-content: start; }
+  .ab-original { display: inline-block; min-block-size: 24px; }
+  .ab-pfad { display: inline-block; padding: var(--s2) 0; font-family: var(--mono); font-size: var(--t-klein); color: var(--soft); }
+  #abnahme a { display: inline-block; min-block-size: 1.5rem; text-decoration: underline; text-underline-offset: .2em; text-decoration-color: var(--control-line); }
+  #abnahme a:hover { text-decoration-color: currentColor; }
+  button.ab-knopf { display: inline-block; padding: .55rem .9rem; border: 1px solid var(--control-line); border-radius: var(--r); background: var(--surface); color: var(--ink); }
+  button.ab-knopf:hover { background: var(--selection); }
+  button.ab-knopf:disabled { opacity: .5; cursor: not-allowed; }
+  .ab-ziel { color: var(--soft); }
+  button.ab-haupt { background: var(--ink); color: var(--paper); border-color: var(--ink); font-weight: 600; }
+  button.ab-haupt:hover { background: var(--ink); opacity: .88; }
+  .ab-entscheidung { margin-block-start: var(--s6); }
+  .ab-entscheidung label { display: block; margin: var(--s3) 0 var(--s1); }
+  .ab-entscheidung textarea { width: 100%; padding: var(--s2); background: var(--surface); border: 1px solid var(--control-line); border-radius: var(--r); }
+  .ab-aktionen { display: flex; flex-wrap: wrap; gap: var(--s3); margin: var(--s3) 0; }
+  .ab-bestaetigung { padding: var(--s3); background: var(--sunken); border-radius: var(--r); }
+  .ab-fehlt { font-weight: 600; }
+  .ab-hinweis { color: var(--soft); font-size: var(--t-klein); }
+  .ab-fehler { color: var(--stoerung); }
+  .ab-fehler:empty { display: none; }
+  .ab-technik { margin-block-start: var(--s5); font-size: var(--t-klein); color: var(--soft); }
+  .ab-technik dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--s1) var(--s3); margin: var(--s3) 0; }
+  .ab-technik dd { margin: 0; min-width: 0; }
+  .ab-technik code { font-family: var(--mono); word-break: break-all; }
+  .ab-technik ul, .ab-status { padding-left: var(--s5); }
+  .ab-status li { margin-bottom: var(--s2); }
+  .ab-status strong { display: block; }
+  .ab-beleg pre { white-space: pre-wrap; font: inherit; padding: var(--s3) 0; }
+  .ab-quelle { color: var(--soft); }
+  .ab-kontext, .ab-auftrag { margin-block: var(--s3) var(--s5); }
+  .ab-kontext { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s4); font-size: var(--t-klein); color: var(--soft); }
+  #abnahme details > summary { min-block-size: 2rem; padding-block: var(--s1); color: var(--soft); font-size: var(--t-klein); cursor: pointer; text-decoration: underline; text-underline-offset: .2em; }
+  #abnahme details[open] > summary { margin-block-end: var(--s3); }
+  .ab-vorschlag { margin-block: var(--s5); }
+  #abnahme .ab-ergebnis-titel { margin-block: var(--s3) var(--s2); font-size: 1.6rem; font-weight: 600; }
+  .ab-vorschlag .redaktionell { color: var(--soft); font-size: var(--t-mini); }
+  .ab-lesen { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); margin-block: var(--s2) var(--s4); }
+  .ab-lesen a { font-size: var(--t-klein); }
+  @media (max-width: 480px) { .ab-technik dl { grid-template-columns: 1fr; } .ab-technik dd { margin-bottom: var(--s2); } }
+}
+
+@layer components {
+  #abnahme.ab-mit-vorstellung { max-inline-size: 80rem; }
+  #abnahme.ab-mit-vorstellung > :not(.ab-ergebnis) { max-inline-size: 46rem; margin-inline: auto; }
+  #abnahme.ab-mit-vorstellung .ab-vollvorlage { max-inline-size: 46rem; margin-inline: auto; }
+  .ab-vorstellung, .ab-pilot-material { min-inline-size: 0; }
+  .ab-einstieg { max-inline-size: 46rem; margin-inline: auto; }
+  .ab-einstieg h2:not(:first-child) { margin-block-start: var(--s5); }
+  #abnahme .ab-edition-einstieg .ab-teil { margin-block-end: var(--s3); }
+  #abnahme .ab-edition-ergebnis { font-size: 1.05rem; }
+  .ab-lesewege { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--s2) var(--s4); margin-block: var(--s3); }
+  .ab-lesewege dt { font-weight: 600; }
+  .ab-lesewege dd { margin: 0; }
+  .ab-pilot-material { margin-block: var(--s5) var(--s6); }
+  .ab-vorschauen { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: var(--s5); }
+  .ab-vorschau { margin: 0; min-inline-size: 0; }
+  .ab-vorschau figcaption { margin-block-end: var(--s2); font-weight: 600; line-height: 1.5; }
+  .ab-vorschau figcaption a { font-size: var(--t-klein); font-weight: 400; }
+  .ab-frame { display: block; inline-size: 100%; max-inline-size: 100%; min-inline-size: 0; block-size: 42rem; border: 1px solid var(--line); background: var(--paper); }
+  #abnahme .ab-auszuege { display: grid; gap: var(--s5); max-inline-size: 46rem; margin: var(--s4) auto; padding-inline-start: var(--s5); }
+  .ab-auszuege > li { min-inline-size: 0; }
+  #abnahme .ab-auszuege h3 { margin-block: 0 var(--s2); font-size: var(--t-basis); }
+  .ab-auszuege blockquote { margin: 0; max-inline-size: 70ch; white-space: pre-wrap; overflow-wrap: anywhere; font-size: var(--t-basis); line-height: 1.6; }
+  #abnahme .ab-quellenstand { max-inline-size: 46rem; margin: var(--s2) auto var(--s4); color: var(--soft); font-size: var(--t-klein); line-height: 1.5; }
+  #abnahme .ab-auszuege .ab-quellenstand { margin-inline: 0; }
+  #abnahme .ab-quellenfehler { max-inline-size: 46rem; margin: var(--s3) auto; color: var(--stoerung); font-weight: 600; }
+  #rueckfrage.ab-rueckfrage { max-inline-size: 46rem; margin: var(--s6) auto; }
+
+  @media (max-width: 36rem) {
+    .ab-lesewege { grid-template-columns: minmax(0, 1fr); gap: var(--s1); }
+    .ab-lesewege dd + dt { margin-block-start: var(--s2); }
+  }
+  @media (max-width: 64rem) {
+    .ab-vorschauen { grid-template-columns: minmax(0, 1fr); }
+    .ab-frame { block-size: 36rem; }
+  }
+}
+
+/* The shared instance stylesheet is unlayered; only the embedded question loses its card shell. */
+#rueckfrage .instanz { background: transparent; border: 0; border-radius: 0; padding: 0; min-inline-size: 0; font-size: var(--t-basis); }
+#rueckfrage .instanz p { margin-block: var(--s2); }
+#rueckfrage form.sagen { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--s2); margin-block-start: var(--s3); }
+#rueckfrage form.sagen label { position: static; inline-size: auto; block-size: auto; overflow: visible; clip: auto; white-space: normal; font-weight: 600; }
+#rueckfrage form.sagen textarea { inline-size: 100%; min-inline-size: 0; min-block-size: 8rem; max-block-size: none; resize: vertical; padding: var(--s2); font-size: var(--t-basis); line-height: 1.5; }
+#rueckfrage form.sagen .senden { justify-self: start; max-inline-size: 100%; min-block-size: 2.25rem; padding: var(--s1) var(--s3); }
+#rueckfrage form.sagen .status { font-family: var(--sans); font-size: var(--t-klein); line-height: 1.5; }
+
+@layer components {
+  .ab-comparison-table { inline-size: 100%; border-collapse: collapse; table-layout: fixed; margin-block: var(--s4); }
+  .ab-comparison-table caption { text-align: start; font-weight: 600; margin-block-end: var(--s2); }
+  .ab-comparison-table th, .ab-comparison-table td { text-align: start; vertical-align: top; padding: var(--s2); overflow-wrap: anywhere; border-block-end: 1px solid var(--line); }
+  .ab-comparison-table thead th { font-weight: 600; }
+  @media (max-width: 30rem) {
+    .ab-comparison-table { font-size: var(--t-klein); }
+    .ab-comparison-table th, .ab-comparison-table td { padding: var(--s2) calc(var(--s1) / 2); }
+    .ab-comparison-table thead th:first-child, .ab-comparison-table thead th:last-child { inline-size: 28%; }
+    .ab-comparison-table thead th:nth-child(2), .ab-comparison-table thead th:nth-child(3) { inline-size: 22%; }
+  }
+}

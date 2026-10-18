@@ -1,0 +1,1 @@
+Code: MIT. Synthetic demo text: CC BY 4.0. See https://github.com/DigitalHumanitiesCraft/research-mission-control for license texts.

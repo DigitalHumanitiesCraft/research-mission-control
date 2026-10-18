@@ -2,7 +2,7 @@
 
 Copyright 2026 Dr. Christopher Pollin.
 
-Research Mission Control uses two licenses with a file-level assignment:
+Research Mission Control uses two primary licenses with a file-level assignment:
 
 - Code, tests, build tooling, configuration, and the complete installable
   Research Mission Control skill are licensed under the MIT License. The
@@ -16,3 +16,13 @@ Research Mission Control uses two licenses with a file-level assignment:
 release builder rejects any distributed file that has no assignment or matches
 more than one assignment. Files carrying third-party marks remain subject to
 applicable trademark rights; the licenses do not grant trademark permission.
+
+The synthetic demo application under demo/ assigns MIT to its HTML, CSS and JavaScript implementation and CC BY 4.0 to authored example data, source texts and documentation, as listed exactly in its export manifest and the publication manifest. Generated JavaScript files containing authored example data retain their CC BY 4.0 assignment. These examples contain no third-party portfolio data.
+
+Third-party and brand assets retain their own terms. The local Sora and
+Instrument Sans font files and their accompanying notices are licensed under
+SIL Open Font License 1.1. The unchanged notices are distributed beside the
+fonts in assets/fonts/. DHCraft marks, logos and favicons are proprietary,
+identified as LicenseRef-DHCraft-Brand, with terms in
+[LICENSES/DHCraft-Brand.txt](LICENSES/DHCraft-Brand.txt). Neither the project
+licenses nor the example setup grant brand reuse rights.

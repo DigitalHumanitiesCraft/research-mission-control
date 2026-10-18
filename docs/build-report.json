@@ -1,0 +1,293 @@
+{
+  "schema": "public-web-docs-1",
+  "parser": "Markdown 3.11.1",
+  "source_only_references": [],
+  "sources": [
+    {
+      "path": "knowledge/system-description.md",
+      "sha256": "39c11e0ffe7baed5ba25e3659961b55f066e6087346dd5d5ecd8913763848176"
+    },
+    {
+      "path": "knowledge/method-specification.md",
+      "sha256": "8113cef5a0e9dfef853850cbe7a04d6f0b7231f9c698bb84e96765fb0c06630e"
+    },
+    {
+      "path": "orchestrators/README.md",
+      "sha256": "4d33fbc4d506836e0fa65515c747e4b31f618e45382da79ac0eb966539c98718"
+    },
+    {
+      "path": "README.md",
+      "sha256": "5fe14dab636ffcdd94a5cbb9b4b351222d82b8dbedbcd1c7dc718ff14c89c257"
+    },
+    {
+      "path": "knowledge/research-to-operations-handoff.md",
+      "sha256": "89c7ae758a734e86045bf5ef97e501fdc45d20dcf6f3b69bf51a5e32b9445a38"
+    },
+    {
+      "path": "knowledge/knowledge-adapters.md",
+      "sha256": "75273c6e912377c8b940e90ba8aa070c2bd3ab3b9bb3c5fd9f897b63700a70a7"
+    },
+    {
+      "path": "knowledge/observed-context-stream-operation.md",
+      "sha256": "3b8f75238321327483cc5c488aaa44e288a0432fc48e2c33341c3362921eef83"
+    },
+    {
+      "path": "knowledge/INDEX.md",
+      "sha256": "f8856b1b50e2dcda16ac787d1d8808f9146d0989e3e14923d45aaf2605c0da50"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "9e1f20aa148b873f77958a5c8d868339a09a8585d5af00f563eab5ab1e2a4536"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "c79fa2632d07fcf00ae50ed218c1c70fcc75613df4271d06156890b54ad328b8"
+    },
+    {
+      "path": "ORCHESTRATOR.md",
+      "sha256": "0344975822f3ff1358c81c2fdd72f625f07820c0ec557fb08432797aa0a59a81"
+    },
+    {
+      "path": "knowledge/project.md",
+      "sha256": "b69913396e678399faf17c15d1bee767c82bed0ff76607b7eefa036a8e26068c"
+    },
+    {
+      "path": "knowledge/integration.md",
+      "sha256": "a26d52399c5902359cf58fe1a993ff25f35f9f1dbd6be151e8b69cc8ab367645"
+    },
+    {
+      "path": "knowledge/orchestration-architecture.md",
+      "sha256": "b5e7e951519992bc1eb95b0296c28f9aa0540b2ab7ee53bbcc60bd5d998232b6"
+    },
+    {
+      "path": "knowledge/orchestration-thresholds.md",
+      "sha256": "21caba772d546466a5afa0b698e7046394b4412f9459595684cc7c90a6916439"
+    },
+    {
+      "path": "knowledge/project-governance.md",
+      "sha256": "1575641007968eab9d8152affc061b85e4efecd28a9e32c745492d8c32c1f307"
+    },
+    {
+      "path": "knowledge/deterministic-checks.md",
+      "sha256": "47a09853754e1bc01741375f31e7276af27a1cb4a366f981d9d4baecdfacc447"
+    },
+    {
+      "path": "knowledge/observed-live-demo-operation.md",
+      "sha256": "9eb47294d2d65523ea830d0152d47765d0e3814cfe26d864f846733646cb5a44"
+    },
+    {
+      "path": "SYSTEM-PROMPT.md",
+      "sha256": "45042dd6fadb620318d61cd65e3e7f4e74776d0ce307d7cd7b0d9f91545ea7a5"
+    },
+    {
+      "path": "orchestrators/knowledge-orchestrator.md",
+      "sha256": "54ba6fd5ee6e2cacba2e5b7cade34651a275f360034f8ff40d2d98ed41b042f5"
+    },
+    {
+      "path": "orchestrators/research-orchestrator.md",
+      "sha256": "2753e5bd4c0077d40d713a2f2665808df97cc44478f0da83d62581bb8f350379"
+    },
+    {
+      "path": "orchestrators/operational-orchestrator.md",
+      "sha256": "5289879830f42abfdaf35b450efb2abe272a5dba56a7f97f4cc1863d5514a344"
+    },
+    {
+      "path": "orchestrators/independent-verification-agent.md",
+      "sha256": "d289a65d05b0253c597b8d667798b10bede8e524a94a7f9d385b773e96b28495"
+    },
+    {
+      "path": "orchestrators/verification-orchestrator.md",
+      "sha256": "aebd5dd751771a90ff4fc4e8ef46d08f0f9eec1dacb685616332d274ae21d1da"
+    },
+    {
+      "path": "orchestrators/adapters/codex.md",
+      "sha256": "e4703bae2a59f798341436ebea128ed2f46193bc4e284b8dc1732dabe50e17c8"
+    },
+    {
+      "path": "orchestrators/adapters/claude-code.md",
+      "sha256": "6352248c21a6ef37b228a85f782bbbeb41a4d4ae6ec0bc5c797843ac9f421266"
+    },
+    {
+      "path": "skills/research-mission-control/SKILL.md",
+      "sha256": "4f7d8752eee64a25bc003d43708fa65d3e7271ef6098e21627cf538f55524112"
+    },
+    {
+      "path": "examples/knowledge/README.md",
+      "sha256": "1bd1105f798d48bd2a1e858fd1d1e3fe64e01e8d042f01c8f4861989af7a671e"
+    },
+    {
+      "path": "examples/knowledge/notes/research-question.md",
+      "sha256": "398daa6ea6d4f307423457277ab8cac579ea99b76da1bc0284f56dc57aff03c4"
+    },
+    {
+      "path": "examples/knowledge/notes/terms.md",
+      "sha256": "1bcf891d65321958253fd0e5031f17611efcc027881447379ab31c8bf1683ccb"
+    },
+    {
+      "path": "demo/AGENTS.md",
+      "sha256": "d27ad683261d8aac50046c09c9c4ab4b75a501dc1aaf2e11f83b21be176dd04a"
+    },
+    {
+      "path": "demo/README.md",
+      "sha256": "3035c0fdb946665fbf158c918a1bcd8505411a60f24dd4bcb3f380836c3068ed"
+    },
+    {
+      "path": "demo/docs/source-contract.md",
+      "sha256": "c8bda0779465fcb99485adc9e8c9e2e4796f69b354e3ed806c4776da01b793bd"
+    },
+    {
+      "path": "demo/docs/views.md",
+      "sha256": "9413db61f8886d9866f9785954a7f64cb35cb14965578a69c888d3e00744647a"
+    },
+    {
+      "path": "demo/sources/demo-guide.md",
+      "sha256": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092"
+    }
+  ],
+  "files": [
+    {
+      "path": "docs/knowledge/system-description.html",
+      "sha256": "a17897cee6bba897e49bf7cf761423ea5255e1a63dc6281d15cb9b79a5c98887"
+    },
+    {
+      "path": "docs/knowledge/method-specification.html",
+      "sha256": "5ebe76b5eaa868fd47dc582e81ff299b5519a697bd332ed7b40d7fd0e36eaf92"
+    },
+    {
+      "path": "docs/orchestrators/README.html",
+      "sha256": "2783825ce5a58d45c1c891b9022e985f90037150296c91e65a69fa5c231277a0"
+    },
+    {
+      "path": "docs/README.html",
+      "sha256": "088a971191a0c6a77d99c5a5508037acf7c3372e3dcb9cefbd0fd7fa3302dcdc"
+    },
+    {
+      "path": "docs/knowledge/research-to-operations-handoff.html",
+      "sha256": "8409c458208a3b3971d784ed47022db4759803f1e410215577386ef7e9afe796"
+    },
+    {
+      "path": "docs/knowledge/knowledge-adapters.html",
+      "sha256": "10923d63bff395036ce205cee3f1cc9f638716233b7bed4859fb0f6f34879e99"
+    },
+    {
+      "path": "docs/knowledge/observed-context-stream-operation.html",
+      "sha256": "dfff5a984838d6accf15d18adc1bea6e0fa52f1baa4d6158ae35c1f433a6bb96"
+    },
+    {
+      "path": "docs/knowledge/INDEX.html",
+      "sha256": "c8afa6f4b40c9b6535f8f2036d61a31acb9b27eb7bf9f5cfe461066166868905"
+    },
+    {
+      "path": "docs/AGENTS.html",
+      "sha256": "b3cbb272781dac4e9db0a360377b17bafe56cbd97dc8096468f5e08ba5992e63"
+    },
+    {
+      "path": "docs/CLAUDE.html",
+      "sha256": "771f6986e0ce0626aaa896fd6a83d825aa9c10c977f801d1ff7053332116dd87"
+    },
+    {
+      "path": "docs/ORCHESTRATOR.html",
+      "sha256": "0ed0779ddac95ea702d1e91bb06479d8523a6f72d9449bd787c076ae58a7f5ad"
+    },
+    {
+      "path": "docs/knowledge/project.html",
+      "sha256": "aff34f22285b293289dedb7d4d25c4416e6de8c97e3d219e436c37d028e047bb"
+    },
+    {
+      "path": "docs/knowledge/integration.html",
+      "sha256": "0a3f61a8693955533df93f43bcf4744a72934267897bafe2d23c70f0c66c5e35"
+    },
+    {
+      "path": "docs/knowledge/orchestration-architecture.html",
+      "sha256": "584e92af56d2614b983a0c7d0d940471baf50938625d92fa9bf27dea87afcca7"
+    },
+    {
+      "path": "docs/knowledge/orchestration-thresholds.html",
+      "sha256": "f9e49799278a1bc8359c21259462b87979e6db160af176bde0c1e2004185d77e"
+    },
+    {
+      "path": "docs/knowledge/project-governance.html",
+      "sha256": "de9b0010c5f2772461baf2799fc90c4f2e8b4834c3719892b8a53dd1e490ef9a"
+    },
+    {
+      "path": "docs/knowledge/deterministic-checks.html",
+      "sha256": "8ab51cc909a42c1e88ae7ee9740b7d30347d397f4d7cc03eb8665f021023976b"
+    },
+    {
+      "path": "docs/knowledge/observed-live-demo-operation.html",
+      "sha256": "562963d900cdc1a242f96f13021bc6fa8dc95b40f6b8d644218052e041a1be09"
+    },
+    {
+      "path": "docs/SYSTEM-PROMPT.html",
+      "sha256": "7c6042891a391e112f2cb926c0bc459a7cb99396a4706b6e4c70e1fe2159a00a"
+    },
+    {
+      "path": "docs/orchestrators/knowledge-orchestrator.html",
+      "sha256": "fc2308de67ec777a03da6f0f7cb6aff281970a77d664ec859d6f8cb3f68af696"
+    },
+    {
+      "path": "docs/orchestrators/research-orchestrator.html",
+      "sha256": "bae5f0e72b8f1d23aedbd145edb64e271a9ba32d10fce1d90cf805b1e2f1b8d0"
+    },
+    {
+      "path": "docs/orchestrators/operational-orchestrator.html",
+      "sha256": "a594e23d4a1429652edc644ecfa19019cba38d1b21153f915301320d1441592e"
+    },
+    {
+      "path": "docs/orchestrators/independent-verification-agent.html",
+      "sha256": "966d7b5e644fb989505ab61ed7fd77f542a72fc213cecdee050e4454e515fc83"
+    },
+    {
+      "path": "docs/orchestrators/verification-orchestrator.html",
+      "sha256": "4ab4b80f625e7173cde7254360fa546785e95bafafd61661907d937c1c74176a"
+    },
+    {
+      "path": "docs/orchestrators/adapters/codex.html",
+      "sha256": "84f466781e3d5401a70bc589edab53277fa4dab04eb196372964d173602693ea"
+    },
+    {
+      "path": "docs/orchestrators/adapters/claude-code.html",
+      "sha256": "a6ebd44e032e2c6acca9b6aab3dabf991b95e8e0e4f70d69ea73a9983d62796e"
+    },
+    {
+      "path": "docs/skills/research-mission-control/SKILL.html",
+      "sha256": "cc0e076e65e6947adbf5056669101cb134a7a8a6ea8950a2d1a9934231e35b94"
+    },
+    {
+      "path": "docs/examples/knowledge/README.html",
+      "sha256": "a0208efb9ee70c02ea24c8466362f88ed33b5dbb223817f692e7649e9a4cfb0a"
+    },
+    {
+      "path": "docs/examples/knowledge/notes/research-question.html",
+      "sha256": "9fb67c2b327c7d396703b0604d79ce5b129a79d8e333675edda730d87278d28d"
+    },
+    {
+      "path": "docs/examples/knowledge/notes/terms.html",
+      "sha256": "9acd9918281da76c4ea5742eba8fe3c5f488af85ab027b04c6fb8e15d3e4da6f"
+    },
+    {
+      "path": "docs/demo/AGENTS.html",
+      "sha256": "2103c9be2ba721ff8e09c241a476370716b756e0fa72e1f48ec264801d23b0be"
+    },
+    {
+      "path": "docs/demo/README.html",
+      "sha256": "32c78b2314f54a46cc42a8280f58b4a0839cc38eec251050f3c221a9089d0cd0"
+    },
+    {
+      "path": "docs/demo/docs/source-contract.html",
+      "sha256": "0a13ef36878defd523b83c4be50a8f02dc7b3798eaf3244bb06f11cece365a9d"
+    },
+    {
+      "path": "docs/demo/docs/views.html",
+      "sha256": "8a50c1686acd74ff0bdfd6ab480daa2b520e63bc5221722cc4dfcc3fd0e8c594"
+    },
+    {
+      "path": "docs/demo/sources/demo-guide.html",
+      "sha256": "ed103bdc3713b6b4dcaf2b1af1ad3dbd72da73cf8b97d226e02cb0bf4b9e6533"
+    },
+    {
+      "path": "docs/docs.css",
+      "sha256": "dc89785ecf2be0a2c7dd39dd8577de8771836347148b1af916b736b99276b1ce"
+    }
+  ]
+}

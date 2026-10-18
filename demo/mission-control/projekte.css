@@ -1,0 +1,230 @@
+.pj-arbeitskontext { display: flex; flex-wrap: wrap; gap: .2rem 1rem; margin: .35rem 0 .65rem; padding-inline-start: 1.5rem; font-size: .8125rem; color: var(--ink); }
+.pj-aufgabe > .pj-arbeitskontext { grid-column: 1 / -1; }
+.pj-schritte .pj-arbeitskontext { flex-basis: 100%; padding-inline-start: 0; }
+.pj-meilenstein { margin-block: var(--s3); overflow-wrap: anywhere; }
+
+/* Projekte: the project list on the left, the chosen project beside it,
+   with page scrolling throughout. The first
+   group reads as two columns of short fields, the task tree as one column
+   with the need in a fixed column on its left,
+   and connections, knowledge and decisions share the bottom row. Uses the
+   tokens of base.css only. */
+@layer components {
+
+  .pj-flaeche { display: grid; grid-template-columns: minmax(14rem, 17rem) minmax(0, 1fr); gap: var(--s5); align-items: start; }
+
+  /* German text hyphenates (surface rule 8), titles and labels included. */
+  .pj-flaeche { overflow-wrap: break-word; }
+  .pj-erstes dd, .pj-worum, .pj-a-text, .pj-s-text, .pj-zeile-titel, .pj-kopf h2, .pj-fehlt, .pj-phrase, .pj-entscheidungen li > span:first-child, .pj-zweck, .pj-varianten td, .pj-dich-liste li > span:first-child, .pj-auftrag {
+    hyphens: auto; -webkit-hyphens: auto; hyphenate-limit-chars: 10 4 4;
+  }
+  /* Shortened text ends at a sentence boundary (projekte.js, gekuerzt); the
+     whole wording is its tooltip. */
+  .pj-flaeche [title] { cursor: help; }
+  .pj-flaeche a[title], .pj-flaeche button[title] { cursor: pointer; }
+
+  /* List */
+  .pj-liste { display: grid; gap: var(--s4); }
+  .pj-gruppe ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
+  .pj-gruppe-kopf { font-size: var(--t-mini); letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; color: var(--soft); margin-block-end: var(--s1); }
+  .pj-gruppe-kopf .zahl { font-family: var(--mono); font-weight: 400; }
+  details.pj-gruppe > summary { cursor: pointer; min-height: 2rem; display: flex; align-items: center; gap: var(--s1); }
+  .pj-zeile { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s2); inline-size: 100%; padding: 5px var(--s2); border-radius: var(--r); font-size: var(--t-klein); min-height: 2rem; }
+  .pj-zeile:hover { background: color-mix(in oklch, var(--ink) 6%, transparent); }
+  .pj-zeile[aria-current="true"] { background: var(--selection); }
+  .pj-zeile-titel { font-weight: 600; min-width: 0; flex: 1; }
+  /* A blocked assignment stands under the title in the rust of waiting, as
+     a word, so the phase group above (aktiv) is not read as readiness. */
+  .pj-zeile-block { display: block; font-weight: 400; }
+  /* The change day leads the row as its sort key, in a fixed width so the
+     titles align. */
+  .pj-zeile-datum { flex: none; inline-size: 2.75rem; font-family: var(--mono); font-size: 0.6875rem; color: var(--soft); cursor: help; }
+  .pj-zeile-zahl { font-family: var(--mono); font-size: 0.75rem; color: var(--soft); flex: none; cursor: help; }
+  .pj-gruppe.ruhend .pj-zeile-titel, .pj-gruppe.abgeschlossen .pj-zeile-titel { font-weight: 500; color: var(--soft); }
+
+  /* Detail */
+  .pj-detail {
+    position: static; min-inline-size: 0; overflow-wrap: anywhere;
+    display: grid; gap: var(--s2); align-content: start; padding: var(--s4) 0;
+    background: transparent; border: 0; border-block-start: 1px solid var(--line); font-size: var(--t-klein);
+  }
+  .pj-detail h3 { font-size: var(--t-mini); text-transform: uppercase; letter-spacing: 0.04em; color: var(--soft); font-weight: 600; margin-block-end: var(--s2); }
+  .pj-kopf { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s1) var(--s4); }
+  .pj-kopf h2 { font-size: 1.125rem; font-weight: 700; }
+  .pj-kopf h2:focus { outline: none; }
+  .pj-kopf h2:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .pj-meta { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); color: var(--soft); font-size: var(--t-mini); }
+  .pj-links { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); font-size: var(--t-mini); }
+  .pj-links a { color: var(--soft); }
+  .pj-links a:hover { color: var(--ink); }
+  .pj-pfad { font-family: var(--mono); color: var(--soft); cursor: help; }
+
+  /* What the project is about closes the head as its short description,
+     on a line of its own below title, phase and links. */
+  .pj-worum { flex-basis: 100%; color: var(--soft); }
+  /* Unmatched decisions span the goal and state columns. */
+  .pj-erstes { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s2) var(--s5); align-items: start; margin-block-end: var(--s2); }
+  .pj-erstes > .pj-beitrag { grid-column: 1 / -1; }
+  .pj-erstes > .pj-ziel-feld:only-child { grid-column: 1 / -1; max-inline-size: 75ch; }
+  .pj-auftragsbereich { margin-block: var(--s2) var(--s3); }
+  .pj-auftragsbereich > h3 { text-transform: none; letter-spacing: normal; color: var(--ink); font-size: var(--t-klein); }
+  .pj-team { display: grid; gap: var(--s3); }
+  .pj-team-gruppe { display: grid; grid-template-columns: minmax(8rem, 10rem) minmax(0, 1fr); gap: var(--s2) var(--s4); align-items: baseline; }
+  .pj-team-operator { font-size: var(--t-klein); font-weight: 600; line-height: inherit; margin: 0; }
+  .pj-team-operator a { display: inline-flex; align-items: center; gap: var(--s1); }
+  .pj-team-operator a, .pj-team-auftrag a { text-decoration: underline; text-underline-offset: .15em; }
+  .pj-team-gruppe .pj-auftraege { gap: var(--s2); }
+  .pj-team-auftrag { min-inline-size: 0; }
+  .pj-team-arbeit { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--s2); }
+  .pj-team-arbeit .pj-auftrag { flex: 1 1 20rem; }
+  .pj-team-stand { color: var(--soft); font-size: var(--t-mini); }
+  .pj-team-zugaenge { display: flex; flex-wrap: wrap; gap: 0 var(--s3); font-size: var(--t-mini); }
+  .pj-team-grenze, .pj-material-status, .pj-team-leer { color: var(--soft); font-size: var(--t-mini); }
+  .pj-team-auftrag .pj-neu { padding-inline-start: 0; }
+  .pj-auftragsgrund { display: block; color: var(--soft); font-size: var(--t-mini); }
+  .pj-erstes dl { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: var(--s2) var(--s3); align-items: baseline; }
+  .pj-erstes dt { color: var(--soft); font-size: var(--t-mini); cursor: help; hyphens: auto; -webkit-hyphens: auto; }
+  .pj-erstes dd { margin: 0; min-width: 0; }
+  /* Bei dir lists what lies with the operator, one row each, the text left
+     and date or lane with the Fragen link in one line on the right. */
+  .pj-dich-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+  .pj-dich-liste li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s3); align-items: baseline; }
+  .pj-dich-rest { font-size: var(--t-mini); }
+  .pj-weitere { color: var(--soft); cursor: help; }
+  .pj-fehlt { font-weight: 600; }
+  .pj-fehlt.ohne-baum { font-weight: 400; color: var(--soft); }
+  /* Date and link of an answered decision stand one under another, as the
+     right end of an Übersicht row does, which leaves the text its width. */
+  .pj-entscheidungen li > .pj-rechts { flex-direction: column; align-items: flex-end; gap: 1px; }
+  .pj-auftraege { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+  /* The assignment in words first, what the operator is to do; lane and
+     day follow in the small mono of the right slot and flow on in the last
+     line of a long one. */
+  .pj-auftraege .pj-rechts { display: inline; white-space: normal; }
+  .pj-auftraege .pj-rechts > * { white-space: nowrap; margin-inline-end: var(--s1); }
+  /* blockiert in the form of the Übersicht's operator rows (#operatoren .az.blockiert). */
+  .pj-blockiert { color: var(--dich); font-family: var(--sans); font-size: var(--t-mini); font-weight: 400; cursor: help; }
+  /* The questions still to assign stand under their count, indented, as the
+     work a lane is to take on. */
+  .pj-vergeben { list-style: none; margin: 0; padding: 0 0 0 var(--s4); display: grid; gap: 2px; }
+  /* Under a blocked assignment the lead-in starts a line of its own, so the
+     questions read as the work to reassign, not as part of its wording. */
+  .pj-neu { display: block; padding-left: var(--s4); font-size: var(--t-mini); color: var(--soft); cursor: help; }
+
+  /* Right slot of a line: lane and date small in mono. */
+  .pj-rechts { display: inline-flex; gap: var(--s2); align-items: baseline; justify-self: end; white-space: nowrap; font-family: var(--mono); font-size: 0.6875rem; color: var(--soft); }
+  .pj-datum, .pj-lane { cursor: help; }
+  .pj-lane.orchestrator { color: var(--orchestrator); }
+  .pj-lane.build { color: var(--build); }
+  .pj-lane.review { color: var(--review); }
+  .pj-fragen { font-family: var(--sans); font-size: var(--t-mini); color: var(--dich); }
+  /* Inline prompts belong below the complete question, outside the compact date slot. */
+  .pj-dich-liste li:has(> .pj-rechts .chat-discussion) { grid-template-columns: minmax(0, 1fr); }
+  .pj-rechts:has(.chat-discussion) { grid-column: 1 / -1; display: block; justify-self: stretch; white-space: normal; inline-size: 100%; min-inline-size: 0; }
+  .pj-fragen:has(.chat-discussion) { display: block; white-space: normal; inline-size: 100%; min-inline-size: 0; }
+  /* A question no lane carries waits on the operator to assign it, so it
+     takes the rust accent that means waiting on him. */
+  .pj-ohne { color: var(--dich); }
+  .beantwortet .pj-fragen { color: var(--soft); }
+
+  .pj-bedarf-legende { list-style: none; margin: 0 0 var(--s2); padding: 0; display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); color: var(--soft); font-size: var(--t-mini); }
+  .pj-bedarf-legende li { display: inline-flex; align-items: center; gap: 0.35rem; }
+  .task-zeichen { inline-size: 1rem; block-size: 1rem; flex: none; }
+  .pj-baum { list-style: none; margin: 0; padding: 0; }
+  .pj-reihe.zweig:not(:first-child) { margin-block-start: var(--s2); }
+  .pj-teilaufgaben { list-style: disc; margin-block: var(--s1) 0; padding-inline-start: 1.65rem; }
+  .pj-teilaufgaben > li { padding-block: 1px; }
+  .pj-teilaufgaben > li::marker { color: var(--soft); font-size: 0.75em; }
+  .pj-aufgabe { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 var(--s2); align-items: baseline; padding-block: 1px; min-width: 0; }
+  .pj-a-text { display: flex; align-items: baseline; gap: 0.45rem; min-width: 0; }
+  .pj-a-inhalt { min-width: 0; }
+  .pj-bedarf { display: inline-flex; align-items: center; gap: 0.25rem; color: var(--soft); font-size: var(--t-mini); flex: none; }
+  .pj-bedarf .task-zeichen { align-self: center; transform: translateY(0.15rem); }
+  .pj-aufgabe:not(.erledigt) .pj-bedarf.bd-erforschen { color: var(--ink); }
+  /* One form for every mark of a row: source, done, next. */
+  .pj-quelle, .pj-erledigt, .pj-naechstes {
+    display: inline-block; font-family: var(--mono); font-size: 0.6875rem; line-height: 1.3; padding: 0 5px;
+    border: 1px solid var(--line); border-radius: 999px; color: var(--soft); white-space: nowrap; text-decoration: none;
+  }
+  .pj-quelle { cursor: help; }
+  /* The rust accent means waiting on the operator, which a source does not
+     say, so du is told apart by ink only. */
+  .pj-quelle.du { color: var(--ink); border-color: var(--control-line); }
+  .pj-wartet { font-size: var(--t-mini); color: var(--soft); cursor: help; white-space: nowrap; }
+  .pj-aufgabe.blockiert .pj-a-text { color: var(--soft); }
+  .pj-aufgabe.erledigt .pj-a-text { color: var(--soft); text-decoration: line-through; }
+
+  .pj-schritte { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s1); }
+  .pj-schritte li, .pj-entscheidungen li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s3); align-items: baseline; }
+  .pj-schritte li.erledigt { color: var(--soft); }
+
+  /* Bottom row: knowledge, decisions and connections side by side. */
+  .pj-unten { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--s4) var(--s5); align-items: start; }
+  /* A decision is one long sentence beside its stacked links, so its
+     section takes two tracks where there are two. */
+  .pj-unten > .pj-abschnitt:has(.pj-entscheidungen) { grid-column: span 2; }
+  .pj-wissen, .pj-entscheidungen, .pj-verbindungen { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s2); }
+  .pj-wissen li { display: grid; gap: 1px; }
+  .pj-zweck { color: var(--soft); }
+  /* One line per art: the phrase as a label column beside its targets, so a
+     family of several arts stays within the first screen. */
+  .pj-verbindungen { grid-template-columns: max-content minmax(0, 1fr); column-gap: var(--s2); }
+  .pj-verbindungen li { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: baseline; }
+  .pj-phrase { color: var(--soft); font-size: var(--t-mini); }
+  .pj-ziele { display: flex; flex-wrap: wrap; gap: var(--s1); }
+  .pj-ziel { padding: 2px var(--s2); border: 1px solid var(--control-line); border-radius: var(--r); font-size: var(--t-mini); min-height: 1.75rem; }
+  .pj-ziel:hover { background: color-mix(in oklch, var(--ink) 6%, transparent); }
+  .pj-ziel.fehlt { color: var(--soft); border-style: dashed; cursor: help; display: inline-flex; align-items: center; }
+  .pj-varianten { margin-block-start: var(--s3); font-size: var(--t-klein); }
+  .pj-varianten caption { text-align: start; font-size: var(--t-mini); color: var(--soft); padding-block-end: var(--s1); }
+  .pj-varianten th, .pj-varianten td { padding: 2px var(--s2) 2px 0; vertical-align: baseline; text-align: start; }
+  .pj-varianten th { font-family: var(--mono); }
+  .pj-varianten .pj-v-titel { font-weight: 600; white-space: nowrap; }
+  .pj-varianten .pj-ziel { margin-block-start: 2px; }
+  .pj-v-text { display: block; }
+}
+
+/* Narrower: the detail moves above the list, as in the Kalender. */
+@media (max-width: 70rem) {
+  .pj-flaeche { grid-template-columns: minmax(0, 1fr); }
+  .pj-detail { position: static; max-block-size: none; order: -1; }
+}
+
+/* Narrow: one column throughout. */
+@media (max-width: 48rem) {
+  .pj-erstes, .pj-team-gruppe { grid-template-columns: minmax(0, 1fr); }
+  .pj-dich-liste li { grid-template-columns: minmax(0, 1fr); }
+  .pj-dich-liste .pj-rechts { justify-self: start; flex-wrap: wrap; }
+  .pj-aufgabe { grid-template-columns: minmax(0, 1fr); }
+  .pj-aufgabe > .pj-rechts { justify-self: start; flex-wrap: wrap; padding-inline-start: 1.45rem; }
+  /* The phrase of a connection stands above its targets, which keep the width. */
+  .pj-verbindungen { grid-template-columns: minmax(0, 1fr); }
+  .pj-verbindungen li { row-gap: 2px; }
+}
+
+@container mc-shell (max-width: 70rem) {
+  .pj-flaeche { grid-template-columns: minmax(0, 1fr); }
+  .pj-detail { position: static; max-block-size: none; order: -1; }
+}
+
+@layer components {
+  .pj-detail { border-block-start: 0; gap: var(--s4); }
+  .pj-document-section, .pj-source-section { display: grid; gap: var(--s2); min-inline-size: 0; }
+  .pj-detail .pj-document-section > h3, .pj-detail .pj-source-section > h4 {
+    font-size: 1.05rem; font-weight: 650; text-transform: none; letter-spacing: normal; margin: 0;
+  }
+  .pj-document-text { max-inline-size: 75ch; line-height: 1.65; overflow-wrap: anywhere; }
+  .pj-document-text p { margin-block: 0 var(--s2); }
+  .pj-document-text ul, .pj-document-text ol { padding-inline-start: 1.4em; margin-block: var(--s1) var(--s3); }
+  .pj-document-text li + li { margin-block-start: var(--s1); }
+  .pj-document-fields, .pj-kontext, .pj-original-document, .pj-source-contribution, .pj-source-status, .pj-source-history {
+    display: grid; gap: var(--s3); min-inline-size: 0;
+  }
+  .pj-full-context, .pj-saved-context { max-inline-size: 75ch; }
+  .pj-full-context > summary, .pj-saved-context > summary { cursor: pointer; padding-block: var(--s1); }
+  .pj-full-context[open], .pj-saved-context[open] { display: grid; gap: var(--s2); }
+  .pj-source-revision { font-size: .75rem; overflow-wrap: anywhere; }
+  .pj-source-original { white-space: pre-wrap; overflow-wrap: anywhere; max-inline-size: 75ch; font-size: .85rem; line-height: 1.6; }
+  .pj-today { max-inline-size: 75ch; font-weight: 500; }
+  .pj-today:empty, .pj-source-status:empty, .pj-source-contribution:empty, .pj-source-history:empty, .pj-document-fields:empty { display: none; }
+}

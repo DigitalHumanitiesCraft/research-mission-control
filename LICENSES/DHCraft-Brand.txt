@@ -1,0 +1,15 @@
+Digital Humanities Craft brand assets
+
+Copyright Digital Humanities Craft. All rights reserved.
+
+DHCraft logos, marks and favicons are proprietary assets. They are included
+to identify this Digital Humanities Craft project. The project's MIT and
+CC BY 4.0 licenses grant no permission to reuse these brand assets.
+Local adaptations should use their own identity unless they have permission
+from Digital Humanities Craft.
+
+Source and usage terms:
+https://github.com/DigitalHumanitiesCraft/brand-assets
+
+The compact watercolor mark is the unchanged favicon/favicon-192.png
+from brand-assets revision c883841c058c93aa746a46638d877b203cea359d.

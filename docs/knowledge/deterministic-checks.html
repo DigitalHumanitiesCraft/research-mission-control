@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"><title>Deterministic checks | Research Mission Control</title><link rel="stylesheet" href="../../site.css"><link rel="stylesheet" href="../docs.css"></head>
+<body><a class="skip-link" href="#document">Skip to document</a>
+<header class="docs-header"><a class="brand" href="../../index.html">Research Mission Control</a><nav aria-label="Primary navigation"><a href="../../index.html">Overview</a><a href="system-description.html">Method in practice</a><a href="../../index.html#downloads">Reference</a></nav></header>
+<main class="docs-layout" id="document" tabindex="-1"><details class="contents"><summary>Sections in this reference</summary><div class="toc">
+<ul>
+<li><a href="#deterministic-checks-by-project-type">Deterministic Checks by Project Type</a><ul>
+<li><a href="#scope">Scope</a></li>
+<li><a href="#command-semantics">Command semantics</a></li>
+<li><a href="#checks-for-every-project-type">Checks for every project type</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#edition-and-xml-tei">Edition and XML (TEI)</a></li>
+<li><a href="#prose-and-knowledge-documents">Prose and knowledge documents</a></li>
+<li><a href="#static-site">Static site</a></li>
+<li><a href="#judgment-boundary">Judgment boundary</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</details><article><h1 id="deterministic-checks-by-project-type">Deterministic Checks by Project Type<a class="headerlink" href="deterministic-checks.html#deterministic-checks-by-project-type" title="Permanent link">&para;</a></h1>
+<h2 id="scope">Scope<a class="headerlink" href="deterministic-checks.html#scope" title="Permanent link">&para;</a></h2>
+<p>This catalog names, per project type, the completion criteria that a command can decide, together with the concrete command form. A criterion is deterministic when the command's exit code or exact output settles it without discretion. The method formalizes only such criteria. Everything beyond that boundary remains an assessment matter for the human user or the Verification role and is delimited per type below.</p>
+<p>For a deterministic criterion, the executed command together with its captured output is the check-command evidence element of a Result with Evidence as defined in <a href="research-to-operations-handoff.html"><code>research-to-operations-handoff.md</code></a>. The output carries the claim. A verdict restated without command and output remains a producer declaration in the sense of <a href="method-specification.html"><code>method-specification.md</code></a>. Judgment criteria are unaffected by this element and keep their evidence forms.</p>
+<h2 id="command-semantics">Command semantics<a class="headerlink" href="deterministic-checks.html#command-semantics" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Commands run from the root of the examined project unless the form names another location. Placeholders in angle brackets are project-supplied.</li>
+<li>Interpret each command by its declared success condition. Suite and validation commands use their exit code. Queries such as <code>Test-Path</code> and <code>git rev-list --count</code> require the specified Boolean or numeric output as well as successful execution. Empty output indicates success only for a command whose stated criterion is an empty findings list. Capture each command's output and exit status separately.</li>
+<li>Suite runners, schemas, linters, and build commands come from the examined project's action layer or configuration. They are never guessed, and running a generic default against a project that configures something else decides nothing about that project.</li>
+<li>A passing check establishes the mechanical fact it names. Whether that fact satisfies the assignment's objective remains a judgment, and so does the choice of checks for a claimed result.</li>
+</ul>
+<h2 id="checks-for-every-project-type">Checks for every project type<a class="headerlink" href="deterministic-checks.html#checks-for-every-project-type" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Command form</th>
+<th>Decided fact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file exists at the named location</td>
+<td><code>test -f &lt;path&gt;</code> (POSIX) or <code>Test-Path -LiteralPath &lt;path&gt; -PathType Leaf</code> (PowerShell, FileSystem provider)</td>
+<td>POSIX exit <code>0</code> or PowerShell output <code>True</code> establishes a file at that path. Content remains unexamined</td>
+</tr>
+<tr>
+<td>pathspec matches a tracked Git entry</td>
+<td><code>git ls-files --error-unmatch -- &lt;pathspec&gt;</code></td>
+<td>the index contains a matching entry. Working-tree file existence remains a separate check</td>
+</tr>
+<tr>
+<td>Git reports no pending changes</td>
+<td><code>git status --porcelain=v1 --untracked-files=all --ignore-submodules=none</code></td>
+<td>successful execution with empty output reports no staged, unstaged, or non-ignored untracked changes visible to this Git status query</td>
+</tr>
+<tr>
+<td>changes pass Git whitespace checks</td>
+<td><code>git diff --check</code> and <code>git diff --cached --check</code>, run separately</td>
+<td>both commands must exit <code>0</code>. Unstaged and staged tracked changes pass the configured whitespace and conflict-marker checks</td>
+</tr>
+<tr>
+<td>local HEAD has no commits absent from the recorded upstream</td>
+<td><code>git rev-list --count '@{upstream}..HEAD'</code></td>
+<td>with a configured upstream and successful execution, output <code>0</code> means every commit reachable from HEAD is reachable from the local upstream reference</td>
+</tr>
+<tr>
+<td>data parses with the Python JSON decoder</td>
+<td><code>python -m json.tool &lt;file.json&gt;</code></td>
+<td>the installed decoder accepts the input, including its default extensions such as <code>NaN</code>. Strict JSON conformance and schema validity require their own checks</td>
+</tr>
+<tr>
+<td>bundle satisfies its tested publication allowlist contract</td>
+<td>the manifest-driven build plus its bundle contract test, in this repository <code>python -m pytest tests/test_public_release.py</code></td>
+<td>the examined bundle satisfies the file-selection assertions actually exercised by the tests</td>
+</tr>
+</tbody>
+</table>
+<p><code>--untracked-files=all</code> overrides a configuration that hides untracked paths. Ignored files remain outside this status result. A directory-wide non-change claim requires a complete pre-action baseline and comparison of its declared scope, as described in <a href="method-specification.html"><code>method-specification.md</code></a>. See the <a href="https://git-scm.com/docs/git-status">Git status documentation</a>.</p>
+<p>The upstream count compares local references. To interpret this count as remote evidence, first verify a successful, time-stamped fetch that refreshes the configured upstream reference. Record the relevant ref names and object IDs. The comparison describes the state observed at that fetch. See <a href="https://git-scm.com/docs/gitrevisions">upstream revision syntax</a> and <a href="https://git-scm.com/docs/git-fetch#_configured_remote_tracking_branches">configured remote-tracking branches</a>.</p>
+<p>The two whitespace checks examine their respective diffs under <code>core.whitespace</code>. Untracked content needs a separately selected check. See <a href="https://git-scm.com/docs/git-diff">Git diff</a>. The <a href="https://docs.python.org/3/library/json.html#standard-compliance-and-interoperability">Python JSON documentation</a> describes decoder extensions and duplicate-name handling. The <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/test-path#-pathtype">PowerShell Test-Path documentation</a> defines the file-type and Boolean conditions.</p>
+<h2 id="code">Code<a class="headerlink" href="deterministic-checks.html#code" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Command form</th>
+<th>Decided fact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>configured test run succeeds</td>
+<td>the configured suite runner, typically <code>python -m pytest -q</code> or the test script of the package manifest</td>
+<td>the selected run satisfies the runner's success conditions. Inspect collection, skips, and expected failures before claiming which cases passed</td>
+</tr>
+<tr>
+<td>linter green</td>
+<td>the configured linter, in this repository <code>python -m ruff check .</code></td>
+<td>the sources violate no enabled rule</td>
+</tr>
+<tr>
+<td>formatting stable</td>
+<td><code>python -m ruff format --check .</code> where Ruff formatting is configured</td>
+<td>reformatting would change nothing</td>
+</tr>
+<tr>
+<td>build runs</td>
+<td>the project's build command with its documented target</td>
+<td>the build exits successfully and the expected artifact exists</td>
+</tr>
+</tbody>
+</table>
+<p>The following remain assessment matters for this type.</p>
+<ul>
+<li>Whether the tests cover the changed claim, and whether green tests establish correctness beyond the tested cases.</li>
+<li>Whether a fix addresses the root cause.</li>
+<li>Design quality, appropriateness of an abstraction, and performance adequacy.</li>
+</ul>
+<h2 id="edition-and-xml-tei">Edition and XML (TEI)<a class="headerlink" href="deterministic-checks.html#edition-and-xml-tei" title="Permanent link">&para;</a></h2>
+<p>Well-formedness is decidable with the Python standard library:</p>
+<pre><code>python -c &quot;import sys, xml.etree.ElementTree as ET; ET.parse(sys.argv[1])&quot; &lt;file.xml&gt;
+</code></pre>
+<p>Schema validity is decidable against the project-supplied RelaxNG schema:</p>
+<pre><code>python -c &quot;
+import sys
+from lxml import etree
+schema = etree.RelaxNG(etree.parse(sys.argv[1]))
+ok = schema.validate(etree.parse(sys.argv[2]))
+for error in schema.error_log:
+    print(error)
+sys.exit(0 if ok else 1)
+&quot; &lt;schema.rng&gt; &lt;file.xml&gt;
+</code></pre>
+<p>Where <code>xmllint</code> or <code>jing</code> is installed, <code>xmllint --relaxng &lt;schema.rng&gt; --noout &lt;file.xml&gt;</code> and <code>jing &lt;schema.rng&gt; &lt;file.xml&gt;</code> decide the same criterion. The schema is part of the project's source of truth. Validation against a generic schema such as <code>tei_all</code> decides conformance to that schema alone; an edition that maintains a customized schema names it, and that schema is the binding check. Schematron rules decide deterministically once the project names the pipeline command that runs them.</p>
+<p>The following remain assessment matters for this type.</p>
+<ul>
+<li>Whether the markup interprets the source correctly, including transcription accuracy against the witness.</li>
+<li>Editorial decisions such as normalization, apparatus construction, and the modeling of uncertain readings.</li>
+<li>Whether a schema-valid file encodes the intended text. Validity is a statement about structure, and what the structure means stays an editorial judgment.</li>
+</ul>
+<h2 id="prose-and-knowledge-documents">Prose and knowledge documents<a class="headerlink" href="deterministic-checks.html#prose-and-knowledge-documents" title="Permanent link">&para;</a></h2>
+<p>Where PyYAML is available, this snippet attempts to parse the first delimiter-separated fragment in top-level Markdown files beginning with <code>---</code>:</p>
+<pre><code>python -c &quot;
+import sys, pathlib, yaml
+bad = []
+for p in sorted(pathlib.Path(sys.argv[1]).glob('*.md')):
+    text = p.read_text(encoding='utf-8')
+    if not text.startswith('---'):
+        continue
+    try:
+        yaml.safe_load(text.split('---', 2)[1])
+    except yaml.YAMLError as error:
+        bad.append(p.name + ': ' + str(error).splitlines()[0])
+print('\n'.join(bad))
+sys.exit(1 if bad else 0)
+&quot; &lt;folder&gt;
+</code></pre>
+<p>This preliminary probe checks extracted, undecoded path strings in simple inline Markdown links:</p>
+<pre><code>python -c &quot;
+import re, sys, pathlib
+bad = []
+for p in pathlib.Path(sys.argv[1]).rglob('*.md'):
+    for target in re.findall(r'\]\(([^)]+)\)', p.read_text(encoding='utf-8')):
+        target = target.split('#')[0].strip()
+        if target and not target.startswith(('http://', 'https://', 'mailto:')) and not (p.parent / target).exists():
+            bad.append(str(p) + ': ' + target)
+print('\n'.join(bad))
+sys.exit(1 if bad else 0)
+&quot; &lt;folder&gt;
+</code></pre>
+<p>The YAML snippet skips subdirectories and files without the opening marker. It does not require a closing delimiter, a YAML mapping, or required metadata fields. A project frontmatter validator supplies those checks when they are part of the criterion.</p>
+<p>The link probe tests filesystem existence for the strings its regular expression extracts. Link titles, URL-encoded paths, balanced parentheses, reference-style links, code blocks, and fragment anchors are outside its supported parsing scope and can produce false findings or omissions. A complete project link criterion requires the configured parser and checks for that Markdown dialect. An HTTP check records the response status, requested URL, final URL after redirects, and observed timestamp. That observation alone establishes neither source identity nor support for a cited claim.</p>
+<p>Where a repository pins required document content in a test suite, that suite is the concrete form. In this repository <code>python -m pytest tests/test_method_consistency.py</code> decides that packaged role templates match the canonical prompts and that pinned core sentences are still present.</p>
+<p>The following remain assessment matters for this type.</p>
+<ul>
+<li>Correctness and justification of substantive claims, and whether cited sources support them.</li>
+<li>Argument quality, granularity, placement, and document structure beyond mechanically checkable patterns.</li>
+<li>Style conformance beyond patterns a linter can match.</li>
+</ul>
+<h2 id="static-site">Static site<a class="headerlink" href="deterministic-checks.html#static-site" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Command form</th>
+<th>Decided fact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>build runs</td>
+<td>the site's generator command</td>
+<td>the generator exits successfully and the named output artifact exists</td>
+</tr>
+<tr>
+<td>script syntax valid</td>
+<td><code>node --check &lt;file.js&gt;</code></td>
+<td>the file parses</td>
+</tr>
+<tr>
+<td>scripted checks pass</td>
+<td>the project's configured verification script. For the public synthetic example, follow <a href="../demo/README.html"><code>demo/README.md</code></a></td>
+<td>the assertions executed by that script hold in its declared environment</td>
+</tr>
+<tr>
+<td>internal links and assets resolve within the declared scope</td>
+<td>the project's HTML-aware link and asset checker, configured for its deployment base path</td>
+<td>the references actually parsed and checked satisfy the configured target and fragment rules</td>
+</tr>
+</tbody>
+</table>
+<p><code>node dashboard/verify.js</code> belongs to the source repository's internal dashboard and is excluded from the public bundle. It uses a DOM stub, so its checks do not establish real browser rendering. The public example documents a separate browser check with Playwright and an explicitly served URL.</p>
+<p>A scripted browser check can establish an asserted state in its observed rendered output. A DOM-stub check establishes only the corresponding assertions in that stub environment. Visual quality, layout acceptance, and readability remain assessment matters, and a screenshot alone is insufficient evidence for page behavior, as the browser rule in <a href="research-to-operations-handoff.html"><code>research-to-operations-handoff.md</code></a> records.</p>
+<h2 id="judgment-boundary">Judgment boundary<a class="headerlink" href="deterministic-checks.html#judgment-boundary" title="Permanent link">&para;</a></h2>
+<p>Deterministic checks establish mechanical facts. The following classes remain with the human user or the Verification role in every project type.</p>
+<ul>
+<li>Whether the result satisfies the objective and acceptance criteria of the assignment.</li>
+<li>Whether the executed checks are the right checks for the claimed result.</li>
+<li>Domain validation and human acceptance, which <a href="method-specification.html"><code>method-specification.md</code></a> keeps distinct from formal validation.</li>
+<li>Interpretation, meaning, and quality wherever deciding the criterion requires understanding the content.</li>
+</ul>
+<p>A criterion that would need discretion to decide is a judgment criterion in this catalog's sense. It enters an assignment as an assessment task, and the check-command evidence element stays reserved for criteria a command decides.</p></article>
+<details class="source-meta"><summary>Document source and release information</summary><p>Package release 0.9.0rc3</p><p>Source <code>knowledge/deterministic-checks.md</code>. <a href="../../knowledge/deterministic-checks.md" download>Download original Markdown</a></p><details><summary>Original document metadata</summary><p>Document versions and dated evidence describe their recorded scope. Rendering this document in another package does not update those findings.</p><dl><dt>title</dt><dd>Deterministic Checks by Project Type</dd><dt>status</dt><dd>active</dd><dt>language</dt><dd>en</dd><dt>created</dt><dd>2026-08-25</dd><dt>updated</dt><dd>2026-10-17</dd><dt>related</dt><dd>[method-specification, research-to-operations-handoff, integration]</dd></dl></details></details>
+</main><footer class="docs-footer"><a href="../../index.html">Overview</a><a href="../../index.html#downloads">Reference and reuse</a><a href="../../knowledge/deterministic-checks.md" download>Original Markdown</a></footer></body></html>

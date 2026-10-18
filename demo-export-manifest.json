@@ -1,0 +1,1236 @@
+{
+  "schema": "mission-control-demo-export-1",
+  "coverage": "synthetic-all-view-candidate",
+  "files": [
+    {
+      "file": "mission-control/projekte.html",
+      "sha256": "6be389cc8f0c5d3a35f0c04cc99ebb4e318ba3b44f570ecdaf295ec5d12e7527",
+      "bytes": 1940,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/base.css",
+      "sha256": "094d6ae8b895bb07c8bf11b66a73e05ffcd8feb6fda0c67bc41f2d951483ad49",
+      "bytes": 10851,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/navigation.css",
+      "sha256": "546dc8ff7a1f0ed56df92ae1066b101444def89bde6742b6bff23277ff481284",
+      "bytes": 13399,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/language.js",
+      "sha256": "bd022ef03a8e88fa69e9d5f7270188c5be1c19f242fd87d06d5f1ada5dd187f3",
+      "bytes": 3328,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/relations-model.js",
+      "sha256": "defdec14b11161249481d50bf3cbc743c3bdc72f0551961109f2d2a23c641517",
+      "bytes": 6204,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/operatoren-perspectives.js",
+      "sha256": "ad5032a8b194274e47d646c3b0da3dc0c72146822c0d024d735fefec88ca7e9c",
+      "bytes": 1064,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/operatoren-ensemble.js",
+      "sha256": "72b2ad9ed32e8d7d8921fb52c9155ad8711420f36b0df898aa047459674e085f",
+      "bytes": 8223,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/operatoren-planning.js",
+      "sha256": "58ec1271b79f3abdfa4364a774862a63b1ebdc9a12fae7ad57694d625ca6b3a6",
+      "bytes": 7713,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/navigation.js",
+      "sha256": "a1447ea42546b4f973dc7cc945e362b31f6252c63efc258372f0f8567920c7ae",
+      "bytes": 22738,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/overview-route.js",
+      "sha256": "46aba5aac05cac119d6d4c4787c4d582256223b573e179cb3abc9c0b7be1a80d",
+      "bytes": 1214,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/overview-bootstrap.js",
+      "sha256": "824203389984c8e4175b5753aa51f6d4fb5d63ae2ef72da397042dac54ad0cc3",
+      "bytes": 1755,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/operator-coordination.js",
+      "sha256": "0d57703f372590713c962f52cc65f77bce7000497cb9972237d04363d32454a3",
+      "bytes": 17714,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/operator-session-metadata.js",
+      "sha256": "5cb2bed8691bed18b11bd5f7564e751debd95e0875a954b47fc7e47b6705e493",
+      "bytes": 13718,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/operator-session-metadata.css",
+      "sha256": "a971ecbb5c8c3de0aed628947cb6657abc35e6f22ab75b9132d7518935c7961a",
+      "bytes": 1063,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/vault-links.js",
+      "sha256": "f491ff0e815268b1a2cc80d16a17c1de30ed32d553dc5b64ea05e76c68ff791a",
+      "bytes": 2914,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/shell.css",
+      "sha256": "8f5acbdcdadd57f705e096dbf0ad51cf170f780674868564062db28015c9ea9f",
+      "bytes": 7299,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/icons.css",
+      "sha256": "4465bed7fe66ae3975267a2c218cb3a4649ee8475224a8203d3a664c3cffa83e",
+      "bytes": 2312,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/projekte.css",
+      "sha256": "80378ce0e603713ad517073bdb5ffe562c880ce316357333ce13ff3e22ad7a37",
+      "bytes": 16394,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/berichte.css",
+      "sha256": "22181b5348969bb508e5bc2e8e8ae49fc20bd45b9778623cf224b53c263da52a",
+      "bytes": 1893,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/zugaenge.css",
+      "sha256": "5a22b204244cf52c6e12a5745544a02e1d8fb6b303d105a7045d4d2916b77ab9",
+      "bytes": 2622,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/model.js",
+      "sha256": "941ea7ddb8d78f6d004dfc5273d029585663063c08f4176ac9e96d7652d61a4a",
+      "bytes": 69506,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/themen.js",
+      "sha256": "5c6873026d37fd0d9121974a63a51cec87fbee721a6e8ce8a5b6ca2824b364c9",
+      "bytes": 3009,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/shell.js",
+      "sha256": "a4de670e82f41668277466b8bd9b43c97a7422f028cf89e64a9dca7a1adec3c2",
+      "bytes": 21756,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/antworten.js",
+      "sha256": "ad9d28cd4f7f97cf9bbaefa3cf7d25071d23ed514edb8ed1a92ccd71705e8f06",
+      "bytes": 54121,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/icons.js",
+      "sha256": "acedbe4116d8bedf3b8ba341e73a5e38d4dfa68cf9325d534d865f95539001b6",
+      "bytes": 17015,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/berichte.js",
+      "sha256": "8a81b75770028f0efcb4548c929204954951f61dfb16f333ce6579a223d20531",
+      "bytes": 6333,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/zugaenge.js",
+      "sha256": "f92d4b19b87e84504577d9ee67991819fb00eb08c5211a4788aa0abf5d691530",
+      "bytes": 14975,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/ergebnisse.js",
+      "sha256": "6ec25413a99683daa3c9ca239c3724990a326bf28d69dfabb5ca57c698383f10",
+      "bytes": 8454,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/projekte.js",
+      "sha256": "8f07623958a61e9fa172a3c26410f46f88618a59c59adc0fe80e8d40d0e58ea3",
+      "bytes": 81526,
+      "license": "MIT"
+    },
+    {
+      "file": "research.html",
+      "sha256": "5ca97b3246355782794e608008ec97be4fe69c27ea2344b34f3d48fd6a3348d8",
+      "bytes": 5004,
+      "license": "MIT"
+    },
+    {
+      "file": "style.css",
+      "sha256": "c8cbf3bd516ccfc3633593bcb09b1ae9aaf57c8e2e5a10bfeb3af5ff02fe8754",
+      "bytes": 32476,
+      "license": "MIT"
+    },
+    {
+      "file": "shell.css",
+      "sha256": "81205f67ee2bc20450e4d9e8b8c81a284376be501ab92f30f87aa016020724cc",
+      "bytes": 3831,
+      "license": "MIT"
+    },
+    {
+      "file": "research.css",
+      "sha256": "8ac042722c99866942920f540c15277340c8227c7990225112f77f010d4db5bd",
+      "bytes": 21847,
+      "license": "MIT"
+    },
+    {
+      "file": "shell.js",
+      "sha256": "b45ef5812c8917f944e3d64661e6a02f3c916bf5c7cdbe5198b1cf0fc90c353f",
+      "bytes": 4259,
+      "license": "MIT"
+    },
+    {
+      "file": "context.js",
+      "sha256": "efd089250998f7cc3ae29dbb364d508a41ae211c5ea3e11ee406ace898db4c2f",
+      "bytes": 2798,
+      "license": "MIT"
+    },
+    {
+      "file": "research.js",
+      "sha256": "a6ed33f4956d54814d964ce4176257ca63921e8f6938022db35dfa8144103f05",
+      "bytes": 64358,
+      "license": "MIT"
+    },
+    {
+      "file": "research-model.js",
+      "sha256": "9d39fa2356bb339a4f2bed2d4d0566e7ebe7a6f275d9b469afae9da27a82369b",
+      "bytes": 7469,
+      "license": "MIT"
+    },
+    {
+      "file": "research-work.js",
+      "sha256": "c571a13f991d0f45ed50b889bedb11b0d8ddb9f2b7d3b60721636745bf34e491",
+      "bytes": 5542,
+      "license": "MIT"
+    },
+    {
+      "file": "research-resume.js",
+      "sha256": "e0ba05fc4baa206b606c70591868ae64b7b10827987c58f73ab8a23e41e1499c",
+      "bytes": 3076,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/index.html",
+      "sha256": "b8f08cf95b2ed5de57ac6f0f964bd59b2d4f31e80a47c13454d2fae3fcca7a04",
+      "bytes": 4375,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/lage.html",
+      "sha256": "b8f08cf95b2ed5de57ac6f0f964bd59b2d4f31e80a47c13454d2fae3fcca7a04",
+      "bytes": 4375,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/kalender.html",
+      "sha256": "a6834b8751f227eaa61e62cb92b2b60fb50b010d252f69e6c449b9a2533f1caa",
+      "bytes": 1624,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/fragen.html",
+      "sha256": "91202b3272f46c374c4faf4292329fc44623f977fa5ccc5b1e69bf955e7b11d1",
+      "bytes": 1302,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/wer.html",
+      "sha256": "843a27985b7e373cba5433587f0f17f6abaf3b79a095f10e59a85da75d918316",
+      "bytes": 1971,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/frische.html",
+      "sha256": "94b8c1d1af441bdbdeaed3209fa41d3d3a12077847e522cf963464c54086323a",
+      "bytes": 1585,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/strategien.html",
+      "sha256": "f8a0225fa24fddb75b81189c4c7a95b7f809a51d65a20b2b4bdd1c8cc13b47b4",
+      "bytes": 1425,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/operatoren.html",
+      "sha256": "3b3675eb279a2fc9f58ac177932251597ac3a32703afb91b99bd8d3bc15ee430",
+      "bytes": 1666,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/monitor.html",
+      "sha256": "aa7a9f01ff1901499cfd5c383f44bb4cecfc5ce8f8f603747a040c18c6e0e7f6",
+      "bytes": 1285,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/abnahme.html",
+      "sha256": "097fd54c2c124c68c0f6cbfb9a42178c564276192b8d6fb4ebd97687f4c4d438",
+      "bytes": 1672,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/ausfuehrung.html",
+      "sha256": "c84d3a90a54e678569a3fc58b70566c3adc2b8519b4a909151536346ad8cbf04",
+      "bytes": 1441,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/lage.css",
+      "sha256": "69c460920f477a7048e258a6d6e19fe9cfbd353cc2c53866812e3d44c995be73",
+      "bytes": 8347,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/lage-model.js",
+      "sha256": "efda09e1f55b5c9d4c6fabcedfe5a1496e0b8596387810fc2abf926a39186830",
+      "bytes": 21977,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/lage.js",
+      "sha256": "35cf13711421ebced1a2b44b92e9f5ca10f4ce30d6e8c6c0b9d2733b3c93b5ac",
+      "bytes": 43576,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/kalender.css",
+      "sha256": "8ccbfb58f783f7a9c6e2517d54f1465f9507df910cf2e8e042680f4e60ac847f",
+      "bytes": 9331,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/kalender.js",
+      "sha256": "2625edecc639c240af33513d462f5ea5e487cf3f2cee26613db1a9caa26c286f",
+      "bytes": 33019,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/fragen.css",
+      "sha256": "5becf4986cccee3f37cdae1736badee0525d69de9f8b109f9e07669799d850e4",
+      "bytes": 3122,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/fragen.js",
+      "sha256": "b8540f4931d73d53d4e2a305e674064349838cfe64fb7cbd560c94e2f1791e9b",
+      "bytes": 23430,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/wer.css",
+      "sha256": "b004e82ffb303a40be18d1d5573c6d1f787283dfce90839acb7297bd5f085bcf",
+      "bytes": 3565,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/wer.js",
+      "sha256": "d2d9e617b4192d92cc379a5019911ffd04f703f348ea5ee1f082801dc7f0a0da",
+      "bytes": 18988,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/frische.css",
+      "sha256": "f3c58bca71b782bebf0dbf1d07203cbd4542e4a83f4ec6dbf9b171dba7a1a226",
+      "bytes": 5127,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/frische.js",
+      "sha256": "cecd8f38e7224539d29cd26eb2a2f5b4c74956ab4fe61e74943912406753c1cf",
+      "bytes": 18838,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/strategien.css",
+      "sha256": "e40ea172619490094fd6dcc7ff41381adde4697e062ef5663926ccdf0827388e",
+      "bytes": 7472,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/strategien.js",
+      "sha256": "e54c4e90b7e9d619a9675564bda00ec1e88d88dd5bff5d088a66f2f0f83d8628",
+      "bytes": 33920,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/operatoren-view.css",
+      "sha256": "71f9d2dc9974a2ab75aa25660e34173e1cd1849196e919cffa3321fd215cfd62",
+      "bytes": 15572,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/operatoren-view.js",
+      "sha256": "d8e9df33e00ad11782cac783a6ac3bb9cb99a7b4478306436d70e4cf0299cb4e",
+      "bytes": 45538,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/operatoren-model.js",
+      "sha256": "8354365627070f8dd5ecad12bfe1439145e4adcfacb94f28bb8c92840f5c0679",
+      "bytes": 22762,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/monitor.css",
+      "sha256": "0ca1f1785bec28deef8708210968b23f0ea92fff28d8fca68f7bb5006e298e2d",
+      "bytes": 17662,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/monitor.js",
+      "sha256": "7fd771c8fc0ed5f5861984786d83f3b231a7ff89b826933e2f8fc226ba4b66f5",
+      "bytes": 48654,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/abnahme.css",
+      "sha256": "96f495bc7e0bdb67cec88d29a362ccaf29edbfbc6e89187decf93672102a06c1",
+      "bytes": 8517,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/abnahme.js",
+      "sha256": "6fe796a7f546cb719327a04c2067ea83f14ce76fee8ae8e7bba13cc8f69c6b48",
+      "bytes": 23746,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/agenten.css",
+      "sha256": "e1447df31daa349a9778261f6bf70787bb41711737c83d6955c8059b3c613e20",
+      "bytes": 9333,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/agenten-model.js",
+      "sha256": "d6ec487b1add6db042659b6d961059f8e58f2515f776b89f06f7aa81c40448e0",
+      "bytes": 4544,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/agenten.js",
+      "sha256": "6a554a2106a217605b2d26ac0170163201adb84dd04fdcb411c1846496e81cf9",
+      "bytes": 14621,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/instanz.css",
+      "sha256": "ef02920ac321c0e016947039a0899ddae7bed03c505820365198a27b501a56c8",
+      "bytes": 4059,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/instanz.js",
+      "sha256": "7c6e4da3c34dc5c8a988b43a4bad78f9142835784d462f7ee2efc6b704cb5750",
+      "bytes": 20881,
+      "license": "MIT"
+    },
+    {
+      "file": "mission-control/zeile.js",
+      "sha256": "bb9d4440df2a4167f645b429bc11252d430250025f466e6fedc773278db0bca7",
+      "bytes": 7110,
+      "license": "MIT"
+    },
+    {
+      "file": "demo-runtime.js",
+      "sha256": "dbfc2704d649128896843ad45c5e27a79596e1ef7ba74188ffe4b01ad4e5e698",
+      "bytes": 15561,
+      "license": "MIT"
+    },
+    {
+      "file": "demo.css",
+      "sha256": "ed7d0547ea703614e337c0494af07dd6e8ee4f5180414b4a9857d3b760a2f372",
+      "bytes": 1346,
+      "license": "MIT"
+    },
+    {
+      "file": "demo-release.json",
+      "sha256": "1e21dd4f835ef8c76f9e0d05fc77a673e4c32a62c990a95e655edaf375d242af",
+      "bytes": 192,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "research-paths.js",
+      "sha256": "ba8809a31dd32458a6785087410615b19f8bb3d0ea1a0a068fafb4457e413397",
+      "bytes": 871,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "data.js",
+      "sha256": "ca2962208ef299c15f20aab17d34427cb24291c20c29f355426d7e8d169e6ed0",
+      "bytes": 12297,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "mission-control/data/lab-lanes-data.js",
+      "sha256": "46cb9b8ac9f7b133e27fdc1c8a59182ae6cd9663b6d279fcd2b6c7db2ae82733",
+      "bytes": 12934,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "mission-control/data/erledigt-data.js",
+      "sha256": "234e50d52c4b065aa025e81f446e6ef393faa476ae10dac32509a722f49afc21",
+      "bytes": 268,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "mission-control/data/projekte-data.js",
+      "sha256": "fe4fb140da79d292ec8bc4880c3b418705ce60235d839ce88856f5a01c148f63",
+      "bytes": 31576,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "mission-control/data/berichte-data.js",
+      "sha256": "8fa1606ebcdacf9995fc6f979ce258c5f0639b1e48051f72f93450fd3c732f49",
+      "bytes": 985,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "mission-control/data/zugaenge-data.js",
+      "sha256": "7c6ad51fa1d26fb0016b77e9ce5208223ef38985996136a16c05532a6e162883",
+      "bytes": 142,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "mission-control/data/kalender-google-data.js",
+      "sha256": "b9bde370272b48a121d747b8f9ad8c06cdc8a7450149df43544d42c41c19e802",
+      "bytes": 939,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "mission-control/data/frische-data.js",
+      "sha256": "0da71fed549245e936593308161ef6517cae2a710821f40ded5f780435475734",
+      "bytes": 790,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "mission-control/data/monitor-data.js",
+      "sha256": "2a3bfd97dbd567b4712e34ff3b9c493dc00609f986b688e156a6d92526a3f4dc",
+      "bytes": 4553,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "mission-control/data/agenten-data.js",
+      "sha256": "f5dab5ae422eb0f45a30bf9c3f0a2cfa647e398e31bcc0d99f09365de9290927",
+      "bytes": 240,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-assets/source.json",
+      "sha256": "63e8cb0c67e528b6cf994cc83f771f9db56ac93865c3657c9b09b44637185f2c",
+      "bytes": 9698,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-assets/source-1.json",
+      "sha256": "621c215246b0bd3e8cad65753afa82c191bd4fa4574005762c0ee3ac7d61075d",
+      "bytes": 1699,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-assets/source-2.json",
+      "sha256": "67cb1de8b8d393901d88e1ff25d914e4a4d4890a93129be9f908c3ce93c63aef",
+      "bytes": 1496,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-assets/source-3.json",
+      "sha256": "b235d1ad2b20ee60109654bd54eb679879402b55ba794411468a33c3101b4a57",
+      "bytes": 1821,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-assets/source-4.json",
+      "sha256": "3a59f5d8ca02517a90bf755ef13a02075992f582ca70916959d73e77ed0c41df",
+      "bytes": 1587,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-assets/source-5.json",
+      "sha256": "4475a4ffb7ba87249a1025ee60cb46e36b44c6c8adfba3030d87438c03e7f217",
+      "bytes": 1350,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "source-map.json",
+      "sha256": "af451c78ed3f22cdb666a9e51205d44fa9b425c6b1312dcf986c98403de80924",
+      "bytes": 364,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-assets/coverage.json",
+      "sha256": "0db214654dd1e91672fbe3a65b9e2a0bc6cd64e0f7d626843d28e22e83a4ad46",
+      "bytes": 3240,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-assets/work.json",
+      "sha256": "ca828e737b3999a84d6d83ebef5254780bd5ecab2f5200ff081e65aa0b021974",
+      "bytes": 9144,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-assets/acceptance.json",
+      "sha256": "7565e33db1a2775b0e6de131c86cc9711cae364c368f155c864e310798594134",
+      "bytes": 2273,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-assets/agent-work.json",
+      "sha256": "82a5b59f21021cd3eb74ba2103adbd53daf82f2abcf78672c1ae42471f0e0063",
+      "bytes": 271,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-assets/operator-sessions.json",
+      "sha256": "3d3c683fe495d0570cccc902ebea8f742332c137a3a9f3ea50a87da31a50afa8",
+      "bytes": 1946,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-assets/relations.json",
+      "sha256": "f2a12428f0c76c138f8050c60c808da07bc7c0b397114be3b2f5cb94f3c953e9",
+      "bytes": 566,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-assets/progress.json",
+      "sha256": "e05d7e01214a42678d4b612e423831fe109a6a5c2ab3b6d2d82187e7b451166b",
+      "bytes": 58,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "mission-control/briefings/current.json",
+      "sha256": "7051e9c515336895420088c2489771cf900fb8d4fcdd54880856ed16dffd7dbd",
+      "bytes": 43,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "mission-control/briefings/2026-10-17T080000Z.json",
+      "sha256": "7678bac28e7754de0c7db1d556de61c1dbcbf4a4e503bbc7f0b16abae84d0718",
+      "bytes": 14888,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/data.js",
+      "sha256": "ca2962208ef299c15f20aab17d34427cb24291c20c29f355426d7e8d169e6ed0",
+      "bytes": 12297,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/mission-control/data/lab-lanes-data.js",
+      "sha256": "46cb9b8ac9f7b133e27fdc1c8a59182ae6cd9663b6d279fcd2b6c7db2ae82733",
+      "bytes": 12934,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/mission-control/data/erledigt-data.js",
+      "sha256": "234e50d52c4b065aa025e81f446e6ef393faa476ae10dac32509a722f49afc21",
+      "bytes": 268,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/mission-control/data/projekte-data.js",
+      "sha256": "fe4fb140da79d292ec8bc4880c3b418705ce60235d839ce88856f5a01c148f63",
+      "bytes": 31576,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/mission-control/data/berichte-data.js",
+      "sha256": "8fa1606ebcdacf9995fc6f979ce258c5f0639b1e48051f72f93450fd3c732f49",
+      "bytes": 985,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/mission-control/data/zugaenge-data.js",
+      "sha256": "7c6ad51fa1d26fb0016b77e9ce5208223ef38985996136a16c05532a6e162883",
+      "bytes": 142,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/mission-control/data/kalender-google-data.js",
+      "sha256": "b9bde370272b48a121d747b8f9ad8c06cdc8a7450149df43544d42c41c19e802",
+      "bytes": 939,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/mission-control/data/frische-data.js",
+      "sha256": "0da71fed549245e936593308161ef6517cae2a710821f40ded5f780435475734",
+      "bytes": 790,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/mission-control/data/monitor-data.js",
+      "sha256": "2a3bfd97dbd567b4712e34ff3b9c493dc00609f986b688e156a6d92526a3f4dc",
+      "bytes": 4553,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/mission-control/data/agenten-data.js",
+      "sha256": "f5dab5ae422eb0f45a30bf9c3f0a2cfa647e398e31bcc0d99f09365de9290927",
+      "bytes": 240,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/research-paths.js",
+      "sha256": "ba8809a31dd32458a6785087410615b19f8bb3d0ea1a0a068fafb4457e413397",
+      "bytes": 871,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/source-map.json",
+      "sha256": "cddf8e2f654de0dd7d210ce9b3bb597bd145c6bf6412d27dfc34f69f9165ab8f",
+      "bytes": 628,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/demo-assets/coverage.json",
+      "sha256": "446a844d8124dab4b6ba9c64319c07ea788ecf0646f71ed334f259f992da4c11",
+      "bytes": 3845,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/demo-assets/work.json",
+      "sha256": "ca828e737b3999a84d6d83ebef5254780bd5ecab2f5200ff081e65aa0b021974",
+      "bytes": 9144,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/demo-assets/acceptance.json",
+      "sha256": "7565e33db1a2775b0e6de131c86cc9711cae364c368f155c864e310798594134",
+      "bytes": 2273,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/demo-assets/agent-work.json",
+      "sha256": "82a5b59f21021cd3eb74ba2103adbd53daf82f2abcf78672c1ae42471f0e0063",
+      "bytes": 271,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/demo-assets/operator-sessions.json",
+      "sha256": "3d3c683fe495d0570cccc902ebea8f742332c137a3a9f3ea50a87da31a50afa8",
+      "bytes": 1946,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/demo-assets/relations.json",
+      "sha256": "f2a12428f0c76c138f8050c60c808da07bc7c0b397114be3b2f5cb94f3c953e9",
+      "bytes": 566,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/demo-assets/progress.json",
+      "sha256": "e05d7e01214a42678d4b612e423831fe109a6a5c2ab3b6d2d82187e7b451166b",
+      "bytes": 58,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/mission-control/briefings/current.json",
+      "sha256": "7051e9c515336895420088c2489771cf900fb8d4fcdd54880856ed16dffd7dbd",
+      "bytes": 43,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/mission-control/briefings/2026-10-17T080000Z.json",
+      "sha256": "7678bac28e7754de0c7db1d556de61c1dbcbf4a4e503bbc7f0b16abae84d0718",
+      "bytes": 14888,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/projects/demo-atlas/sources/demo-guide.json",
+      "sha256": "63e8cb0c67e528b6cf994cc83f771f9db56ac93865c3657c9b09b44637185f2c",
+      "bytes": 9698,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/projects/demo-atlas/sources/demo-research.json",
+      "sha256": "621c215246b0bd3e8cad65753afa82c191bd4fa4574005762c0ee3ac7d61075d",
+      "bytes": 1699,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/projects/demo-exhibit/sources/demo-curation.json",
+      "sha256": "67cb1de8b8d393901d88e1ff25d914e4a4d4890a93129be9f908c3ce93c63aef",
+      "bytes": 1496,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/projects/demo-exhibit/sources/demo-writing.json",
+      "sha256": "b235d1ad2b20ee60109654bd54eb679879402b55ba794411468a33c3101b4a57",
+      "bytes": 1821,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/projects/shared/sources/demo-teaching.json",
+      "sha256": "3a59f5d8ca02517a90bf755ef13a02075992f582ca70916959d73e77ed0c41df",
+      "bytes": 1587,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/project-folder/projects/shared/sources/demo-observer.json",
+      "sha256": "4475a4ffb7ba87249a1025ee60cb46e36b44c6c8adfba3030d87438c03e7f217",
+      "bytes": 1350,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/data.js",
+      "sha256": "ca2962208ef299c15f20aab17d34427cb24291c20c29f355426d7e8d169e6ed0",
+      "bytes": 12297,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/mission-control/data/lab-lanes-data.js",
+      "sha256": "46cb9b8ac9f7b133e27fdc1c8a59182ae6cd9663b6d279fcd2b6c7db2ae82733",
+      "bytes": 12934,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/mission-control/data/erledigt-data.js",
+      "sha256": "234e50d52c4b065aa025e81f446e6ef393faa476ae10dac32509a722f49afc21",
+      "bytes": 268,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/mission-control/data/projekte-data.js",
+      "sha256": "fe4fb140da79d292ec8bc4880c3b418705ce60235d839ce88856f5a01c148f63",
+      "bytes": 31576,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/mission-control/data/berichte-data.js",
+      "sha256": "8fa1606ebcdacf9995fc6f979ce258c5f0639b1e48051f72f93450fd3c732f49",
+      "bytes": 985,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/mission-control/data/zugaenge-data.js",
+      "sha256": "7c6ad51fa1d26fb0016b77e9ce5208223ef38985996136a16c05532a6e162883",
+      "bytes": 142,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/mission-control/data/kalender-google-data.js",
+      "sha256": "b9bde370272b48a121d747b8f9ad8c06cdc8a7450149df43544d42c41c19e802",
+      "bytes": 939,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/mission-control/data/frische-data.js",
+      "sha256": "0da71fed549245e936593308161ef6517cae2a710821f40ded5f780435475734",
+      "bytes": 790,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/mission-control/data/monitor-data.js",
+      "sha256": "2a3bfd97dbd567b4712e34ff3b9c493dc00609f986b688e156a6d92526a3f4dc",
+      "bytes": 4553,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/mission-control/data/agenten-data.js",
+      "sha256": "f5dab5ae422eb0f45a30bf9c3f0a2cfa647e398e31bcc0d99f09365de9290927",
+      "bytes": 240,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/research-paths.js",
+      "sha256": "ba8809a31dd32458a6785087410615b19f8bb3d0ea1a0a068fafb4457e413397",
+      "bytes": 871,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/source-map.json",
+      "sha256": "82d90701ec1d8077f66d3d106206f0604be795aa5b2d6e20f02187b8fe2b88c7",
+      "bytes": 488,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/demo-assets/coverage.json",
+      "sha256": "156171e614a0a6957ef85d20edefd96adf7edc529b6ca72e64ada5f5b3e9d64b",
+      "bytes": 3703,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/demo-assets/work.json",
+      "sha256": "ca828e737b3999a84d6d83ebef5254780bd5ecab2f5200ff081e65aa0b021974",
+      "bytes": 9144,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/demo-assets/acceptance.json",
+      "sha256": "7565e33db1a2775b0e6de131c86cc9711cae364c368f155c864e310798594134",
+      "bytes": 2273,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/demo-assets/agent-work.json",
+      "sha256": "82a5b59f21021cd3eb74ba2103adbd53daf82f2abcf78672c1ae42471f0e0063",
+      "bytes": 271,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/demo-assets/operator-sessions.json",
+      "sha256": "3d3c683fe495d0570cccc902ebea8f742332c137a3a9f3ea50a87da31a50afa8",
+      "bytes": 1946,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/demo-assets/relations.json",
+      "sha256": "f2a12428f0c76c138f8050c60c808da07bc7c0b397114be3b2f5cb94f3c953e9",
+      "bytes": 566,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/demo-assets/progress.json",
+      "sha256": "e05d7e01214a42678d4b612e423831fe109a6a5c2ab3b6d2d82187e7b451166b",
+      "bytes": 58,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/mission-control/briefings/current.json",
+      "sha256": "7051e9c515336895420088c2489771cf900fb8d4fcdd54880856ed16dffd7dbd",
+      "bytes": 43,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/mission-control/briefings/2026-10-17T080000Z.json",
+      "sha256": "7678bac28e7754de0c7db1d556de61c1dbcbf4a4e503bbc7f0b16abae84d0718",
+      "bytes": 14888,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/notes/demo-guide.json",
+      "sha256": "63e8cb0c67e528b6cf994cc83f771f9db56ac93865c3657c9b09b44637185f2c",
+      "bytes": 9698,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/notes/demo-research.json",
+      "sha256": "621c215246b0bd3e8cad65753afa82c191bd4fa4574005762c0ee3ac7d61075d",
+      "bytes": 1699,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/notes/demo-curation.json",
+      "sha256": "67cb1de8b8d393901d88e1ff25d914e4a4d4890a93129be9f908c3ce93c63aef",
+      "bytes": 1496,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/notes/demo-writing.json",
+      "sha256": "b235d1ad2b20ee60109654bd54eb679879402b55ba794411468a33c3101b4a57",
+      "bytes": 1821,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/notes/demo-teaching.json",
+      "sha256": "3a59f5d8ca02517a90bf755ef13a02075992f582ca70916959d73e77ed0c41df",
+      "bytes": 1587,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/linked-notes/notes/demo-observer.json",
+      "sha256": "4475a4ffb7ba87249a1025ee60cb46e36b44c6c8adfba3030d87438c03e7f217",
+      "bytes": 1350,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/data.js",
+      "sha256": "ca2962208ef299c15f20aab17d34427cb24291c20c29f355426d7e8d169e6ed0",
+      "bytes": 12297,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/mission-control/data/lab-lanes-data.js",
+      "sha256": "46cb9b8ac9f7b133e27fdc1c8a59182ae6cd9663b6d279fcd2b6c7db2ae82733",
+      "bytes": 12934,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/mission-control/data/erledigt-data.js",
+      "sha256": "234e50d52c4b065aa025e81f446e6ef393faa476ae10dac32509a722f49afc21",
+      "bytes": 268,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/mission-control/data/projekte-data.js",
+      "sha256": "fe4fb140da79d292ec8bc4880c3b418705ce60235d839ce88856f5a01c148f63",
+      "bytes": 31576,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/mission-control/data/berichte-data.js",
+      "sha256": "8fa1606ebcdacf9995fc6f979ce258c5f0639b1e48051f72f93450fd3c732f49",
+      "bytes": 985,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/mission-control/data/zugaenge-data.js",
+      "sha256": "7c6ad51fa1d26fb0016b77e9ce5208223ef38985996136a16c05532a6e162883",
+      "bytes": 142,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/mission-control/data/kalender-google-data.js",
+      "sha256": "b9bde370272b48a121d747b8f9ad8c06cdc8a7450149df43544d42c41c19e802",
+      "bytes": 939,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/mission-control/data/frische-data.js",
+      "sha256": "0da71fed549245e936593308161ef6517cae2a710821f40ded5f780435475734",
+      "bytes": 790,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/mission-control/data/monitor-data.js",
+      "sha256": "2a3bfd97dbd567b4712e34ff3b9c493dc00609f986b688e156a6d92526a3f4dc",
+      "bytes": 4553,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/mission-control/data/agenten-data.js",
+      "sha256": "f5dab5ae422eb0f45a30bf9c3f0a2cfa647e398e31bcc0d99f09365de9290927",
+      "bytes": 240,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/research-paths.js",
+      "sha256": "ba8809a31dd32458a6785087410615b19f8bb3d0ea1a0a068fafb4457e413397",
+      "bytes": 871,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/source-map.json",
+      "sha256": "45791ce33a0fc0da03e5cc9ac201823eab51479fb28ab88d1c76e2c32ecf11fc",
+      "bytes": 569,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/demo-assets/coverage.json",
+      "sha256": "8ac9803976346d987b2dea288ed55260ce2797b4942fd8c1690272f2d508bbcc",
+      "bytes": 3786,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/demo-assets/work.json",
+      "sha256": "ca828e737b3999a84d6d83ebef5254780bd5ecab2f5200ff081e65aa0b021974",
+      "bytes": 9144,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/demo-assets/acceptance.json",
+      "sha256": "7565e33db1a2775b0e6de131c86cc9711cae364c368f155c864e310798594134",
+      "bytes": 2273,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/demo-assets/agent-work.json",
+      "sha256": "82a5b59f21021cd3eb74ba2103adbd53daf82f2abcf78672c1ae42471f0e0063",
+      "bytes": 271,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/demo-assets/operator-sessions.json",
+      "sha256": "3d3c683fe495d0570cccc902ebea8f742332c137a3a9f3ea50a87da31a50afa8",
+      "bytes": 1946,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/demo-assets/relations.json",
+      "sha256": "f2a12428f0c76c138f8050c60c808da07bc7c0b397114be3b2f5cb94f3c953e9",
+      "bytes": 566,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/demo-assets/progress.json",
+      "sha256": "e05d7e01214a42678d4b612e423831fe109a6a5c2ab3b6d2d82187e7b451166b",
+      "bytes": 58,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/mission-control/briefings/current.json",
+      "sha256": "7051e9c515336895420088c2489771cf900fb8d4fcdd54880856ed16dffd7dbd",
+      "bytes": 43,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/mission-control/briefings/2026-10-17T080000Z.json",
+      "sha256": "7678bac28e7754de0c7db1d556de61c1dbcbf4a4e503bbc7f0b16abae84d0718",
+      "bytes": 14888,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/sources/shared/demo-guide.json",
+      "sha256": "63e8cb0c67e528b6cf994cc83f771f9db56ac93865c3657c9b09b44637185f2c",
+      "bytes": 9698,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/sources/operators/demo-research.json",
+      "sha256": "621c215246b0bd3e8cad65753afa82c191bd4fa4574005762c0ee3ac7d61075d",
+      "bytes": 1699,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/sources/operators/demo-curation.json",
+      "sha256": "67cb1de8b8d393901d88e1ff25d914e4a4d4890a93129be9f908c3ce93c63aef",
+      "bytes": 1496,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/sources/operators/demo-writing.json",
+      "sha256": "b235d1ad2b20ee60109654bd54eb679879402b55ba794411468a33c3101b4a57",
+      "bytes": 1821,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/sources/operators/demo-teaching.json",
+      "sha256": "3a59f5d8ca02517a90bf755ef13a02075992f582ca70916959d73e77ed0c41df",
+      "bytes": 1587,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/shared-sources/sources/operators/demo-observer.json",
+      "sha256": "4475a4ffb7ba87249a1025ee60cb46e36b44c6c8adfba3030d87438c03e7f217",
+      "bytes": 1350,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "profiles/index.json",
+      "sha256": "e524f78f8f3ade7bc3b28340e0a7364393e99e65b290914821c1c82919b7e5b4",
+      "bytes": 7262,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "demo-profiles.js",
+      "sha256": "8b0de31dd72137a6e40c1561858d6c63e32c19c496112558ea7b188cfd8c811d",
+      "bytes": 7303,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "sources/demo-guide.md",
+      "sha256": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
+      "bytes": 9420,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "example-data.json",
+      "sha256": "a9caf0e2c01da3d0979986929a4b5994a41e0fa904b016536b180bc1d07ae4ad",
+      "bytes": 115195,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "README.md",
+      "sha256": "3035c0fdb946665fbf158c918a1bcd8505411a60f24dd4bcb3f380836c3068ed",
+      "bytes": 5300,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "AGENTS.md",
+      "sha256": "d27ad683261d8aac50046c09c9c4ab4b75a501dc1aaf2e11f83b21be176dd04a",
+      "bytes": 2074,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "docs/source-contract.md",
+      "sha256": "c8bda0779465fcb99485adc9e8c9e2e4796f69b354e3ed806c4776da01b793bd",
+      "bytes": 6295,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "docs/views.md",
+      "sha256": "9413db61f8886d9866f9785954a7f64cb35cb14965578a69c888d3e00744647a",
+      "bytes": 2174,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "tools/check-adapter.cjs",
+      "sha256": "3603ebe74996823fd06bedcade1e55963911f368c295c89460b16d8040f154a8",
+      "bytes": 2648,
+      "license": "MIT"
+    },
+    {
+      "file": "tools/build-data.cjs",
+      "sha256": "348bd2824f7e1d5a28ba1103d0e26aad24fccd7134e25a0fa15464a7ba4b3822",
+      "bytes": 6256,
+      "license": "MIT"
+    },
+    {
+      "file": "tools/knowledge-profiles.cjs",
+      "sha256": "46c7000eeaf08e0ccde44cd6b3964a8aac87f8994a761578faedd52a50989e8a",
+      "bytes": 3002,
+      "license": "MIT"
+    },
+    {
+      "file": "tools/rebuild-example.cjs",
+      "sha256": "a6b793b58288f2495a6860922126f7be54c83730c4e41fc3e7567c786a17b9b1",
+      "bytes": 1533,
+      "license": "MIT"
+    },
+    {
+      "file": "check-package.cjs",
+      "sha256": "3321807d7e7459e0596ce7349e60cd4402541c0ab638efa0a9ce4787b4f84146",
+      "bytes": 26286,
+      "license": "MIT"
+    },
+    {
+      "file": "check-profiles.cjs",
+      "sha256": "20969b4634411cf0d109738f3d93e215b68af7e22e57687a592feeeedb5dfab2",
+      "bytes": 10518,
+      "license": "MIT"
+    },
+    {
+      "file": "index.html",
+      "sha256": "1b54bc961e641662354716a797348b5ba067514c722eb57468cc24efdf1899b4",
+      "bytes": 320,
+      "license": "MIT"
+    },
+    {
+      "file": "LICENSES/MIT.txt",
+      "sha256": "cde167b7f69fa78c4cebc3cf65478526ee5cc37761b2e10f0a98bf10f45c0848",
+      "bytes": 1075,
+      "license": "MIT"
+    },
+    {
+      "file": "LICENSES/CC-BY-4.0.txt",
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "bytes": 18656,
+      "license": "CC-BY-4.0"
+    },
+    {
+      "file": "LICENSE.txt",
+      "sha256": "f80ca16b0bec09182a1ab65b5b74b8e9f637f1a4061f72d2a3c7d21c70a84d59",
+      "bytes": 133,
+      "license": "CC-BY-4.0"
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "schema": "mission-control-demo-profiles-1",
+  "defaultProfile": "project-folder",
+  "invariant": {
+    "en": "The research question, claims, results, limits, logical source identities and links stay the same. Only source organization changes. This example makes no claim about research effectiveness.",
+    "de": "Forschungsfrage, Aussagen, Ergebnisse, Grenzen, logische Quellenidentitäten und Links bleiben gleich. Nur die Quellenablage ändert sich. Das Beispiel behauptet keine Forschungswirkung."
+  },
+  "profiles": [
+    {
+      "id": "project-folder",
+      "title": {
+        "en": "Project folders",
+        "de": "Projektordner"
+      },
+      "description": {
+        "en": "Sources are filed with their explicitly linked example project; unassigned roles remain shared.",
+        "de": "Quellen liegen beim ausdrücklich zugeordneten Beispielprojekt; nicht zugeordnete Rollen bleiben gemeinsam abgelegt."
+      },
+      "prefix": "profiles/project-folder/",
+      "sources": [
+        {
+          "id": "demo-guide",
+          "title": "Beispielquelle: Atlas der Dinge",
+          "revision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
+          "storagePath": "profiles/project-folder/projects/demo-atlas/sources/demo-guide.json"
+        },
+        {
+          "id": "demo-sources/demo-research.md",
+          "title": "Fictional profile: Researcher",
+          "revision": "1a1ad5528d26b39d0104b5ae5e3db4eb28e4014ea28a55b59fbc409b39700923",
+          "storagePath": "profiles/project-folder/projects/demo-atlas/sources/demo-research.json"
+        },
+        {
+          "id": "demo-sources/demo-curation.md",
+          "title": "Fictional profile: Knowledge Curation",
+          "revision": "ef493b0ce3e06f10c330d2603f27f8cfd11899ab8a84f4db66089fa63b753264",
+          "storagePath": "profiles/project-folder/projects/demo-exhibit/sources/demo-curation.json"
+        },
+        {
+          "id": "demo-sources/demo-writing.md",
+          "title": "Fictional profile: Research Developer",
+          "revision": "df9e0028726b0740e08087f0db679d6c6b8f5fde80a1301ef4c9f056083e8643",
+          "storagePath": "profiles/project-folder/projects/demo-exhibit/sources/demo-writing.json"
+        },
+        {
+          "id": "demo-sources/demo-teaching.md",
+          "title": "Fictional profile: Teaching",
+          "revision": "f631eab27b0a04b9902116541ee75107d61d5434bc25f214a8fdc635dda878cb",
+          "storagePath": "profiles/project-folder/projects/shared/sources/demo-teaching.json"
+        },
+        {
+          "id": "demo-sources/demo-observer.md",
+          "title": "Fictional profile: Quality Review",
+          "revision": "17322cbb40f2943ea993eac897d3f78abfd6e17b7f69abb37006976e6cfba15e",
+          "storagePath": "profiles/project-folder/projects/shared/sources/demo-observer.json"
+        }
+      ]
+    },
+    {
+      "id": "linked-notes",
+      "title": {
+        "en": "Linked notes",
+        "de": "Verknüpfte Notizen"
+      },
+      "description": {
+        "en": "The same sources form a flat note collection with their existing explicit links.",
+        "de": "Dieselben Quellen bilden eine flache Notizsammlung mit ihren bestehenden ausdrücklichen Links."
+      },
+      "prefix": "profiles/linked-notes/",
+      "sources": [
+        {
+          "id": "demo-guide",
+          "title": "Beispielquelle: Atlas der Dinge",
+          "revision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
+          "storagePath": "profiles/linked-notes/notes/demo-guide.json"
+        },
+        {
+          "id": "demo-sources/demo-research.md",
+          "title": "Fictional profile: Researcher",
+          "revision": "1a1ad5528d26b39d0104b5ae5e3db4eb28e4014ea28a55b59fbc409b39700923",
+          "storagePath": "profiles/linked-notes/notes/demo-research.json"
+        },
+        {
+          "id": "demo-sources/demo-curation.md",
+          "title": "Fictional profile: Knowledge Curation",
+          "revision": "ef493b0ce3e06f10c330d2603f27f8cfd11899ab8a84f4db66089fa63b753264",
+          "storagePath": "profiles/linked-notes/notes/demo-curation.json"
+        },
+        {
+          "id": "demo-sources/demo-writing.md",
+          "title": "Fictional profile: Research Developer",
+          "revision": "df9e0028726b0740e08087f0db679d6c6b8f5fde80a1301ef4c9f056083e8643",
+          "storagePath": "profiles/linked-notes/notes/demo-writing.json"
+        },
+        {
+          "id": "demo-sources/demo-teaching.md",
+          "title": "Fictional profile: Teaching",
+          "revision": "f631eab27b0a04b9902116541ee75107d61d5434bc25f214a8fdc635dda878cb",
+          "storagePath": "profiles/linked-notes/notes/demo-teaching.json"
+        },
+        {
+          "id": "demo-sources/demo-observer.md",
+          "title": "Fictional profile: Quality Review",
+          "revision": "17322cbb40f2943ea993eac897d3f78abfd6e17b7f69abb37006976e6cfba15e",
+          "storagePath": "profiles/linked-notes/notes/demo-observer.json"
+        }
+      ]
+    },
+    {
+      "id": "shared-sources",
+      "title": {
+        "en": "Shared sources",
+        "de": "Gemeinsame Quellen"
+      },
+      "description": {
+        "en": "The same material is held in a common source collection, separate from project work.",
+        "de": "Dasselbe Material liegt in einer gemeinsamen Quellensammlung, getrennt von der Projektarbeit."
+      },
+      "prefix": "profiles/shared-sources/",
+      "sources": [
+        {
+          "id": "demo-guide",
+          "title": "Beispielquelle: Atlas der Dinge",
+          "revision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
+          "storagePath": "profiles/shared-sources/sources/shared/demo-guide.json"
+        },
+        {
+          "id": "demo-sources/demo-research.md",
+          "title": "Fictional profile: Researcher",
+          "revision": "1a1ad5528d26b39d0104b5ae5e3db4eb28e4014ea28a55b59fbc409b39700923",
+          "storagePath": "profiles/shared-sources/sources/operators/demo-research.json"
+        },
+        {
+          "id": "demo-sources/demo-curation.md",
+          "title": "Fictional profile: Knowledge Curation",
+          "revision": "ef493b0ce3e06f10c330d2603f27f8cfd11899ab8a84f4db66089fa63b753264",
+          "storagePath": "profiles/shared-sources/sources/operators/demo-curation.json"
+        },
+        {
+          "id": "demo-sources/demo-writing.md",
+          "title": "Fictional profile: Research Developer",
+          "revision": "df9e0028726b0740e08087f0db679d6c6b8f5fde80a1301ef4c9f056083e8643",
+          "storagePath": "profiles/shared-sources/sources/operators/demo-writing.json"
+        },
+        {
+          "id": "demo-sources/demo-teaching.md",
+          "title": "Fictional profile: Teaching",
+          "revision": "f631eab27b0a04b9902116541ee75107d61d5434bc25f214a8fdc635dda878cb",
+          "storagePath": "profiles/shared-sources/sources/operators/demo-teaching.json"
+        },
+        {
+          "id": "demo-sources/demo-observer.md",
+          "title": "Fictional profile: Quality Review",
+          "revision": "17322cbb40f2943ea993eac897d3f78abfd6e17b7f69abb37006976e6cfba15e",
+          "storagePath": "profiles/shared-sources/sources/operators/demo-observer.json"
+        }
+      ]
+    }
+  ]
+}

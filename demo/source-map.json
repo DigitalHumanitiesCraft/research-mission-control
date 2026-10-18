@@ -1,0 +1,8 @@
+{
+  "demo-guide": "demo-assets/source.json",
+  "demo-sources/demo-research.md": "demo-assets/source-1.json",
+  "demo-sources/demo-curation.md": "demo-assets/source-2.json",
+  "demo-sources/demo-writing.md": "demo-assets/source-3.json",
+  "demo-sources/demo-teaching.md": "demo-assets/source-4.json",
+  "demo-sources/demo-observer.md": "demo-assets/source-5.json"
+}

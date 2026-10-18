@@ -1,0 +1,21 @@
+{
+  "synthetic": true,
+  "records": [
+    {
+      "id": "demo-exhibit-uses-atlas",
+      "from": "demo-exhibit",
+      "to": "demo-atlas",
+      "kind": "uses_data",
+      "state": "documented",
+      "valid": true,
+      "qualifier": "Authored example only; no object-identity or implementation claim.",
+      "problems": [],
+      "source": {
+        "path": "demo-guide",
+        "revision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
+        "quote": "The exhibition builds on the Atlas comparison."
+      }
+    }
+  ],
+  "warnings": []
+}

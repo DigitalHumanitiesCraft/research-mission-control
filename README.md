@@ -1,104 +1,128 @@
 # Research Mission Control
 
-**Version 0.9.0 RC2.** This is a release candidate for model-level acceptance testing. The public repository is [`DigitalHumanitiesCraft/research-mission-control`](https://github.com/DigitalHumanitiesCraft/research-mission-control).
+Research knowledge often remains useful after the task for which it was first collected. Notes, sources, decisions and working artifacts can support another question, provided their meaning and limitations remain understandable. Research Mission Control organises this continuation across human researchers and AI agents through maintained project documents, explicit assignments and inspectable results.
 
-Research Mission Control is a reusable method for agentic research orchestration. It organizes a human user, LLM-based AI agents, project knowledge, implementation, and independent verification around one shared project repository. This repository provides the method as one complete system prompt, an installable skill, generated role contracts, a file-based communication protocol, and tests.
+The method draws on linked-note practices associated with the Zettelkasten. It applies them to work performed through an **AI harness**, an environment that gives an agent a working context, tools and controlled access to files. Connections between documents help a reader reconstruct why a decision was made and what a change may affect. The responsible people and agents must examine those relationships and check the resulting work.
 
-## Start
+This repository is intended for researchers, research software engineers and teams maintaining projects across multiple sessions. It provides the method, initialization tools and contracts. Obsidian can serve as a reading and editing environment for the Markdown knowledge, but is optional.
 
-Open the [technical interface](https://dhcraft.org/research-mission-control/) to read and copy the complete system prompt or download the installable skill. The canonical Markdown source is [`SYSTEM-PROMPT.md`](SYSTEM-PROMPT.md).
+The package version and release status are recorded in [release metadata](release-metadata.json). The [public repository](https://github.com/DigitalHumanitiesCraft/research-mission-control), [practical method](knowledge/system-description.md) and [Knowledge Index](knowledge/INDEX.md) distinguish implemented behavior, retained observations and pending acceptance.
 
-Paste the complete system prompt into a new Codex task, Claude Code conversation, or comparable AI harness. The agent identifies Research Mission Control and asks at most three unanswered questions:
+## What the package provides
 
-1. Which Research Mission Control role should this working context assume?
-2. What project result should be produced, and how will the human user assess it?
-3. Which shared project workspace and existing inputs belong to the project?
+- A [complete initialization prompt](SYSTEM-PROMPT.md) that establishes the working role, intended result and project context.
+- An [initializer skill](skills/research-mission-control/SKILL.md) and Python scaffolder that create a new local project repository.
+- Markdown templates for project knowledge, integration rules, assignments and communication.
+- Role contracts separating conceptual work, implementation and independent verification.
+- File-based exchange through the Context Stream, with explicit ownership and receipt records.
+- Tests for initialization, contract consistency and the public distribution boundary.
 
-A **working context** is one separately open task or conversation with its own context window and one assigned role. The **project workspace** is the shared local folder and Git worktree. Existing data, documents, materials, code, repositories, and configured knowledge sources are inspected before further input is requested.
+The technical [start page](https://dhcraft.org/research-mission-control/) provides the prompt and downloadable skill. The private Mission Control dashboard is a separate deployment. The package includes a [synthetic interface example](demo/) using the same shared renderers. It offers a project Overview and Calendar, source-bound Strategies, Projects, Operators with contextual project links, Knowledge and Monitor, with English and German UI. Individual conversations and a coordination briefing prepare complete copyable context. All portfolio content and configuration illustrations are authored fiction. No accounts, live agents, model calls or canonical writes are connected. Technical checks and any independent review apply only to the examined revision. Human acceptance and empirical benefit remain separate.
 
-After the human user authorizes local initialization, the system prompt uses the packaged skill or its scaffolder to create a new local Git repository. It creates no remote, publication, commit, or destructive overwrite unless the human user explicitly requests that action.
+## Start a project
 
-The standard persistent setup uses three working contexts over the same repository:
+The initializer requires Git and Python 3.11 or later. An agent also needs a harness with the file and execution tools required by its assignment. The package does not install or authenticate a harness.
 
-| Context | Role | Function |
-| --- | --- | --- |
-| 1 | **Research Orchestrator** | LLM-based AI agent in an AI harness; works directly with the human user on objectives, concepts, evidence, criteria, and executable briefs |
-| 2 | **Operational Orchestrator** | LLM-based AI agent in an AI harness; changes authorized project artifacts and coordinates bounded specialist agents |
-| 3 | **Independent Verification Agent** | LLM-based AI agent in a separate, read-only working context; evaluates results against explicit criteria and reports its complete finding to the human user |
+1. Download or clone this repository into its own directory. The project to be initialized will use a separate, new directory. Forking the method repository is useful when maintaining changes to the method itself, but is not required to start a project.
+2. Open a new harness conversation at, or with access to, the cloned method repository. Ask it to configure a new Research Mission Control project and supply the complete contents of `SYSTEM-PROMPT.md`. Supplying the document alone does not activate initialization or elevate it above the harness's governing instructions.
+3. Specify the role this context should assume, the intended project result and how you will assess it, and the shared workspace with its existing inputs. The prompt asks only for missing information, with at most three initial questions.
+4. Inspect the proposed initialization. The scaffolder supports `--dry-run`, requires a new target directory whose parent exists, and refuses to overwrite an existing target. With authorization it creates a local Git repository. It does not create a remote, commit or publish the project.
+5. For the reference setup, open the generated Research, Operations and Verification start prompts in separate contexts that share the project repository. Verify their actual permissions and communication routes before relying on them.
 
-The human user directs the work and defines how decisions and authority are delegated. The role contracts keep the resulting boundaries explicit. A contained project may perform the same functions sequentially in one context when separate contexts would add no useful specialization, execution capacity, or independent assessment.
+The installable skill is an alternative entry point when the harness supports it. Its installation procedure depends on that harness. The source scaffolder can also be invoked directly with its documented arguments and `--help`.
 
-## Operating model
+An existing source supplied through `--canonical-input` is recorded as a reference. The initializer does not import its contents or establish synchronization. The responsible agent must inspect relevant material before planning changes.
+
+## How work moves
 
 ```text
-PRIMARY ROUTE
-
-User as Research Director ↔ Research Orchestrator
-                                  │ Implementation Brief
-                                  ▼
-                          Operational Orchestrator
-                                  │ Result with Evidence
-                                  ▼
-                      Independent Verification Agent
-                                  │ Verification Finding
-                                  ▼
-                        User as Research Director
-
-SUPPORTING ROUTES
-
-Operational Orchestrator ↔ Specialist Agents
-Operational Orchestrator ── Operations Result Notice ──→ Research Orchestrator
-User as Research Director ── optional finding route ──→ Research or Operations
+User as Research Director (proposed title) sets direction and criteria
+                  |
+                  v
+Research reads maintained knowledge and prepares a brief
+                  |
+                  v
+Operations changes authorized artifacts and records evidence
+                  |
+                  v
+Independent Verification examines the bounded result
+                  |
+                  v
+Complete finding returns first to the human user
+                  |
+                  v
+The user routes accepted consequences to Research or Operations
+                  |
+                  v
+Responsible writers update knowledge and artifacts
+                  |
+                  +----> Subsequent work reads the maintained state
 ```
 
-The three exchange products are information functions:
+The human user sets direction and defines delegated authority and acceptance. Research Director remains an open naming question, not a confirmed designation. Its use in the diagram identifies the proposed label only.
 
-- **Implementation Brief:** objective, context, authority, expected result, and verification criteria.
-- **Result with Evidence:** actual result, changed artifacts, checks, deviations, and new findings.
-- **Verification Finding:** criterion, observed state, evidence, impact, and assessment for the examined scope.
+Operations also sends a separate result notice to Research, pointing to the authoritative result. Verification does not repair the artifact it evaluates. Its complete finding goes first to the human user, who controls further routing.
 
-## Project knowledge and communication
+The [role contracts](orchestrators/README.md) define responsibility; an assignment names the actual result, sources, permitted changes and checks. Within that boundary an operator can inspect existing solutions and correct a relevant defect. Planned or paused profiles carry no active assignment. New objectives and reserved judgements keep their own authority requirements.
 
-[Promptotyping](https://github.com/DigitalHumanitiesCraft/Promptotyping) supplies maintained, project-bound working knowledge. The initialized `knowledge/` directory records the objective, specification, accepted decisions, integration contract, unresolved handoff state, and durable findings needed for continuation.
+The [Atlas walkthrough](knowledge/system-description.md#give-an-operator-a-bounded-assignment) follows a source-bound assignment through a corrected result, maintained knowledge and dependent use. A contained task may clarify, implement and check in one context; independent Verification requires a separate read-only context. The initializer supplies the reference three-role structure.
 
-The **Context Stream** is the file-based protocol for current exchange among working contexts. Each role writes immutable messages to its own outbox; each recipient maintains its own cursor state. Messages use stable thread identifiers and reference canonical artifacts. Shared files transport state but do not wake an inactive AI session, so each project records its observed notification route and a polling, re-entry, or human-mediated fallback.
+A monitor offers the human user a second opinion on the course of work, comparing plans and interpretations with original statements and actual actions. It neither assigns work nor accepts results. Its [maintained remit](knowledge/project.md#functional-research-group) and deployment communication contract govern any notices. The private pilot's reviewer return differs from portable human-first Verification; [integration](knowledge/integration.md#recorded-vault-pilot) records that difference. A separate session alone establishes no independence of reasoning.
 
-[Grounded Vault](https://github.com/DigitalHumanitiesCraft/grounded-vault) is optional long-term evidence infrastructure. It becomes active only after a project defines and verifies a binding among claims, evidence objects, identifiers, validation responsibility, and write-back.
+Passing a software check, supporting a scholarly claim and obtaining human acceptance establish different things. The [handoff contract](knowledge/research-to-operations-handoff.md) defines the corresponding result and decision records.
 
-## System prompt and skill
+## Maintain knowledge that another session can use
 
-[`SYSTEM-PROMPT.md`](SYSTEM-PROMPT.md) is the single user-facing initialization contract. It configures the smallest sufficient structure, preserves existing project instructions, and produces ready-to-paste project bindings for the selected roles.
+[Promptotyping](https://github.com/DigitalHumanitiesCraft/Promptotyping) supplies the project-bound knowledge arrangement. The generated `knowledge/` directory records project purpose, requirements, integration boundaries and continuation information. Its index directs readers to the relevant documents. Source material, research data and application files retain their own maintained locations.
 
-[`skills/research-mission-control/`](skills/research-mission-control/) packages the same initialization logic as an installable skill with a transactional scaffolder, templates, evals, and tests. The skill is the automated execution form of the system prompt; it is not a second method or competing entry point.
+A useful reference explains its relationship in the surrounding text. A finding may support a design choice, which constrains an implementation brief. If the finding changes, the responsible agent examines affected documents and artifacts, including reuse that has no explicit link. Links do not perform this correction automatically.
 
-Generated workspaces contain the complete local role contracts in `mission-control/roles/` and concise project bindings in `mission-control/start-*.md`. The Research context continues in the first task; the human user pastes the Operations and Verification bindings into fresh contexts opened at the same repository.
+Each canonical document has a responsible writer. Research maintains project knowledge within the configured contract. Operations changes authorized implementation artifacts and submits conceptual consequences through its result record. Any exception requires explicit ownership and a safe write arrangement.
 
-## Public package
+The Context Stream stores messages in role-owned outboxes and tracks processing in recipient-owned records. Writing a message, processing it and completing its assignment are separate events. Shared files do not wake an inactive agent. Each deployment must test its actual notification route and record a fallback such as polling, later re-entry or human forwarding.
 
-The publication bundle contains the technical website, system prompt, role contracts, skill package, Knowledge Core, and contract tests. [`publication-manifest.json`](publication-manifest.json) is its exact positive file list. Operational dashboards, reports, shared runtime messages, and work directories remain private-source components.
+## Adapt the method to your project
 
-Create a local review bundle and run the public contracts:
+Start by configuring the generated project description, specification and integration contract. They establish the purpose, assessment criteria, permitted inputs, writing responsibilities and tools. Add domain documents where needed and link them from the existing index.
 
-```powershell
-python tools/build_public_release.py --draft
-python -m pytest
+The reference directory structure and role set are fixed by the initializer templates. Changing paths or adding roles requires corresponding updates to templates, prompts, references and tests. These are method changes, not configuration switches already exposed by the initializer.
+
+An external Obsidian vault or institutional knowledge collection becomes an active source only after the integration contract identifies its exact scope, access authority and write-back rules. An available path does not establish permission or reliable synchronization. [Grounded Vault](https://github.com/DigitalHumanitiesCraft/grounded-vault) is an optional integration with its own requirements, not a prerequisite for the basic workflow.
+
+For example, a research synthesis may maintain its selection criteria, source notes and conclusions in separate linked documents. An authorized revision to those criteria should lead to an explicit check of affected selections and conclusions. This illustrates the method. The package does not supply a literature-review application or an experimentally validated synthesis workflow.
+
+The [configurable knowledge adapter](knowledge/knowledge-adapters.md) provides a runnable connection from selected local Markdown files to the existing knowledge reader's data format. It accepts arbitrary folder layouts through an explicit configuration. Run its synthetic example with `python tools/build_knowledge_catalog.py --config examples/knowledge/sources.json --target ../knowledge-preview`. This builds local catalog and source JSON files without changing or publishing the selected documents. Follow the [reader-only local setup](examples/knowledge/README.md#select-your-own-markdown-sources) to connect it to an independent copy of the supplied reader. Portfolio data has a separate source contract.
+
+## Understand the interface boundary
+
+The private Mission Control deployment presents projects, operator reports, results and conversation prompts. These are derived views of maintained sources. A copied prompt does not start an operator or record an answer. A displayed report does not prove that its agent is currently running.
+
+Reusing that interface requires its implementation and adapters for the receiving project's sources. The portable package provides the technical start page and method contracts. Its candidate synthetic interface example illustrates the separately maintained UI. It does not install the private portfolio interface or provide a general dashboard builder. Public demonstration work must use verified synthetic material and distinguish simulated behavior from an actual harness connection.
+
+## Check an adaptation
+
+Run the relevant checks from the repository root. The initializer and prompt checks use Python's standard library.
+
+```sh
+python -m unittest discover -s skills/research-mission-control/tests -p "test_*.py"
+python orchestrators/test_research_orchestrator_prompt.py
+python orchestrators/test_system_prompt.py
 ```
 
-Release builds require a clean committed source worktree. The builder validates distribution paths, local links, licenses, deterministic skill packaging, and bounded private-path markers.
+The broader repository suite uses pytest. Install the pinned build-only documentation dependency with `uv sync --locked --extra web-docs`. Generate a local review bundle with `uv run --locked --extra web-docs python tools/build_public_release.py --draft`. The initializer and static demo do not require this parser. The generated HTML documentation reads only the manifest-selected original Markdown; its source downloads retain the original bytes and recorded document versions. Package 0.9.0rc3 and a document's recorded 0.9.0rc2 identify different scopes. Packaging does not update historical findings. Release builds require a clean committed source worktree. Public-release checks additionally inspect included files, relative links, exclusions and license assignments. A passing suite does not establish that your installed harness can initialize and operate a project. Verify a representative task with the actual tools, permissions and communication routes you intend to use.
 
-## Canonical sources
+## Live demonstration
 
-| Path | Function |
-| --- | --- |
-| [`SYSTEM-PROMPT.md`](SYSTEM-PROMPT.md) | complete initialization and operating contract |
-| [`skills/research-mission-control/`](skills/research-mission-control/) | installable execution package, templates, evals, and tests |
-| [`orchestrators/`](orchestrators/) | canonical role contracts and harness adapters |
-| [`knowledge/INDEX.md`](knowledge/INDEX.md) | map of the publication Knowledge Core |
-| [`knowledge/project.md`](knowledge/project.md) | purpose, boundary, completion, and publication status |
-| [`knowledge/integration.md`](knowledge/integration.md) | component, communication, grounding, and write-back relations |
+[Watch the uncut German-language live demonstration](https://www.youtube.com/watch?v=B7TCJjcVA2k). The recording captures an earlier operating state. Its [maintained analysis](knowledge/observed-live-demo-operation.md) documents successful coordination together with role drift, notification uncertainty and an artifact rejected by the human user. The recording does not establish acceptance of the current package.
 
-## Maturity and licensing
+The resulting method requires a brief to identify which existing material must be preserved, reused, adapted or may be replaced before a substitute is generated. It also distinguishes bounded independent verification from monitoring of the whole work and its alignment with human direction.
 
-Automated checks establish formal conformance of the packaged artifacts. Fresh Codex and Claude Code trials establish observed model behavior. Human assessment of those trials remains the final criterion for version 1.0.
+## Evidence and further reading
 
-Code and the installable skill are licensed under MIT. Documentation and the website are licensed under CC BY 4.0. Citation metadata is provided in [`CITATION.cff`](CITATION.cff).
+The [practical system description](knowledge/system-description.md) explains the knowledge and execution relationships. The [integration contract](knowledge/integration.md) identifies component boundaries and ownership. The [Knowledge Index](knowledge/INDEX.md) leads to the maintained contracts and observation records.
+
+Retained observations document bounded file-based exchanges, a portable-package probe and problems exposed in an earlier working session. They support the particular findings recorded there. Comparative improvements in research quality, continuation or maintenance effort have not been established. Fresh initialization of the same new project from the published package and human acceptance remain separate pending findings in the [completion criteria](knowledge/project.md#completion-criteria). The source repository contains a draft methods paper and unperformed evaluation proposals outside the publication bundle.
+
+## License and citation
+
+Project code is available under MIT and project documentation under CC BY 4.0. DHCraft logos and marks have [separate usage terms](LICENSES/DHCraft-Brand.txt). Use your own identity for an adaptation unless you have permission. Included fonts and other third-party materials retain their own licences. Exact file-level assignments appear in [LICENSE](LICENSE) and [publication-manifest.json](publication-manifest.json), including the installable skill under MIT and the supplied fonts under OFL-1.1. Use [CITATION.cff](CITATION.cff) for repository citation metadata.

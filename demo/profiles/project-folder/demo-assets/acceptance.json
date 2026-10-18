@@ -1,0 +1,52 @@
+{
+  "synthetic": true,
+  "revision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
+  "task": {
+    "kennung": "DEMO-COMPARE",
+    "auftrag": "Beispiel: Die erfundenen Notizen vergleichen und die offene Objektidentität kennzeichnen.",
+    "vorhaben": "demo-atlas",
+    "zustand": "erledigt",
+    "seit": "2026-01-12",
+    "abnahmeart": "inhaltlich",
+    "zweck": "Die Unterscheidung von Beschreibung und Interpretation an einem erfundenen Beispiel zeigen.",
+    "ergebnis": "Beispielergebnis: Farbe und Form stimmen überein, die zugeschriebenen Funktionen unterscheiden sich. Eine gemeinsame Objektkennung fehlt.",
+    "pruefung": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
+    "vertragsfehler": "",
+    "vertragsquelle": {
+      "path": "demo-guide",
+      "href": "",
+      "revision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
+      "section": "Beispielaufgabe"
+    },
+    "ergebnisZiele": [
+      {
+        "art": "mission-control",
+        "text": "Written comparison: source and limits",
+        "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-atlas&anchor=Beispielergebnis",
+        "quelle": "beispiel"
+      }
+    ],
+    "quellenrevision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
+    "operator": "demo-research",
+    "entryId": "demo-atlas"
+  },
+  "vorlage": true,
+  "abnahmeart": "inhaltlich",
+  "zweck": "Die Unterscheidung von Beschreibung und Interpretation an einem erfundenen Beispiel zeigen.",
+  "ergebnis": "Beispielergebnis: Farbe und Form stimmen überein, die zugeschriebenen Funktionen unterscheiden sich. Eine gemeinsame Objektkennung fehlt.",
+  "gepruft": "Vollständig erfundenes Material. Kein tatsächlicher Forschungsbefund, Agentenlauf oder Abnahmenachweis.",
+  "ansehen": [
+    {
+      "art": "mission-control",
+      "text": "Written comparison: source and limits",
+      "href": "../research.html#view=context&source=demo-guide&read=1&bezug=demo-atlas&anchor=Beispielergebnis",
+      "quelle": "beispiel"
+    }
+  ],
+  "warnings": [
+    "Vollständig erfundener Ergebnisdatensatz. Keine tatsächliche Abnahme."
+  ],
+  "material": null,
+  "answer": null,
+  "receipt": null
+}

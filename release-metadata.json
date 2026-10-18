@@ -1,11 +1,13 @@
 {
   "schema_version": 1,
   "name": "Research Mission Control",
-  "version": "0.9.0rc2",
+  "version": "0.9.0rc3",
   "status": "release-candidate",
   "repository": "https://github.com/DigitalHumanitiesCraft/research-mission-control",
-  "source_commit": "2618ae25960c8b2d2ccb7e4dbc12001b50d8ba8a",
+  "source_commit": "defa4c023980d0da347ebd3082e9646d9d14588f",
   "source_dirty": false,
-  "publication_manifest_sha256": "168656ff49a3b24d875011a8fef5dd4769dc7806bcbc3324131248ee2b2ce1f3",
-  "checksums": "SHA256SUMS"
+  "publication_manifest_sha256": "382d7b181d935ffcbdabaefb70f76ea7c34f00766f5e63063dfd09d49f97cd24",
+  "checksums": "SHA256SUMS",
+  "demo_source_commit": "fb722ed5e0690975b5bdf8060bb67e62c3cfab1f",
+  "demo_export_manifest_sha256": "23a42ebde2bb840ada2c4aed57dcb7c2b2089ef7f7fdd7ca203b888d13407326"
 }

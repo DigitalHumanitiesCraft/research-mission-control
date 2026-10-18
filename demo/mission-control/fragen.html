@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="overview-route.js"></script>
+<title data-i18n-de="Mission Control, Dein Beitrag" data-i18n-en="Mission Control, Your contribution">Mission Control, Your contribution</title>
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="navigation.css">
+<link rel="stylesheet" href="../demo.css">
+<script src="../demo-profiles.js"></script>
+<script src="../demo-runtime.js"></script>
+<script src="vault-links.js"></script>
+<script src="language.js"></script>
+<script src="navigation.js"></script>
+<link rel="stylesheet" href="shell.css">
+<link rel="stylesheet" href="icons.css">
+<link rel="stylesheet" href="instanz.css">
+<link rel="stylesheet" href="fragen.css">
+</head>
+<body>
+<div class="wrap">
+  <div id="kopf"></div>
+  <main aria-labelledby="entscheiden-titel">
+    <h2 id="entscheiden-titel" data-i18n-de="Dein Beitrag" data-i18n-en="Your contribution">Your contribution</h2>
+    <p class="entscheid-zahl" id="zahl"></p>
+    <p class="meldung" id="meldung" role="status" hidden></p>
+    <div class="liste" id="liste"></div>
+  </main>
+</div>
+<script type="module" src="overview-bootstrap.js" data-overview-view="fragen"></script>
+</body>
+</html>

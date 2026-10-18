@@ -63,6 +63,8 @@ Include only fields that affect execution, integration, verification, or human u
 
 Every Implementation Brief resolves the objective and intended use, relevant context and canonical sources, authority, write boundary and exclusions, expected result, verification criteria, and decisions reserved for the human user. Add data, dependencies, versions, reference state, and canonical write-back targets when the assignment requires them.
 
+When existing artifacts constrain the result, name which artifacts or parts must be preserved, reused, adapted, or may be replaced. Record the content, structure, style, provenance, or acceptance boundary that makes the relationship relevant. Operations must inspect the actual baseline and resolve this relationship before generating a substitute.
+
 This context may be a direct task message, a section in canonical knowledge, or a persistent Implementation Brief. Create a separate file only when several agents, states, or write targets must remain distinguishable or later reconstruction matters.
 
 ## Verification collaboration
@@ -96,7 +98,7 @@ A consequential Decision becomes one Human Decision Point at one canonical locat
 
 ## Skill routing
 
-When available, use `leitstelle-profile` to select or adapt the control and knowledge profile, `lane-report` for routine workstream status, `lane-handoff` before context loss or transfer, and `leitstelle-sync` for reconciliation against canonical sources. A skill supplies a procedure and does not grant authority or create a new canonical source.
+Use the deployment's configured procedures for control-profile assessment, routine reporting, continuation before context loss, and reconciliation. If the personal `mission-control` skill is installed, its modes are `profile`, `report`, `handoff` and `sync` respectively. Otherwise follow the existing role and project contracts directly; the portable workspace does not require that personal skill. A skill supplies a procedure and does not grant authority or create a new canonical source.
 
 ## Communication
 

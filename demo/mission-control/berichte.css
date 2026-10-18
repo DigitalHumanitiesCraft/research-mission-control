@@ -1,0 +1,24 @@
+/* Berichte rows reuse .zeile from base.css; this file only adds the
+   report-specific marks and the reading layout of an open report. Tokens come
+   from base.css. */
+.berichte { display: grid; }
+.berichte .zeile > .name .datum { font-weight: 400; color: var(--soft); margin-inline-start: var(--s1); }
+.berichte .zeile .rechts.auftrag { color: var(--ink); }
+.berichte .zeile .erledigt { color: var(--ink); font-weight: 600; }
+.berichte .zeile .offen-zahl { color: var(--offen); }
+
+/* A report is read, not scanned, so it keeps ink colour and body size. */
+.berichte .zeile > .bericht-detail { color: var(--ink); font-size: var(--t-klein); gap: var(--s3); padding: var(--s2) 2px var(--s3); max-inline-size: 72ch; }
+.bericht-detail .bericht-meta { color: var(--soft); font-size: var(--t-mini); }
+.bericht-abschnitt { display: grid; gap: var(--s1); min-inline-size: 0; }
+.bericht-abschnitt h3 { font-size: var(--t-mini); text-transform: uppercase; letter-spacing: 0.04em; color: var(--soft); }
+.bericht-abschnitt h4, .bericht-abschnitt h5, .bericht-abschnitt h6 { font-size: var(--t-klein); }
+.bericht-abschnitt p { margin: 0; }
+.bericht-abschnitt ul, .bericht-abschnitt ol { margin: 0; padding-inline-start: 1.2em; display: grid; gap: var(--s1); }
+/* Reports carry long URLs and identifiers in code spans; they wrap instead of
+   pushing the page sideways. */
+.bericht-abschnitt code { font-size: 0.8125rem; overflow-wrap: anywhere; background: var(--sunken); border-radius: 2px; padding: 0 2px; }
+.bericht-abschnitt pre { margin: 0; padding: var(--s2); background: var(--sunken); border-radius: var(--r); white-space: pre-wrap; overflow-wrap: anywhere; }
+.bericht-abschnitt pre code { background: none; padding: 0; }
+.bericht-abschnitt a { color: var(--ink); overflow-wrap: anywhere; }
+.bericht-abschnitt.folge { border-inline-start: 2px solid var(--line); padding-inline-start: var(--s2); }

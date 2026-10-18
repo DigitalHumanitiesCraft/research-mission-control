@@ -1,0 +1,8 @@
+{
+  "demo-guide": "profiles/shared-sources/sources/shared/demo-guide.json",
+  "demo-sources/demo-research.md": "profiles/shared-sources/sources/operators/demo-research.json",
+  "demo-sources/demo-curation.md": "profiles/shared-sources/sources/operators/demo-curation.json",
+  "demo-sources/demo-writing.md": "profiles/shared-sources/sources/operators/demo-writing.json",
+  "demo-sources/demo-teaching.md": "profiles/shared-sources/sources/operators/demo-teaching.json",
+  "demo-sources/demo-observer.md": "profiles/shared-sources/sources/operators/demo-observer.json"
+}

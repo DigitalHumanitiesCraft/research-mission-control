@@ -1,0 +1,123 @@
+{
+  "schema": "second-brain-coverage-1",
+  "synthetic": true,
+  "generatedAt": "2026-10-17T10:00:00+02:00",
+  "errors": [],
+  "vault": {
+    "documents": [
+      {
+        "id": "demo-guide",
+        "path": "demo-guide",
+        "title": "Beispielquelle: Atlas der Dinge",
+        "revision": "244c882986b574e37144bdd228907906d84baf390e6fdbed76ede46b05ee2092",
+        "tags": [
+          "demo"
+        ],
+        "aliases": [],
+        "type": "research",
+        "storagePath": "profiles/linked-notes/notes/demo-guide.json"
+      },
+      {
+        "id": "demo-sources/demo-research.md",
+        "path": "demo-sources/demo-research.md",
+        "title": "Fictional profile: Researcher",
+        "revision": "1a1ad5528d26b39d0104b5ae5e3db4eb28e4014ea28a55b59fbc409b39700923",
+        "tags": [
+          "demo"
+        ],
+        "aliases": [],
+        "type": "research",
+        "storagePath": "profiles/linked-notes/notes/demo-research.json"
+      },
+      {
+        "id": "demo-sources/demo-curation.md",
+        "path": "demo-sources/demo-curation.md",
+        "title": "Fictional profile: Knowledge Curation",
+        "revision": "ef493b0ce3e06f10c330d2603f27f8cfd11899ab8a84f4db66089fa63b753264",
+        "tags": [
+          "demo"
+        ],
+        "aliases": [],
+        "type": "research",
+        "storagePath": "profiles/linked-notes/notes/demo-curation.json"
+      },
+      {
+        "id": "demo-sources/demo-writing.md",
+        "path": "demo-sources/demo-writing.md",
+        "title": "Fictional profile: Research Developer",
+        "revision": "df9e0028726b0740e08087f0db679d6c6b8f5fde80a1301ef4c9f056083e8643",
+        "tags": [
+          "demo"
+        ],
+        "aliases": [],
+        "type": "research",
+        "storagePath": "profiles/linked-notes/notes/demo-writing.json"
+      },
+      {
+        "id": "demo-sources/demo-teaching.md",
+        "path": "demo-sources/demo-teaching.md",
+        "title": "Fictional profile: Teaching",
+        "revision": "f631eab27b0a04b9902116541ee75107d61d5434bc25f214a8fdc635dda878cb",
+        "tags": [
+          "demo"
+        ],
+        "aliases": [],
+        "type": "research",
+        "storagePath": "profiles/linked-notes/notes/demo-teaching.json"
+      },
+      {
+        "id": "demo-sources/demo-observer.md",
+        "path": "demo-sources/demo-observer.md",
+        "title": "Fictional profile: Quality Review",
+        "revision": "17322cbb40f2943ea993eac897d3f78abfd6e17b7f69abb37006976e6cfba15e",
+        "tags": [
+          "demo"
+        ],
+        "aliases": [],
+        "type": "research",
+        "storagePath": "profiles/linked-notes/notes/demo-observer.json"
+      }
+    ],
+    "links": [
+      {
+        "from": "demo-sources/demo-research.md",
+        "to": "demo-guide",
+        "quote": "Related example source: [[demo-guide]]",
+        "line": 36
+      },
+      {
+        "from": "demo-sources/demo-curation.md",
+        "to": "demo-guide",
+        "quote": "Related example source: [[demo-guide]]",
+        "line": 36
+      },
+      {
+        "from": "demo-sources/demo-writing.md",
+        "to": "demo-guide",
+        "quote": "Related example source: [[demo-guide]]",
+        "line": 43
+      },
+      {
+        "from": "demo-sources/demo-teaching.md",
+        "to": "demo-guide",
+        "quote": "Related example source: [[demo-guide]]",
+        "line": 39
+      },
+      {
+        "from": "demo-sources/demo-observer.md",
+        "to": "demo-guide",
+        "quote": "Related example source: [[demo-guide]]",
+        "line": 35
+      }
+    ],
+    "coverage": {
+      "missingPaths": []
+    }
+  },
+  "repositories": {
+    "documents": [],
+    "mappings": [],
+    "links": []
+  },
+  "profile": "linked-notes"
+}

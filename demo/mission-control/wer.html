@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="overview-route.js"></script>
+  <title data-i18n-de="Mission Control, Zuständigkeiten" data-i18n-en="Mission Control, Responsibilities">Mission Control, Responsibilities</title>
+  <link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="navigation.css">
+<link rel="stylesheet" href="../demo.css">
+<script src="../demo-profiles.js"></script>
+<script src="../demo-runtime.js"></script>
+<script src="vault-links.js"></script>
+<script src="language.js"></script>
+<script src="navigation.js"></script>
+  <link rel="stylesheet" href="shell.css">
+  <link rel="stylesheet" href="icons.css">
+  <link rel="stylesheet" href="wer.css">
+</head>
+<body>
+<div class="wrap">
+  <div id="kopf"></div>
+  <main>
+    <section class="block instanzen" id="block-instanzen" aria-labelledby="titel-instanzen">
+      <h2 id="titel-instanzen" data-i18n-de="Instanzen" data-i18n-en="Sessions">Sessions</h2>
+      <div class="liste" id="liste-instanzen"></div>
+    </section>
+    <div class="spalten">
+      <section class="block du" id="block-du" aria-labelledby="titel-du">
+        <h2 id="titel-du" data-i18n-de="Du" data-i18n-en="You">You</h2>
+        <div class="liste" id="liste-du"></div>
+      </section>
+      <section class="block dritte" id="block-dritte" aria-labelledby="titel-dritte">
+        <h2 id="titel-dritte" data-i18n-de="Dritte" data-i18n-en="Others">Others</h2>
+        <div class="liste" id="liste-dritte"></div>
+      </section>
+      <section class="block niemand" id="block-niemand" aria-labelledby="titel-niemand">
+        <h2 id="titel-niemand" data-i18n-de="Niemand" data-i18n-en="Unassigned">Unassigned</h2>
+        <div class="liste" id="liste-niemand"></div>
+      </section>
+    </div>
+  </main>
+</div>
+<script type="module" src="overview-bootstrap.js" data-overview-view="wer"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+/* Agenten: the runs of the day on the Mission Control tokens. Structure comes
+   from indentation and spacing; the only line is the hairline under the head
+   of the runs. Unlayered, so it wins over the layered base.css where both
+   style the same element. */
+body.ag { font-size: 0.875rem; line-height: 1.4; }
+
+#agenten { --stufe: 1.25rem; max-width: 84rem; }
+
+.flotte .stand { margin: 0 0 var(--s1); color: var(--soft); font-size: var(--t-mini); }
+.bilanz { margin: 0 0 var(--s2); cursor: help; }
+/* Head and rows share one column template. */
+.f-kopf, .l-zeile { display: grid; grid-template-columns: 12.5rem minmax(0, 1fr) 16rem 5rem 4.5rem; column-gap: var(--s4); align-items: center; }
+.f-kopf { padding-block-end: 3px; border-bottom: 1px solid var(--line); color: var(--soft); font-size: var(--t-mini); }
+.f-kopf h2 { margin: 0; font-size: var(--t-klein); font-weight: 600; color: var(--ink); }
+.f-spalte.rechts { text-align: end; }
+.f-zeit { position: relative; display: block; height: 1.1em; }
+.skala span { position: absolute; top: 0; transform: translateX(-50%); font-family: var(--mono); font-size: 0.6875rem; }
+
+.laeufe { list-style: none; padding: 2px 0 0; margin: 0; }
+.l-zeile { min-height: 22px; padding: 1px 2px; }
+.l-name { font-weight: 600; color: var(--ink); max-width: 100%; overflow-wrap: anywhere; display: block; }
+.l-kopf { min-width: 0; }
+
+.l-phasen { display: flex; flex-wrap: wrap; gap: 2px var(--s3); min-width: 0; line-height: 1.25; }
+.phase { position: relative; padding-block-end: 3px; font-size: 0.8125rem; color: var(--soft); white-space: nowrap; cursor: help; }
+.phase .mono { font-size: 0.75rem; color: var(--ink); }
+.ph-strich { position: absolute; inset: auto 0 0 0; height: 2px; border-radius: 1px; }
+.ph-strich.leer { background: var(--line); }
+
+.spur { position: relative; display: block; height: 8px; border-radius: 4px; background: var(--sunken); cursor: help; }
+.balken { position: absolute; top: 1px; height: 6px; border-radius: 3px; background: var(--orchestrator); opacity: 0.6; }
+.balken.laeuft { opacity: 1; }
+.balken.leise { opacity: 0.35; }
+
+.dauer, .token { text-align: end; font-size: 0.75rem; color: var(--soft); white-space: nowrap; cursor: help; }
+.dauer.laeuft { color: var(--orchestrator); font-weight: 600; }
+.dauer.failed { color: var(--stoerung); font-weight: 600; }
+.dauer.stopped { color: var(--andere); }
+
+/* Agents sit beneath their run, grouped under their phase. */
+.agenten { padding: 2px 0 var(--s3) var(--stufe); }
+.ph-kopf { margin: var(--s2) 0 1px; font-size: var(--t-mini); font-weight: 600; color: var(--soft); }
+.agenten ul { list-style: none; padding: 0; margin: 0; }
+.agent { display: grid; grid-template-columns: 11.25rem 4.25rem 5.25rem 4rem minmax(0, 1fr); column-gap: var(--s4); align-items: baseline;
+  min-height: 22px; font-size: 0.8125rem; }
+.a-label { font-size: 0.75rem; overflow-wrap: anywhere; }
+/* Single agents carry a task description instead of a short label. */
+.einzeln .agent { grid-template-columns: 16rem 4.25rem 5.25rem 4rem minmax(0, 1fr); }
+.einzeln .a-label { font-family: var(--sans); font-size: 0.8125rem; }
+.a-modell { color: var(--soft); white-space: nowrap; cursor: help; }
+.a-zustand { color: var(--soft); white-space: nowrap; }
+.a-zustand.running { color: var(--orchestrator); font-weight: 600; }
+.a-zustand.failed { color: var(--stoerung); font-weight: 600; }
+.a-zustand.stopped { color: var(--andere); }
+.a-zustand.unbekannt { cursor: help; }
+.a-dauer { font-size: 0.75rem; color: var(--soft); text-align: end; white-space: nowrap; cursor: help; }
+.a-satz { min-width: 0; overflow-wrap: anywhere; }
+
+.laeufe .leer { color: var(--soft); padding-block: var(--s2); }
+
+/* Mid widths drop the timeline before anything else gets narrow. */
+@media (max-width: 64rem) {
+  .f-kopf, .l-zeile { grid-template-columns: 11rem minmax(0, 1fr) 5rem 4.5rem; }
+  .f-zeit, .spur { display: none; }
+}
+
+/* Narrow: every row stacks; the timeline and the column labels give way. */
+@media (max-width: 520px) {
+  #agenten { --stufe: 0.625rem; }
+  .f-kopf { grid-template-columns: minmax(0, 1fr); }
+  .f-kopf > :not(h2) { display: none; }
+  .l-zeile { grid-template-columns: minmax(0, 1fr) auto auto; column-gap: var(--s3); row-gap: 2px; padding-block: 3px; }
+  .l-kopf { grid-row: 1; grid-column: 1; }
+  .l-zeile > .dauer { grid-row: 1; grid-column: 2; }
+  .l-zeile > .token { grid-row: 1; grid-column: 3; }
+  .l-phasen { grid-row: 2; grid-column: 1 / -1; }
+  .agent, .einzeln .agent { grid-template-columns: minmax(0, 1fr) auto auto; column-gap: var(--s2); padding-block: 2px; }
+  .a-label { grid-row: 1; grid-column: 1; }
+  .a-zustand { grid-row: 1; grid-column: 2; }
+  .a-dauer { grid-row: 1; grid-column: 3; }
+  .a-modell { grid-row: 2; grid-column: 1 / -1; font-size: var(--t-mini); }
+  .a-satz { grid-row: 3; grid-column: 1 / -1; white-space: normal; }
+}
+
+/* Results lead; assignments and execution remain inspectable beneath each result. */
+.arbeitsstand h2 { font-size: 1.5rem; font-weight: 600; }
+.arbeit-einstieg { margin-bottom: var(--s5); }
+.arbeit-einstieg p { color: var(--soft); margin-top: var(--s1); font-size: var(--t-klein); }
+.arbeiten { list-style: none; padding: 0; margin: 0; }
+.arbeit { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(15rem, 1fr); gap: var(--s1) var(--s6); padding-block: var(--s3); }
+.arbeit + .arbeit { border-top: 1px solid var(--line); }
+.arbeit-projekt { color: var(--soft); font-size: var(--t-mini); margin-bottom: var(--s1); }
+.arbeit h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: var(--s2); }
+.arbeit h3 a { text-decoration: none; }
+.arbeit h3 a:hover { text-decoration: underline; }
+.arbeit-ergebnis { max-width: 72ch; font-size: var(--t-basis); line-height: 1.5; }
+.arbeitsweg { display: flex; flex-wrap: wrap; gap: var(--s3); list-style: none; padding: 0; margin-top: var(--s3); font-size: var(--t-mini); color: var(--soft); }
+.arbeitsweg li { display: flex; gap: var(--s3); align-items: center; }
+.arbeitsweg li::before { content: '○'; color: var(--soft); }
+.arbeitsweg .schritt-recorded::before { content: '●'; color: var(--soft); font-size: 0.625rem; }
+.arbeitsweg .schritt-conflict::before { content: '!'; color: var(--dich); }
+.arbeit-befund { align-self: start; padding-top: 1.75rem; font-size: var(--t-klein); line-height: 1.5; }
+.pruefbefund { color: var(--soft); }
+.arbeit-offen { color: var(--dich); margin-top: var(--s2); }
+.arbeit-zugang { display: inline-block; margin-top: var(--s2); min-height: 24px; text-underline-offset: 3px; }
+.arbeit-detail { grid-column: 1 / -1; font-size: var(--t-klein); color: var(--soft); }
+.arbeit-detail h4 { margin: var(--s4) 0 var(--s2); font-size: var(--t-klein); }
+.einzelauftraege { list-style: none; padding: 0; margin: var(--s2) 0; }
+.einzelauftrag { display: grid; grid-template-columns: minmax(0, 1fr) minmax(8rem, auto) auto; gap: var(--s2) var(--s4); padding-block: var(--s2); }
+.einzelstand { color: var(--soft); font-size: var(--t-mini); }
+.auftragsquelle { font-size: var(--t-mini); }
+.belegquelle { color: var(--soft); font-size: var(--t-mini); margin-top: var(--s2); }
+.belegtext { margin-top: var(--s2); max-width: 105ch; }
+.weitere-arbeit { margin-top: var(--s6); }
+.weitere-arbeit h3 { font-size: 1rem; font-weight: 600; }
+.ausfuehrung { margin-top: var(--s6); }
+.ausfuehrung > h2 { font-size: var(--t-basis); }
+.ausfuehrung .flotte { margin-top: var(--s3); }
+.daten-grenze { color: var(--soft); font-size: var(--t-mini); max-width: 100ch; margin-bottom: var(--s2); }
+.arbeit, .einzelauftrag, .arbeit h3, .arbeit-ergebnis, .belegtext, .belegquelle { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 45rem) {
+  .arbeit { grid-template-columns: minmax(0, 1fr); gap: var(--s3); }
+  .arbeit-detail { grid-column: 1; }
+  .einzelauftrag { grid-template-columns: minmax(0, 1fr) auto; }
+  .einzelauftrag > span:first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 45rem) { .arbeit-befund { padding-top: 0; } }
+
+.arbeit-einstieg { position: relative; padding-right: 10rem; }
+.quellen-lesen { position: absolute; right: 0; top: 0; min-height: 32px; text-decoration: underline; color: var(--soft); }
+.quellen-lesen:disabled { cursor: progress; }
+.pruefpunkte { list-style: none; margin-top: var(--s3); padding: 0; }
+.pruefpunkt { margin-bottom: var(--s2); }
+.befund-kopf { font-weight: 500; }
+.befundstatus { display: block; color: var(--soft); font-size: var(--t-mini); }
+.reported-open { color: var(--dich); }
+.naechster-typ { font-size: var(--t-mini); color: var(--soft); margin-bottom: var(--s2); }
+.pruefkriterien { margin: var(--s2) 0; padding-left: 1.25rem; }
+.pruefkriterien li + li { margin-top: var(--s2); }
+.naechster-quelle { font-size: var(--t-mini); margin-top: var(--s3); color: var(--soft); }
+.naechster-quelle h4 { font: inherit; margin-bottom: var(--s2); }
+.beleg { margin-block: var(--s2); }
+.belegtext { margin: var(--s2) 0; color: var(--ink); }
+.belegrevision { font-size: var(--t-mini); color: var(--soft); }
+.belegverweis { display: inline-block; min-block-size: 24px; margin-block-start: var(--s1); }
+.zugehoerige-laeufe { list-style: none; margin: 0; padding: 0; }
+.zugehoerige-laeufe a { display: inline-block; min-block-size: 24px; }
+@media (max-width: 45rem) { .arbeit-einstieg { padding-right: 0; } .quellen-lesen { position: static; margin-top: var(--s2); } }

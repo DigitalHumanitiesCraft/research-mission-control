@@ -1,0 +1,113 @@
+/* The project map leads into one selected project. Operator records and
+   communication follow the map instead of squeezing its working width. */
+#lage {
+  --panel-stacked: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "strip" "panel" "brett" "global" "schedule" "roster";
+  gap: var(--s5);
+  align-items: start;
+  min-inline-size: 0;
+}
+#lage > section > h2 { margin-block-end: var(--s3); font-size: 1rem; font-weight: 600; }
+#lage :is(button, a, summary):focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+#lage :is(p, li, h2, h3, button, a) { overflow-wrap: anywhere; }
+.strip { grid-area: strip; display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2) var(--s5); }
+.brett { grid-area: brett; min-inline-size: 0; }
+.regionen { display: grid; gap: var(--s5); }
+.region { min-inline-size: 0; }
+.region h3 { display: flex; align-items: center; gap: var(--s2); margin-block-end: var(--s2); font-size: var(--t-klein); font-weight: 600; color: var(--soft); }
+.region h3 .art-zeichen { inline-size: 1rem; block-size: 1rem; }
+.kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); gap: var(--s2); }
+.kachel { display: grid; gap: var(--s1); align-content: start; min-inline-size: 0; padding: var(--s3) var(--s2); border: 0; border-block-end: 1px solid var(--line); border-radius: 0; color: var(--ink); text-align: start; }
+.kachel:hover, .kachel.hervor { background: var(--selection); }
+.kachel[aria-pressed="true"] { background: var(--selection); box-shadow: inset 2px 0 var(--ink); }
+.kachel.fremd { border-color: transparent; }
+.kachel.fremd .name { font-weight: 400; }
+.kachel.fremd[aria-pressed="true"] { border-color: var(--ink); }
+.kachel.fremd[aria-pressed="true"] .name { font-weight: 600; }
+.kachel .name { font-weight: 600; hyphens: auto; }
+.kachel .name .art-zeichen { inline-size: 1rem; block-size: 1rem; margin-inline-end: var(--s1); }
+.kachel .fuss { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s2); align-items: baseline; justify-content: space-between; font-size: var(--t-klein); }
+.kachel .zustand, .panel .zustand { font-family: var(--sans); font-size: var(--t-klein); padding: 0; border: 0; white-space: normal; color: var(--soft); }
+.kachel .zustand.dich, .panel .zustand.dich { color: var(--dich); }
+.kachel .rechts { color: var(--soft); font-size: var(--t-mini); }
+.kachel .rechts.dich { color: var(--dich); }
+.einheiten { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s2); color: var(--soft); font-size: var(--t-klein); }
+.einheit { display: inline-flex; flex-wrap: wrap; gap: var(--s1); align-items: baseline; }
+.einheit .harness-zeichen { inline-size: .85rem; block-size: .85rem; }
+.einheit .zahl { font-size: var(--t-mini); }
+.brett > .ruhend { margin-block-start: var(--s5); }
+.brett > .ruhend h3 { margin-block-end: var(--s2); font-size: var(--t-klein); color: var(--soft); }
+.kachel.ruhend { color: var(--soft); }
+.panel { grid-area: panel; min-inline-size: 0; border-inline-start: 2px solid var(--line); padding-inline-start: var(--s4); scroll-margin-block-start: var(--s4); }
+#auswahl-titel { font-size: 1.125rem; line-height: 1.4; font-weight: 600; margin-block-end: var(--s2); }
+.panel .inhalt { display: grid; gap: var(--s2); }
+.panel .meta { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); font-size: var(--t-klein); color: var(--soft); }
+.panel h3 { font-size: var(--t-klein); font-weight: 600; margin-block-start: var(--s3); }
+.panel :is(p, ul, ol) { margin: 0; }
+.panel :is(ul, ol) { padding-inline-start: 1.2rem; }
+.panel ul.ohne { list-style: none; padding: 0; }
+.panel li + li { margin-block-start: var(--s3); }
+.panel .links { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s3); }
+.panel .links a { font-size: var(--t-klein); text-underline-offset: .2em; }
+.panel .projekt-oeffnen { font-weight: 600; }
+.panel .zur-karte { font-size: var(--t-klein); text-decoration: underline; text-underline-offset: .2em; min-block-size: 1.5rem; }
+.panel .frage-datum { color: var(--soft); font-size: var(--t-mini); }
+.team-fehlt { color: var(--soft); font-size: var(--t-klein); }
+.panel .frist.dich, .az.dich { color: var(--dich); }
+.az { color: var(--soft); font-size: var(--t-klein); }
+.roster { grid-area: roster; min-inline-size: 0; }
+.roster .ops { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: var(--s5); }
+.op { min-inline-size: 0; display: flex; flex-direction: column; align-items: start; gap: var(--s2); }
+.op-kopf { display: inline-flex; align-items: baseline; gap: var(--s2); min-block-size: 2rem; padding: var(--s1); color: var(--ink); font-weight: 600; border-radius: var(--r); }
+.op-kopf:hover, .op-kopf[aria-pressed="true"] { background: var(--selection); }
+.op-kopf[aria-pressed="true"] { outline: 1px solid var(--ink); }
+.op-kopf .harness-zeichen { inline-size: 1rem; block-size: 1rem; }
+.op-status { font-size: var(--t-klein); color: var(--soft); }
+.op-projekte { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); }
+.ziel { min-block-size: 1.5rem; text-decoration: underline; text-underline-offset: .2em; font-size: var(--t-klein); }
+.ziel.fehlt { color: var(--soft); text-decoration: none; }
+.op :is(.lanen, .kommunikation ul) { list-style: none; padding: 0; display: grid; gap: var(--s3); }
+.op :is(.lanen, .kommunikation) li { min-inline-size: 0; }
+.op .zeile2 { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.op :is(.op-quelle, .op-abhaengigkeit) { font-size: var(--t-klein); }
+.kommunikation { color: var(--soft); font-size: var(--t-klein); }
+.kommunikation :is(p, section) { margin-block-start: var(--s2); }
+.kommunikation h3 { font-size: var(--t-klein); font-weight: 600; margin-block-end: var(--s2); }
+#lage details { min-inline-size: 0; inline-size: 100%; }
+#lage details > summary { cursor: pointer; min-block-size: 1.5rem; font-size: var(--t-klein); }
+#lage details[open] > summary { margin-block-end: var(--s2); }
+@container mc-shell (min-width: 52rem) {
+  #lage { --panel-stacked: 0; grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 1fr); grid-template-areas: "strip strip" "brett panel" "global panel" "schedule panel" "roster roster"; }
+  #lage[data-selection="false"] { grid-template-columns: minmax(0, 1fr); grid-template-areas: "strip" "brett" "global" "schedule" "roster"; }
+}
+
+.overview-jumps { margin: 0; }
+.card-features { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s3); font-size: var(--t-klein); color: var(--soft); }
+.card-feature { display: inline-flex; align-items: center; gap: var(--s1); }
+.fact-icon { inline-size: 1rem; block-size: 1rem; flex: none; }
+.board-scope { font-size: var(--t-klein); color: var(--soft); }
+.board-scope:empty { display: none; }
+.global-work { grid-area: global; min-inline-size: 0; }
+.schedule { grid-area: schedule; min-inline-size: 0; }
+.schedule > summary, .global-work > h2 { font-size: 1rem; }
+#lage .schedule > summary { font-size: var(--t-basis); font-weight: 600; }
+.schedule[open] > section { margin-block-start: var(--s4); }
+.contribution-filter { display: inline-flex; align-items: center; gap: var(--s2); font-size: var(--t-klein); margin-block-end: var(--s3); min-block-size: 2rem; }
+.contribution-filter input { accent-color: var(--ink); }
+.schedule h3 { font-size: var(--t-klein); margin-block-end: var(--s2); }
+.date-row, .dependency-row { padding-block: var(--s3); border-block-start: 1px solid var(--line); }
+.date-row h4, .dependency-row h4, .result-row h4 { font-size: var(--t-basis); font-weight: 600; }
+.date-row .meta, .dependency-row .meta { color: var(--soft); font-size: var(--t-klein); }
+.question-row, .result-row, .work-row { padding-block: var(--s3); border-block-start: 1px solid var(--line); }
+.panel .chat-discussion { margin-inline: 0; }
+.panel .question-row > a { display: inline-flex; align-items: center; min-block-size: 2rem; font-size: var(--t-klein); }
+.panel .result-row .az { margin-block: var(--s2); }
+#lage .roster > summary { font-size: var(--t-basis); font-weight: 600; }
+#lage .roster[open] .ops { margin-block-start: var(--s4); }
+#lage [hidden] { display: none; }
+
+.focus-collection, .project-responsibility, .op-source-state { font-size: var(--t-klein); color: var(--soft); }
+.focus-collection { margin-block-end: var(--s3); }
+.project-responsibility a { color: var(--ink); }

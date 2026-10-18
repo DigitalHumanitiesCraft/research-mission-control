@@ -1,0 +1,44 @@
+/* Zugänge take their colour from the surrounding text; tokens come from
+   base.css, with fallbacks so the module also renders on its own. */
+.zugaenge { display: grid; gap: var(--s1, 0.25rem); min-inline-size: 0; }
+.zugaenge-reihe { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s1, 0.25rem); }
+.zugang-gruppe { display: inline-flex; align-items: center; gap: var(--s1, 0.25rem); }
+
+/* A chip: mark and word, so every access point names itself. */
+.zugang {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  min-block-size: 1.75rem; padding: 0 0.45rem;
+  border: 1px solid var(--line, currentColor); border-radius: 999px;
+  font-size: var(--t-mini, 0.75rem);
+  color: var(--soft, currentColor);
+  text-decoration: none;
+}
+.zugang-art-vault .zugang-zeichen { color: var(--obsidian-violet); }
+.zugang:hover { color: var(--ink, currentColor); background: var(--sunken, transparent); }
+.zugang:focus-visible { outline: 2px solid var(--focus, currentColor); outline-offset: 1px; }
+/* A named access point inside running text: an ordinary underlined link. */
+a.im-text { color: inherit; text-decoration: underline; text-decoration-color: var(--soft, currentColor); text-underline-offset: 0.2em; }
+a.im-text:hover { text-decoration-color: currentColor; }
+.zugang-zeichen { inline-size: 1rem; block-size: 1rem; flex: none; }
+
+/* Same chip form as an access point, so the row reads as one; the play
+   triangle marks it as the one action among the links. */
+.zugang-start {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  min-block-size: 1.75rem; padding: 0 0.55rem;
+  font-size: var(--t-mini, 0.75rem);
+  border: 1px solid var(--line, currentColor);
+  border-radius: 999px;
+  color: var(--soft, currentColor);
+  background: none;
+  white-space: nowrap;
+}
+.zugang-start::before { content: ""; inline-size: 0; block-size: 0; border-block: 0.3rem solid transparent; border-inline-start: 0.45rem solid currentColor; }
+.zugang-start:hover { color: var(--ink, currentColor); }
+.zugang-start:hover { background: var(--sunken, transparent); }
+.zugang-start:focus-visible { outline: 2px solid var(--focus, currentColor); outline-offset: 1px; }
+
+/* The status carries the command and address of a start; the three-line cap of
+   detail paragraphs in base.css would cut them off. */
+.zugaenge-status { font-size: var(--t-mini, 0.75rem); color: var(--soft, currentColor); overflow-wrap: anywhere; max-block-size: none; }
+.zugaenge-status code { font-family: var(--mono, monospace); font-size: inherit; color: var(--ink, currentColor); user-select: all; }

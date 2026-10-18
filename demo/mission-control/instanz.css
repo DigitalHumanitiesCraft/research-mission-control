@@ -1,0 +1,64 @@
+/* Instance card of instanz.js on the tokens of base.css. Unlayered, so
+   it wins over the layered base and over the detail styles of a row in
+   a row detail, where the card sits inside .zeile > .detail. The mark of
+   the lane's harness stands before the name, never a frame or a bar; only
+   the lane name is bold. */
+.instanz {
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 6px;
+  padding: 8px 10px; min-width: 0; font-size: 0.8125rem; line-height: 1.4;
+  display: grid; gap: 4px; cursor: auto;
+}
+.instanz :is(p, li, dd) { margin: 0; }
+.instanz p { max-block-size: none; overflow: visible; }
+
+.instanz-kopf { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
+.instanz-kopf h2 { margin: 0; font-size: 0.875rem; font-weight: 600; color: var(--ink); }
+.instanz-kopf h2 .harness-zeichen { margin-inline-end: 6px; }
+.instanz-kopf .vorhaben { color: var(--soft); font-weight: 400; min-width: 0; overflow-wrap: anywhere; }
+.instanz-kopf span.vorhaben { cursor: help; }
+.instanz-kopf button.vorhaben { min-height: 24px; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 0.2em; }
+.instanz-kopf button.vorhaben:hover { color: var(--ink); text-decoration-color: currentColor; }
+.instanz-kopf .alter { margin-inline-start: auto; font-family: var(--mono); font-size: 0.6875rem; color: var(--soft); white-space: nowrap; cursor: help; }
+
+/* The lane's question: label left, text right. */
+.instanz .lage { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 2px 8px; margin: 0; }
+.instanz .lage dt { color: var(--soft); font-size: 0.75rem; cursor: help; }
+.instanz .lage dd { min-width: 0; overflow-wrap: anywhere; color: var(--ink); }
+/* Clipped after three lines without an ellipsis; the full text is the title. */
+.instanz .lage dd.drei { overflow-wrap: anywhere; }
+.instanz .leise { color: var(--soft); }
+.instanz a { color: inherit; }
+
+.instanz .sagen { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 4px 6px; margin-block-start: 2px; }
+.instanz .sagen textarea {
+  flex: 1 1 10rem; min-width: 0; field-sizing: content; min-block-size: calc(1lh + 10px); max-block-size: calc(8lh + 10px);
+  resize: vertical; border: 1px solid var(--control-line); border-radius: var(--r); background: var(--paper); color: var(--ink);
+  padding: 4px 6px; font-size: 0.875rem; line-height: 1.4;
+}
+.instanz .sagen textarea::placeholder { color: var(--soft); opacity: 1; }
+.instanz .senden { border: 1px solid var(--control-line); border-radius: var(--r); background: var(--paper); color: var(--ink); padding: 2px 10px; min-height: calc(1lh + 10px); }
+.instanz .senden:hover { border-color: var(--ink); }
+.instanz .senden:disabled { color: var(--soft); cursor: progress; }
+.instanz .status { flex-basis: 100%; font-family: var(--mono); font-size: 0.6875rem; color: var(--soft); cursor: help; overflow-wrap: anywhere; }
+.instanz .status:empty { display: none; }
+.instanz .status.fehler { color: var(--stoerung); }
+
+.instanz .mehr { justify-self: start; font-size: 0.75rem; min-height: 24px; color: var(--soft); }
+.instanz .mehr:hover { color: var(--ink); }
+.instanz .mehr-inhalt { display: grid; gap: 4px; }
+.instanz .bericht { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 2px 8px; margin: 0; font-size: 0.75rem; }
+.instanz .bericht dt { color: var(--soft); font-family: var(--mono); font-size: 0.6875rem; }
+.instanz .bericht dd { color: var(--ink); min-width: 0; overflow-wrap: anywhere; }
+.instanz .datei { color: var(--soft); font-family: var(--mono); font-size: 0.6875rem; cursor: help; justify-self: start; }
+
+/* Touch keyboards zoom into text below 16px. */
+@media (max-width: 48rem) {
+  .instanz .sagen textarea { font-size: 1rem; }
+}
+/* On a phone the report field names stand above their values, so a long
+   name does not squeeze the value column. */
+@media (max-width: 520px) {
+  .instanz .bericht { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .instanz .bericht dd + dt { margin-block-start: 4px; }
+}

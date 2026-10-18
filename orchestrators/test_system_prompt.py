@@ -87,8 +87,14 @@ PROMPT_REQUIREMENTS = {
     ),
     "exchange functions": (
         "implementation brief",
+        "preserved, reused, adapted, or may be replaced",
+        "before generating a substitute",
         "result with evidence",
         "verification finding",
+    ),
+    "bounded verification": (
+        "bounded target, criterion, evidence packet, and completion condition",
+        "operational monitoring",
     ),
     "context stream": (
         "context stream protocol",
@@ -162,6 +168,7 @@ ADAPTER_REQUIREMENTS = {
 
 EXPECTED_EVAL_IDS = {
     "contained-work",
+    "existing-artifact-relationship",
     "three-context-initialization",
     "existing-non-empty-folder",
     "remote-authorization-boundary",

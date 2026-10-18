@@ -1,0 +1,46 @@
+/* Page rules remain unlayered to preserve the existing answer and instance controls. */
+
+main[aria-labelledby="entscheiden-titel"] { max-inline-size: 90rem; min-inline-size: 0; }
+main[aria-labelledby="entscheiden-titel"] > h2 { font-size: 1.25rem; font-weight: 600; margin-block-end: var(--s1); }
+.entscheid-zahl { font-size: var(--t-klein); margin-block-end: var(--s4); }
+.entscheid-zahl a { color: var(--soft); text-underline-offset: .2em; }
+.entscheid-zahl a:hover { color: var(--ink); }
+.meldung { margin-block-end: var(--s3); font-size: var(--t-klein); }
+.leer { font-size: var(--t-basis); }
+.leise { color: var(--soft); font-size: var(--t-klein); }
+
+.liste { display: grid; gap: var(--s6); }
+.gruppe-entscheiden { min-inline-size: 0; }
+.gruppe-entscheiden > h3 { font-size: 1.125rem; font-weight: 600; color: var(--ink); margin-block-end: var(--s2); }
+
+.fragen-liste { list-style: none; padding: 0; margin: 0; }
+.frage { display: grid; gap: var(--s2); padding-block: var(--s3); min-width: 0; max-inline-size: 58rem; }
+.frage + .frage { margin-block-start: var(--s3); }
+.frage p { max-inline-size: 72ch; }
+.frage-text { font-size: var(--t-basis); font-weight: 500; color: var(--ink); overflow-wrap: break-word; }
+.folge .folge-teil { display: block; }
+.frage-meta { font-size: var(--t-klein); color: var(--soft); overflow-wrap: anywhere; }
+.frage-meta a { color: var(--ink); text-underline-offset: 0.2em; text-decoration-color: var(--control-line); }
+.frage-meta a:hover { text-decoration-color: currentColor; }
+.frage-meta .typ, .frage-meta .seit, .frage-meta .termin { cursor: help; }
+.frage-meta .termin { color: var(--dich); font-weight: 600; }
+.frage-meta .leise { font-size: inherit; }
+.frage .operator.orchestrator { color: var(--orchestrator); }
+.frage .operator.build { color: var(--build); }
+.frage .operator.review { color: var(--review); }
+.frage .kontext { font-size: var(--t-klein); color: var(--soft); hyphens: auto; -webkit-hyphens: auto; }
+.frage :is(.folge, .voraussetzung) { font-size: var(--t-klein); color: var(--ink); hyphens: auto; -webkit-hyphens: auto; }
+.frage .folge-wort { font-weight: 600; }
+
+.steuerung { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
+/* The shared fieldset supplies copying and transfer feedback beside the
+   page's answer controls. */
+.steuerung fieldset.antwort { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--s2); padding: 0; margin: 0; border: 0; min-width: 0; }
+.steuerung fieldset.antwort > :not(legend, .kopie-feld, .gesetzt, .meldung, .uebertragung-wiederholen) { display: none; }
+.steuerung fieldset.antwort .gesetzt, .steuerung fieldset.antwort .meldung { font-size: var(--t-klein); }
+.steuerung fieldset.antwort .meldung:empty { display: none; }
+
+/* An answered row: the question muted, the confirmation in plain words. */
+.frage.entschieden .frage-text { color: var(--soft); font-weight: 400; }
+.frage .bestaetigung { font-size: var(--t-klein); color: var(--ink); background: var(--sunken); border-radius: var(--r); padding: var(--s2) var(--s3); }
+.frage .bestaetigung:focus-visible { outline-offset: 0; }

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="overview-route.js"></script>
+<title data-i18n-de="Mission Control, Übersicht" data-i18n-en="Mission Control, Overview">Mission Control, Overview</title>
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="navigation.css">
+<link rel="stylesheet" href="../demo.css">
+<script src="../demo-profiles.js"></script>
+<script src="../demo-runtime.js"></script>
+<script src="vault-links.js"></script>
+<script src="language.js"></script>
+<script src="navigation.js"></script>
+<link rel="stylesheet" href="shell.css">
+<link rel="stylesheet" href="icons.css">
+<link rel="stylesheet" href="zugaenge.css">
+<link rel="stylesheet" href="lage.css">
+<link rel="stylesheet" href="frische.css">
+</head>
+<body class="lg">
+<div id="kopf"></div>
+<main id="lage" aria-label="Projects and work focus" data-i18n-aria-label-de="Projekte und Arbeitsfokus" data-i18n-aria-label-en="Projects and work focus">
+  <nav class="app-subnav strip overview-jumps" id="bei-dir" aria-label="Overview focus" data-i18n-aria-label-de="Fokus dieser Übersicht" data-i18n-aria-label-en="Overview focus">
+    <a id="sprung-zu-allem" data-focus="alle" href="index.html" data-i18n-de="Projekte" data-i18n-en="Projects">Projects</a>
+    <a href="kalender.html" data-i18n-de="Kalender" data-i18n-en="Calendar">Calendar</a>
+  </nav>
+  <aside class="panel" id="auswahl" hidden aria-labelledby="auswahl-titel">
+    <h2 id="auswahl-titel" tabindex="-1" data-i18n-de="Kein Vorhaben gewählt" data-i18n-en="No project selected">No project selected</h2>
+    <div class="inhalt"></div>
+  </aside>
+  <section class="brett" id="brett" aria-labelledby="brett-titel">
+    <h2 id="brett-titel" tabindex="-1" data-i18n-de="Projekte" data-i18n-en="Projects">Projects</h2>
+    <label class="contribution-filter"><input type="checkbox" id="contribution-required"><span data-i18n-de="Dein Beitrag erforderlich" data-i18n-en="Your contribution required">Your contribution required</span></label>
+    <p class="focus-collection" id="focus-collection" hidden></p>
+    <p class="board-scope" id="board-scope" role="status"></p>
+    <div class="regionen"></div>
+    <div class="ruhend"></div>
+  </section>
+  <section class="global-work" id="global-work" aria-label="Work without a confirmed project association" data-i18n-aria-label-de="Arbeit ohne bestätigte Projektzuordnung" data-i18n-aria-label-en="Work without a confirmed project association"></section>
+  <details class="schedule" id="termine-abhaengigkeiten">
+    <summary id="termine-titel" data-i18n-de="Projektübergreifende Termine und Abhängigkeiten" data-i18n-en="Cross-project dates and dependencies">Cross-project dates and dependencies</summary>
+    <section id="du-heute" aria-labelledby="du-heute-titel">
+      <h3 id="du-heute-titel" data-i18n-de="Fristen und nächste sieben Tage" data-i18n-en="Deadlines and the next seven days">Deadlines and the next seven days</h3>
+      <p class="meta" id="termine-herkunft"></p><div class="liste"></div>
+      <a href="kalender.html" data-i18n-de="Kalender öffnen" data-i18n-en="Open calendar">Open calendar</a>
+    </section>
+    <section id="abhaengigkeiten" aria-labelledby="abhaengigkeiten-titel">
+      <h3 id="abhaengigkeiten-titel" data-i18n-de="Blockiert oder wartet" data-i18n-en="Blocked or waiting">Blocked or waiting</h3><div class="liste"></div>
+    </section>
+  </details>
+  <details class="roster" id="operatoren">
+    <summary id="operatoren-uebersicht-titel" data-i18n-de="Operatoren und Projekte" data-i18n-en="Operators and projects">Operators and projects</summary>
+    <div class="ops"></div>
+  </details>
+</main>
+<script src="../data.js"></script>
+<script src="data/lab-lanes-data.js"></script>
+<script src="data/erledigt-data.js"></script>
+<script src="data/zugaenge-data.js"></script>
+<script src="data/projekte-data.js"></script>
+<script src="data/kalender-google-data.js"></script>
+<script src="model.js"></script>
+<script src="themen.js"></script>
+<script src="shell.js"></script>
+<script src="icons.js"></script>
+<script src="antworten.js"></script>
+<script src="instanz.js"></script>
+<script src="zugaenge.js"></script>
+<script src="ergebnisse.js"></script>
+<script src="lage-model.js"></script>
+<script src="lage.js"></script>
+</body>
+</html>

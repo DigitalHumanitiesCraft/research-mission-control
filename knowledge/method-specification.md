@@ -33,6 +33,7 @@ This specification defines the portable Research Mission Control method. It cove
 ### Knowledge and exchange
 
 - **MS-09:** Promptotyping supplies maintained project knowledge for reconstruction across sessions. A Grounded Vault becomes active only after a project-specific binding defines and verifies claims, evidence objects, identifiers, validation responsibility, and write-back. Any other Vault is an optional long-term source and remains inactive until `knowledge/integration.md` names its exact source, selection boundary, authority, and write-back rule.
+- **MS-09a:** When an existing artifact constrains the result, the Implementation Brief identifies whether the relevant artifact or part must be preserved, reused, adapted, or may be replaced. Operations inventories the actual baseline and resolves that relationship before generating a substitute.
 - **MS-10:** The Context Stream uses immutable role-owned outboxes, recipient-owned cursors, stable thread identifiers, canonical artifact references, and closing capsules when a thread closes or re-entry cost becomes material. `knowledge/handoff.md` contains unresolved received deltas only; processed content is integrated or rejected and then removed rather than archived there.
 - **MS-11:** The standard route is `Research --Implementation Brief--> Operations`, `Operations --Result with Evidence--> Verification`, `Operations --Operations Result Notice--> Research`, and `Verification --Verification Finding--> human user`. The notice references the responsible result without replacing it. A contained profile may define a shorter route in its integration contract.
 - **MS-12:** Shared files transport state without guaranteeing notification or wake behavior. Each deployment records observed delivery directions and a polling, re-entry, or human-mediated fallback.
@@ -42,7 +43,7 @@ This specification defines the portable Research Mission Control method. It cove
 
 - **MS-13:** Completion claims name their scope, evidence, verification state, and remaining limits. A protected-scope non-change claim requires a complete pre-action baseline. Producer declarations and Git evidence that omits untracked files do not establish a broader historical claim.
 - **MS-14:** Reports separate substantive sources from workflow provenance, use observed timestamps, and label exact quotation separately from paraphrase.
-- **MS-15:** The Independent Verification Agent remains read-only against evaluated production artifacts. It may update only its own reporting state and outbox. It reports its complete finding first and only to the human user. Only the human user decides whether to disclose or route that finding to Research or Operations. Verification never produces a correction; it may recheck a correction produced by the responsible production role.
+- **MS-15:** The Independent Verification Agent remains read-only against evaluated production artifacts. Each assignment has a bounded target, criterion, evidence packet, and completion condition; standing progress monitoring or heartbeat duties require a separate operational responsibility. It may update only its own reporting state and outbox. It reports its complete finding first and only to the human user. Only the human user decides whether to disclose or route that finding to Research or Operations. Verification never produces a correction; it may recheck a correction produced by the responsible production role.
 - **MS-16:** Draft, active installation, formal validation, observed operation, domain validation, and human acceptance remain distinct findings.
 - **MS-16a:** Independent means separate read-only assessment context. Blind adds a declared reading-order restriction. Shadow adds verified technical isolation, a private human user route, and omission from production contracts. Blind and Shadow are not synonyms, and neither label implies a security guarantee.
 
@@ -66,7 +67,7 @@ Contained work may use one context when the result remains directly inspectable 
 
 ## Established implementation state
 
-The initializer, role prompts, Context Stream templates, publication builder, and contract tests are formally validated in the source repository. A local draft-package probe has established one representative Claude Code production exchange followed by fresh Codex verification. The file-level MIT and CC BY 4.0 assignments are established. Domain validation, human acceptance, browser observation of the current bundle, and public deployment remain separate.
+The initializer, role prompts, Context Stream templates, publication builder, and contract tests are formally validated in the source repository. A local draft-package probe has established one representative Claude Code production exchange followed by fresh Codex verification. A public live-demo recording provides observed-operation evidence for an earlier configuration and has been evaluated for method consequences; it does not validate the current RC2 package. The changed live-demo interface section has been observed from the source and a fresh draft bundle at wide and narrow viewport sizes. The file-level MIT and CC BY 4.0 assignments are established. Domain validation, full human acceptance, and deployment of the current source state remain separate.
 
 ## Decision record
 
@@ -97,3 +98,7 @@ Build the public method from an exact allowlist. Keep source-repository operatio
 ### MD-07 State-specific precedence
 
 Resolve authority, epistemic, operational, and verification conflicts from the sources that are authoritative for that state class. Messages and reports never override inspected operational state, and technical verification never substitutes for human acceptance.
+
+### MD-08 Artifact relationship before substitute generation
+
+Record how relevant existing artifacts constrain the expected result. Inspect the baseline and settle preserve, reuse, adapt, or replace boundaries before implementation generates a substitute.

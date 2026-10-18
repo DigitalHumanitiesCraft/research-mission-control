@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import importlib.util
 import json
+import sys
 import tempfile
 import tomllib
 import unittest
@@ -15,6 +16,7 @@ from pathlib import Path
 from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
 MODULE_PATH = ROOT / "tools" / "build_public_release.py"
 SPEC = importlib.util.spec_from_file_location("build_public_release", MODULE_PATH)
 assert SPEC and SPEC.loader
@@ -52,11 +54,15 @@ def test_draft_bundle_excludes_internal_runtime_state() -> None:
         assert "SYSTEM-PROMPT.md" in public_index
         assert "skills/research-mission-control/SKILL.md" in public_index
         assert "downloads/research-mission-control.skill" in public_index
-        assert "The three configuration questions" in public_index
-        assert "this separately open Codex task, Claude Code conversation" in public_index
-        assert "data, documents, materials, code, repositories, or knowledge sources" in public_index
+        assert "research-mission-control-operating-model.png" in public_index
+        assert "Reference and reuse" in public_index
+        assert "docs/knowledge/method-specification.html" in public_index
+        assert "LICENSES/DHCraft-Brand.txt" in public_index
+        assert "Initialize the shared workspace" not in public_index
         assert "data-release-package-link hidden" not in public_index
-        assert public_index.count("data-release-package-link") == 2
+        assert "data-source-package-link hidden" in public_index
+        assert public_index.count("data-release-package-link") == 1
+        assert public_index.count("data-source-package-link") == 1
 
         with zipfile.ZipFile(target / "downloads" / "research-mission-control.skill") as archive:
             members = set(archive.namelist())
@@ -91,9 +97,11 @@ def test_interface_exposes_package_only_when_the_package_exists() -> None:
 
     if package_exists:
         assert source_index.count("data-release-package-link hidden") == 0
-        assert source_index.count("data-release-package-link") == 2
+        assert source_index.count("data-release-package-link") == 1
     else:
-        assert source_index.count("data-release-package-link hidden") == 2
+        assert source_index.count("data-release-package-link hidden") == 1
+        assert source_index.count("data-source-package-link hidden") == 0
+        assert source_index.count("data-source-package-link") == 1
         assert "](downloads/research-mission-control.skill)" not in source_readme
 
 
@@ -112,13 +120,13 @@ def test_every_public_file_has_one_exact_license_assignment() -> None:
     MODULE._resolve_sources(manifest)
 
     unassigned = json.loads(json.dumps(manifest))
-    unassigned["license_rules"]["CC-BY-4.0"]["files"].remove("site.js")
-    with ASSERTIONS.assertRaisesRegex(RuntimeError, "site.js: expected one licence, found none"):
+    unassigned["license_rules"]["CC-BY-4.0"]["files"].remove("site.css")
+    with ASSERTIONS.assertRaisesRegex(RuntimeError, "site.css: expected one licence, found none"):
         MODULE._resolve_sources(unassigned)
 
     overlapping = json.loads(json.dumps(manifest))
-    overlapping["license_rules"]["MIT"]["files"].append("site.js")
-    with ASSERTIONS.assertRaisesRegex(RuntimeError, "site.js: expected one licence"):
+    overlapping["license_rules"]["MIT"]["files"].append("site.css")
+    with ASSERTIONS.assertRaisesRegex(RuntimeError, "site.css: expected one licence"):
         MODULE._resolve_sources(overlapping)
 
 
@@ -130,7 +138,7 @@ def test_official_license_texts_and_citation_identity_are_fixed() -> None:
     assert hashlib.sha256(cc_text.encode()).hexdigest() == CC_BY_4_0_SHA256
     assert hashlib.sha256(mit_bytes).hexdigest() == MIT_SHA256
     assert "Dr. Christopher Pollin" in (ROOT / "LICENSE").read_text(encoding="utf-8")
-    assert "version: 0.9.0rc2" in citation
+    assert "version: 0.9.0rc3" in citation
     assert "orcid: https://orcid.org/0000-0002-4879-129X" in citation
     assert "repository-code: https://github.com/DigitalHumanitiesCraft/research-mission-control" in citation
     assert "license:\n  - MIT\n  - CC-BY-4.0" in citation
@@ -139,7 +147,7 @@ def test_official_license_texts_and_citation_identity_are_fixed() -> None:
 def test_release_version_and_generated_sha_evidence_are_coherent() -> None:
     project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
     declared = json.loads((ROOT / "release-metadata.json").read_text(encoding="utf-8"))
-    assert project["project"]["version"] == "0.9.0rc2"
+    assert project["project"]["version"] == "0.9.0rc3"
     assert declared["version"] == project["project"]["version"]
     assert declared["status"] == "release-candidate"
     assert declared["repository"] == "https://github.com/DigitalHumanitiesCraft/research-mission-control"
@@ -147,7 +155,7 @@ def test_release_version_and_generated_sha_evidence_are_coherent() -> None:
     with _temporary_release_target() as target:
         MODULE.build(target, draft=True)
         built = json.loads((target / "release-metadata.json").read_text(encoding="utf-8"))
-        assert built["version"] == "0.9.0rc2"
+        assert built["version"] == "0.9.0rc3"
         assert built["source_commit"] is None or len(built["source_commit"]) == 40
         assert built["source_dirty"] is None or isinstance(built["source_dirty"], bool)
         assert len(built["publication_manifest_sha256"]) == 64
@@ -171,8 +179,12 @@ def test_content_scan_covers_templates_and_toml_without_exempting_builder() -> N
         temporary_target.mkdir(parents=True)
         template = temporary_target / "leak.tmpl"
         toml = temporary_target / "leak.toml"
+        commonjs = temporary_target / "leak.cjs"
         template.write_text("path = /" + "home/example/private\n", encoding="utf-8")
         toml.write_text('path = "C:/Use' + 'rs/example/private"\n', encoding="utf-8")
+        commonjs.write_text("path = /" + "home/example/private\n", encoding="utf-8")
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "leak.cjs"):
+            MODULE._check_content([commonjs])
         with ASSERTIONS.assertRaisesRegex(RuntimeError, "leak.tmpl"):
             MODULE._check_content([template])
         with ASSERTIONS.assertRaisesRegex(RuntimeError, "leak.toml"):
@@ -216,10 +228,10 @@ def test_manifest_rejects_duplicate_and_out_of_repository_paths() -> None:
         MODULE._resolve_sources(manifest)
 
 
-def test_non_draft_release_delivers_both_license_texts() -> None:
+def test_draft_bundle_delivers_both_license_texts() -> None:
+    # Licence delivery is shared by draft and release builds; source cleanliness has separate tests.
     with _temporary_release_target() as target:
-        with mock.patch.object(MODULE, "_git_state", return_value=("a" * 40, False)):
-            MODULE.build(target, draft=False)
+        MODULE.build(target, draft=True)
         assert (target / "LICENSE").is_file()
         assert (target / "LICENSES" / "MIT.txt").is_file()
         assert (target / "LICENSES" / "CC-BY-4.0.txt").is_file()
@@ -240,6 +252,21 @@ def test_non_draft_release_requires_clean_commit_provenance() -> None:
             MODULE.build(target, draft=False)
 
 
+def test_existing_git_state_is_preserved_before_replacing_a_generated_target() -> None:
+    with _temporary_release_target() as target:
+        target.mkdir()
+        git_state = target / ".git"
+        git_state.mkdir()
+        sentinel = git_state / "HEAD"
+        sentinel.write_text("ref: refs/heads/example\n", encoding="utf-8")
+        original = target / "keep.txt"
+        original.write_text("Existing checkout content\n", encoding="utf-8")
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "contains Git state"):
+            MODULE.build(target, draft=True)
+        assert sentinel.read_text(encoding="utf-8") == "ref: refs/heads/example\n"
+        assert original.read_text(encoding="utf-8") == "Existing checkout content\n"
+
+
 def test_target_must_remain_inside_reserved_release_area() -> None:
     with (
         tempfile.TemporaryDirectory() as temporary_directory,
@@ -252,6 +279,227 @@ def test_target_must_remain_inside_reserved_release_area() -> None:
 
     with ASSERTIONS.assertRaisesRegex(RuntimeError, "reserved dist directory"):
         MODULE.build(ROOT / "dist", draft=True)
+
+
+def _pin_demo_fixture(root: Path) -> None:
+    """Pin only the two deliberately synthetic transport fixture members."""
+    files = []
+    for name, license_id in (("index.html", "MIT"), ("demo-release.json", "CC-BY-4.0")):
+        data = (root / "demo" / name).read_bytes()
+        files.append(
+            {"file": name, "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest(), "license": license_id}
+        )
+    payload = {"schema": "mission-control-demo-export-1", "coverage": "synthetic-all-view-candidate", "files": files}
+    _write_demo_pin(root, payload)
+
+
+def _write_demo_pin(root: Path, payload: dict[str, object]) -> None:
+    data = json.dumps(payload).encode()
+    (root / "demo-export-manifest.json").write_bytes(data)
+    (root / "demo" / "export-manifest.json").write_bytes(data)
+    metadata = {
+        "demo_source_commit": "a" * 40,
+        "demo_export_manifest_sha256": hashlib.sha256(data).hexdigest(),
+    }
+    (root / "release-metadata.json").write_text(json.dumps(metadata), encoding="utf-8")
+
+
+@contextmanager
+def _demo_fixture() -> Iterator[tuple[Path, dict[str, object]]]:
+    """Provide a minimal staged package; no private UI source or data is copied."""
+    with tempfile.TemporaryDirectory() as temporary_directory:
+        root = Path(temporary_directory)
+        (root / "demo").mkdir()
+        (root / "demo" / "index.html").write_text("<main>Example</main>", encoding="utf-8")
+        release = {
+            "schema": "mission-control-demo-release-1",
+            "version": "0.9.0rc3",
+            "status": "release-candidate",
+            "sourceCommit": "a" * 40,
+            "sourceDirty": False,
+        }
+        (root / "demo" / "demo-release.json").write_text(json.dumps(release), encoding="utf-8")
+        (root / "pyproject.toml").write_text('[project]\nversion = "0.9.0rc3"\n', encoding="utf-8")
+        _pin_demo_fixture(root)
+        manifest = {
+            "include": [
+                "demo-export-manifest.json",
+                "demo/index.html",
+                "demo/demo-release.json",
+                "demo/export-manifest.json",
+            ],
+            "license_rules": {
+                "MIT": {"files": ["demo/index.html"], "directories": []},
+                "CC-BY-4.0": {
+                    "files": ["demo-export-manifest.json", "demo/demo-release.json", "demo/export-manifest.json"],
+                    "directories": [],
+                },
+            },
+            "generated_licenses": {"downloads/research-mission-control.skill": "MIT", "SHA256SUMS": "CC-BY-4.0"},
+        }
+        with mock.patch.object(MODULE, "ROOT", root):
+            yield root, manifest
+
+
+def test_demo_exact_package_and_clean_source_are_accepted() -> None:
+    with _demo_fixture() as (root, manifest):
+        sources = MODULE._resolve_sources(manifest, draft=False)
+        assert {path.relative_to(root).as_posix() for path in sources} == set(manifest["include"])
+
+
+def test_demo_rejects_noncanonical_publication_paths() -> None:
+    with _demo_fixture() as (_, manifest):
+        manifest["include"][1] = "Demo/index.html"
+        manifest["license_rules"]["MIT"]["files"] = ["Demo/index.html"]
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "canonical demo/ paths"):
+            MODULE._check_demo_export(manifest, draft=True)
+
+
+def test_demo_rejects_changed_bytes_and_manifest() -> None:
+    with _demo_fixture() as (root, manifest):
+        (root / "demo" / "index.html").write_text("<main>Changed</main>", encoding="utf-8")
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "bytes do not match"):
+            MODULE._resolve_sources(manifest)
+    with _demo_fixture() as (root, manifest):
+        path = root / "demo" / "export-manifest.json"
+        path.write_bytes(path.read_bytes() + b"\n")
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "differs from the committed pin"):
+            MODULE._resolve_sources(manifest)
+
+
+def test_demo_rejects_extra_missing_and_unlisted_members() -> None:
+    with _demo_fixture() as (root, manifest):
+        (root / "demo" / "extra.txt").write_text("Undeclared", encoding="utf-8")
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "extra or missing"):
+            MODULE._resolve_sources(manifest)
+    with _demo_fixture() as (root, manifest):
+        (root / "demo" / "index.html").unlink()
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "not a source file"):
+            MODULE._resolve_sources(manifest)
+    with _demo_fixture() as (_, manifest):
+        manifest["include"].remove("demo/index.html")
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "exactly match"):
+            MODULE._resolve_sources(manifest)
+    with _demo_fixture() as (_, manifest):
+        manifest["include"].remove("demo-export-manifest.json")
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "include the demo export manifest pin"):
+            MODULE._resolve_sources(manifest)
+
+
+def test_demo_rejects_unsafe_names_duplicates_and_invalid_schema() -> None:
+    for name in ("../escape.js", "/escape.js", "C:/escape.js", "a\\escape.js", "./index.html", "."):
+        with _demo_fixture() as (root, manifest):
+            payload = json.loads((root / "demo-export-manifest.json").read_bytes())
+            payload["files"][0]["file"] = name
+            _write_demo_pin(root, payload)
+            with ASSERTIONS.assertRaisesRegex(RuntimeError, "safe relative path"):
+                MODULE._resolve_sources(manifest)
+    with _demo_fixture() as (root, manifest):
+        payload = json.loads((root / "demo-export-manifest.json").read_bytes())
+        payload["files"].append(payload["files"][0])
+        _write_demo_pin(root, payload)
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "Duplicate demo"):
+            MODULE._resolve_sources(manifest)
+    with _demo_fixture() as (root, manifest):
+        payload = json.loads((root / "demo-export-manifest.json").read_bytes())
+        payload["schema"] = "unknown"
+        _write_demo_pin(root, payload)
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "manifest schema"):
+            MODULE._resolve_sources(manifest)
+    with _demo_fixture() as (root, manifest):
+        payload = json.loads((root / "demo-export-manifest.json").read_bytes())
+        payload["files"][0]["bytes"] = True
+        _write_demo_pin(root, payload)
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "Invalid demo export evidence"):
+            MODULE._resolve_sources(manifest)
+
+
+def test_demo_rejects_different_publication_license() -> None:
+    with _demo_fixture() as (_, manifest):
+        manifest["license_rules"]["MIT"]["files"].remove("demo/index.html")
+        manifest["license_rules"]["CC-BY-4.0"]["files"].append("demo/index.html")
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "licence differs from the pin"):
+            MODULE._resolve_sources(manifest)
+
+
+def test_demo_rejects_symlink_even_to_another_pinned_file() -> None:
+    with _demo_fixture() as (root, manifest):
+        path = root / "demo" / "index.html"
+        path.unlink()
+        try:
+            path.symlink_to(root / "demo" / "demo-release.json")
+        except OSError as error:
+            raise unittest.SkipTest(f"Symlink creation unavailable: {error}") from error
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "symlinks or junctions"):
+            MODULE._resolve_sources(manifest)
+
+
+def test_demo_dirty_source_is_draft_only_without_rewriting_provenance() -> None:
+    with _demo_fixture() as (root, manifest):
+        path = root / "demo" / "demo-release.json"
+        release = json.loads(path.read_bytes())
+        release["sourceDirty"] = True
+        path.write_text(json.dumps(release), encoding="utf-8")
+        _pin_demo_fixture(root)
+        before = path.read_bytes()
+        MODULE._resolve_sources(manifest, draft=True)
+        assert path.read_bytes() == before
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "demo source worktree is dirty"):
+            MODULE._resolve_sources(manifest, draft=False)
+
+
+def test_demo_requires_matching_source_commit_manifest_digest_and_version() -> None:
+    for field, value in (("sourceCommit", "unknown"), ("sourceCommit", "b" * 40), ("version", "0.9.0rc2")):
+        with _demo_fixture() as (root, manifest):
+            path = root / "demo" / "demo-release.json"
+            payload = json.loads(path.read_bytes())
+            payload[field] = value
+            path.write_text(json.dumps(payload), encoding="utf-8")
+            _pin_demo_fixture(root)
+            with ASSERTIONS.assertRaisesRegex(RuntimeError, "provenance or version|metadata must match"):
+                MODULE._resolve_sources(manifest)
+    with _demo_fixture() as (root, manifest):
+        path = root / "release-metadata.json"
+        metadata = json.loads(path.read_bytes())
+        metadata["demo_export_manifest_sha256"] = "0" * 64
+        path.write_text(json.dumps(metadata), encoding="utf-8")
+        with ASSERTIONS.assertRaisesRegex(RuntimeError, "metadata must match"):
+            MODULE._resolve_sources(manifest)
+
+
+def test_font_and_brand_assets_keep_their_own_exact_license_assignments() -> None:
+    manifest = json.loads((ROOT / "publication-manifest.json").read_text(encoding="utf-8"))
+    sources = MODULE._resolve_sources(manifest, draft=True)
+    selected = {source.relative_to(ROOT).as_posix() for source in sources}
+    font_rule = manifest["license_rules"]["OFL-1.1"]
+    expected_fonts = {
+        "assets/fonts/sora-latin-700-normal.woff2",
+        "assets/fonts/instrument-sans-latin-400-normal.woff2",
+        "assets/fonts/instrument-sans-latin-600-normal.woff2",
+        "assets/fonts/Sora-LICENSE.txt",
+        "assets/fonts/Instrument-Sans-LICENSE.txt",
+    }
+    assert set(font_rule["files"]) == expected_fonts
+    assert expected_fonts <= selected
+    for name in ("Sora-LICENSE.txt", "Instrument-Sans-LICENSE.txt"):
+        notice = (ROOT / "assets" / "fonts" / name).read_text(encoding="utf-8")
+        assert "SIL OPEN FONT LICENSE Version 1.1" in notice
+        assert "Copyright" in notice
+    assert set(manifest["license_rules"]["LicenseRef-DHCraft-Brand"]["files"]) == {
+        "assets/dhcraft-mark-192.png",
+        "assets/favicon.ico",
+        "assets/dhcraft-watercolor-192.png",
+        "LICENSES/DHCraft-Brand.txt",
+    }
+    assert "All rights reserved" in (ROOT / "LICENSES" / "DHCraft-Brand.txt").read_text(encoding="utf-8")
+    assert "assets/" not in manifest["license_rules"]["CC-BY-4.0"]["directories"]
+
+
+def test_unsupported_asset_license_cannot_bypass_the_exact_assignment_gate() -> None:
+    manifest = json.loads((ROOT / "publication-manifest.json").read_text(encoding="utf-8"))
+    manifest["license_rules"]["unsupported"] = {"files": ["site.css"], "directories": []}
+    with ASSERTIONS.assertRaisesRegex(RuntimeError, "only supported asset licenses"):
+        MODULE._check_license_assignments(manifest, [Path("site.css")])
 
 
 if __name__ == "__main__":

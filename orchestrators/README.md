@@ -10,12 +10,14 @@
 
 The first two roles are the primary production orchestrators. Independent Verification is a cross-cutting control function. Blind Verification adds a declared reading-order restriction. Shadow Verification additionally requires verified technical isolation and a private human return route. None of these modes establishes secrecy or security.
 
+Research Director remains a proposed title, not a required designation. The human user retains direction, delegated authority and acceptance.
+
 Persistent exchange uses the Context Stream Protocol:
 
 ```text
 PRIMARY ROUTE
 
-User as Research Director ↔ Research Orchestrator
+Human user ↔ Research Orchestrator
                                   │ Implementation Brief
                                   ▼
                           Operational Orchestrator
@@ -24,13 +26,13 @@ User as Research Director ↔ Research Orchestrator
                       Independent Verification Agent
                                   │ Verification Finding
                                   ▼
-                        User as Research Director
+                        Human user
 
 SUPPORTING ROUTES
 
 Operational Orchestrator ↔ Specialist Agents
 Operational Orchestrator ── Operations Result Notice ──→ Research Orchestrator
-User as Research Director ── optional finding route ──→ Research or Operations
+Human user ── optional finding route ──→ Research or Operations
 ```
 
 Harness-specific mappings remain in [`adapters/codex.md`](adapters/codex.md) and [`adapters/claude-code.md`](adapters/claude-code.md). They adapt tasks, conversations, subagents, instruction files, and notification behavior without redefining the shared role semantics.

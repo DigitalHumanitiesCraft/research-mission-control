@@ -1,0 +1,191 @@
+[
+  {
+    "path": "knowledge/system-description.md",
+    "title": "Method in practice",
+    "nav": true,
+    "contents": false,
+    "anchors": {
+      "research-mission-control-system-description": "research-mission-control-in-practice",
+      "working-with-interconnected-knowledge": "begin-with-a-question-and-its-sources",
+      "research-work-with-ai-operators": "give-an-operator-a-bounded-assignment",
+      "assigning-and-examining-work": "give-an-operator-a-bounded-assignment",
+      "bounded-initiative-and-feedback": "give-an-operator-a-bounded-assignment",
+      "monitoring-the-whole-work": "examine-the-result-and-its-consequences",
+      "communication-and-continuation": "examine-the-result-and-its-consequences",
+      "the-private-interface-and-the-portable-package": "responsibilities-and-further-evidence",
+      "inspecting-the-current-evidence": "responsibilities-and-further-evidence",
+      "recorded-vault-pilot": "responsibilities-and-further-evidence",
+      "related-work": "responsibilities-and-further-evidence"
+    }
+  },
+  {
+    "path": "knowledge/method-specification.md",
+    "title": "Specification",
+    "nav": false
+  },
+  {
+    "path": "orchestrators/README.md",
+    "title": "Roles",
+    "nav": false
+  },
+  {
+    "path": "README.md",
+    "title": "Setup",
+    "nav": false
+  },
+  {
+    "path": "knowledge/research-to-operations-handoff.md",
+    "title": "Handoffs and verification",
+    "nav": false
+  },
+  {
+    "path": "knowledge/knowledge-adapters.md",
+    "title": "Knowledge connections",
+    "nav": false
+  },
+  {
+    "path": "knowledge/observed-context-stream-operation.md",
+    "title": "Evidence",
+    "nav": false
+  },
+  {
+    "path": "knowledge/INDEX.md",
+    "title": "Knowledge index",
+    "nav": false
+  },
+  {
+    "path": "AGENTS.md",
+    "title": "Repository instructions",
+    "nav": false
+  },
+  {
+    "path": "CLAUDE.md",
+    "title": "Repository context instructions",
+    "nav": false
+  },
+  {
+    "path": "ORCHESTRATOR.md",
+    "title": "Orchestration entry point",
+    "nav": false
+  },
+  {
+    "path": "knowledge/project.md",
+    "title": "Project",
+    "nav": false
+  },
+  {
+    "path": "knowledge/integration.md",
+    "title": "Integration",
+    "nav": false
+  },
+  {
+    "path": "knowledge/orchestration-architecture.md",
+    "title": "Orchestration architecture",
+    "nav": false
+  },
+  {
+    "path": "knowledge/orchestration-thresholds.md",
+    "title": "Orchestration thresholds",
+    "nav": false
+  },
+  {
+    "path": "knowledge/project-governance.md",
+    "title": "Project governance",
+    "nav": false
+  },
+  {
+    "path": "knowledge/deterministic-checks.md",
+    "title": "Deterministic checks",
+    "nav": false
+  },
+  {
+    "path": "knowledge/observed-live-demo-operation.md",
+    "title": "Observed live demo operation",
+    "nav": false
+  },
+  {
+    "path": "SYSTEM-PROMPT.md",
+    "title": "Complete system prompt",
+    "nav": false
+  },
+  {
+    "path": "orchestrators/knowledge-orchestrator.md",
+    "title": "Knowledge orchestrator",
+    "nav": false
+  },
+  {
+    "path": "orchestrators/research-orchestrator.md",
+    "title": "Research orchestrator",
+    "nav": false
+  },
+  {
+    "path": "orchestrators/operational-orchestrator.md",
+    "title": "Operational orchestrator",
+    "nav": false
+  },
+  {
+    "path": "orchestrators/independent-verification-agent.md",
+    "title": "Independent verification agent",
+    "nav": false
+  },
+  {
+    "path": "orchestrators/verification-orchestrator.md",
+    "title": "Verification orchestrator",
+    "nav": false
+  },
+  {
+    "path": "orchestrators/adapters/codex.md",
+    "title": "Codex adapter",
+    "nav": false
+  },
+  {
+    "path": "orchestrators/adapters/claude-code.md",
+    "title": "Claude Code adapter",
+    "nav": false
+  },
+  {
+    "path": "skills/research-mission-control/SKILL.md",
+    "title": "Workspace skill",
+    "nav": false
+  },
+  {
+    "path": "examples/knowledge/README.md",
+    "title": "Connect your own knowledge",
+    "nav": false
+  },
+  {
+    "path": "examples/knowledge/notes/research-question.md",
+    "title": "Research question",
+    "nav": false
+  },
+  {
+    "path": "examples/knowledge/notes/terms.md",
+    "title": "Terms",
+    "nav": false
+  },
+  {
+    "path": "demo/AGENTS.md",
+    "title": "Demo maintenance instructions",
+    "nav": false
+  },
+  {
+    "path": "demo/README.md",
+    "title": "Build your own example",
+    "nav": false
+  },
+  {
+    "path": "demo/docs/source-contract.md",
+    "title": "Source contract",
+    "nav": false
+  },
+  {
+    "path": "demo/docs/views.md",
+    "title": "Views",
+    "nav": false
+  },
+  {
+    "path": "demo/sources/demo-guide.md",
+    "title": "Demo guide",
+    "nav": false
+  }
+]
